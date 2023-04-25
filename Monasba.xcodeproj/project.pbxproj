@@ -7,15 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035CC80296BE28E7E48B0744 /* Pods_Monasba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */; };
+		652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711E929EBF7EB00D503F9 /* LoginViewController.swift */; };
+		652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711EC29EBF81600D503F9 /* RegisterViewController.swift */; };
+		652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */; };
+		652711F229EBF85700D503F9 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711F129EBF85700D503F9 /* VerifyCodeViewController.swift */; };
+		652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711F329EBF87900D503F9 /* ResetPsswordViewController.swift */; };
 		65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11F629E6845D00A3B8DD /* AppDelegate.swift */; };
 		65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11F829E6845D00A3B8DD /* SceneDelegate.swift */; };
 		65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11FA29E6845D00A3B8DD /* ViewController.swift */; };
 		65DD11FE29E6845D00A3B8DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD11FC29E6845D00A3B8DD /* Main.storyboard */; };
 		65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65DD11FF29E6845E00A3B8DD /* Assets.xcassets */; };
 		65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD120129E6845E00A3B8DD /* LaunchScreen.storyboard */; };
+		65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD120B29E6848500A3B8DD /* Auth.storyboard */; };
+		65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD120E29E6915A00A3B8DD /* Constants.swift */; };
+		65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65DD120F29E6915A00A3B8DD /* Localizable.strings */; };
+		65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121129E6915A00A3B8DD /* KeyboardLayoutConstraint.swift */; };
+		65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121229E6915A00A3B8DD /* StaticFunctions.swift */; };
+		65DD122229E6915A00A3B8DD /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121329E6915A00A3B8DD /* Localization.swift */; };
+		65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121929E6915A00A3B8DD /* GeneralUIExtenstions.swift */; };
+		65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121A29E6915A00A3B8DD /* Reachability.swift */; };
+		65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */; };
+		65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121C29E6915A00A3B8DD /* GradientView.swift */; };
+		65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AAA4616B8394696D95E23AB /* Pods-Monasba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monasba.release.xcconfig"; path = "Target Support Files/Pods-Monasba/Pods-Monasba.release.xcconfig"; sourceTree = "<group>"; };
+		652711E929EBF7EB00D503F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		652711EC29EBF81600D503F9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		652711F129EBF85700D503F9 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
+		652711F329EBF87900D503F9 /* ResetPsswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPsswordViewController.swift; sourceTree = "<group>"; };
 		65DD11F329E6845D00A3B8DD /* Monasba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monasba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DD11F629E6845D00A3B8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65DD11F829E6845D00A3B8DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +47,19 @@
 		65DD11FF29E6845E00A3B8DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65DD120229E6845E00A3B8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65DD120429E6845E00A3B8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65DD120B29E6848500A3B8DD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		65DD120E29E6915A00A3B8DD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		65DD121029E6915A00A3B8DD /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65DD121129E6915A00A3B8DD /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		65DD121229E6915A00A3B8DD /* StaticFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticFunctions.swift; sourceTree = "<group>"; };
+		65DD121329E6915A00A3B8DD /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		65DD121929E6915A00A3B8DD /* GeneralUIExtenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUIExtenstions.swift; sourceTree = "<group>"; };
+		65DD121A29E6915A00A3B8DD /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstions.swift; sourceTree = "<group>"; };
+		65DD121C29E6915A00A3B8DD /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingCustomFont.swift; sourceTree = "<group>"; };
+		D2935A47F02BDB207D88AACE /* Pods-Monasba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monasba.debug.xcconfig"; path = "Target Support Files/Pods-Monasba/Pods-Monasba.debug.xcconfig"; sourceTree = "<group>"; };
+		FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monasba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +67,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035CC80296BE28E7E48B0744 /* Pods_Monasba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652711E829EBF7CE00D503F9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				652711EB29EBF80100D503F9 /* Auth */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		652711EB29EBF80100D503F9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				652711EE29EBF81B00D503F9 /* ForgetPassword */,
+				652711E929EBF7EB00D503F9 /* LoginViewController.swift */,
+				652711EC29EBF81600D503F9 /* RegisterViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		652711EE29EBF81B00D503F9 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */,
+				652711F129EBF85700D503F9 /* VerifyCodeViewController.swift */,
+				652711F329EBF87900D503F9 /* ResetPsswordViewController.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
 		65DD11EA29E6845D00A3B8DD = {
 			isa = PBXGroup;
 			children = (
 				65DD11F529E6845D00A3B8DD /* Monasba */,
 				65DD11F429E6845D00A3B8DD /* Products */,
+				DE02A0323CA247B868BF8A85 /* Pods */,
+				67C554C5A92EC5CB858FD606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +123,60 @@
 		65DD11F529E6845D00A3B8DD /* Monasba */ = {
 			isa = PBXGroup;
 			children = (
+				652711E829EBF7CE00D503F9 /* ViewControllers */,
+				65DD120D29E6915A00A3B8DD /* Utilities */,
+				65DD120A29E6846B00A3B8DD /* view */,
 				65DD11F629E6845D00A3B8DD /* AppDelegate.swift */,
 				65DD11F829E6845D00A3B8DD /* SceneDelegate.swift */,
 				65DD11FA29E6845D00A3B8DD /* ViewController.swift */,
-				65DD11FC29E6845D00A3B8DD /* Main.storyboard */,
 				65DD11FF29E6845E00A3B8DD /* Assets.xcassets */,
 				65DD120129E6845E00A3B8DD /* LaunchScreen.storyboard */,
 				65DD120429E6845E00A3B8DD /* Info.plist */,
 			);
 			path = Monasba;
+			sourceTree = "<group>";
+		};
+		65DD120A29E6846B00A3B8DD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				65DD11FC29E6845D00A3B8DD /* Main.storyboard */,
+				65DD120B29E6848500A3B8DD /* Auth.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		65DD120D29E6915A00A3B8DD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				65DD120E29E6915A00A3B8DD /* Constants.swift */,
+				65DD120F29E6915A00A3B8DD /* Localizable.strings */,
+				65DD121129E6915A00A3B8DD /* KeyboardLayoutConstraint.swift */,
+				65DD121229E6915A00A3B8DD /* StaticFunctions.swift */,
+				65DD121329E6915A00A3B8DD /* Localization.swift */,
+				65DD121929E6915A00A3B8DD /* GeneralUIExtenstions.swift */,
+				65DD121A29E6915A00A3B8DD /* Reachability.swift */,
+				65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */,
+				65DD121C29E6915A00A3B8DD /* GradientView.swift */,
+				65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		67C554C5A92EC5CB858FD606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE02A0323CA247B868BF8A85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2935A47F02BDB207D88AACE /* Pods-Monasba.debug.xcconfig */,
+				3AAA4616B8394696D95E23AB /* Pods-Monasba.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65DD120729E6845E00A3B8DD /* Build configuration list for PBXNativeTarget "Monasba" */;
 			buildPhases = (
+				6C7C36FA841450037A777322 /* [CP] Check Pods Manifest.lock */,
 				65DD11EF29E6845D00A3B8DD /* Sources */,
 				65DD11F029E6845D00A3B8DD /* Frameworks */,
 				65DD11F129E6845D00A3B8DD /* Resources */,
+				F7C93E0049968E833C4FB180 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,6 +223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 65DD11EA29E6845D00A3B8DD;
 			productRefGroup = 65DD11F429E6845D00A3B8DD /* Products */;
@@ -125,6 +240,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */,
+				65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */,
 				65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */,
 				65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */,
 				65DD11FE29E6845D00A3B8DD /* Main.storyboard in Resources */,
@@ -133,6 +250,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6C7C36FA841450037A777322 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Monasba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7C93E0049968E833C4FB180 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65DD11EF29E6845D00A3B8DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +299,21 @@
 			files = (
 				65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */,
 				65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */,
+				652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */,
+				65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */,
+				65DD122229E6915A00A3B8DD /* Localization.swift in Sources */,
 				65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */,
+				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,
+				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
+				652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */,
+				652711F229EBF85700D503F9 /* VerifyCodeViewController.swift in Sources */,
+				65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */,
+				65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */,
+				652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */,
+				65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */,
+				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
+				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
+				65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +334,14 @@
 				65DD120229E6845E00A3B8DD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		65DD120F29E6915A00A3B8DD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65DD121029E6915A00A3B8DD /* ar */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -282,6 +463,7 @@
 		};
 		65DD120829E6845E00A3B8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2935A47F02BDB207D88AACE /* Pods-Monasba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +492,7 @@
 		};
 		65DD120929E6845E00A3B8DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AAA4616B8394696D95E23AB /* Pods-Monasba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
