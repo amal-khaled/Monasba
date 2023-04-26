@@ -24,8 +24,13 @@ let SERVER_ERROR = "server error ... try again later".localize
 
 
 class Constants {
+    static let MAIN_DOMAIN = "http://bluezone-web.com/"
+    static let DOMAIN = MAIN_DOMAIN + "api/"
+    static let IMAGE_URL = MAIN_DOMAIN + "image/"
     
-    static let DOMAIN = ""
+    
+    //Hoome
+    static let HOME_PRODUCTS_URL = DOMAIN + "prods_by_filter"
     
     
  
