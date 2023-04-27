@@ -79,7 +79,7 @@ extension UIViewController :NVActivityIndicatorViewable{
 //        }
 //    }
     @objc func openNotification(){
-        basicNavigation(storyName: MAIN_STORYBOARD, segueId: NOTIFICATION_VCID)
+//        basicNavigation(storyName: MAIN_STORYBOARD, segueId: NOTIFICATION_VCID)
     }
     @objc func EditProfile(){
 //        basicNavigation(storyName: ACCOUNT_STORYBOARD, segueId: EDIT_PROFILE)
