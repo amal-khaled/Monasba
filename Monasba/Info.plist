@@ -16,16 +16,15 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>Auth</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <!--Include to allow all connections (DANGER)-->
-      <key>NSAllowsArbitraryLoads</key>
-          <true/>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

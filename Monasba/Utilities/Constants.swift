@@ -37,10 +37,15 @@ class Constants {
     static let IMAGE_URL = MAIN_DOMAIN + "image/"
     
     
-    //Hoome
+    //Home
     static let HOME_PRODUCTS_URL = DOMAIN + "prods_by_filter"
     static let GET_CATEGORIES_URL = DOMAIN + "categories"
     static let GET_SUB_CATEGORIES_URL = DOMAIN + "sub_category"
+    
+    //Auth
+    //signup
+    static let LOGIN_URL = DOMAIN + "login"
+    static let SIGN_UP_URL = DOMAIN + "signup"
 
     
     //UTILITIES

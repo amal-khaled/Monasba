@@ -27,6 +27,8 @@
 		658DE52029F82D740015D549 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51F29F82D740015D549 /* Product.swift */; };
 		658DE52329F921620015D549 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52229F921620015D549 /* ProductController.swift */; };
 		658DE52529F921E90015D549 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52429F921E90015D549 /* APIConnection.swift */; };
+		659F892D29FD9A3400AFA95C /* AuthCoontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */; };
+		659F892F29FD9AED00AFA95C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892E29FD9AED00AFA95C /* User.swift */; };
 		65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */; };
 		65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */; };
 		65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		658DE51F29F82D740015D549 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		658DE52229F921620015D549 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		658DE52429F921E90015D549 /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
+		659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoontroller.swift; sourceTree = "<group>"; };
+		659F892E29FD9AED00AFA95C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
 		65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounriesViewController.swift; sourceTree = "<group>"; };
 		65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				658DE51929F82BE30015D549 /* Category.swift */,
 				658DE51F29F82D740015D549 /* Product.swift */,
 				65400C5529FB28E8009E07C9 /* Country.swift */,
+				659F892E29FD9AED00AFA95C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				658DE52229F921620015D549 /* ProductController.swift */,
 				65400C5129FB0F40009E07C9 /* CategoryController.swift */,
 				65400C5329FB28DA009E07C9 /* CountryController.swift */,
+				659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */,
 				65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */,
 				658DE51E29F82D5F0015D549 /* ProductCollectionViewCell.swift in Sources */,
+				659F892D29FD9A3400AFA95C /* AuthCoontroller.swift in Sources */,
 				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,
 				656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */,
 				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
@@ -427,6 +434,7 @@
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
 				65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */,
 				65400C5629FB28E8009E07C9 /* Country.swift in Sources */,
+				659F892F29FD9AED00AFA95C /* User.swift in Sources */,
 				65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */,
 				65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */,
 				658DE51A29F82BE30015D549 /* Category.swift in Sources */,

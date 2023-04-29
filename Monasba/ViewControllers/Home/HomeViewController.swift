@@ -7,6 +7,7 @@
 
 import UIKit
 import MOLH
+import RAMAnimatedTabBarController
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
