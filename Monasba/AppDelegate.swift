@@ -15,9 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: "#0EBFB1")
+        getCounties()
+        getCities()
         return true
     }
-
+    
+    func getCounties(){
+        CountryController.shared.getCountries(completion: {
+            countries, check,msg in
+            Constants.COUNTRIES = countries
+        })
+    }
+    func getCities(){
+        CountryController.shared.getCities(completion: {
+            countries, check,msg in
+            Constants.CITIES = countries
+        }, countryId: 6)
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

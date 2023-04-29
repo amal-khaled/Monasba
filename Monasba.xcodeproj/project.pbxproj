@@ -13,8 +13,12 @@
 		652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */; };
 		652711F229EBF85700D503F9 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711F129EBF85700D503F9 /* VerifyCodeViewController.swift */; };
 		652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711F329EBF87900D503F9 /* ResetPsswordViewController.swift */; };
+		65400C5229FB0F40009E07C9 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65400C5129FB0F40009E07C9 /* CategoryController.swift */; };
+		65400C5429FB28DA009E07C9 /* CountryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65400C5329FB28DA009E07C9 /* CountryController.swift */; };
+		65400C5629FB28E8009E07C9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65400C5529FB28E8009E07C9 /* Country.swift */; };
+		656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05629FD5D5D00751C6C /* CityViewController.swift */; };
+		656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05829FD5D6C00751C6C /* CitiesViewController.swift */; };
 		658DE50E29F7FB920015D549 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE50D29F7FB920015D549 /* HomeViewController.swift */; };
-		658DE51029F828E10015D549 /* FilterCiityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE50F29F828E10015D549 /* FilterCiityViewController.swift */; };
 		658DE51229F828ED0015D549 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51129F828ED0015D549 /* SortViewController.swift */; };
 		658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */; };
 		658DE51A29F82BE30015D549 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51929F82BE30015D549 /* Category.swift */; };
@@ -23,6 +27,9 @@
 		658DE52029F82D740015D549 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51F29F82D740015D549 /* Product.swift */; };
 		658DE52329F921620015D549 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52229F921620015D549 /* ProductController.swift */; };
 		658DE52529F921E90015D549 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52429F921E90015D549 /* APIConnection.swift */; };
+		65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */; };
+		65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */; };
+		65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */; };
 		65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11F629E6845D00A3B8DD /* AppDelegate.swift */; };
 		65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11F829E6845D00A3B8DD /* SceneDelegate.swift */; };
 		65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD11FA29E6845D00A3B8DD /* ViewController.swift */; };
@@ -49,8 +56,12 @@
 		652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		652711F129EBF85700D503F9 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
 		652711F329EBF87900D503F9 /* ResetPsswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPsswordViewController.swift; sourceTree = "<group>"; };
+		65400C5129FB0F40009E07C9 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		65400C5329FB28DA009E07C9 /* CountryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryController.swift; sourceTree = "<group>"; };
+		65400C5529FB28E8009E07C9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		656FB05629FD5D5D00751C6C /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		656FB05829FD5D6C00751C6C /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		658DE50D29F7FB920015D549 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		658DE50F29F828E10015D549 /* FilterCiityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCiityViewController.swift; sourceTree = "<group>"; };
 		658DE51129F828ED0015D549 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		658DE51929F82BE30015D549 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -59,6 +70,9 @@
 		658DE51F29F82D740015D549 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		658DE52229F921620015D549 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		658DE52429F921E90015D549 /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
+		65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
+		65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounriesViewController.swift; sourceTree = "<group>"; };
+		65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		65DD11F329E6845D00A3B8DD /* Monasba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monasba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DD11F629E6845D00A3B8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65DD11F829E6845D00A3B8DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,8 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				658DE50D29F7FB920015D549 /* HomeViewController.swift */,
-				658DE50F29F828E10015D549 /* FilterCiityViewController.swift */,
 				658DE51129F828ED0015D549 /* SortViewController.swift */,
+				65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */,
+				65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */,
+				656FB05629FD5D5D00751C6C /* CityViewController.swift */,
+				656FB05829FD5D6C00751C6C /* CitiesViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -145,6 +162,7 @@
 		658DE51429F82AE80015D549 /* TableviewCell */ = {
 			isa = PBXGroup;
 			children = (
+				65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */,
 			);
 			path = TableviewCell;
 			sourceTree = "<group>";
@@ -164,6 +182,7 @@
 			children = (
 				658DE51929F82BE30015D549 /* Category.swift */,
 				658DE51F29F82D740015D549 /* Product.swift */,
+				65400C5529FB28E8009E07C9 /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,8 +190,10 @@
 		658DE52129F9214A0015D549 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				658DE52229F921620015D549 /* ProductController.swift */,
 				658DE52429F921E90015D549 /* APIConnection.swift */,
+				658DE52229F921620015D549 /* ProductController.swift */,
+				65400C5129FB0F40009E07C9 /* CategoryController.swift */,
+				65400C5329FB28DA009E07C9 /* CountryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,29 +399,36 @@
 				65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */,
 				65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */,
 				652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */,
+				65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */,
 				658DE52529F921E90015D549 /* APIConnection.swift in Sources */,
 				65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */,
 				65DD122229E6915A00A3B8DD /* Localization.swift in Sources */,
 				658DE51C29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift in Sources */,
 				658DE50E29F7FB920015D549 /* HomeViewController.swift in Sources */,
 				658DE52029F82D740015D549 /* Product.swift in Sources */,
-				658DE51029F828E10015D549 /* FilterCiityViewController.swift in Sources */,
 				658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */,
 				65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */,
 				658DE51E29F82D5F0015D549 /* ProductCollectionViewCell.swift in Sources */,
 				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,
+				656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */,
 				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
 				658DE51229F828ED0015D549 /* SortViewController.swift in Sources */,
 				652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */,
+				65400C5229FB0F40009E07C9 /* CategoryController.swift in Sources */,
 				652711F229EBF85700D503F9 /* VerifyCodeViewController.swift in Sources */,
 				65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */,
 				65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */,
+				65400C5429FB28DA009E07C9 /* CountryController.swift in Sources */,
 				658DE52329F921620015D549 /* ProductController.swift in Sources */,
 				652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */,
+				656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */,
 				65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */,
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
 				65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */,
+				65400C5629FB28E8009E07C9 /* Country.swift in Sources */,
+				65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */,
+				65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */,
 				658DE51A29F82BE30015D549 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
