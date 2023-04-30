@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 
 class CityViewController: UIViewController {
     
@@ -45,8 +46,9 @@ class CityViewController: UIViewController {
             let vc = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: CITIES_VCIID) as!  CitiesViewController
             vc.countryId = self.countryId
             vc.citiesBtclosure = {
-                (value, name) in
-                self.cityId = value
+                (city) in
+               var name =  MOLHLanguage.currentAppleLanguage() == "en" ? (city.nameEn ?? "") : (city.nameAr ?? "")
+                self.cityId = city.id ?? 0
                 self.cityLbl.text = name
                 self.cityName = name
             }

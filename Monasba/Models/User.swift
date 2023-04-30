@@ -24,10 +24,14 @@ struct UserLoginObject: Codable{
     var data: User!
     var code: Int!
     var msg: String!
+    var token: String!
+
     enum CodingKeys: String, CodingKey {
         case data = "data"
         case code = "statusCode"
         case msg = "message"
+        case token = "accessToken"
+
     }
     
     

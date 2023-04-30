@@ -27,6 +27,7 @@
 		658DE52029F82D740015D549 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51F29F82D740015D549 /* Product.swift */; };
 		658DE52329F921620015D549 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52229F921620015D549 /* ProductController.swift */; };
 		658DE52529F921E90015D549 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52429F921E90015D549 /* APIConnection.swift */; };
+		6594DE4029FF1E2B00018AF5 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6594DE3F29FF1E2B00018AF5 /* StateViewController.swift */; };
 		659F892D29FD9A3400AFA95C /* AuthCoontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */; };
 		659F892F29FD9AED00AFA95C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892E29FD9AED00AFA95C /* User.swift */; };
 		65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */; };
@@ -72,6 +73,7 @@
 		658DE51F29F82D740015D549 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		658DE52229F921620015D549 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		658DE52429F921E90015D549 /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
+		6594DE3F29FF1E2B00018AF5 /* StateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
 		659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoontroller.swift; sourceTree = "<group>"; };
 		659F892E29FD9AED00AFA95C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */,
 				656FB05629FD5D5D00751C6C /* CityViewController.swift */,
 				656FB05829FD5D6C00751C6C /* CitiesViewController.swift */,
+				6594DE3F29FF1E2B00018AF5 /* StateViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
 				65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */,
+				6594DE4029FF1E2B00018AF5 /* StateViewController.swift in Sources */,
 				65400C5629FB28E8009E07C9 /* Country.swift in Sources */,
 				659F892F29FD9AED00AFA95C /* User.swift in Sources */,
 				65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */,

@@ -94,11 +94,13 @@ class HomeViewController: UIViewController {
         
     }
     @IBAction func countryAction(_ sender: Any) {
+
         coountryVC = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COUNTRY_VCIID) as!  CounriesViewController
         coountryVC.countryBtclosure = {
-            (value, name) in
-            self.countryLbl.text = name
-            self.countryId = value ?? 6
+            (country) in
+           
+            self.countryLbl.text = MOLHLanguage.currentAppleLanguage() == "en" ? (country.nameEn ?? "") : (country.nameAr ?? "")
+            self.countryId = country.id ?? 6
             self.cityId = -1
 
             self.resetProducts()

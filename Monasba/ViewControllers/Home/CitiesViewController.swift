@@ -9,7 +9,7 @@ import UIKit
 import MOLH
 
 class CitiesViewController: UIViewController {
-    var citiesBtclosure : (( Int,String) -> Void)? = nil
+    var citiesBtclosure : (( Country) -> Void)? = nil
     @IBOutlet weak var tableHieghtConstrain: NSLayoutConstraint!
     var cities = [Country]()
 
@@ -68,7 +68,7 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: false, completion: { [self] in
-            self.citiesBtclosure!(cities[indexPath.row].id ?? 0, MOLHLanguage.currentAppleLanguage() == "en" ? (cities[indexPath.row].nameEn ?? "") : (cities[indexPath.row].nameAr ?? ""))
+            self.citiesBtclosure!(cities[indexPath.row])
         })
     }
 }

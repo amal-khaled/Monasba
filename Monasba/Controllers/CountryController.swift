@@ -73,4 +73,36 @@ class CountryController{
             
         }, link: Constants.CITIES_URL , param: param)
     }
+    func getStates(completion: @escaping([Country], Int, String)->(), countryId: Int){
+        
+        var param = [
+            "city_id": countryId,
+        ]
+
+        
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let countryArray = try JSONDecoder().decode(CountryArray.self, from: data)
+                
+                if countryArray.code == 200{
+                    
+                    completion(countryArray.data, 0,"")
+                }
+                else {
+                    completion([Country](),1,countryArray.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion([Country](),1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.STATE_URL , param: param)
+    }
 }

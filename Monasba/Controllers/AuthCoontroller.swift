@@ -22,28 +22,31 @@ class AuthCoontroller{
             guard let data = data else { return }
             
             do {
-                let categoryArray = try JSONDecoder().decode(CategoryArray.self, from: data)
+                let userObject = try JSONDecoder().decode(UserLoginObject.self, from: data)
                 
-                if categoryArray.code == 200{
-                    
-                    completion(categoryArray.data, 0,"")
+                if userObject.code == 200{
+                    AppDelegate.currentUser = userObject.data ?? User()
+                    AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
+                    AppDelegate.currentUser.toke = userObject.token ?? ""
+                    completion( 0,"")
                 }
                 else {
-                    completion([Category](),1,categoryArray.msg ?? "")
+                    completion(1,userObject.msg ?? "")
                 }
                 
             } catch (let jerrorr){
                 
                 print(jerrorr)
-                completion([Category](),1,SERVER_ERROR)
+                completion(1,SERVER_ERROR)
                 
                 
             }
             
-        }, link: Constants.GET_CATEGORIES_URL , param: param)
+        }, link: Constants.LOGIN_URL , param: param)
     }
     func register(completion: @escaping( Int, String)->(), user: User, password:String){
         
+       
         var param = [
             "name": user.name,
             "mobile":user.phone,
@@ -52,12 +55,16 @@ class AuthCoontroller{
             "username":user.username,
             "last_name":user.lastName,
             "country_id":user.countryId,
-            "city_id":user.cityId,
-            "region_id":user.regionId,
+            
+            "regid":"1",
 
                      ]
-        
-       
+        if user.cityId != "-1"{
+            param["city_id"] = user.cityId
+        }
+        if user.regionId != "-1"{
+            param["region_id"] = user.regionId
+        }
         APIConnection.apiConnection.postConnection(completion: {
             data  in
             guard let data = data else { return }
@@ -66,9 +73,9 @@ class AuthCoontroller{
                 let userObject = try JSONDecoder().decode(UserTokenObject.self, from: data)
                 
                 if userObject.code == 200{
-                    AppDelegate.currentUser = userObject.data
+                    AppDelegate.currentUser = userObject.data.data ?? User()
                     AppDelegate.defaults.set( userObject.data.token ?? "", forKey: "token")
-
+                    AppDelegate.currentUser.toke = userObject.data.token ?? ""
                     completion( 0,"")
                 }
                 else {

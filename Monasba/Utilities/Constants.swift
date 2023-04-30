@@ -16,6 +16,12 @@ let MAIN_STORYBOARD = "Main"
 
 //Auth CONTROLLERS
 let LOGIN_VCID = "login"
+let SIGNUP_VCID = "register"
+let SIGNUP_CODE_VCID = "verify_email"
+
+let FORGET_PASSWORD_VCID = "forget_passworrd"
+let FORGET_VERIFY_CODE_VCID = "verify_phone"
+let RESET_PASSWORD_VCID = "reset_password"
 
 
 
@@ -25,7 +31,7 @@ let SORT_VCID = "sort"
 let COUNTRY_VCIID = "country_list"
 let CITIES_VCIID = "city_list"
 let CITY_VCIID = "cities"
-
+let STATE_VCID = "state_list"
 let NO_INTERNET_CONNECTION = "No internet connection".localize
 let SERVER_ERROR = "server error ... try again later".localize
 
@@ -51,8 +57,8 @@ class Constants {
     //UTILITIES
     static let COUNTRIES_URL = DOMAIN + "countries"
     static let CITIES_URL = DOMAIN + "cities_by_country_id"
+    static let STATE_URL = DOMAIN + "region_by_city_id"
 
-    
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()
 

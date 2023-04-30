@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TransitionButton
 
 class LoginViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var countryImage: UIImageView!
     var countryCode = "965"
    var isPasswordHidden = true
-    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var loginBtn: TransitionButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
@@ -30,6 +31,19 @@ class LoginViewController: UIViewController {
         
     }
     @IBAction func chooseCountry(_ sender: Any) {
+        var coountryVC = CounriesViewController()
+
+        coountryVC = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COUNTRY_VCIID) as!  CounriesViewController
+        coountryVC.countryBtclosure = {
+            (country) in
+            self.countryCode = country.code ?? ""
+            self.coountryCode.text = country.code
+            self.countryImage.setImageWithLoading(url: country.image ??
+            "")
+            
+            self.enableButton()
+        }
+        self.present(coountryVC, animated: false, completion: nil)
     }
     
     @IBAction func showPasswordAction(_ sender: UIButton) {
@@ -40,10 +54,13 @@ class LoginViewController: UIViewController {
         passwordTF.isSecureTextEntry = isPasswordHidden
     }
     @IBAction func forgetPasswordAction(_ sender: Any) {
+        basicPresentation(storyName: Auth_STORYBOARD, segueId: FORGET_PASSWORD_VCID, withAnimation: false)
     }
     @IBAction func loginAction(_ sender: Any) {
+        login()
     }
     @IBAction func createAction(_ sender: Any) {
+        self.basicNavigation(storyName: Auth_STORYBOARD, segueId: SIGNUP_VCID)
     }
     /*
     // MARK: - Navigation
@@ -144,35 +161,36 @@ extension LoginViewController{
     
      func login() {
        
-//         StaticFunctions.enableBtnWithoutAlpha(btn: loginBtn, status: false)
-//         if Reachability.isConnectedToNetwork(){
-//             self.loginBtn.startAnimation()
-//
-//             AuthController.shared.Login(completion: {
-//                 check, msg in
-//                 self.loginBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
-//                 StaticFunctions.enableBtnWithoutAlpha(btn: self.loginBtn, status: true)
-//
-//                 if check == 0{
-////                     UtilitiesController.shared.SendPlayerId(playerID: AppDelegate.playerID)
-//                     StaticFunctions.createSuccessAlert(msg: msg)
-//
+         StaticFunctions.enableBtnWithoutAlpha(btn: loginBtn, status: false)
+         if Reachability.isConnectedToNetwork(){
+             self.loginBtn.startAnimation()
+
+             AuthCoontroller.shared.login(completion: {
+                 check, msg in
+                 self.loginBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
+                 StaticFunctions.enableBtnWithoutAlpha(btn: self.loginBtn, status: true)
+
+                 if check == 0{
+//                     UtilitiesController.shared.SendPlayerId(playerID: AppDelegate.playerID)
+                     StaticFunctions.createSuccessAlert(msg: msg)
+
 //                     self.basicNavigation(storyName: MAIN_STORYBOARD, segueId: "main_tap")
-//                 }else{
-//                     StaticFunctions.createErrorAlert(msg: msg)
-//
-//                 }
-//
-//             }, email: emailTF.text!, password: passwordTF.text!, phone: phoneTF.text!, isPhone: isMobile, isEmail: isemail)
-//
-//         }
-//         else{
-//             StaticFunctions.enableBtnWithoutAlpha(btn: loginBtn, status: true)
-//
-//             StaticFunctions.createErrorAlert(msg: NO_INTERNET_CONNECTION)
-//         }
+                 }else{
+                     StaticFunctions.createErrorAlert(msg: msg)
+
+                 }
+
+             },  phone: phoneTF.text!, passwoord: passwordTF.text!)
+
+         }
+         else{
+             StaticFunctions.enableBtnWithoutAlpha(btn: loginBtn, status: true)
+
+             StaticFunctions.createErrorAlert(msg: NO_INTERNET_CONNECTION)
+         }
     }
     
     
     
 }
+

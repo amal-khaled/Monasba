@@ -90,10 +90,10 @@ extension UIViewController :NVActivityIndicatorViewable{
         let vc = UIStoryboard(name: storyName, bundle: nil).instantiateViewController(withIdentifier: segueId)
         self.navigationController?.pushViewController(vc, animated: withAnimation)
     }
-    func basicPresentation(storyName: String, segueId: String){
+    func basicPresentation(storyName: String, segueId: String, withAnimation: Bool = true){
         
         let vc = UIStoryboard(name: storyName, bundle: nil).instantiateViewController(withIdentifier: segueId)
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: withAnimation, completion: nil)
     }
     func Login() {
         let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: LOGIN_VCID)

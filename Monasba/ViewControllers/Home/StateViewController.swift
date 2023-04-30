@@ -1,35 +1,36 @@
 //
-//  CounriesViewController.swift
+//  StateViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 29/04/2023.
+//  Created by Amal Elgalant on 01/05/2023.
 //
 
 import UIKit
 import MOLH
-
-class CounriesViewController: UIViewController {
+class StateViewController: UIViewController {
+    
+    var citiesBtclosure : (( Country) -> Void)? = nil
     @IBOutlet weak var tableHieghtConstrain: NSLayoutConstraint!
+    var cities = [Country]()
+    
+    var countryId = -1
     
     @IBOutlet weak var tableView: UITableView!
-    var counties = [Country]()
-    var countryBtclosure : (( Country) -> Void)? = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        counties = Constants.COUNTRIES
-
-        if Constants.COUNTRIES.count == 0{
-            getCounties()
+        cities = Constants.CITIES
+        
+        if Constants.CITIES.count == 0{
+            getCities()
         }else{
-            self.tableHieghtConstrain.constant = CGFloat(self.counties.count * 70)
+            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
             self.updateViewConstraints()
         }
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: false)
     }
     
     /*
@@ -43,34 +44,31 @@ class CounriesViewController: UIViewController {
      */
     
 }
-extension CounriesViewController{
-    func getCounties(){
-        CountryController.shared.getCountries(completion: {
-            countries, check,msg in
-            self.counties = countries
-            Constants.COUNTRIES = countries
-            print(self.counties.count)
+extension StateViewController{
+    func getCities(){
+        CountryController.shared.getStates(completion: {
+            cities, check,msg in
+            self.cities = cities
+            Constants.CITIES = cities
             self.tableView.reloadData()
-            self.tableHieghtConstrain.constant = CGFloat(self.counties.count * 70)
+            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
             self.updateViewConstraints()
-        })
+        }, countryId: countryId)
     }
 }
-extension CounriesViewController: UITableViewDataSource, UITableViewDelegate{
+extension StateViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return counties.count
+        return cities.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountryTableViewCell
-        cell.setData(country: counties[indexPath.row])
+        cell.setData(country: cities[indexPath.row])
         return cell
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: false, completion: { [self] in
-            self.countryBtclosure!(counties[indexPath.row])
-            
-            //counties[indexPath.row].id, MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? ""), counties[indexPath.row].code
+            self.citiesBtclosure!(cities[indexPath.row])
         })
     }
 }
