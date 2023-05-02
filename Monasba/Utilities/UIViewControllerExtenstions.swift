@@ -168,6 +168,15 @@ extension UIViewController :NVActivityIndicatorViewable{
     }
     
     
+    //set image for UIImageView
+    func setImage(to image:UIImageView, from asset:String){
+        if(asset == ""){
+            image.image = nil
+        }else{
+            image.image = UIImage(named:asset)
+        }
+    }
+    
     
 }
 // Helper function inserted by Swift 4.2 migrator.
@@ -188,3 +197,5 @@ func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.
  
  navigationItem.titleView = imageView
  */
+
+

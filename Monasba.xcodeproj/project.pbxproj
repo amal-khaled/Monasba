@@ -50,6 +50,9 @@
 		65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */; };
 		65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121C29E6915A00A3B8DD /* GradientView.swift */; };
 		65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */; };
+		C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */; };
+		C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86678BE29FFA12B0019AE81 /* Advs.storyboard */; };
+		C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +101,9 @@
 		65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstions.swift; sourceTree = "<group>"; };
 		65DD121C29E6915A00A3B8DD /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingCustomFont.swift; sourceTree = "<group>"; };
+		C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsVC.swift; sourceTree = "<group>"; };
+		C86678BE29FFA12B0019AE81 /* Advs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advs.storyboard; sourceTree = "<group>"; };
+		C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMediaPopupVC.swift; sourceTree = "<group>"; };
 		D2935A47F02BDB207D88AACE /* Pods-Monasba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monasba.debug.xcconfig"; path = "Target Support Files/Pods-Monasba/Pods-Monasba.debug.xcconfig"; sourceTree = "<group>"; };
 		FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monasba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +125,7 @@
 			children = (
 				658DE50C29F7FB720015D549 /* Home */,
 				652711EB29EBF80100D503F9 /* Auth */,
+				C86678BB29FF9E270019AE81 /* Add Advs */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 			children = (
 				65DD11FC29E6845D00A3B8DD /* Main.storyboard */,
 				65DD120B29E6848500A3B8DD /* Auth.storyboard */,
+				C86678BE29FFA12B0019AE81 /* Advs.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -276,6 +284,15 @@
 				FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C86678BB29FF9E270019AE81 /* Add Advs */ = {
+			isa = PBXGroup;
+			children = (
+				C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */,
+				C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */,
+			);
+			path = "Add Advs";
 			sourceTree = "<group>";
 		};
 		DE02A0323CA247B868BF8A85 /* Pods */ = {
@@ -348,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */,
 				65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */,
 				65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */,
 				65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */,
@@ -413,6 +431,7 @@
 				65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */,
 				65DD122229E6915A00A3B8DD /* Localization.swift in Sources */,
 				658DE51C29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift in Sources */,
+				C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */,
 				658DE50E29F7FB920015D549 /* HomeViewController.swift in Sources */,
 				658DE52029F82D740015D549 /* Product.swift in Sources */,
 				658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */,
@@ -439,6 +458,7 @@
 				6594DE4029FF1E2B00018AF5 /* StateViewController.swift in Sources */,
 				65400C5629FB28E8009E07C9 /* Country.swift in Sources */,
 				659F892F29FD9AED00AFA95C /* User.swift in Sources */,
+				C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */,
 				65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */,
 				65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */,
 				658DE51A29F82BE30015D549 /* Category.swift in Sources */,
