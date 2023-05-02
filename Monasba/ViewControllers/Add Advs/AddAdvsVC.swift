@@ -90,6 +90,8 @@ class AddAdvsVC: UIViewController {
     
     @IBAction func addPhotoBtnAction(_ sender: UIButton) {
         
+        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_VCID) as! PickupMediaPopupVC
+        present(vc, animated: false)
     }
     
     @IBAction func mainCatsBtnAction(_ sender: UIButton) {
