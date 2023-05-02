@@ -20,7 +20,7 @@ class StateViewController: UIViewController {
         super.viewDidLoad()
         cities = Constants.CITIES
         
-        if Constants.CITIES.count == 0{
+        if Constants.STATUS.count == 0{
             getCities()
         }else{
             self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
@@ -31,6 +31,8 @@ class StateViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
+        self.dismiss(animated: false)
+
     }
     
     /*

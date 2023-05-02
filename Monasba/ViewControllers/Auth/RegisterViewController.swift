@@ -59,7 +59,7 @@ class RegisterViewController: UIViewController {
             self.countryCodeLbl.text = country.code
             self.countryImageView.setImageWithLoading(url: country.image ??
             "")
-            
+
             self.enableButton()
         }
         self.present(coountryVC, animated: false, completion: nil)
@@ -93,7 +93,8 @@ class RegisterViewController: UIViewController {
             
            sender.setTitle(name, for: .normal)
             self.countryId = country.id ?? -1
-            
+            self.getCities()
+
             self.enableButton()
         }
         self.present(coountryVC, animated: false, completion: nil)
@@ -110,6 +111,7 @@ class RegisterViewController: UIViewController {
            var name =  MOLHLanguage.currentAppleLanguage() == "en" ? (city.nameEn ?? "") : (city.nameAr ?? "")
             self.cityBtn.setTitle(name, for: .normal)
             self.cityId = city.id ?? -1
+            self.getAreas()
             self.enableButton()
         }
         self.present(vc, animated: false, completion: nil)
@@ -238,7 +240,7 @@ extension RegisterViewController{
             }
         }
         else if textField == nameTF{
-            if textField.text!.count == 0{
+            if nameTF.text!.count == 0{
                 return (false ,NSLocalizedString("please enter your name", comment: ""))
                 
             }
@@ -248,7 +250,7 @@ extension RegisterViewController{
             }
         }
         else if textField == familyNameTF{
-            if textField.text!.count == 0{
+            if familyNameTF.text!.count == 0{
                 return (false ,NSLocalizedString("please enter your family name", comment: ""))
                 
             }
@@ -258,7 +260,7 @@ extension RegisterViewController{
             }
         }
         else if textField == userNameTF{
-            if textField.text!.count == 0{
+            if userNameTF.text!.count == 0{
                 return (false ,NSLocalizedString("please enter your username", comment: ""))
                 
             }
@@ -285,7 +287,7 @@ extension RegisterViewController{
             formIsValid = false
         }
         
-        StaticFunctions.enableBtn(btn: regonBtn, status: formIsValid)
+        StaticFunctions.enableBtn(btn: registerBtn, status: formIsValid)
     }
     
     
@@ -329,7 +331,18 @@ extension RegisterViewController{
          }
     }
     
-    
+    func getCities(){
+        CountryController.shared.getCities(completion: {
+            countries, check,msg in
+            Constants.CITIES = countries
+        }, countryId: countryId)
+    }
+    func getAreas(){
+        CountryController.shared.getStates(completion: {
+            countries, check,msg in
+            Constants.STATUS = countries
+        }, countryId: cityId)
+    }
     
 }
 

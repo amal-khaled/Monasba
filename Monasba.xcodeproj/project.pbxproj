@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		035CC80296BE28E7E48B0744 /* Pods_Monasba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */; };
+		6520853F29FFB99A00C38B45 /* RegisterVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6520853E29FFB99900C38B45 /* RegisterVerifyViewController.swift */; };
+		652085412A00416800C38B45 /* GeneralObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652085402A00416800C38B45 /* GeneralObject.swift */; };
 		652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711E929EBF7EB00D503F9 /* LoginViewController.swift */; };
 		652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711EC29EBF81600D503F9 /* RegisterViewController.swift */; };
 		652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */; };
@@ -18,6 +20,7 @@
 		65400C5629FB28E8009E07C9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65400C5529FB28E8009E07C9 /* Country.swift */; };
 		656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05629FD5D5D00751C6C /* CityViewController.swift */; };
 		656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05829FD5D6C00751C6C /* CitiesViewController.swift */; };
+		657E70452A006FEB0079C558 /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */; };
 		658DE50E29F7FB920015D549 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE50D29F7FB920015D549 /* HomeViewController.swift */; };
 		658DE51229F828ED0015D549 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51129F828ED0015D549 /* SortViewController.swift */; };
 		658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */; };
@@ -54,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		3AAA4616B8394696D95E23AB /* Pods-Monasba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monasba.release.xcconfig"; path = "Target Support Files/Pods-Monasba/Pods-Monasba.release.xcconfig"; sourceTree = "<group>"; };
+		6520853E29FFB99900C38B45 /* RegisterVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVerifyViewController.swift; sourceTree = "<group>"; };
+		652085402A00416800C38B45 /* GeneralObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralObject.swift; sourceTree = "<group>"; };
 		652711E929EBF7EB00D503F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		652711EC29EBF81600D503F9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		652711EF29EBF84300D503F9 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 		65400C5529FB28E8009E07C9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		656FB05629FD5D5D00751C6C /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		656FB05829FD5D6C00751C6C /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		658DE50D29F7FB920015D549 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		658DE51129F828ED0015D549 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 				652711EE29EBF81B00D503F9 /* ForgetPassword */,
 				652711E929EBF7EB00D503F9 /* LoginViewController.swift */,
 				652711EC29EBF81600D503F9 /* RegisterViewController.swift */,
+				6520853E29FFB99900C38B45 /* RegisterVerifyViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 				658DE51F29F82D740015D549 /* Product.swift */,
 				65400C5529FB28E8009E07C9 /* Country.swift */,
 				659F892E29FD9AED00AFA95C /* User.swift */,
+				652085402A00416800C38B45 /* GeneralObject.swift */,
+				657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +418,8 @@
 				65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */,
 				652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */,
 				65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */,
+				652085412A00416800C38B45 /* GeneralObject.swift in Sources */,
+				6520853F29FFB99A00C38B45 /* RegisterVerifyViewController.swift in Sources */,
 				658DE52529F921E90015D549 /* APIConnection.swift in Sources */,
 				65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */,
 				65DD122229E6915A00A3B8DD /* Localization.swift in Sources */,
@@ -442,6 +453,7 @@
 				65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */,
 				65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */,
 				658DE51A29F82BE30015D549 /* Category.swift in Sources */,
+				657E70452A006FEB0079C558 /* ForgetPasswordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,22 +608,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 497UEXZ83L;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Monsba;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bluezone.Monasba;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -626,22 +641,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 497UEXZ83L;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Monsba;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bluezone.Monasba;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

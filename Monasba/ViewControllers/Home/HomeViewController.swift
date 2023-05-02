@@ -108,6 +108,9 @@ class HomeViewController: UIViewController {
         }
         self.present(coountryVC, animated: false, completion: nil)
     }
+    @IBAction func goLogin(_ sender: Any) {
+        basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+    }
     @IBAction func gridAction(_ sender: Any) {
         isList = false
         gridBtn.tintColor = UIColor(named: "#0EBFB1")
@@ -115,6 +118,8 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             self.productCollectionView.reloadData()
         }
+    }
+    @IBAction func categoriesAction(_ sender: Any) {
     }
     @IBAction func ListAction(_ sender: Any) {
         isList = true

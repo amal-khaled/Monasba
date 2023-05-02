@@ -16,7 +16,7 @@ class APIConnection{
     func getConnection (completion: @escaping(Data?)-> (), link : String){
         var header: HTTPHeaders =
         [
-//            "Authorization": "Bearer \(AppDelegate.currentUser.token ?? "")",
+            "Authorization": "Bearer \(AppDelegate.currentUser.toke ?? "")",
          "OS": "ios",
          "Accept":"application/json",
          "locale": MOLHLanguage.currentAppleLanguage()
@@ -44,7 +44,7 @@ class APIConnection{
     func postConnection (completion: @escaping(Data?)-> (), link : String, param: Parameters ){
         var header: HTTPHeaders =
         [
-//            "Authorization": "Bearer \(AppDelegate.currentUser.token ?? "")",
+            "Authorization": "Bearer \(AppDelegate.currentUser.toke ?? "")",
          "OS": "ios",
          "Accept":"application/json",
          "locale": MOLHLanguage.currentAppleLanguage()

@@ -31,6 +31,8 @@ class CitiesViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
+        self.dismiss(animated: false)
+
     }
     
     /*

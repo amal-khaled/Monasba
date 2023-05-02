@@ -28,7 +28,7 @@ class AuthCoontroller{
                     AppDelegate.currentUser = userObject.data ?? User()
                     AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
                     AppDelegate.currentUser.toke = userObject.token ?? ""
-                    completion( 0,"")
+                    completion( 0,userObject.msg ?? "")
                 }
                 else {
                     completion(1,userObject.msg ?? "")
@@ -48,22 +48,23 @@ class AuthCoontroller{
         
        
         var param = [
-            "name": user.name,
-            "mobile":user.phone,
-            "password":password,
-            "email":user.email,
-            "username":user.username,
-            "last_name":user.lastName,
-            "country_id":user.countryId,
+            "name": user.name ?? "",
+            "mobile":user.phone ?? "",
+            "password":password ?? "",
+            "email":user.email ?? "",
+            "username":user.username ?? "",
+            "last_name":user.lastName ?? "",
+            "country_id":user.countryId ?? "-1",
             
             "regid":"1",
 
                      ]
         if user.cityId != "-1"{
-            param["city_id"] = user.cityId
+            param["city_id"] = user.cityId ?? ""
         }
         if user.regionId != "-1"{
-            param["region_id"] = user.regionId
+            param["region_id"] = "\(user.regionId ?? "0")"
+            
         }
         APIConnection.apiConnection.postConnection(completion: {
             data  in
@@ -76,7 +77,7 @@ class AuthCoontroller{
                     AppDelegate.currentUser = userObject.data.data ?? User()
                     AppDelegate.defaults.set( userObject.data.token ?? "", forKey: "token")
                     AppDelegate.currentUser.toke = userObject.data.token ?? ""
-                    completion( 0,"")
+                    completion( 0,userObject.msg ?? "")
                 }
                 else {
                     completion(1,userObject.msg ?? "")
@@ -91,5 +92,142 @@ class AuthCoontroller{
             }
             
         }, link: Constants.SIGN_UP_URL , param: param)
+    }
+    func verifyRegister(completion: @escaping( Int, String)->(), code: String, userId: Int){
+        
+       
+        var param = [
+            "user_id": userId,
+            "code": code,
+          
+
+        ] as [String : Any]
+      
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                 
+                    completion( 0,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.SIGN_UP_VERIFY_URL , param: param)
+    }
+    func resendCodeRegister(completion: @escaping( Int, String)->(),  userId: Int){
+        
+       
+        var param = [
+            "user_id": userId,
+          
+
+        ] as [String : Any]
+      
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                 
+                    completion( 0,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.SIGN_UP_VERIFY_URL , param: param)
+    }
+    func checkUser(completion: @escaping(Int, Int, String)->(), mobile:String){
+        
+       
+        var param = [
+            "email": mobile
+
+                     ]
+       
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let forgetModel = try JSONDecoder().decode(ForgetPasswordModel.self, from: data)
+                
+                if forgetModel.code == 200{
+                  
+                    completion(forgetModel.data ?? 0, 0,forgetModel.msg ?? "")
+                }
+                else {
+                    completion(0,1,forgetModel.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(0,1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.CHECK_USER_URL , param: param)
+    }
+    func resetPassword(completion: @escaping( Int, String)->(), password: String, userId: Int){
+        
+       
+        var param = [
+            "user_id": userId,
+            "password": password,
+          
+
+        ] as [String : Any]
+      
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                 
+                    completion( 0,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.RESET_PASSWORD_URL , param: param)
     }
 }

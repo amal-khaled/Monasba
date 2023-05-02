@@ -52,8 +52,12 @@ class Constants {
     //signup
     static let LOGIN_URL = DOMAIN + "login"
     static let SIGN_UP_URL = DOMAIN + "signup"
+    static let SIGN_UP_VERIFY_URL = DOMAIN + "verification"
+    static let SIGN_UP_RESEND_CODE_URL = DOMAIN + "resend_code"
+    static let CHECK_USER_URL = DOMAIN + "check-user"
+    static let RESET_PASSWORD_URL = DOMAIN + "forgot-password"
 
-    
+    //forgot-password
     //UTILITIES
     static let COUNTRIES_URL = DOMAIN + "countries"
     static let CITIES_URL = DOMAIN + "cities_by_country_id"
@@ -61,6 +65,7 @@ class Constants {
 
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()
+    static var STATUS = [Country]()
 
     
 }

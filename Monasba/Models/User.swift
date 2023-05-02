@@ -84,9 +84,9 @@ struct User:Codable{
         case email = "email"
         case username = "username"
         case lastName = "last_name"
-        case countryId = "country_id"
-        case cityId = "city_id"
-        case regionId = "region_id"
+//        case countryId = "country_id"
+//        case cityId = "city_id"
+//        case regionId = "region_id"
     }
     
     

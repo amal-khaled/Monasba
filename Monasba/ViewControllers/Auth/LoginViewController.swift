@@ -54,7 +54,13 @@ class LoginViewController: UIViewController {
         passwordTF.isSecureTextEntry = isPasswordHidden
     }
     @IBAction func forgetPasswordAction(_ sender: Any) {
-        basicPresentation(storyName: Auth_STORYBOARD, segueId: FORGET_PASSWORD_VCID, withAnimation: false)
+        let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: FORGET_PASSWORD_VCID) as! ForgetPasswordViewController
+        vc.forgetBtclosure = {
+            self.basicNavigation(storyName: Auth_STORYBOARD, segueId: FORGET_VERIFY_CODE_VCID)
+        }
+        self.present(vc, animated: false, completion: nil)
+        //
+
     }
     @IBAction func loginAction(_ sender: Any) {
         login()
@@ -171,10 +177,8 @@ extension LoginViewController{
                  StaticFunctions.enableBtnWithoutAlpha(btn: self.loginBtn, status: true)
 
                  if check == 0{
-//                     UtilitiesController.shared.SendPlayerId(playerID: AppDelegate.playerID)
-                     StaticFunctions.createSuccessAlert(msg: msg)
+                     self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
 
-//                     self.basicNavigation(storyName: MAIN_STORYBOARD, segueId: "main_tap")
                  }else{
                      StaticFunctions.createErrorAlert(msg: msg)
 
