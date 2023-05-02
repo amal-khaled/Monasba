@@ -13,8 +13,10 @@ import Alamofire
 //STORYBOARD
 let Auth_STORYBOARD = "Auth"
 let MAIN_STORYBOARD = "Main"
+let ADVS_STORYBOARD = "Advs"
+let PROFILE_STORYBOARD = "Profile"
 
-//Auth CONTROLLERS
+//Auth Controllers
 let LOGIN_VCID = "login"
 let SIGNUP_VCID = "register"
 let SIGNUP_CODE_VCID = "verify_email"
@@ -35,7 +37,18 @@ let STATE_VCID = "state_list"
 let NO_INTERNET_CONNECTION = "No internet connection".localize
 let SERVER_ERROR = "server error ... try again later".localize
 
+//Advs Controllers
+let ADDADVS_VCID = "AddAdvsVC"
+let PICKUP_MEDIA_POPUP_VCID = "PickupMediaPopupVC"
+let SUCCESS_ADDING_VCID = "SuccessAddingVC"
 
+//Profile Controllers
+
+let OTHER_USER_PROFILE_VCID = "OtherUserProfileVC"
+
+
+
+//Constants
 
 class Constants {
     static let MAIN_DOMAIN = "http://bluezone-web.com/"

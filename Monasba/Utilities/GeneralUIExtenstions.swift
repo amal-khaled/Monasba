@@ -222,6 +222,8 @@ extension UIImage {
             completion(self.jpegData(compressionQuality: 1)!)
         }
     }
+    
+    
 }
 
 extension UIApplication {
@@ -288,6 +290,9 @@ extension String {
         return NSLocalizedString(self, tableName: nil, bundle: langBundle!, comment: "")
     }
 }
+
+
+
 import UIKit
 import MOLH
 import SDWebImage
