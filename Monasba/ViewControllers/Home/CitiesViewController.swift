@@ -10,7 +10,6 @@ import MOLH
 
 class CitiesViewController: UIViewController {
     var citiesBtclosure : (( Country) -> Void)? = nil
-    @IBOutlet weak var tableHieghtConstrain: NSLayoutConstraint!
     var cities = [Country]()
 
     var countryId = -1
@@ -22,9 +21,6 @@ class CitiesViewController: UIViewController {
 
         if Constants.CITIES.count == 0{
             getCities()
-        }else{
-            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
-            self.updateViewConstraints()
         }
 
         // Do any additional setup after loading the view.
@@ -53,8 +49,7 @@ extension CitiesViewController{
             self.cities = cities
             Constants.CITIES = cities
             self.tableView.reloadData()
-            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
-            self.updateViewConstraints()
+          
         }, countryId: countryId)
     }
 }

@@ -36,12 +36,29 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
+
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         mainCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         getData()
         getCategory()
         
         // Do any additional setup after loading the view.
+    }
+    @objc func chooseCategory(_ notification: NSNotification) {
+        let categoryIndex = notification.userInfo?["cat_index"] as! Int
+        let subcategoryIndex = notification.userInfo?["sub_cat_index"] as! Int
+        subCategories = notification.userInfo?["subCategories"] as! [Category]
+        categoryId = categories[categoryIndex].id ?? 0
+        cityId = subCategories[subcategoryIndex].id ?? 0
+        self.subCategories.insert(Category(nameAr: "الكل", nameEn: "All",id: -1, hasSubCat: 0), at: 0)
+
+        mainCategoryCollectionView.selectItem(at: [0, categoryIndex+1], animated: true, scrollPosition: .centeredHorizontally)
+        self.subCategoryCollectionView.isHidden = false
+        self.subCategoryCollectionView.reloadData()
+        subCategoryCollectionView.selectItem(at: [0, subcategoryIndex+1], animated: true, scrollPosition: .centeredHorizontally)
+            // do something with your image
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         if categoryId == 1 {
@@ -70,6 +87,9 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func cateegoriesAction(_ sender: Any) {
+        basicNavigation(storyName: CATEGORRY_STORYBOARD, segueId: CATEGORIES_VCID)
+    }
     @IBAction func sortActioon(_ sender: Any) {
         let vc = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SORT_VCID) as!  SortViewController
         vc.type = self.sorting

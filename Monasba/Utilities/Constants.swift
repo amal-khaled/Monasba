@@ -15,6 +15,7 @@ let Auth_STORYBOARD = "Auth"
 let MAIN_STORYBOARD = "Main"
 let ADVS_STORYBOARD = "Advs"
 let PROFILE_STORYBOARD = "Profile"
+let CATEGORRY_STORYBOARD = "Category"
 
 //Auth Controllers
 let LOGIN_VCID = "login"
@@ -34,6 +35,9 @@ let COUNTRY_VCIID = "country_list"
 let CITIES_VCIID = "city_list"
 let CITY_VCIID = "cities"
 let STATE_VCID = "state_list"
+let CATEGORIES_VCID = "categories"
+
+
 let NO_INTERNET_CONNECTION = "No internet connection".localize
 let SERVER_ERROR = "server error ... try again later".localize
 

@@ -10,7 +10,6 @@ import MOLH
 class StateViewController: UIViewController {
     
     var citiesBtclosure : (( Country) -> Void)? = nil
-    @IBOutlet weak var tableHieghtConstrain: NSLayoutConstraint!
     var cities = [Country]()
     
     var countryId = -1
@@ -18,13 +17,12 @@ class StateViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        cities = Constants.CITIES
+        cities = Constants.STATUS
         
         if Constants.STATUS.count == 0{
             getCities()
         }else{
-            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
-            self.updateViewConstraints()
+          
         }
         
         // Do any additional setup after loading the view.
@@ -51,10 +49,8 @@ extension StateViewController{
         CountryController.shared.getStates(completion: {
             cities, check,msg in
             self.cities = cities
-            Constants.CITIES = cities
+            Constants.STATUS = cities
             self.tableView.reloadData()
-            self.tableHieghtConstrain.constant = CGFloat(self.cities.count * 70)
-            self.updateViewConstraints()
         }, countryId: countryId)
     }
 }

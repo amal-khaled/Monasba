@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var regionErrorLbl: UILabel!
     var countryCode = "965"
     var isPasswordHidden = true
-    var countryId = -1
+    var countryId = 6
     var cityId = -1
     var stateId = -1
 
@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
-
+        couontryBtn.setTitle(MOLHLanguage.currentAppleLanguage() == "en" ? "Kuwait" : "الكويت", for: .normal)
         // Do any additional setup after loading the view.
     }
     @IBAction func changeCountryAction(_ sender: Any) {
@@ -93,6 +93,11 @@ class RegisterViewController: UIViewController {
             
            sender.setTitle(name, for: .normal)
             self.countryId = country.id ?? -1
+            self.cityId = -1
+            self.stateId = -1
+            self.cityBtn.setTitle("", for: .normal)
+            self.regonBtn.setTitle("", for: .normal)
+
             self.getCities()
 
             self.enableButton()
@@ -111,6 +116,9 @@ class RegisterViewController: UIViewController {
            var name =  MOLHLanguage.currentAppleLanguage() == "en" ? (city.nameEn ?? "") : (city.nameAr ?? "")
             self.cityBtn.setTitle(name, for: .normal)
             self.cityId = city.id ?? -1
+            self.stateId = -1
+            self.regonBtn.setTitle("", for: .normal)
+
             self.getAreas()
             self.enableButton()
         }
@@ -335,12 +343,21 @@ extension RegisterViewController{
         CountryController.shared.getCities(completion: {
             countries, check,msg in
             Constants.CITIES = countries
+            if Constants.CITIES.count > 0{
+                self.cityId = Constants.CITIES[0].id ?? -1
+                self.cityBtn.setTitle(MOLHLanguage.currentAppleLanguage() == "en" ? Constants.CITIES[0].nameEn : Constants.CITIES[0].nameAr, for: .normal)
+                getAreas()
+            }
         }, countryId: countryId)
     }
     func getAreas(){
         CountryController.shared.getStates(completion: {
             countries, check,msg in
             Constants.STATUS = countries
+            if Constants.STATUS.count > 0{
+                self.stateId = Constants.STATUS[0].id ?? -1
+                self.regonBtn.setTitle(MOLHLanguage.currentAppleLanguage() == "en" ? Constants.STATUS[0].nameEn : Constants.STATUS[0].nameAr, for: .normal)
+            }
         }, countryId: cityId)
     }
     

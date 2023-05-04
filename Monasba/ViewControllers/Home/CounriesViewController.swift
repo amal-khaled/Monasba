@@ -9,7 +9,6 @@ import UIKit
 import MOLH
 
 class CounriesViewController: UIViewController {
-    @IBOutlet weak var tableHieghtConstrain: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
     var counties = [Country]()
@@ -21,9 +20,6 @@ class CounriesViewController: UIViewController {
 
         if Constants.COUNTRIES.count == 0{
             getCounties()
-        }else{
-            self.tableHieghtConstrain.constant = CGFloat(self.counties.count * 70)
-            self.updateViewConstraints()
         }
         // Do any additional setup after loading the view.
     }
@@ -51,8 +47,7 @@ extension CounriesViewController{
             Constants.COUNTRIES = countries
             print(self.counties.count)
             self.tableView.reloadData()
-            self.tableHieghtConstrain.constant = CGFloat(self.counties.count * 70)
-            self.updateViewConstraints()
+           
         })
     }
 }

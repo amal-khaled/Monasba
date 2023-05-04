@@ -53,6 +53,10 @@
 		65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */; };
 		65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121C29E6915A00A3B8DD /* GradientView.swift */; };
 		65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */; };
+		65E54A382A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E54A372A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift */; };
+		65E54A3A2A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E54A392A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift */; };
+		65E54A3C2A029CEB00FEC9A3 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E54A3B2A029CEB00FEC9A3 /* CategoryViewController.swift */; };
+		65F746E62A03CBBE00E1C79E /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F746E52A03CBBE00E1C79E /* Category.storyboard */; };
 		C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */; };
 		C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86678BE29FFA12B0019AE81 /* Advs.storyboard */; };
 		C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */; };
@@ -112,6 +116,10 @@
 		65DD121B29E6915A00A3B8DD /* UIViewControllerExtenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstions.swift; sourceTree = "<group>"; };
 		65DD121C29E6915A00A3B8DD /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingCustomFont.swift; sourceTree = "<group>"; };
+		65E54A372A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		65E54A392A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainSideCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		65E54A3B2A029CEB00FEC9A3 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		65F746E52A03CBBE00E1C79E /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsVC.swift; sourceTree = "<group>"; };
 		C86678BE29FFA12B0019AE81 /* Advs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advs.storyboard; sourceTree = "<group>"; };
 		C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMediaPopupVC.swift; sourceTree = "<group>"; };
@@ -139,8 +147,9 @@
 		652711E829EBF7CE00D503F9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				658DE50C29F7FB720015D549 /* Home */,
 				652711EB29EBF80100D503F9 /* Auth */,
+				658DE50C29F7FB720015D549 /* Home */,
+				65F746E72A03CC2A00E1C79E /* Categories */,
 				C86678BB29FF9E270019AE81 /* Add Advs */,
 				C8A72A402A00C27A00F9C26D /* Profile */,
 			);
@@ -206,6 +215,8 @@
 				658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */,
 				658DE51B29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift */,
 				658DE51D29F82D5F0015D549 /* ProductCollectionViewCell.swift */,
+				65E54A372A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift */,
+				65E54A392A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift */,
 			);
 			path = CollectiionViewCell;
 			sourceTree = "<group>";
@@ -279,6 +290,7 @@
 				65DD120B29E6848500A3B8DD /* Auth.storyboard */,
 				C86678BE29FFA12B0019AE81 /* Advs.storyboard */,
 				C8A72A3E2A00C26000F9C26D /* Profile.storyboard */,
+				65F746E52A03CBBE00E1C79E /* Category.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -298,6 +310,14 @@
 				65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		65F746E72A03CC2A00E1C79E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				65E54A3B2A029CEB00FEC9A3 /* CategoryViewController.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		67C554C5A92EC5CB858FD606 /* Frameworks */ = {
@@ -397,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F746E62A03CBBE00E1C79E /* Category.storyboard in Resources */,
 				C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */,
 				65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */,
 				65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */,
@@ -458,7 +479,10 @@
 			files = (
 				65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */,
 				C8A72A3B2A00B45600F9C26D /* SuccessAddingVC.swift in Sources */,
+				65E54A3C2A029CEB00FEC9A3 /* CategoryViewController.swift in Sources */,
+				65E54A3A2A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift in Sources */,
 				65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */,
+				65E54A382A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift in Sources */,
 				652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */,
 				65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */,
 				652085412A00416800C38B45 /* GeneralObject.swift in Sources */,
@@ -656,7 +680,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -689,7 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
