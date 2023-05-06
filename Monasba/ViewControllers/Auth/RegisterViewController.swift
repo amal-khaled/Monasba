@@ -346,7 +346,7 @@ extension RegisterViewController{
             if Constants.CITIES.count > 0{
                 self.cityId = Constants.CITIES[0].id ?? -1
                 self.cityBtn.setTitle(MOLHLanguage.currentAppleLanguage() == "en" ? Constants.CITIES[0].nameEn : Constants.CITIES[0].nameAr, for: .normal)
-                getAreas()
+                self.getAreas()
             }
         }, countryId: countryId)
     }
