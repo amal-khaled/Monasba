@@ -42,9 +42,64 @@ class HomeViewController: UIViewController {
         mainCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         getData()
         getCategory()
+        createAddAdvsButton()
         
-        // Do any additional setup after loading the view.
     }
+    
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        if categoryId == 1 {
+            sell = nil
+            typeLbl.text = "All"
+            self.typeView.isHidden = false
+        }else{
+            self.typeView.isHidden = true
+            
+        }
+    }
+    
+    //MARK: Methods
+    
+    func createAddAdvsButton(){
+        let leftView = UIView()
+        //view.backgroundColor = .black
+        let leftButton = UIButton(type: .system)
+        leftButton.semanticContentAttribute = .forceRightToLeft
+        leftButton.setImage(UIImage(named: "addAdvsImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        leftButton.setTitle("Add Ad", for: .normal)
+        leftButton.addTarget(self, action: #selector(addAdvsBtnAction), for: .touchUpInside)
+        leftButton.sizeToFit()
+        leftView.addSubview(leftButton)
+        leftView.frame = leftButton.bounds
+        leftButton.semanticContentAttribute = .forceLeftToRight
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        let rightView = UIView()
+        //view.backgroundColor = .black
+        let rightButton = UIButton(type: .system)
+        rightButton.semanticContentAttribute = .forceRightToLeft
+        rightButton.setImage(UIImage(named: "square")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        rightButton.setTitle("Categories", for: .normal)
+        rightButton.addTarget(self, action: #selector(categoryBtnAction), for: .touchUpInside)
+        rightButton.sizeToFit()
+        rightView.addSubview(rightButton)
+        rightView.frame = rightButton.bounds
+        rightButton.semanticContentAttribute = .forceLeftToRight
+        rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightView)
+    }
+    
+    @objc func addAdvsBtnAction(){
+        
+        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    @objc func categoryBtnAction(){
+        basicNavigation(storyName: CATEGORRY_STORYBOARD, segueId: CATEGORIES_VCID)
+    }
+    
     @objc func chooseCategory(_ notification: NSNotification) {
         let categoryIndex = notification.userInfo?["cat_index"] as! Int
         let subcategoryIndex = notification.userInfo?["sub_cat_index"] as! Int
@@ -60,16 +115,8 @@ class HomeViewController: UIViewController {
             // do something with your image
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        if categoryId == 1 {
-            sell = nil
-            typeLbl.text = "All"
-            self.typeView.isHidden = false
-        }else{
-            self.typeView.isHidden = true
-            
-        }
-    }
+    
+    //MARK: IBActions
     
     @IBAction func filterAction(_ sender: Any) {
         let vc = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: CITY_VCIID) as!  CityViewController
@@ -129,7 +176,7 @@ class HomeViewController: UIViewController {
         self.present(coountryVC, animated: false, completion: nil)
     }
     @IBAction func goLogin(_ sender: Any) {
-        basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+//        basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
     }
     @IBAction func gridAction(_ sender: Any) {
         isList = false
@@ -140,6 +187,7 @@ class HomeViewController: UIViewController {
         }
     }
     @IBAction func categoriesAction(_ sender: Any) {
+        
     }
     @IBAction func ListAction(_ sender: Any) {
         isList = true
@@ -149,16 +197,6 @@ class HomeViewController: UIViewController {
             self.productCollectionView.reloadData()
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 extension HomeViewController{
     func getData(){
