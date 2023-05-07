@@ -329,8 +329,8 @@
                                                                                                             <constraint firstAttribute="height" constant="14" id="vfi-gf-8FE"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
-                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-Ec-bni">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-Ec-bni">
+                                                                                                        <rect key="frame" x="5" y="0.0" width="140" height="50"/>
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                                         <state key="normal">
@@ -357,7 +357,7 @@
                                                                                                     <constraint firstAttribute="trailing" secondItem="xYb-Dj-i18" secondAttribute="trailing" constant="8" id="PSI-1J-9kM"/>
                                                                                                     <constraint firstAttribute="bottom" secondItem="AcF-Ec-bni" secondAttribute="bottom" id="Rv1-af-lLM"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="AcF-Ec-bni" secondAttribute="trailing" constant="8" id="YGb-MN-2ra"/>
-                                                                                                    <constraint firstItem="AcF-Ec-bni" firstAttribute="leading" secondItem="692-Hj-okP" secondAttribute="leading" id="oPa-sG-h9b"/>
+                                                                                                    <constraint firstItem="AcF-Ec-bni" firstAttribute="leading" secondItem="692-Hj-okP" secondAttribute="leading" constant="5" id="oPa-sG-h9b"/>
                                                                                                 </constraints>
                                                                                                 <userDefinedRuntimeAttributes>
                                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -405,8 +405,8 @@
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-RW-aV8">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-RW-aV8">
+                                                                                                        <rect key="frame" x="5" y="0.0" width="140" height="50"/>
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                                         <state key="normal">
@@ -424,7 +424,7 @@
                                                                                                     <constraint firstAttribute="height" constant="50" id="GKn-jX-0Bu"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="DLO-RW-aV8" secondAttribute="trailing" constant="8" id="Ihv-HW-AhN"/>
                                                                                                     <constraint firstItem="HBR-Jo-UZW" firstAttribute="centerY" secondItem="fuZ-nG-AYC" secondAttribute="centerY" constant="2" id="X6A-Rw-p5v"/>
-                                                                                                    <constraint firstItem="DLO-RW-aV8" firstAttribute="leading" secondItem="fuZ-nG-AYC" secondAttribute="leading" id="dl4-aF-Ban"/>
+                                                                                                    <constraint firstItem="DLO-RW-aV8" firstAttribute="leading" secondItem="fuZ-nG-AYC" secondAttribute="leading" constant="5" id="dl4-aF-Ban"/>
                                                                                                     <constraint firstItem="CdG-Fb-2QW" firstAttribute="centerY" secondItem="fuZ-nG-AYC" secondAttribute="centerY" id="l8v-cA-pVg"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="CdG-Fb-2QW" secondAttribute="trailing" constant="8" id="ntf-fX-wDp"/>
                                                                                                     <constraint firstItem="DLO-RW-aV8" firstAttribute="top" secondItem="fuZ-nG-AYC" secondAttribute="top" id="xUh-9S-EKi"/>
@@ -480,8 +480,8 @@
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-bj-3So">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-bj-3So">
+                                                                                                        <rect key="frame" x="5" y="0.0" width="140" height="50"/>
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                                         <state key="normal">
@@ -497,7 +497,7 @@
                                                                                                     <constraint firstAttribute="bottom" secondItem="5aG-bj-3So" secondAttribute="bottom" id="0ux-Zf-pBF"/>
                                                                                                     <constraint firstItem="VkZ-7X-vJJ" firstAttribute="centerY" secondItem="f3n-Ic-uLQ" secondAttribute="centerY" id="4Gn-pE-T36"/>
                                                                                                     <constraint firstAttribute="height" constant="50" id="8oh-Yz-mYJ"/>
-                                                                                                    <constraint firstItem="5aG-bj-3So" firstAttribute="leading" secondItem="f3n-Ic-uLQ" secondAttribute="leading" id="9Hq-ew-l8s"/>
+                                                                                                    <constraint firstItem="5aG-bj-3So" firstAttribute="leading" secondItem="f3n-Ic-uLQ" secondAttribute="leading" constant="5" id="9Hq-ew-l8s"/>
                                                                                                     <constraint firstItem="5aG-bj-3So" firstAttribute="top" secondItem="f3n-Ic-uLQ" secondAttribute="top" id="C6L-TN-QPc"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="VkZ-7X-vJJ" secondAttribute="trailing" constant="8" id="JTH-05-b5p"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="5aG-bj-3So" secondAttribute="trailing" constant="8" id="R4j-we-CzB"/>
@@ -550,8 +550,8 @@
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36t-5Y-hAU">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36t-5Y-hAU">
+                                                                                                        <rect key="frame" x="5" y="0.0" width="140" height="50"/>
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                                         <state key="normal">
@@ -566,7 +566,7 @@
                                                                                                 <constraints>
                                                                                                     <constraint firstItem="36t-5Y-hAU" firstAttribute="top" secondItem="bqc-Cj-UuN" secondAttribute="top" id="3DV-sN-DRD"/>
                                                                                                     <constraint firstItem="x6q-JV-xHI" firstAttribute="centerY" secondItem="bqc-Cj-UuN" secondAttribute="centerY" constant="2" id="5pS-D6-g7O"/>
-                                                                                                    <constraint firstItem="36t-5Y-hAU" firstAttribute="leading" secondItem="bqc-Cj-UuN" secondAttribute="leading" id="5q0-vV-bKl"/>
+                                                                                                    <constraint firstItem="36t-5Y-hAU" firstAttribute="leading" secondItem="bqc-Cj-UuN" secondAttribute="leading" constant="5" id="5q0-vV-bKl"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="oZW-Cf-FT0" secondAttribute="trailing" constant="8" id="PZv-sk-X60"/>
                                                                                                     <constraint firstAttribute="height" constant="50" id="WVf-2W-PC5"/>
                                                                                                     <constraint firstItem="oZW-Cf-FT0" firstAttribute="centerY" secondItem="bqc-Cj-UuN" secondAttribute="centerY" id="X0n-aA-6u6"/>
@@ -2323,6 +2323,7 @@
                         <outlet property="addNewPhoneViewContainer" destination="oPL-FD-4rO" id="ynF-ko-DDq"/>
                         <outlet property="advsTitleTF" destination="h0Q-Jl-YN9" id="dYq-pD-Gcy"/>
                         <outlet property="chatViewContainer" destination="XLh-aq-TnX" id="S3Z-0B-R8X"/>
+                        <outlet property="cityButton" destination="5aG-bj-3So" id="Aec-iF-d7H"/>
                         <outlet property="cityLabel" destination="hRK-3p-nFN" id="wlQ-XI-Pzu"/>
                         <outlet property="collectionView" destination="1WC-CH-Ows" id="2K6-pP-WV4"/>
                         <outlet property="descTextView" destination="u5d-dp-xUx" id="R9P-RK-xm8"/>
@@ -2333,6 +2334,7 @@
                         <outlet property="hasPhoneImageView" destination="05j-Wg-4kQ" id="Hlb-7b-a6G"/>
                         <outlet property="hasWhatsImageView" destination="y5n-3u-K08" id="As7-WO-p3g"/>
                         <outlet property="hasWhatsLabel" destination="Ulg-cK-eyg" id="5f5-0m-pO1"/>
+                        <outlet property="mainCatButton" destination="AcF-Ec-bni" id="5NF-cC-7OB"/>
                         <outlet property="mainCatsLabel" destination="Ok7-2L-LH3" id="Qtf-kY-Tt6"/>
                         <outlet property="moreImageViewContainer" destination="QVT-JL-qEx" id="Mx4-vV-ZVx"/>
                         <outlet property="newPhoneCountryCode" destination="j3v-Kh-Ixf" id="0pv-Wu-90h"/>
@@ -2340,6 +2342,7 @@
                         <outlet property="newPhoneTF" destination="kKH-DL-nOe" id="ch5-FX-UF3"/>
                         <outlet property="phoneCallViewContainer" destination="PSK-gY-Owo" id="jlB-qt-A8H"/>
                         <outlet property="priceTF" destination="R7f-tu-N6a" id="SKV-UV-rRx"/>
+                        <outlet property="regionButton" destination="36t-5Y-hAU" id="3tI-zP-iNr"/>
                         <outlet property="regionLabel" destination="x6q-JV-xHI" id="iUv-Wd-1RC"/>
                         <outlet property="rentButton" destination="CeZ-pj-KaK" id="dfC-Oh-FED"/>
                         <outlet property="rentButtonImageView" destination="PrG-FO-xTV" id="O32-zg-T4e"/>
@@ -2349,6 +2352,7 @@
                         <outlet property="sellButtonImageView" destination="1d6-e3-rpC" id="gV9-lY-3ah"/>
                         <outlet property="sellButtonLabel" destination="fc5-JS-HlH" id="P4f-0N-bhi"/>
                         <outlet property="sellViewContainer" destination="vkq-gX-GRt" id="LzF-Ah-37N"/>
+                        <outlet property="subCatButton" destination="DLO-RW-aV8" id="KdP-HM-4rx"/>
                         <outlet property="subCatsLabel" destination="HBR-Jo-UZW" id="J1i-9U-mRf"/>
                         <outlet property="useNewPhoneNumButton" destination="a3G-0C-JKk" id="JyI-tk-96Z"/>
                         <outlet property="useRegisteredPhoneButton" destination="pWc-NN-erl" id="ks3-bH-kSQ"/>

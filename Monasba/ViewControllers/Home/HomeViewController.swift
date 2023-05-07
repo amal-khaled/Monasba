@@ -64,7 +64,6 @@ class HomeViewController: UIViewController {
         let leftView = UIView()
         //view.backgroundColor = .black
         let leftButton = UIButton(type: .system)
-        leftButton.semanticContentAttribute = .forceRightToLeft
         leftButton.setImage(UIImage(named: "addAdvsImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
         leftButton.setTitle("Add Ad", for: .normal)
         leftButton.addTarget(self, action: #selector(addAdvsBtnAction), for: .touchUpInside)
