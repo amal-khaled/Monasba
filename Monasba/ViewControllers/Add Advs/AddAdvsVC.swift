@@ -10,9 +10,7 @@ import DropDown
 import MOLH
 
 
-class AddAdvsVC: UIViewController {
-
-    
+class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     //MARK: IBOutlets
     
@@ -113,6 +111,10 @@ class AddAdvsVC: UIViewController {
     var regionsIDsList = [Int]()
     
     let regionsDropDwon = DropDown()
+    
+    
+    var Images = [UIImage]()
+    
     //MARK: App LifeCycle
     
     override func viewDidLoad() {
@@ -122,6 +124,32 @@ class AddAdvsVC: UIViewController {
         getCitis()
         getMainCats()
         //setupCitiesDropDown()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(Images.count)
+    }
+    
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage]) {
+        
+       // self.Images.append(contentsOf: images)
+        self.Images = images
+        print("Images Count ", images.count)
+        if images.count > 0 {
+            firstImageViewContainer.isHidden = true
+            moreImageViewContainer.isHidden = false
+            addMorePhotoButton.isHidden = false
+            collectionView.isHidden = false
+            
+        }else {
+            moreImageViewContainer.isHidden = true
+            addMorePhotoButton.isHidden = true
+            collectionView.isHidden = true
+            firstImageViewContainer.isHidden = false
+        }
+        self.collectionView.reloadData()
         
     }
 
@@ -162,6 +190,7 @@ class AddAdvsVC: UIViewController {
     @IBAction func addPhotoBtnAction(_ sender: UIButton) {
         
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_VCID) as! PickupMediaPopupVC
+        vc.delegate = self
         present(vc, animated: false)
     }
     
@@ -265,6 +294,23 @@ class AddAdvsVC: UIViewController {
     }
     
 }
+//MARK: CollectionView Delegate
+
+extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdvsImagesCollectionViewCell", for: indexPath) as? AdvsImagesCollectionViewCell else {return UICollectionViewCell()}
+    
+        cell.imageView.image = Images[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
 extension AddAdvsVC {
     
     //MARK: Methods
