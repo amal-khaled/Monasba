@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>يريد مناسبة الوصول للميكروفون لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة</string>
+	<key>NSCameraUsageDescription</key>
+	<string>يريد مناسبة الوصول للكاميرا لوضع صورة للاعلان او للملف الشخصي </string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>

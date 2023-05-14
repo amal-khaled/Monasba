@@ -14,4 +14,7 @@ class AdvsImagesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainImageFlag: UILabel!
     
     @IBOutlet weak var removeButton: UIButton!
+    
+    
+    
 }

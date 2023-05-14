@@ -77,7 +77,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var hasPhone = "on"
     var hasWhats = "off"
     var hasChat = "off"
-    
+    var hasNewPhone = false
     var countryId = 5
     
     // Main Category DropDwon
@@ -111,9 +111,19 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var regionsIDsList = [Int]()
     
     let regionsDropDwon = DropDown()
+//    AppDelegate.currentUser.phone
+    var phone:String {
+        if hasNewPhone {
+            return "\(newPhoneCountryCode.text ?? "")\(newPhoneTF.text!)"
+        }else {
+            return AppDelegate.currentUser.phone ?? ""
+        }
+    }
+    var tajeer = 0
+    var params = [String:Any]()
     
-    
-    var Images = [UIImage]()
+    var selectedImages = [UIImage]()
+    var selectedVideos = [Data]()
     
     //MARK: App LifeCycle
     
@@ -128,15 +138,18 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print(Images.count)
+      
+        print(selectedVideos)
     }
     
-    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage]) {
-        
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage],videos:[Data]) {
+       // self.dismiss(animated: false)
        // self.Images.append(contentsOf: images)
-        self.Images = images
+        self.selectedImages = images
+        self.selectedVideos = videos
         print("Images Count ", images.count)
+        print(selectedVideos)
+        print("Videos Count " , selectedVideos.count)
         if images.count > 0 {
             firstImageViewContainer.isHidden = true
             moreImageViewContainer.isHidden = false
@@ -150,7 +163,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             firstImageViewContainer.isHidden = false
         }
         self.collectionView.reloadData()
-        
+       
     }
 
     func setupCity(){
@@ -166,19 +179,6 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             }
         }
     }
-//    func setupRegion(){
-//        for i in  Constants.STATUS {
-//            if  MOLHLanguage.currentAppleLanguage() == "en" {
-//
-//                regionsList.append(i.nameEn ?? "")
-//                regionsIDsList.append("\(String(describing: i.id))")
-//            }
-//            else{
-//                regionsList.append(i.nameAr ?? "")
-//                regionsIDsList.append("\(String(describing: i.id))")
-//            }
-//        }
-//    }
     
     //MARK: IBActions
     
@@ -188,10 +188,16 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     
     @IBAction func addPhotoBtnAction(_ sender: UIButton) {
+        if selectedImages.count < 6 {
+            let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_VCID) as! PickupMediaPopupVC
+            vc.delegate = self
+            vc.images = selectedImages
+            vc.videos = selectedVideos
+            present(vc, animated: false)
+        }else{
+            StaticFunctions.createErrorAlert(msg: "لقد وصلت للحد الاقصى من الفديوهات والصور")
+        }
         
-        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_VCID) as! PickupMediaPopupVC
-        vc.delegate = self
-        present(vc, animated: false)
     }
     
     @IBAction func mainCatsBtnAction(_ sender: UIButton) {
@@ -271,7 +277,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     @IBAction func useRegisteredBtnAction(_ sender: UIButton) {
-        
+        hasNewPhone = false
         addNewPhoneViewContainer.isHidden = true
         addNewPhoneLabel.isHidden = true
         useRegisteredPhoneButton.backgroundColor = UIColor(named: "#0EBFB1")
@@ -281,16 +287,43 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     @IBAction func useNewPhoneNumBtnAction(_ sender: UIButton) {
+        hasNewPhone = true
         addNewPhoneViewContainer.isHidden = false
         addNewPhoneLabel.isHidden = false
         useNewPhoneNumButton.backgroundColor = UIColor(named: "#0EBFB1")
         useNewPhoneNumButton.setTitleColor(.white, for: .normal)
         useRegisteredPhoneButton.backgroundColor = .white
         useRegisteredPhoneButton.setTitleColor(.black, for: .normal)
+        
     }
     
     @IBAction func addAdBtnAction(_ sender: UIButton) {
-        
+//        params = ["uid":"111",
+//                  "name":advsTitleTF.text!, "price":priceTF.text!,
+//                  "amount":"0", "lat": "0", "lng":"0",
+//                  "prod_size":"25","color":"red",
+//                  "color_name":"red",
+//                  "cat_id":"\(mainCatID)",
+//                  "sub_cat_id": "\(subCatID)",
+//                  "sell_cost":priceTF.text!,"errors":"",
+//                  "brand_id":"Nike",
+//                  "material_id":"",
+//                  //AppDelegate.currentUser.countryId ?? "0"
+//                  "country_id":"6",
+//                  "city_id":"\(cityId)",
+//                  "region_id":"\(regionId)",
+//                  "loc":"\(cityName) \(regionName)",
+//                  "phone":"\(phone)","wts":phone,"descr":descTextView.text!,
+//                  "has_chat":hasChat,"has_wts":hasWhats,"has_phone":hasPhone,
+//                  "tajeer_or_sell":"\(tajeer)"
+//]
+        AddAdvsController.shared.addAdvs(params: params, images: selectedImages, videos: selectedVideos) { success, message in
+            if success{
+                print(message)
+            }else{
+                print("error" , message)
+            }
+        }
     }
     
 }
@@ -298,13 +331,13 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
 
 extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Images.count
+        return selectedImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdvsImagesCollectionViewCell", for: indexPath) as? AdvsImagesCollectionViewCell else {return UICollectionViewCell()}
     
-        cell.imageView.image = Images[indexPath.row]
+        cell.imageView.image = selectedImages[indexPath.row]
         return cell
     }
     
@@ -340,6 +373,7 @@ extension AddAdvsVC {
     }
     
     private func setupSellViewUI() {
+        tajeer = 0
         sellViewContainer.borderWidth = 1.2
         rentViewContainer.borderWidth = 0.7
         sellViewContainer.backgroundColor = UIColor(named: "#0EBFB1")
@@ -365,6 +399,7 @@ extension AddAdvsVC {
     
     
     private func setupRentViewUI() {
+        tajeer = 1
         sellViewContainer.borderWidth = 0.7
         rentViewContainer.borderWidth = 1.2
         rentViewContainer.backgroundColor = UIColor(named: "#0EBFB1")
@@ -376,6 +411,14 @@ extension AddAdvsVC {
         setImage(to: rentButtonImageView, from: "radiobtn")
         sellButtonLabel.textColor = .black
         rentButtonLabel.textColor = .white
+    }
+    
+    // Add Advs Method
+    
+    private func addAdvs(){
+        
+        
+        
     }
    
 }
