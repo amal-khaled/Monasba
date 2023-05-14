@@ -80,6 +80,10 @@ class Constants {
     static let CITIES_URL = DOMAIN + "cities_by_country_id"
     static let STATE_URL = DOMAIN + "region_by_city_id"
 
+    //Add-Advs
+    static let ADDADVS_URL = DOMAIN + "prods_add"
+    
+    
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()
     static var STATUS = [Country]()

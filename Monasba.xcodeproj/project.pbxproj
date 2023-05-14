@@ -60,6 +60,8 @@
 		C836CED42A07FC880009F20D /* AdvsImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */; };
 		C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */; };
 		C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86678BE29FFA12B0019AE81 /* Advs.storyboard */; };
+		C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12842A10209200669FD9 /* AddAdvsController.swift */; };
+		C89D12872A10245B00669FD9 /* AddAdvsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12862A10245B00669FD9 /* AddAdvsModel.swift */; };
 		C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */; };
 		C8A72A3B2A00B45600F9C26D /* SuccessAddingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A3A2A00B45600F9C26D /* SuccessAddingVC.swift */; };
 		C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A72A3E2A00C26000F9C26D /* Profile.storyboard */; };
@@ -124,6 +126,8 @@
 		C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvsImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsVC.swift; sourceTree = "<group>"; };
 		C86678BE29FFA12B0019AE81 /* Advs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advs.storyboard; sourceTree = "<group>"; };
+		C89D12842A10209200669FD9 /* AddAdvsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsController.swift; sourceTree = "<group>"; };
+		C89D12862A10245B00669FD9 /* AddAdvsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsModel.swift; sourceTree = "<group>"; };
 		C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMediaPopupVC.swift; sourceTree = "<group>"; };
 		C8A72A3A2A00B45600F9C26D /* SuccessAddingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddingVC.swift; sourceTree = "<group>"; };
 		C8A72A3E2A00C26000F9C26D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 				659F892E29FD9AED00AFA95C /* User.swift */,
 				652085402A00416800C38B45 /* GeneralObject.swift */,
 				657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */,
+				C89D12862A10245B00669FD9 /* AddAdvsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				65400C5129FB0F40009E07C9 /* CategoryController.swift */,
 				65400C5329FB28DA009E07C9 /* CountryController.swift */,
 				659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */,
+				C89D12842A10209200669FD9 /* AddAdvsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -505,12 +511,14 @@
 				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,
 				C8A72A482A00C9EC00F9C26D /* ReportAboutUserVC.swift in Sources */,
 				656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */,
+				C89D12872A10245B00669FD9 /* AddAdvsModel.swift in Sources */,
 				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
 				658DE51229F828ED0015D549 /* SortViewController.swift in Sources */,
 				652711F029EBF84300D503F9 /* ForgetPasswordViewController.swift in Sources */,
 				C8A72A4A2A00CA4700F9C26D /* TableViewCell.swift in Sources */,
 				65400C5229FB0F40009E07C9 /* CategoryController.swift in Sources */,
 				652711F229EBF85700D503F9 /* VerifyCodeViewController.swift in Sources */,
+				C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */,
 				65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */,
 				65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */,
 				C8A72A422A00C29C00F9C26D /* OtherUserProfileVC.swift in Sources */,

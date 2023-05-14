@@ -9,10 +9,6 @@
 
 import Foundation
 
-
-
-
-
 struct ForgetPasswordModel: Codable{
     
     var code: Int!
