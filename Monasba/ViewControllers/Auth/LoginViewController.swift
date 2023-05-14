@@ -184,7 +184,7 @@ extension LoginViewController{
 
                  }
 
-             },  phone: phoneTF.text!, passwoord: passwordTF.text!)
+             },  phone:  countryCode + phoneTF.text!, passwoord: passwordTF.text!)
 
          }
          else{

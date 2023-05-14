@@ -59,4 +59,35 @@ class ProductController{
             
         }, link: Constants.HOME_PRODUCTS_URL , param: param)
     }
+    func getProducts(completion: @escaping(ProductDetailsObject, Int, String)->(), id: Int){
+        
+        var param = ["id": id]
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let productObject = try JSONDecoder().decode(ProductObject.self, from: data)
+                
+                if productObject.code == 200{
+                    
+                    completion(productObject.data, 0 ,"")
+                }
+                else {
+                    completion(ProductDetailsObject(),1,productObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(ProductDetailsObject(),1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.PRODUCT_URL , param: param)
+    }
 }

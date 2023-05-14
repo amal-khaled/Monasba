@@ -143,15 +143,15 @@ class StaticFunctions {
         //        viewController.basicNavigation(storyName: Auth_STORY_BOARD, segueId: REGISTER_VCID)
     }
     static func isLogin() -> Bool{
-//        print(AppDelegate.currentUser.token)
-//        if AppDelegate.currentUser.token != nil  {
-//            if AppDelegate.currentUser.token == ""{
-//                return false
-//                
-//                
-//            }
-//            return true
-//        }
+        print(AppDelegate.currentUser.toke)
+        if AppDelegate.currentUser.toke != nil  {
+            if AppDelegate.currentUser.toke == ""{
+                return false
+                
+                
+            }
+            return true
+        }
         return false
     }
     

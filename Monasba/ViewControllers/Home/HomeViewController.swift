@@ -264,7 +264,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == productCollectionView{
             return products.count
         }else if collectionView == mainCategoryCollectionView{
-            return categories.count
+            return categories.count-1
         }
         return subCategories.count
     }
@@ -314,7 +314,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == mainCategoryCollectionView{
+        if collectionView == productCollectionView{
+            let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+            vc.product = products[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if collectionView == mainCategoryCollectionView{
             self.subcategoryId = -1
             self.categoryId = categories[indexPath.row].id ?? 0
             if categories[indexPath.row].hasSubCat == 1{
