@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -956,7 +957,7 @@
         <!--Type View Controller-->
         <scene sceneID="8m8-bM-sT0">
             <objects>
-                <viewController storyboardIdentifier="type" modalPresentationStyle="overFullScreen" id="cUE-3o-bQt" customClass="TypeViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comment" modalPresentationStyle="overFullScreen" id="cUE-3o-bQt" customClass="TypeViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XfT-3V-9Fm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1325,7 +1326,7 @@
         <!--Type View Controller-->
         <scene sceneID="oXV-A5-a51">
             <objects>
-                <viewController storyboardIdentifier="type" modalPresentationStyle="overFullScreen" id="Zmi-OG-U8f" customClass="TypeViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reply" modalPresentationStyle="overFullScreen" id="Zmi-OG-U8f" customClass="TypeViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oX8-Ab-f1S">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1503,10 +1504,10 @@
             </objects>
             <point key="canvasLocation" x="1712" y="80"/>
         </scene>
-        <!--Rre-->
+        <!--View Controller-->
         <scene sceneID="Z0V-VL-kMj">
             <objects>
-                <viewController storyboardIdentifier="type" modalPresentationStyle="overFullScreen" id="gpu-Wo-a5Y" customClass="Rre" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="flage" modalPresentationStyle="overFullScreen" id="gpu-Wo-a5Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jy7-GE-sb6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
