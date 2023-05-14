@@ -19,9 +19,9 @@ class CitiesViewController: UIViewController {
         super.viewDidLoad()
         cities = Constants.CITIES
 
-        if Constants.CITIES.count == 0{
+//        if Constants.CITIES.count == 0{
             getCities()
-        }
+//        }
 
         // Do any additional setup after loading the view.
     }

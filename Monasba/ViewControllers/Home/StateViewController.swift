@@ -19,11 +19,11 @@ class StateViewController: UIViewController {
         super.viewDidLoad()
         cities = Constants.STATUS
         
-        if Constants.STATUS.count == 0{
+//        if Constants.STATUS.count == 0{
             getCities()
-        }else{
-          
-        }
+//        }else{
+//          
+//        }
         
         // Do any additional setup after loading the view.
     }

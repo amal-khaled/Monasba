@@ -16,13 +16,15 @@ class APIConnection{
     func getConnection (completion: @escaping(Data?)-> (), link : String){
         var header: HTTPHeaders =
         [
-            "Authorization": "Bearer \(AppDelegate.currentUser.toke ?? "")",
          "OS": "ios",
          "Accept":"application/json",
          "locale": MOLHLanguage.currentAppleLanguage()
          //         "App-Version": version as! String,
          //         "Os-Version": UIDevice.current.systemVersion
         ]
+        if AppDelegate.currentUser.toke != "" && AppDelegate.currentUser.toke != nil{
+            header["Authorization"] = "Bearer \(AppDelegate.currentUser.toke ?? "")"
+        }
         AF.request(link, method: .get, headers: header ).responseJSON { response in
             print("=============================================")
             print(link)
@@ -44,13 +46,16 @@ class APIConnection{
     func postConnection (completion: @escaping(Data?)-> (), link : String, param: Parameters ){
         var header: HTTPHeaders =
         [
-            "Authorization": "Bearer \(AppDelegate.currentUser.toke ?? "")",
          "OS": "ios",
          "Accept":"application/json",
          "locale": MOLHLanguage.currentAppleLanguage()
          //         "App-Version": version as! String,
          //         "Os-Version": UIDevice.current.systemVersion
         ]
+        print(AppDelegate.currentUser.toke)
+        if AppDelegate.currentUser.toke != "" && AppDelegate.currentUser.toke != nil{
+            header["Authorization"] = "Bearer \(AppDelegate.currentUser.toke ?? "")"
+        }
         print(param)
         AF.request(link, method: .post, parameters: param, headers: header).responseJSON { response in
             print("=============================================")

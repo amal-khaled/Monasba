@@ -16,6 +16,7 @@ let MAIN_STORYBOARD = "Main"
 let ADVS_STORYBOARD = "Advs"
 let PROFILE_STORYBOARD = "Profile"
 let CATEGORRY_STORYBOARD = "Category"
+let PRODUCT_STORYBOARD = "Product"
 
 //Auth Controllers
 let LOGIN_VCID = "login"
@@ -38,6 +39,9 @@ let STATE_VCID = "state_list"
 let CATEGORIES_VCID = "categories"
 
 
+//Product Controllers
+let PRODUCT_VCID = "product_details"
+
 let NO_INTERNET_CONNECTION = "No internet connection".localize
 let SERVER_ERROR = "server error ... try again later".localize
 
@@ -56,14 +60,20 @@ let OTHER_USER_PROFILE_VCID = "OtherUserProfileVC"
 
 class Constants {
     static let MAIN_DOMAIN = "http://bluezone-web.com/"
+    static var newBaseUrl:String = "https://newmonasbh.multi-kw.com/"
+
     static let DOMAIN = MAIN_DOMAIN + "api/"
-    static let IMAGE_URL = MAIN_DOMAIN + "image/"
+    static let IMAGE_URL = newBaseUrl + "image/"
     
     
     //Home
     static let HOME_PRODUCTS_URL = DOMAIN + "prods_by_filter"
     static let GET_CATEGORIES_URL = DOMAIN + "categories"
     static let GET_SUB_CATEGORIES_URL = DOMAIN + "sub_category"
+    
+    //Product
+    static let PRODUCT_URL = DOMAIN + "prods_by_id"
+
     
     //Auth
     //signup
