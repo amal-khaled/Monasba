@@ -41,7 +41,13 @@ let CATEGORIES_VCID = "categories"
 
 //Product Controllers
 let PRODUCT_VCID = "product_details"
+let REPLY_VCID = "reply"
+let FLAG_VCID = "flage"
+let COMMENT_VCID = "comment"
+let REPORT_COMMENT_VCID = "report_comment"
 
+
+//report_comment
 let NO_INTERNET_CONNECTION = "No internet connection".localize
 let SERVER_ERROR = "server error ... try again later".localize
 
@@ -73,7 +79,15 @@ class Constants {
     
     //Product
     static let PRODUCT_URL = DOMAIN + "prods_by_id"
+    static let ADD_COMMENT_URL = DOMAIN + "comment_on_prods"
+    static let ADD_REPLY_URL = DOMAIN + "replay_on_comment"
+    static let FLAGE_COMMENT_URL = DOMAIN + "comment_reports"
+    static let LIKE_COMMENT_URL = DOMAIN + "like_prods"
+    static let LIKE_AD_URL = DOMAIN + "fav_prod"
+    static let REPORT_AD_URL = DOMAIN + "report_on_prods"
 
+    //report_on_prods
+    //like_prods
     
     //Auth
     //signup

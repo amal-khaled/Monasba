@@ -61,7 +61,7 @@ class ProductController{
     }
     func getProducts(completion: @escaping(ProductDetailsObject, Int, String)->(), id: Int){
         
-        var param = ["id": id]
+        let param = ["id": id]
         
        
             
@@ -89,5 +89,210 @@ class ProductController{
             }
             
         }, link: Constants.PRODUCT_URL , param: param)
+    }
+    func replyComment(completion: @escaping( Int, String)->(), id: Int, comment: String){
+        
+        let param = ["comment_id": id,
+                     "comment": comment] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.ADD_REPLY_URL , param: param)
+    }
+    func addComment(completion: @escaping( Int, String)->(), id: Int, comment: String){
+        
+        let param = ["prod_id": id,
+                     "uid": AppDelegate.currentUser.id,
+                        "rating":"4",
+                     "comment": comment] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.ADD_COMMENT_URL , param: param)
+    }
+    func flagComment(completion: @escaping( Int, String)->(), id: Int, comment: String){
+        
+        let param = ["comment_id": id,
+                     "reason": comment] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.FLAGE_COMMENT_URL , param: param)
+    }
+    func likeComment(completion: @escaping( Int, String)->(), id: Int){
+        
+        let param = ["comment_id": id,
+                     "uid": AppDelegate.currentUser.id ?? 0,"like_type":"1"
+        ] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.LIKE_COMMENT_URL , param: param)
+    }
+    func likeAd(completion: @escaping( Int, String)->(), id: Int){
+        
+        let param = ["prod_id": id,
+                     
+        ] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.LIKE_AD_URL , param: param)
+    }
+    func flageAd(completion: @escaping( Int, String)->(), id: Int, reason: String){
+        
+        let param = ["prod_id": id,
+                     "uid": AppDelegate.currentUser.id ?? 0,
+                     "reason": reason
+                     
+        ] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.REPORT_AD_URL , param: param)
     }
 }
