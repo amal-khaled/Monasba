@@ -1,19 +1,22 @@
 //
-//  commentViewController.swift
+//  ReportCommentViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 11/05/2023.
+//  Created by Amal Elgalant on 16/05/2023.
 //
 
 import UIKit
 import TransitionButton
 
-class CommentViewController: UIViewController {
-
+class ReportCommentViewController: UIViewController {
     @IBOutlet weak var commentTF: UITextView!
     @IBOutlet var textFields: [UITextView]!
     @IBOutlet weak var sendBtn: TransitionButton!
     var id = 0
+    
+    var reportList = ["prohibited on Monasba",
+                     "Offensive or inappropriate","Identical or imitation product","Located in the wrong section","Looks like a scam", "The publisher is a fake or stolen account"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class CommentViewController: UIViewController {
     */
 
 }
-extension CommentViewController : UITextViewDelegate{
+extension ReportCommentViewController : UITextViewDelegate{
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         let (valid , message) = ValidTextView(textField: textView)
         
@@ -56,7 +59,7 @@ extension CommentViewController : UITextViewDelegate{
     
     
 }
-extension CommentViewController{
+extension ReportCommentViewController{
     
     
     func ValidTextView(textField : UITextView)->(Bool, String?) {
@@ -96,7 +99,7 @@ extension CommentViewController{
         if Reachability.isConnectedToNetwork(){
             self.sendBtn.startAnimation()
             
-            ProductController.shared.addComment(completion: {
+            ProductController.shared.flagComment(completion: {
                 check, msg in
                 self.sendBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
                 StaticFunctions.enableBtnWithoutAlpha(btn: self.sendBtn, status: true)

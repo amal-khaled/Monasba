@@ -1,24 +1,25 @@
 //
-//  commentViewController.swift
+//  ReplyViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 11/05/2023.
+//  Created by Amal Elgalant on 15/05/2023.
 //
 
 import UIKit
 import TransitionButton
 
-class CommentViewController: UIViewController {
-
+class ReplyViewController: UIViewController {
+    
     @IBOutlet weak var commentTF: UITextView!
     @IBOutlet var textFields: [UITextView]!
     @IBOutlet weak var sendBtn: TransitionButton!
     var id = 0
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
-
         // Do any additional setup after loading the view.
     }
     @objc func textDidChange(_ notification: Notification){
@@ -27,25 +28,23 @@ class CommentViewController: UIViewController {
     }
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: false)
-
     }
     @IBAction func sendAction(_ sender: Any) {
-        comment()
-
+        reply()
     }
-  
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
-extension CommentViewController : UITextViewDelegate{
+extension ReplyViewController : UITextViewDelegate{
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         let (valid , message) = ValidTextView(textField: textView)
         
@@ -56,13 +55,13 @@ extension CommentViewController : UITextViewDelegate{
     
     
 }
-extension CommentViewController{
+extension ReplyViewController{
     
     
     func ValidTextView(textField : UITextView)->(Bool, String?) {
         if textField == commentTF{
             if commentTF.text!.count == 0{
-                return (false ,NSLocalizedString("enter your comment", comment: ""))
+                return (false ,NSLocalizedString("enter your reply", comment: ""))
                 
             }
             else {
@@ -91,12 +90,12 @@ extension CommentViewController{
         StaticFunctions.enableBtn(btn: sendBtn, status: formIsValid)
     }
     
-    func comment(){
+    func reply(){
         StaticFunctions.enableBtnWithoutAlpha(btn: sendBtn, status: false)
         if Reachability.isConnectedToNetwork(){
             self.sendBtn.startAnimation()
             
-            ProductController.shared.addComment(completion: {
+            ProductController.shared.replyComment(completion: {
                 check, msg in
                 self.sendBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
                 StaticFunctions.enableBtnWithoutAlpha(btn: self.sendBtn, status: true)

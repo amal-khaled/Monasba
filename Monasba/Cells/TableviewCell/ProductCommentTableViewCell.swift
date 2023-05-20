@@ -20,9 +20,13 @@ class ProductCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var number_of_comments: UILabel!
     @IBOutlet weak var btn_view_comments: UIButton!
     @IBOutlet weak var btn_like: UIButton!
-
     @IBOutlet weak var img: UIImageView!
     
+    var replyBtclosure : (() -> Void)? = nil
+    var flagBtclosure : (() -> Void)? = nil
+    var likeBtclosure : (() -> Void)? = nil
+
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,25 +38,22 @@ class ProductCommentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setData(comment: Comment){
-        if !StaticFunctions.isLogin() {
+      
+        if StaticFunctions.isLogin() {
             reportView.isHidden = false
         }else {
              reportView.isHidden = true
         }
          name.text = comment.commentUserName
-        let isoDate = comment.date
 
         let dateFormatter = ISO8601DateFormatter()
-        let pastDate = dateFormatter.date(from:isoDate ?? "")!
+        let pastDate = dateFormatter.date(from:comment.date ?? "") ?? Date()
         
         
         date.text = pastDate.timeAgoDisplay()
 
-//        date.text = comment.date.formattedDateSince
          commentLbl.text = comment.comment
          likes.text = "\(comment.countLike ?? 0)"
-        //     number_of_comments.text = "(\(cnum_of_comments[inx]))"
-        //  btn_like.isSelected
         
         if comment.isLike == 1{
             img_liked.image = UIImage(named: "heartFill")
@@ -63,18 +64,21 @@ class ProductCommentTableViewCell: UITableViewCell {
         }
          commentLbl.sizeToFit()
         img.setImageWithLoading(url: comment.commentUserPic ?? "")
-//         btn_view_comments.tag = inx
-//         btn_view_comments.addTarget(self, action: #selector(showReplyPopUp), for: .touchUpInside)
         
         
-//         btn_like.tag = inx
-//         btn_like.addTarget(self, action: #selector(go_like), for: .touchUpInside)
-        
-//         btn_report.tag = inx
-//         btn_report.addTarget(self, action: #selector(resportAboutComment), for: .touchUpInside)
-        
-        
-//         shadow(8, 0.1)
+
+    }
+    @IBAction func reportBtnAction(_ sender: Any) {
+        flagBtclosure!()
+    }
+    
+    @IBAction func likeBtnAction(_ sender: Any) {
+    likeBtclosure!()
+    }
+    
+    @IBAction func replyBtnAction(_ sender: Any) {
+        replyBtclosure!()
+
     }
 }
 extension Date {
