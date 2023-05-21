@@ -107,6 +107,10 @@ class Constants {
     //Add-Advs
     static let ADDADVS_URL = DOMAIN + "prods_add"
     
+    //Profile
+    static let PROFILE_URL = DOMAIN + "profile"
+
+    
     
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()

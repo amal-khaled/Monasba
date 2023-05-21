@@ -54,16 +54,16 @@ class AuthCoontroller{
             "email":user.email ?? "",
             "username":user.username ?? "",
             "last_name":user.lastName ?? "",
-            "country_id":user.countryId ?? "-1",
+            "country_id":"\(user.countryId ?? -1)" ,
             
             "regid":"1",
 
                      ]
-        if user.cityId != "-1"{
-            param["city_id"] = user.cityId ?? ""
+        if user.cityId != -1{
+            param["city_id"] = "\(user.cityId ?? 0)"
         }
-        if user.regionId != "-1"{
-            param["region_id"] = "\(user.regionId ?? "0")"
+        if user.regionId != -1{
+            param["region_id"] = "\(user.regionId ?? 0)"
             
         }
         APIConnection.apiConnection.postConnection(completion: {
