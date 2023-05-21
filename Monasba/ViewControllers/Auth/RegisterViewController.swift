@@ -306,9 +306,9 @@ extension RegisterViewController{
          user.lastName = familyNameTF.text!
          user.email = emailTF.text!
          user.phone = phoneTF.text!
-         user.countryId = "\(countryId)"
-         user.cityId = "\(cityId)"
-         user.regionId = "\(stateId)"
+         user.countryId = (countryId)
+         user.cityId = (cityId)
+         user.regionId = (stateId)
 
          StaticFunctions.enableBtnWithoutAlpha(btn: registerBtn, status: false)
          if Reachability.isConnectedToNetwork(){
