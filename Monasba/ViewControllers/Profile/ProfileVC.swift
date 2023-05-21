@@ -30,7 +30,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
-    @IBOutlet weak private var myAdsTableView: UICollectionView!
+    @IBOutlet weak private var myAdsCollectionView: UICollectionView!
+    
+    //MARK: Properties
+    
+    private var products = [Product]()
+    private var page = 1
+    private var isTheLast = false
     
     //MARK: View LifeCycle
     override func viewDidLoad() {
@@ -48,9 +54,12 @@ class ProfileVC: UIViewController {
     //MARK: Private Methods
     
     private func configureUI(){
-        myAdsTableView.delegate = self
-        myAdsTableView.dataSource = self
+        
+        myAdsCollectionView.delegate = self
+        myAdsCollectionView.dataSource = self
         emptyAdsLabel.isHidden = true
+        myAdsCollectionView.register(UINib(nibName: "ProfileProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProfileProductsCollectionViewCell")
+        
         
     }
     
@@ -61,6 +70,7 @@ class ProfileVC: UIViewController {
                 print("======= profile Data ======== ")
                 print(userProfile)
                 self.bindProfileData(from: userProfile)
+                self.getProductsByUser()
             }
         }, user: AppDelegate.currentUser)
     }
@@ -107,10 +117,10 @@ class ProfileVC: UIViewController {
         
         if profileModel.numberOfProds == 0 {
             emptyAdsLabel.isHidden = false
-            myAdsTableView.isHidden = true
+            myAdsCollectionView.isHidden = true
         }else {
             emptyAdsLabel.isHidden = true
-            myAdsTableView.isHidden = false
+            myAdsCollectionView.isHidden = false
         }
         
         
@@ -145,14 +155,76 @@ class ProfileVC: UIViewController {
     
     
 }
-extension ProfileVC:UITableViewDelegate , UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+extension ProfileVC {
+    
+    func getProductsByUser(){
+        guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
+        
+        ProfileController.shared.getProductsByUser(completion: {
+            products, check, msg in
+            print(products.count)
+            if check == 0{
+                if self.page == 1 {
+                    self.products.removeAll()
+                    self.products = products
+                    
+                }else{
+                    self.products.append(contentsOf: products)
+                }
+                if products.isEmpty{
+                    self.page = self.page == 1 ? 1 : self.page - 1
+                    self.isTheLast = true
+                }
+                self.myAdsCollectionView.reloadData()
+            }else{
+                StaticFunctions.createErrorAlert(msg: msg)
+                self.page = self.page == 1 ? 1 : self.page - 1
+            }
+            
+            //use 128 as user id to check
+        }, userId: userId , page: page, countryId:countryId )
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+}
+
+extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileProductsCollectionViewCell", for: indexPath) as? ProfileProductsCollectionViewCell else {return UICollectionViewCell()}
+        productCell.setData(product: products[indexPath.item])
+        return productCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: myAdsCollectionView.frame.width - 30, height: 120)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == (products.count-1) && !isTheLast{
+            page+=1
+            getProductsByUser()
+            
+        }
+    }
+  
     
     
 }

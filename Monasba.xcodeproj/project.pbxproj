@@ -168,8 +168,8 @@
 		C8CCE33B2A19E29200FFAFB2 /* LocalizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedImage.swift; sourceTree = "<group>"; };
 		C8CCE33D2A19E33B00FFAFB2 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		C8CCE33F2A19E81100FFAFB2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		C8CCE3412A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileProductsCollectionViewCell.swift; path = ProfileProductsCollectionViewCell/ProfileProductsCollectionViewCell.swift; sourceTree = "<group>"; };
-		C8CCE3422A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileProductsCollectionViewCell.xib; path = ProfileProductsCollectionViewCell/ProfileProductsCollectionViewCell.xib; sourceTree = "<group>"; };
+		C8CCE3412A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C8CCE3422A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D2935A47F02BDB207D88AACE /* Pods-Monasba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monasba.debug.xcconfig"; path = "Target Support Files/Pods-Monasba/Pods-Monasba.debug.xcconfig"; sourceTree = "<group>"; };
 		FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monasba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -259,14 +259,13 @@
 		658DE51529F82AFA0015D549 /* CollectiionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C820A37F2A1A3782005AF87A /* ProfileProductsCollectionViewCell.swift */,
 				658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */,
 				658DE51B29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift */,
 				658DE51D29F82D5F0015D549 /* ProductCollectionViewCell.swift */,
 				65E54A372A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift */,
 				65E54A392A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift */,
 				C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */,
-				C8CCE3412A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.swift */,
-				C8CCE3422A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib */,
 			);
 			path = CollectiionViewCell;
 			sourceTree = "<group>";
@@ -404,6 +403,15 @@
 				FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C820A37F2A1A3782005AF87A /* ProfileProductsCollectionViewCell.swift */ = {
+			isa = PBXGroup;
+			children = (
+				C8CCE3412A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.swift */,
+				C8CCE3422A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib */,
+			);
+			path = ProfileProductsCollectionViewCell.swift;
 			sourceTree = "<group>";
 		};
 		C86678BB29FF9E270019AE81 /* Add Advs */ = {

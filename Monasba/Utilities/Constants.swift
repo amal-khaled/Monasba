@@ -109,7 +109,7 @@ class Constants {
     
     //Profile
     static let PROFILE_URL = DOMAIN + "profile"
-
+    static let PRODUCTS_BY_USER_URL = DOMAIN + "prods_by_user"
     
     
     static var COUNTRIES = [Country]()

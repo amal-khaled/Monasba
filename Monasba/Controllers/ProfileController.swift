@@ -39,4 +39,37 @@ class ProfileController {
         }, link: Constants.PROFILE_URL , param: param)
     }
     
+    
+    func getProductsByUser(completion: @escaping([Product], Int, String)->(),userId:Int, page: Int,countryId: Int){
+        
+        var param = ["page": page,
+                     "uid": userId,
+                     "country_id": countryId]
+      
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let productArray = try JSONDecoder().decode(ProductArrayPaging.self, from: data)
+                
+                if productArray.code == 200{
+                    
+                    completion(productArray.data.data, 0,"")
+                }
+                else {
+                    completion([Product](),1,productArray.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion([Product](),1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.PRODUCTS_BY_USER_URL , param: param)
+    }
+    
 }
