@@ -19,6 +19,17 @@ extension UIViewController :NVActivityIndicatorViewable{
         return emailTest.evaluate(with: testStr)
     }
     
+    
+    
+    //Share
+    func shareContent(text:String) {
+    let textToShare = [ text] as Any
+    let activityViewController = UIActivityViewController(activityItems: textToShare as! [Any], applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view
+    //activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+    self.present(activityViewController, animated: true, completion: nil)
+}
+    
     func setupView(name: String, editProfile: Bool = false, noBack: Bool = false){
         backUsingSWip()
         

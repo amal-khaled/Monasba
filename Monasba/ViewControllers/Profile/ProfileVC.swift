@@ -7,6 +7,7 @@
 
 import UIKit
 import MOLH
+import MobileCoreServices
 
 class ProfileVC: UIViewController {
 
@@ -21,14 +22,14 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var rateCountLabel: UILabel!
     @IBOutlet weak private var followersCountLabel: UILabel!
     @IBOutlet weak private var followingsCountLabel: UILabel!
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var mobileLabel: UILabel!
-    @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var regionLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak private var firstNameLabel: UILabel!
+    @IBOutlet weak private var mobileLabel: UILabel!
+    @IBOutlet weak private var countryLabel: UILabel!
+    @IBOutlet weak private var regionLabel: UILabel!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var lastNameLabel: UILabel!
+    @IBOutlet weak private var passwordLabel: UILabel!
+    @IBOutlet weak private var cityLabel: UILabel!
     
     @IBOutlet weak private var myAdsCollectionView: UICollectionView!
     
@@ -37,6 +38,8 @@ class ProfileVC: UIViewController {
     private var products = [Product]()
     private var page = 1
     private var isTheLast = false
+    private var EditProfileParams = [String:Any]()
+    private var imageType = 0 //profileImage
     
     //MARK: View LifeCycle
     override func viewDidLoad() {
@@ -123,6 +126,12 @@ class ProfileVC: UIViewController {
             myAdsCollectionView.isHidden = false
         }
         
+        EditProfileParams =
+        [
+            "id":profileModel.id ?? 0,
+            "mobile":profileModel.phone ?? "",
+            "country_id":profileModel.countryId ?? 6
+        ]
         
     }
 
@@ -132,13 +141,22 @@ class ProfileVC: UIViewController {
         dismiss(animated: true)
     }
     @IBAction func didTapEditProfileutton(_ sender: UIButton) {
+        
     }
+    
+    
+    
     @IBAction func didTapShareButton(_ sender: UIButton) {
+        shareContent(text: "\(Constants.DOMAIN) \(AppDelegate.currentUser.id ?? 0)")
     }
     @IBAction func didTapChangeCoverButton(_ sender: UIButton) {
+        imageType = 1 //Cover image
+        displayImageActionSheet()
     }
     
     @IBAction func didTapChangeUserImageButton(_ sender: UIButton) {
+        imageType = 0 // profile image
+        displayImageActionSheet()
     }
     
     @IBAction func didTapMyadsButton(_ sender: UIButton) {
@@ -157,7 +175,7 @@ class ProfileVC: UIViewController {
 }
 extension ProfileVC {
     
-    func getProductsByUser(){
+   private func getProductsByUser(){
         guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
         
         ProfileController.shared.getProductsByUser(completion: {
@@ -185,6 +203,60 @@ extension ProfileVC {
         }, userId: userId , page: page, countryId:countryId )
     }
     
+    private func displayImageActionSheet() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                let selectAction = UIAlertAction(title: "Change Image", style: .default) { (_) in
+                    self.openGallery()
+                }
+        // Customize the color of the actions
+        selectAction.setValue(#colorLiteral(red: 0, green: 0.7860813737, blue: 0.7477947474, alpha: 1), forKey: "titleTextColor")
+                alertController.addAction(selectAction)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                let imageView = UIImageView(image: UIImage(named: "imageadd"))
+                imageView.contentMode = .scaleAspectFit
+                imageView.clipsToBounds = true
+                let imageWidth: CGFloat = 20
+                let imageHeight: CGFloat = 20
+                let padding: CGFloat = 16.0
+                let customView = UIView(frame: CGRect(x: padding, y: padding, width: imageWidth, height: imageHeight))
+                imageView.frame = customView.bounds
+                customView.addSubview(imageView)
+                alertController.view.addSubview(customView)
+                alertController.view.bounds.size.height += (imageHeight + padding * 2)
+                present(alertController, animated: true, completion: nil)
+       }
+    
+    
+    private func openGallery() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    private func changeProfileImage(image:UIImage){
+        APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
+            if success {
+                StaticFunctions.createSuccessAlert(msg: message)
+            }else {
+                StaticFunctions.createErrorAlert(msg: message)
+            }
+            
+        }, link: Constants.EDIT_USER_URL, param: EditProfileParams, image: image, imageType: .profileImage)
+    }
+    
+    private func changeCoverImage(image:UIImage){
+        APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
+            if success {
+                StaticFunctions.createSuccessAlert(msg: message)
+            }else {
+                StaticFunctions.createErrorAlert(msg: message)
+            }
+            
+        }, link: Constants.EDIT_USER_URL, param: EditProfileParams, image: image, imageType: .coverImage)
+    }
 }
 
 extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -227,4 +299,34 @@ extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UIColl
   
     
     
+}
+
+//MARK: Picked image From Gallery
+
+extension ProfileVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        if let capturedImage = info[.originalImage] as? UIImage {
+            print("Captured image: \(capturedImage)")
+           // self.images.append(capturedImage as UIImage)
+            
+            
+            if imageType == 0 {
+                //profile image
+                userImageView.image = capturedImage
+                changeProfileImage(image: capturedImage)
+            }else{
+                // cover image
+                coverImageView.image = capturedImage
+                changeCoverImage(image: capturedImage)
+            }
+           
+        }
+    }
+        
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
 }

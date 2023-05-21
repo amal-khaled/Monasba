@@ -11,6 +11,12 @@ import Alamofire
 import MOLH
 
 class APIConnection{
+    
+    enum ImageType {
+        case profileImage
+        case coverImage
+    }
+    
     static var apiConnection = APIConnection()
     
     func getConnection (completion: @escaping(Data?)-> (), link : String){
@@ -75,27 +81,23 @@ class APIConnection{
         }
     }
     
-    func uploadConnection(completion: @escaping(Bool,String)-> (), link : String, param: Parameters , mediaArray:[String:Data]){
+    func uploadImageConnection(completion: @escaping(Bool,String)-> (), link : String, param: Parameters , image:UIImage , imageType:ImageType){
         
-//        var header: HTTPHeaders =
-//        [
-//            "Authorization": "Bearer \(AppDelegate.currentUser.toke ?? "")",
-//         "OS": "ios",
-//         "Accept":"application/json",
-//         "locale": MOLHLanguage.currentAppleLanguage()
-//         //         "App-Version": version as! String,
-//         //         "Os-Version": UIDevice.current.systemVersion
-//        ]
-        
+        let imageData = image.jpegData(compressionQuality: 0.1)!
         AF.upload(multipartFormData: { multipart in
             
-            
+            switch imageType {
+            case.profileImage:
+                multipart.append(imageData, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
+            case.coverImage:
+                multipart.append(imageData, withName: "cover",fileName: "file.jpg", mimeType: "image/jpg")
+            }
             
             
             for (key,value) in param {
                 multipart.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
             }
-        }, to: Constants.ADDADVS_URL)
+        }, to: link)
         .responseDecodable(of:SuccessModel.self){ response in
             
             switch response.result {

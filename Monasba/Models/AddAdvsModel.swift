@@ -34,7 +34,7 @@ struct Advs: Codable {
 // MARK: - SuccessModel
 struct SuccessModel: Codable {
     let message: String?
-    let data: ResponseData?
+  //  let data: ResponseData?
     let success: Bool?
     let statusCode: Int?
 }

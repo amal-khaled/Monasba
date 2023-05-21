@@ -37,13 +37,16 @@ class MenuVC: UIViewController {
     
     
     @IBAction func didTapLoginButton(_ sender: UIButton) {
+      //  basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+        basicNavigation(storyName: Auth_STORYBOARD, segueId: "login_nav")
     }
     
     @IBAction func didTapProfileButton(_ sender: UIButton) {
         print("didTapProfileButton")
-        let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+
     }
     
     @IBAction func didTapAddAdButton(_ sender: Any) {

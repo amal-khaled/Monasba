@@ -1986,11 +1986,6 @@
             <point key="canvasLocation" x="5502" y="-1647"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="su4-AJ-7UH">
-            <size key="intrinsicContentSize" width="150" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Icon feather-lock-1" width="17.333333969116211" height="19.333333969116211"/>
         <image name="Icon feather-user-5" width="13" height="14.666666984558105"/>

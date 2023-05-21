@@ -18,6 +18,7 @@ let PROFILE_STORYBOARD = "Profile"
 let CATEGORRY_STORYBOARD = "Category"
 let PRODUCT_STORYBOARD = "Product"
 
+
 //Auth Controllers
 let LOGIN_VCID = "login"
 let SIGNUP_VCID = "register"
@@ -59,8 +60,7 @@ let SUCCESS_ADDING_VCID = "SuccessAddingVC"
 //Profile Controllers
 
 let OTHER_USER_PROFILE_VCID = "OtherUserProfileVC"
-
-
+let PROFILE_VCID = "ProfileVC"
 
 //Constants
 
@@ -110,6 +110,7 @@ class Constants {
     //Profile
     static let PROFILE_URL = DOMAIN + "profile"
     static let PRODUCTS_BY_USER_URL = DOMAIN + "prods_by_user"
+    static let EDIT_USER_URL = DOMAIN + "user_edit"
     
     
     static var COUNTRIES = [Country]()
