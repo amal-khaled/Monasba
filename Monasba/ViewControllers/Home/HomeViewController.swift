@@ -56,10 +56,10 @@ class HomeViewController: UIViewController {
             self.typeView.isHidden = true
             
         }
-        if AppDelegate.currentUser.id == nil{
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
-
-        }
+//        if AppDelegate.currentUser.id == nil{
+//            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+//
+//        }
     }
     
    

@@ -86,11 +86,13 @@ class Constants {
     static let LIKE_AD_URL = DOMAIN + "fav_prod"
     static let REPORT_AD_URL = DOMAIN + "report_on_prods"
 
-    //report_on_prods
-    //like_prods
+    //Search
+    static let SEARCH_ADS_URL = DOMAIN + "prods_search"
+    static let SEARCH_PERSONS_URL = DOMAIN + "users_search"
+    static let SEARCH_QUESTIONS_URL = DOMAIN + "questions_search"
+
     
     //Auth
-    //signup
     static let LOGIN_URL = DOMAIN + "login"
     static let SIGN_UP_URL = DOMAIN + "signup"
     static let SIGN_UP_VERIFY_URL = DOMAIN + "verification"
@@ -98,7 +100,6 @@ class Constants {
     static let CHECK_USER_URL = DOMAIN + "check-user"
     static let RESET_PASSWORD_URL = DOMAIN + "forgot-password"
 
-    //forgot-password
     //UTILITIES
     static let COUNTRIES_URL = DOMAIN + "countries"
     static let CITIES_URL = DOMAIN + "cities_by_country_id"
