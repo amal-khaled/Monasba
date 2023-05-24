@@ -49,7 +49,7 @@ class AskTableViewCell: UITableViewCell {
         
         lbl_date.text = pastDate.timeAgoDisplay()
 
-        number_of_comments.text = "(\(ask.comments ))"
+        number_of_comments.text = "(\(ask.comments ?? 0 ))"
         if(AppDelegate.currentUser.id == ask.userId){
             delv.isHidden = false
         }else{
