@@ -70,6 +70,9 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func userClickedAction(_ sender: Any) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.user.id = product.userId 
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func backAction(_ sender: Any) {
         

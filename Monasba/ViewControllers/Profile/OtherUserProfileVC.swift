@@ -38,6 +38,9 @@ class OtherUserProfileVC: UIViewController {
     
     @IBOutlet weak var chatButton: UIButton!
     
+    
+    
+    var user = User()
     override func viewDidLoad() {
         super.viewDidLoad()
         
