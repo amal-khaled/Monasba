@@ -78,6 +78,10 @@
 		C8A72A422A00C29C00F9C26D /* OtherUserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A412A00C29C00F9C26D /* OtherUserProfileVC.swift */; };
 		C8A72A482A00C9EC00F9C26D /* ReportAboutUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A472A00C9EC00F9C26D /* ReportAboutUserVC.swift */; };
 		C8A72A4A2A00CA4700F9C26D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A492A00CA4700F9C26D /* TableViewCell.swift */; };
+		C8A988452A1DB1080001FCBB /* MyAdsCollectionVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A988432A1DB1080001FCBB /* MyAdsCollectionVewCell.swift */; };
+		C8A988462A1DB1080001FCBB /* MyAdsCollectionVewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A988442A1DB1080001FCBB /* MyAdsCollectionVewCell.xib */; };
+		C8A988482A1DB5940001FCBB /* MyAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A988472A1DB5940001FCBB /* MyAdsVC.swift */; };
+		C8A9884A2A1DD6270001FCBB /* EditAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A988492A1DD6270001FCBB /* EditAdVC.swift */; };
 		C8CCE3342A18CFC300FFAFB2 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */; };
 		C8CCE3382A18FC5F00FFAFB2 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CCE3362A18FC5F00FFAFB2 /* Menu.storyboard */; };
 		C8CCE33A2A19DE9900FFAFB2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CCE3392A19DE9900FFAFB2 /* ProfileVC.swift */; };
@@ -162,6 +166,10 @@
 		C8A72A412A00C29C00F9C26D /* OtherUserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileVC.swift; sourceTree = "<group>"; };
 		C8A72A472A00C9EC00F9C26D /* ReportAboutUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAboutUserVC.swift; sourceTree = "<group>"; };
 		C8A72A492A00CA4700F9C26D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C8A988432A1DB1080001FCBB /* MyAdsCollectionVewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsCollectionVewCell.swift; sourceTree = "<group>"; };
+		C8A988442A1DB1080001FCBB /* MyAdsCollectionVewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAdsCollectionVewCell.xib; sourceTree = "<group>"; };
+		C8A988472A1DB5940001FCBB /* MyAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsVC.swift; sourceTree = "<group>"; };
+		C8A988492A1DD6270001FCBB /* EditAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdVC.swift; sourceTree = "<group>"; };
 		C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C8CCE3372A18FC5F00FFAFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Menu.storyboard; sourceTree = "<group>"; };
 		C8CCE3392A19DE9900FFAFB2 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -259,6 +267,7 @@
 		658DE51529F82AFA0015D549 /* CollectiionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C8A988422A1DB0E40001FCBB /* MyAdsCollectioViewCell */,
 				C820A37F2A1A3782005AF87A /* ProfileProductsCollectionViewCell.swift */,
 				658DE51629F82B690015D549 /* MainCategoryCollectionViewCell.swift */,
 				658DE51B29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift */,
@@ -434,10 +443,21 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		C8A988422A1DB0E40001FCBB /* MyAdsCollectioViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C8A988432A1DB1080001FCBB /* MyAdsCollectionVewCell.swift */,
+				C8A988442A1DB1080001FCBB /* MyAdsCollectionVewCell.xib */,
+			);
+			path = MyAdsCollectioViewCell;
+			sourceTree = "<group>";
+		};
 		C8CCE3322A18CFAF00FFAFB2 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
 				C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */,
+				C8A988472A1DB5940001FCBB /* MyAdsVC.swift */,
+				C8A988492A1DD6270001FCBB /* EditAdVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -517,6 +537,7 @@
 				C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */,
 				65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */,
 				658D003C2A15F22200F512E9 /* Search.storyboard in Resources */,
+				C8A988462A1DB1080001FCBB /* MyAdsCollectionVewCell.xib in Resources */,
 				65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */,
 				C8CCE3382A18FC5F00FFAFB2 /* Menu.storyboard in Resources */,
 				65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */,
@@ -597,12 +618,14 @@
 				658DE51C29F82CDF0015D549 /* SubCategoryCollectionViewCell.swift in Sources */,
 				C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */,
 				658DE50E29F7FB920015D549 /* HomeViewController.swift in Sources */,
+				C8A9884A2A1DD6270001FCBB /* EditAdVC.swift in Sources */,
 				C836CED42A07FC880009F20D /* AdvsImagesCollectionViewCell.swift in Sources */,
 				658DE52029F82D740015D549 /* Product.swift in Sources */,
 				658DE51729F82B690015D549 /* MainCategoryCollectionViewCell.swift in Sources */,
 				65DD11F929E6845D00A3B8DD /* SceneDelegate.swift in Sources */,
 				658DE51E29F82D5F0015D549 /* ProductCollectionViewCell.swift in Sources */,
 				659F892D29FD9A3400AFA95C /* AuthCoontroller.swift in Sources */,
+				C8A988482A1DB5940001FCBB /* MyAdsVC.swift in Sources */,
 				65FC22152A1172D30077F1A2 /* ProductCommentTableViewCell.swift in Sources */,
 				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,
 				C8A72A482A00C9EC00F9C26D /* ReportAboutUserVC.swift in Sources */,
@@ -635,6 +658,7 @@
 				C8CCE33C2A19E29200FFAFB2 /* LocalizedImage.swift in Sources */,
 				65400C5629FB28E8009E07C9 /* Country.swift in Sources */,
 				659F892F29FD9AED00AFA95C /* User.swift in Sources */,
+				C8A988452A1DB1080001FCBB /* MyAdsCollectionVewCell.swift in Sources */,
 				C8CCE33A2A19DE9900FFAFB2 /* ProfileVC.swift in Sources */,
 				C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */,
 				C8CCE3342A18CFC300FFAFB2 /* MenuVC.swift in Sources */,

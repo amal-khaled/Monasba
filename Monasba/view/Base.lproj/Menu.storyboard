@@ -997,7 +997,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcI-cr-ttW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="757"/>
+            <point key="canvasLocation" x="-23" y="717"/>
+        </scene>
+        <!--My AdsVC-->
+        <scene sceneID="qB8-lQ-lRD">
+            <objects>
+                <viewController storyboardIdentifier="MyAdsVC" id="wGP-BP-dVi" customClass="MyAdsVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uRU-2a-3hF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJL-08-ejS">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BZ0-mS-k2n">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c6g-NI-SZi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VJL-08-ejS" firstAttribute="top" secondItem="c6g-NI-SZi" secondAttribute="top" id="Cn1-9C-jbj"/>
+                            <constraint firstItem="c6g-NI-SZi" firstAttribute="bottom" secondItem="VJL-08-ejS" secondAttribute="bottom" id="J3H-Vl-rcA"/>
+                            <constraint firstItem="c6g-NI-SZi" firstAttribute="trailing" secondItem="VJL-08-ejS" secondAttribute="trailing" id="nwe-1P-mof"/>
+                            <constraint firstItem="VJL-08-ejS" firstAttribute="leading" secondItem="c6g-NI-SZi" secondAttribute="leading" id="ytG-4o-MM4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myAdsCollectionView" destination="VJL-08-ejS" id="ev8-Z6-qTG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qne-SU-rS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="724"/>
         </scene>
     </scenes>
     <resources>
@@ -1006,7 +1043,7 @@
         <image name="ChangeLanguageImage" width="100" height="100"/>
         <image name="FavoritesIcon" width="23" height="23"/>
         <image name="QA" width="23" height="23"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="log-out" width="20" height="20"/>
         <image name="myAds" width="23" height="23"/>
         <image name="settings" width="25" height="25"/>

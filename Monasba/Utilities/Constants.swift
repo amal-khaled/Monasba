@@ -17,6 +17,7 @@ let ADVS_STORYBOARD = "Advs"
 let PROFILE_STORYBOARD = "Profile"
 let CATEGORRY_STORYBOARD = "Category"
 let PRODUCT_STORYBOARD = "Product"
+let MENU_STORYBOARD = "Menu"
 
 
 //Auth Controllers

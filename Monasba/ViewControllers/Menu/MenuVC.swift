@@ -55,7 +55,13 @@ class MenuVC: UIViewController {
     @IBAction func didTapFavoutitesButton(_ sender: UIButton) {
     }
     
-    @IBAction func didTapMyAdsButton(_ sender: UIButton) {
+    @IBAction func didTapMyAdsButton(_ sender: UIButton)  {
+        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "MyAdsVC") as? MyAdsVC {
+            vc.modalPresentationStyle = .fullScreen
+            vc.title = "MyAds"
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     @IBAction func didTapMyAsksButton(_ sender: UIButton) {
