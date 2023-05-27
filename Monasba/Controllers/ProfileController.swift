@@ -25,8 +25,13 @@ class ProfileController {
             guard let data = data else { return }
             
             do {
+                
                 let ProfileModel = try JSONDecoder().decode(ProfileModel.self, from: data)
-                completion(ProfileModel.data,ProfileModel.message ?? "")
+                    var token = AppDelegate.currentUser.toke
+                    AppDelegate.currentUser = ProfileModel.data ?? User()
+                    AppDelegate.currentUser.toke = token
+                    completion(ProfileModel.data,ProfileModel.message ?? "")
+                
                 
             } catch (let jerrorr){
                 

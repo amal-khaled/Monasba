@@ -1,29 +1,29 @@
 //
-//  SearchAskViewController.swift
+//  AsksViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 24/05/2023.
+//  Created by Amal Elgalant on 27/05/2023.
 //
 
 import UIKit
 
-class SearchAskViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+class AsksViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     var asks = [Ask]()
     var page = 1
     var isTheLast = false
     var searchText = ""
-
+    var cityId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getData()
+getData()
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addAsk(_ sender: Any) {
+    }
     
-
     /*
     // MARK: - Navigation
 
@@ -35,7 +35,7 @@ class SearchAskViewController: UIViewController {
     */
 
 }
-extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
+extension AsksViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return asks.count
     }
@@ -51,6 +51,7 @@ extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
    
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (asks.count-1) && !isTheLast{
             page+=1
@@ -62,9 +63,9 @@ extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
 
 }
 
-extension SearchAskViewController{
+extension AsksViewController{
     func getData(){
-        SearchController.shared.searchِAsk(completion: {
+        CategoryController.shared.getCityAsks(completion: {
             asks, check, msg in
             if check == 0{
                 if self.page == 1 {
@@ -83,14 +84,6 @@ extension SearchAskViewController{
                 StaticFunctions.createErrorAlert(msg: msg)
                 self.page = self.page == 1 ? 1 : self.page - 1
             }
-        }, id: AppDelegate.currentUser.id ?? 0, searchText: searchText, page: self.page)
+        }, id: cityId, page: self.page)
     }
-}
-extension SearchAskViewController: ContentDelegate{
-    func updateContent(searchText: String) {
-        self.searchText = searchText
-        getData()
-    }
-    
-    
 }

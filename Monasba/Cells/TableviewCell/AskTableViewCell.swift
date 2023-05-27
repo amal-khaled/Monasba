@@ -22,7 +22,8 @@ class AskTableViewCell: UITableViewCell {
     @IBOutlet weak var btn_profile: UIButton!
     @IBOutlet weak var delv: UIView!
     @IBOutlet weak var verificationImage: UIImageView!
-    
+    var showUserBtclosure : (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,7 +36,6 @@ class AskTableViewCell: UITableViewCell {
     }
     func setData(ask: Ask) {
       
-        
         img.setImageWithLoading(url: ask.pic ?? "")
         
         
@@ -71,5 +71,9 @@ class AskTableViewCell: UITableViewCell {
             img_comment.setImageWithLoading(url: ask.pic ?? "")
         }
     }
-
+    @IBAction func profileAction(_ sender: Any) {
+       showUserBtclosure!()
+        
+    }
+    
 }

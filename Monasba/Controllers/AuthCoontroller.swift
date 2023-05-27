@@ -27,6 +27,7 @@ class AuthCoontroller{
                 if userObject.code == 200{
                     AppDelegate.currentUser = userObject.data ?? User()
                     AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
+                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
                     AppDelegate.currentUser.toke = userObject.token ?? ""
                     completion( 0,userObject.msg ?? "")
                 }
@@ -50,20 +51,20 @@ class AuthCoontroller{
         var param = [
             "name": user.name ?? "",
             "mobile":user.phone ?? "",
-            "password":password ?? "",
+            "password":password ,
             "email":user.email ?? "",
             "username":user.username ?? "",
             "last_name":user.lastName ?? "",
-            "country_id":"\(user.countryId ?? -1)" ,
+            "country_id": user.countryId ?? -1 ,
             
             "regid":"1",
 
-                     ]
+        ] as [String : Any]
         if user.cityId != -1{
-            param["city_id"] = "\(user.cityId ?? 0)"
+            param["city_id"] = user.cityId ?? 0
         }
         if user.regionId != -1{
-            param["region_id"] = "\(user.regionId ?? 0)"
+            param["region_id"] = user.regionId ?? 0
             
         }
         APIConnection.apiConnection.postConnection(completion: {
@@ -76,6 +77,7 @@ class AuthCoontroller{
                 if userObject.code == 200{
                     AppDelegate.currentUser = userObject.data.data ?? User()
                     AppDelegate.defaults.set( userObject.data.token ?? "", forKey: "token")
+                    AppDelegate.defaults.set( userObject.data.data.id ?? 0, forKey: "userId")
                     AppDelegate.currentUser.toke = userObject.data.token ?? ""
                     completion( 0,userObject.msg ?? "")
                 }

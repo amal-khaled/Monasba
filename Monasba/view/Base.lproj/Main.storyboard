@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KYL-Iu-bg6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KYL-Iu-bg6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1109,6 +1109,7 @@
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
                         <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="Cat-tQ-xsp" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
+                        <segue destination="HaQ-db-TAh" kind="relationship" relationship="viewControllers" id="c6W-oO-f8M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFX-hz-FK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2099,6 +2100,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCG-JR-faM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3830" y="1566"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="IXx-fe-DXB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" id="HaQ-db-TAh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="tnT-gb-1Ds"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Hx-kn-6Dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="477"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="Ssw-yS-pZu">
