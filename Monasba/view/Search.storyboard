@@ -640,30 +640,30 @@
         <scene sceneID="lJ6-ul-EL3">
             <objects>
                 <viewController id="36G-qn-hC4" customClass="SearchPersonViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XSB-Tw-4A2">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="XSB-Tw-4A2">
                         <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KkN-3k-cb4">
-                                <rect key="frame" x="0.0" y="0.0" width="363" height="644.66666666666663"/>
+                                <rect key="frame" x="0.0" y="0.0" width="363" height="650"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ydn-FC-0in">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="91.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most popular persons" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKV-mK-lvU">
-                                                <rect key="frame" x="0.0" y="0.0" width="363" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="20"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                 <color key="textColor" red="0.26274509800000001" green="0.2901960784" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Persons relevant to your search result" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-3g-V7B">
-                                                <rect key="frame" x="0.0" y="20" width="363" height="13"/>
+                                                <rect key="frame" x="0.0" y="23" width="363" height="15.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-sv-baL">
-                                                <rect key="frame" x="0.0" y="36" width="363" height="50"/>
+                                                <rect key="frame" x="0.0" y="41.333333333333343" width="363" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="cf2-Tm-pmL"/>
@@ -672,7 +672,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2h9-JN-PMW">
-                                        <rect key="frame" x="0.0" y="86" width="363" height="558.66666666666652"/>
+                                        <rect key="frame" x="0.0" y="91.333333333333314" width="363" height="558.66666666666674"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="Lpi-bD-JIR" customClass="FollowerTableViewCell" customModule="Monasba" customModuleProvider="target">
@@ -710,19 +710,19 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="94C-dc-DgS" userLabel="name">
-                                                                                    <rect key="frame" x="63" y="9.0000000000000036" width="133" height="36.666666666666671"/>
+                                                                                    <rect key="frame" x="63" y="8.0000000000000036" width="133" height="38.666666666666671"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-Ef-kJY">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="16"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="16"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDg-JX-X0j">
-                                                                                                    <rect key="frame" x="0.0" y="3.3333333333333313" width="29" height="12.666666666666664"/>
+                                                                                                    <rect key="frame" x="0.0" y="1.3333333333333313" width="30.666666666666668" height="14.666666666666664"/>
                                                                                                     <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="12.5"/>
                                                                                                     <color key="textColor" name="#0EBFB1"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="verification" translatesAutoresizingMaskIntoConstraints="NO" id="21v-pb-Nbw">
-                                                                                                    <rect key="frame" x="34" y="0.0" width="16" height="16"/>
+                                                                                                    <rect key="frame" x="35.666666666666671" y="0.0" width="16" height="16"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="height" constant="16" id="MDp-Ta-cMe"/>
                                                                                                         <constraint firstAttribute="width" constant="16" id="Y2a-eI-ghU"/>
@@ -731,7 +731,7 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp2-LY-o18">
-                                                                                            <rect key="frame" x="0.0" y="24.999999999999996" width="26.333333333333332" height="11.666666666666668"/>
+                                                                                            <rect key="frame" x="0.0" y="24.999999999999996" width="28.333333333333332" height="13.666666666666668"/>
                                                                                             <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="11.5"/>
                                                                                             <color key="textColor" red="0.60392156860000001" green="0.65098039220000004" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                             <nil key="highlightedColor"/>
@@ -916,7 +916,7 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="333" height="55.333333333333336"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Lsk-C5-BPY">
-                                                                                    <rect key="frame" x="0.0" y="0.3333333333333357" width="119.33333333333333" height="54.999999999999993"/>
+                                                                                    <rect key="frame" x="0.0" y="0.3333333333333357" width="119.33333333333333" height="55"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FXa-PH-eX1">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="55"/>
@@ -999,6 +999,9 @@
                                                                                             <state key="normal">
                                                                                                 <color key="titleColor" name="#8F8F8F"/>
                                                                                             </state>
+                                                                                            <connections>
+                                                                                                <action selector="deleteBtnAction:" destination="4EU-Bw-BEP" eventType="touchUpInside" id="XhT-Vb-QzA"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

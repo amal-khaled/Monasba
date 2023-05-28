@@ -13,15 +13,25 @@ class AsksViewController: UIViewController {
     var asks = [Ask]()
     var page = 1
     var isTheLast = false
-    var searchText = ""
     var cityId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-getData()
+        getData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(_:)), name: NSNotification.Name(rawValue: "updateData"), object: nil)
+
         // Do any additional setup after loading the view.
     }
-    
+    @objc func updateData(_ notification: NSNotification) {
+        asks.removeAll()
+        self.page = 1
+        self.isTheLast = false
+        getData()
+        
+    }
     @IBAction func addAsk(_ sender: Any) {
+        let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:ASK_ADD_VCID ) as! AddAskViewController
+        vc.id = cityId
+        self.present(vc, animated: false, completion: nil)
     }
     
     /*
@@ -48,9 +58,31 @@ extension AsksViewController: UITableViewDelegate, UITableViewDataSource{
             vc.user.id = self.asks[indexPath.row].userId
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        cell.deleteBtclosure = {
+            CategoryController.shared.deleteAsk(completion: {
+                check, msg in
+                if check == 0{
+                    StaticFunctions.createSuccessAlert(msg: msg)
+                    self.asks.removeAll()
+                    self.page = 1
+                    self.isTheLast = false
+                    self.getData()
+                    
+                }else{
+                    StaticFunctions.createErrorAlert(msg: msg)
+
+                }
+            }, id: self.asks[indexPath.row].id ?? 0)
+        }
         return cell
     }
-   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID) as! AskRepliesViewController
+        vc.data.question = self.asks[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (asks.count-1) && !isTheLast{

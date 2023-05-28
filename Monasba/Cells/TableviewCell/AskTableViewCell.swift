@@ -23,6 +23,7 @@ class AskTableViewCell: UITableViewCell {
     @IBOutlet weak var delv: UIView!
     @IBOutlet weak var verificationImage: UIImageView!
     var showUserBtclosure : (() -> Void)? = nil
+    var deleteBtclosure : (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,6 +75,10 @@ class AskTableViewCell: UITableViewCell {
     @IBAction func profileAction(_ sender: Any) {
        showUserBtclosure!()
         
+    }
+    @IBAction func deleteBtnAction(_ sender: Any) {
+        deleteBtclosure!()
+
     }
     
 }

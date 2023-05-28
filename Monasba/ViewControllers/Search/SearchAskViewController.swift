@@ -48,6 +48,22 @@ extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
             vc.user.id = self.asks[indexPath.row].userId
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        cell.deleteBtclosure = {
+            CategoryController.shared.deleteAsk(completion: {
+                check, msg in
+                if check == 0{
+                    StaticFunctions.createSuccessAlert(msg: msg)
+                    self.asks.removeAll()
+
+                    self.page = 1
+                    self.isTheLast = false
+                    self.getData()
+                }else{
+                    StaticFunctions.createErrorAlert(msg: msg)
+
+                }
+            }, id: self.asks[indexPath.row].id ?? 0)
+        }
         return cell
     }
    

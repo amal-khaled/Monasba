@@ -49,6 +49,8 @@ let REPORT_REPLY_VCID = "report_reply"
 //Category Controllers
 let CATEGORIES_VCID = "categories"
 let ASK_CITY_VCID = "asks_city"
+let ASK_ADD_VCID = "add_ask"
+let ASK_IMAGE_PICKER_VCID = "ask_image_picker"
 
 
 //utilities
@@ -130,8 +132,14 @@ class Constants {
     //Asks
     //question_by_city_id
     static let ASKS_CITY_URL = DOMAIN + "question_by_city_id"
+    static let ASK_ADD_URL = DOMAIN + "questions_add"
+    static let ASK_DELETE_URL = DOMAIN + "questions_delete"
+    static let GET_ASK_REPLY_URL = DOMAIN + "question_comments"
 
-    
+    static let DELETE_ASK_REPLY_URL = DOMAIN + "delete_comment_on_questions"
+    static let ASK_REPLY_URL = DOMAIN + "comment_on_questions"
+    static let ASK_REPLY_REPORT_URL = DOMAIN + "questions_reports"
+    static let ASK_LIKE_REPLY_URL = DOMAIN + "like_on_questions"
     
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()

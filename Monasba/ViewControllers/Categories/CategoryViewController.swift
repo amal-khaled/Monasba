@@ -68,15 +68,12 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
                 return cell
             }
             else{
-                if StaticFunctions.isLogin(){
+               
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ask_cell", for: indexPath) as! AskSubCategoryCollectionViewCell
                     cell.setData(city: cities[indexPath.row])
                     
                     return cell
-                }else{
-                    basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
-                    return UICollectionViewCell()
-                }
+               
             }
             //ask_cell
         }
@@ -109,9 +106,13 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             NotificationCenter.default.post(name: NSNotification.Name(rawValue:"chooseCategory"), object: nil, userInfo: ["cat_index": categoryIndex, "sub_cat_index": indexPath.row, "subCategories": sideCatgeory])
             self.navigationController?.popViewController(animated: true)
             }else{
+                if StaticFunctions.isLogin(){
                 let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ASK_CITY_VCID) as! AsksViewController
-                vc.cityId = cities[indexPath.row].id ?? 0
+                vc.cityId = cities[indexPath.row].id ?? 46
                 self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+                }
                 
             }
             

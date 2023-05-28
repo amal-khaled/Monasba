@@ -22,19 +22,33 @@ struct CommentsReplayPagination: Codable {
 struct CommentsReplayObject: Codable {
    
     var comment: Comment?
+    
+    var question: Ask?
     var replies: [Reply]?
     var countReplies: Int?
     
     
     enum CodingKeys: String, CodingKey {
         case comment, replies
+        case question = "question"
         case countReplies = "count_replies"
     }
+}
+struct CommentArray: Codable{
+    var data: [Comment]!
+   
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+       
+    }
+    
+    
 }
 
 // MARK: - Comment
 struct Comment: Codable {
     var id: Int?
+    var questID: Int?
     var userId: Int?
     var productID: Int?
     var comment: String?
@@ -51,6 +65,8 @@ struct Comment: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
+        case questID = "quest_id"
+
         case userId = "uid"
         case productID = "prod_id"
         case comment = "comment"

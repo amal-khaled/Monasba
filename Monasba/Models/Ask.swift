@@ -19,6 +19,33 @@ struct AskArrayPaging: Codable{
     
 }
 
+struct AsksReplay: Codable {
+    var msg: String!
+    var data: AsksReplayObject!
+    var code: Int!
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+        case code = "statusCode"
+        case msg = "message"
+    }
+
+}
+struct AsksReplayObject: Codable {
+   
+    var comment: CommentArray?
+    
+    var question: Ask?
+   
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case comment
+        case question = "question"
+    }
+}
+
+
 struct AskArray: Codable{
     var data: [Ask]!
     var code: Int!

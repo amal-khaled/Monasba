@@ -73,6 +73,41 @@ class CommentReplyTableViewCell: UITableViewCell {
         
         
     }
+    func setData(reply: Comment){
+        
+        img.setImageWithLoading(url: reply.commentUserPic ?? "users/1675802939.png")
+        
+        lbl_name.text = reply.commentUserName
+        lbl_comment.text = reply.comment
+        lbl_comment.sizeToFit()
+        // should created response
+        
+        if let createdDate = reply.createdAt  {
+            let dateFormatter = ISO8601DateFormatter()
+            let pastDate = dateFormatter.date(from:createdDate ) ?? Date()
+            
+            lbl_date.text = pastDate.timeAgoDisplay()
+        }
+        
+        if(AppDelegate.currentUser.id == reply.userId){
+            stk_del.isHidden = false
+            btn_del.isHidden = false
+            favStackView.isHidden = true
+        }else{
+            stk_del.isHidden = true
+            btn_del.isHidden = true
+            favStackView.isHidden = false
+        }
+        if (reply.isLike ?? 0) >= 1 {
+            likeImage.image = UIImage(named: "heartFill")
+        }else {
+            likeImage.image = UIImage(named: "heartgrey")
+        }
+        
+        favCountLbl.text = String(reply.countLike ?? 0)
+        
+        
+    }
     @IBAction func deleteAction(_ sender: Any) {
         removeBtclosure!()
     }
