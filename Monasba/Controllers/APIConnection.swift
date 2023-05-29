@@ -58,10 +58,10 @@ class APIConnection{
             //         "App-Version": version as! String,
             //         "Os-Version": UIDevice.current.systemVersion
         ]
-//        print(AppDelegate.currentUser.toke)
-//        if AppDelegate.currentUser.toke != "" && AppDelegate.currentUser.toke != nil{
-//            header["Authorization"] = "Bearer \(AppDelegate.currentUser.toke ?? "")"
-//        }
+        print(AppDelegate.currentUser.toke)
+        if AppDelegate.currentUser.toke != "" && AppDelegate.currentUser.toke != nil{
+            header["Authorization"] = "Bearer \(AppDelegate.currentUser.toke ?? "")"
+        }
         print(param)
         AF.request(link, method: .post, parameters: param, headers: header).responseJSON { response in
             print("=============================================")
