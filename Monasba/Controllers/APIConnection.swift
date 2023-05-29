@@ -24,7 +24,7 @@ class APIConnection{
         [
             "OS": "ios",
             "Accept":"application/json",
-            "locale": MOLHLanguage.currentAppleLanguage()
+            "Content-Lang": MOLHLanguage.currentAppleLanguage()
             //         "App-Version": version as! String,
             //         "Os-Version": UIDevice.current.systemVersion
         ]
@@ -54,7 +54,7 @@ class APIConnection{
         [
             "OS": "ios",
             "Accept":"application/json",
-            "locale": MOLHLanguage.currentAppleLanguage()
+            "Content-Lang": MOLHLanguage.currentAppleLanguage()
             //         "App-Version": version as! String,
             //         "Os-Version": UIDevice.current.systemVersion
         ]
@@ -86,7 +86,7 @@ class APIConnection{
         [
             "OS": "ios",
             "Accept":"application/json",
-            "locale": MOLHLanguage.currentAppleLanguage()
+            "Content-Lang": MOLHLanguage.currentAppleLanguage()
             //         "App-Version": version as! String,
             //         "Os-Version": UIDevice.current.systemVersion
         ]
