@@ -14,11 +14,11 @@
         <array key="Medium.ttf">
             <string>Tajawal-Medium</string>
         </array>
-        <array key="Regular.ttf">
-            <string>Tajawal-Regular</string>
-        </array>
-        <array key="bold.ttf">
+        <array key="Tajawal-Bold.ttf">
             <string>Tajawal-Bold</string>
+        </array>
+        <array key="Tajawal-Regular.ttf">
+            <string>Tajawal-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -526,6 +526,9 @@
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tf-HF-kAd">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                            <connections>
+                                                                                                <action selector="showIImageAction:" destination="ak5-fG-ncC" eventType="touchUpInside" id="FhE-dj-qG2"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -774,13 +777,13 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfg-Aq-vT0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add comment to ad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeQ-NF-WKb">
-                                                        <rect key="frame" x="0.0" y="27" width="123.33333333333333" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="115.33333333333333" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -988,7 +991,7 @@
                             <constraint firstItem="aZV-DM-gs0" firstAttribute="top" secondItem="Avi-jk-AGY" secondAttribute="top" id="hM6-Fl-wz2"/>
                             <constraint firstItem="aZV-DM-gs0" firstAttribute="leading" secondItem="Avi-jk-AGY" secondAttribute="leading" id="n3A-Md-X9U"/>
                             <constraint firstItem="t5T-QV-BtI" firstAttribute="bottom" secondItem="aZV-DM-gs0" secondAttribute="bottom" id="tbk-D9-jPA"/>
-                            <constraint firstAttribute="bottom" secondItem="rZh-65-iBN" secondAttribute="bottom" id="xVR-iu-Wki"/>
+                            <constraint firstAttribute="bottom" secondItem="rZh-65-iBN" secondAttribute="bottom" id="xVR-iu-Wki" customClass="KeyboardLayoutConstraint" customModule="Monasba" customModuleProvider="target"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1196,7 +1199,7 @@
                             <constraint firstItem="Tz2-yA-8jr" firstAttribute="top" secondItem="EB4-7O-mYa" secondAttribute="top" id="bUb-5Y-LdS"/>
                             <constraint firstItem="hJL-mC-Y6h" firstAttribute="bottom" secondItem="Tz2-yA-8jr" secondAttribute="bottom" id="d1r-7V-Aw5"/>
                             <constraint firstItem="Tz2-yA-8jr" firstAttribute="leading" secondItem="EB4-7O-mYa" secondAttribute="leading" id="gkZ-Fd-sww"/>
-                            <constraint firstAttribute="bottom" secondItem="RMh-uu-KUE" secondAttribute="bottom" id="hUh-hz-rcl"/>
+                            <constraint firstAttribute="bottom" secondItem="RMh-uu-KUE" secondAttribute="bottom" id="hUh-hz-rcl" customClass="KeyboardLayoutConstraint" customModule="Monasba" customModuleProvider="target"/>
                             <constraint firstItem="RMh-uu-KUE" firstAttribute="leading" secondItem="hJL-mC-Y6h" secondAttribute="leading" id="uoi-oa-qd3"/>
                         </constraints>
                     </view>
@@ -1373,13 +1376,13 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Lf-Oa0" userLabel="name">
                                                                             <rect key="frame" x="55" y="4.3333333333333321" width="268" height="36.666666666666671"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dj-Ef-Ilu">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dj-Ef-Ilu">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="16"/>
                                                                                     <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13.5"/>
                                                                                     <color key="textColor" name="#0EBFB1"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d5-uT-qVP">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d5-uT-qVP">
                                                                                     <rect key="frame" x="0.0" y="23.000000000000004" width="28.333333333333332" height="13.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="11.5"/>
                                                                                     <color key="textColor" red="0.60392156860000001" green="0.65098039220000004" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1853,13 +1856,13 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="report comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-0w-Cmw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what's the reason for reeporting content / comment owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiN-ry-99h">
-                                                        <rect key="frame" x="0.0" y="27" width="365" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="348" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2020,7 +2023,7 @@
                         <viewLayoutGuide key="safeArea" id="Lfi-ES-WcL"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="II6-GX-7eF" secondAttribute="bottom" id="Kei-9Z-609"/>
+                            <constraint firstAttribute="bottom" secondItem="II6-GX-7eF" secondAttribute="bottom" id="Kei-9Z-609" customClass="KeyboardLayoutConstraint" customModule="Monasba" customModuleProvider="target"/>
                             <constraint firstItem="Lfi-ES-WcL" firstAttribute="trailing" secondItem="o4K-hn-g5H" secondAttribute="trailing" id="Qww-G8-QFh"/>
                             <constraint firstItem="o4K-hn-g5H" firstAttribute="top" secondItem="gMF-Mv-rmA" secondAttribute="top" id="Sf7-0J-E9h"/>
                             <constraint firstItem="o4K-hn-g5H" firstAttribute="leading" secondItem="gMF-Mv-rmA" secondAttribute="leading" id="fAI-5C-Yn3"/>
@@ -2064,7 +2067,7 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add reply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSm-oj-cmk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
@@ -2073,7 +2076,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add reply to ..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-JQ-jRX">
-                                                        <rect key="frame" x="0.0" y="27" width="90.333333333333329" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="84.666666666666671" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2237,7 +2240,7 @@
                         <viewLayoutGuide key="safeArea" id="au9-Xk-VoO"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="js6-eG-yYl" secondAttribute="bottom" id="0Yi-Ec-o2v"/>
+                            <constraint firstAttribute="bottom" secondItem="js6-eG-yYl" secondAttribute="bottom" id="0Yi-Ec-o2v" customClass="KeyboardLayoutConstraint" customModule="Monasba" customModuleProvider="target"/>
                             <constraint firstItem="au9-Xk-VoO" firstAttribute="bottom" secondItem="JT1-ul-DX5" secondAttribute="bottom" id="1AZ-WB-Uzs"/>
                             <constraint firstAttribute="trailing" secondItem="JT1-ul-DX5" secondAttribute="trailing" id="J7R-SJ-hNc"/>
                             <constraint firstItem="js6-eG-yYl" firstAttribute="leading" secondItem="OuH-24-Xvi" secondAttribute="leading" id="TLX-YF-5F8"/>
@@ -2259,13 +2262,16 @@
     </scenes>
     <designables>
         <designable name="3gz-XJ-CN2">
-            <size key="intrinsicContentSize" width="38" height="31"/>
+            <size key="intrinsicContentSize" width="35" height="28"/>
         </designable>
         <designable name="Val-c3-7z8">
-            <size key="intrinsicContentSize" width="38" height="31"/>
+            <size key="intrinsicContentSize" width="35" height="28"/>
         </designable>
         <designable name="irM-O6-xgk">
-            <size key="intrinsicContentSize" width="38" height="31"/>
+            <size key="intrinsicContentSize" width="35" height="28"/>
+        </designable>
+        <designable name="v7I-Sx-uQh">
+            <size key="intrinsicContentSize" width="41" height="26"/>
         </designable>
     </designables>
     <resources>

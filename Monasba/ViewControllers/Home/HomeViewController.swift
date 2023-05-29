@@ -48,9 +48,11 @@ class HomeViewController: UIViewController {
         
     }
     
- 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
 
         if categoryId == 1 {
             sell = nil

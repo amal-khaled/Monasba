@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var defaults:UserDefaults = UserDefaults.standard
     static var playerId = ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIFont.overrideInitialize()
+
         print(AppDelegate.defaults.integer(forKey: "userId"))
         MOLH.setLanguageTo( "en")
         if AppDelegate.defaults.string(forKey: "token") != nil && AppDelegate.defaults.integer(forKey: "userId") != 0{

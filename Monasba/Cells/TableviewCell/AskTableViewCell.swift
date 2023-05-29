@@ -24,6 +24,7 @@ class AskTableViewCell: UITableViewCell {
     @IBOutlet weak var verificationImage: UIImageView!
     var showUserBtclosure : (() -> Void)? = nil
     var deleteBtclosure : (() -> Void)? = nil
+    var zoomBtclosure : (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,14 +38,15 @@ class AskTableViewCell: UITableViewCell {
     }
     func setData(ask: Ask) {
       
-        img.setImageWithLoading(url: ask.pic ?? "")
+        img.setImageWithLoading(url: ask.userPic ?? "")
         
         
         lbl_name.text = ask.name ?? ""
         lbl_comment.text = ask.quest ?? ""
         lbl_comment.sizeToFit()
         
-        let dateFormatter = ISO8601DateFormatter()
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let pastDate = dateFormatter.date(from:ask.cdate ?? "") ?? Date()
         
         
@@ -81,4 +83,9 @@ class AskTableViewCell: UITableViewCell {
 
     }
     
+    @IBAction func showIImageAction(_ sender: Any) {
+        zoomBtclosure!()
+
+      
+    }
 }

@@ -12,6 +12,11 @@
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Tajawal-Bold.ttf</string>
+		<string>Tajawal-Regular.ttf</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

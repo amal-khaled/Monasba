@@ -16,11 +16,11 @@
         <array key="Medium.ttf">
             <string>Tajawal-Medium</string>
         </array>
-        <array key="Regular.ttf">
-            <string>Tajawal-Regular</string>
-        </array>
-        <array key="bold.ttf">
+        <array key="Tajawal-Bold.ttf">
             <string>Tajawal-Bold</string>
+        </array>
+        <array key="Tajawal-Regular.ttf">
+            <string>Tajawal-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -1107,9 +1107,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
+                        <segue destination="HaQ-db-TAh" kind="relationship" relationship="viewControllers" id="c6W-oO-f8M"/>
                         <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="Cat-tQ-xsp" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
-                        <segue destination="HaQ-db-TAh" kind="relationship" relationship="viewControllers" id="c6W-oO-f8M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFX-hz-FK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1180,10 +1180,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zbe-Tz-rJ7">
-                                                                <rect key="frame" x="0.0" y="46.666666666666629" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="59.666666666666636" width="359" height="16.333333333333336"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8X-Bd-ijr" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="3jC-kP-MP2"/>
@@ -1218,7 +1218,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-zj-Koh">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1226,10 +1226,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TTN-eE-FT9">
-                                                                <rect key="frame" x="0.0" y="100.33333333333337" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="116.66666666666663" width="359" height="16.333333333333343"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-qh-heE" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="aEZ-40-AKV"/>
@@ -1264,7 +1264,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDT-Gh-ddY">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1272,10 +1272,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-Ek-C4Q">
-                                                                <rect key="frame" x="0.0" y="154" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="173.66666666666663" width="359" height="16.333333333333343"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUI-H5-TZT" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="Kpd-VV-CWW"/>
@@ -1305,7 +1305,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lowest price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egF-jl-gZv">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -2050,22 +2050,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-M7-kyD">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="43.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most popular questions" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eV-8J-Pvm">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="17"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                 <color key="textColor" red="0.26274509800000001" green="0.2901960784" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions relevant to your search result" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2D-gu-KFB">
-                                                <rect key="frame" x="0.0" y="23" width="393" height="15.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="20" width="393" height="13"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKk-Zm-Wlt">
-                                                <rect key="frame" x="0.0" y="41.333333333333336" width="393" height="2"/>
+                                                <rect key="frame" x="0.0" y="36" width="393" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="Bxy-ub-KaL"/>
@@ -2074,7 +2074,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9bN-ns-9Rc">
-                                        <rect key="frame" x="0.0" y="43.333333333333314" width="393" height="808.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="38" width="393" height="814"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Zga-Ug-hTM">
                                             <size key="itemSize" width="128" height="128"/>
@@ -2124,16 +2124,16 @@
     </scenes>
     <designables>
         <designable name="MUI-H5-TZT">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="WiW-qh-heE">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="YjQ-Jm-IzJ">
-            <size key="intrinsicContentSize" width="39" height="29"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="e8X-Bd-ijr">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
     </designables>
     <resources>

@@ -74,7 +74,7 @@ class Constants {
     static var newBaseUrl:String = "https://newmonasbh.multi-kw.com/"
 
     static let DOMAIN = MAIN_DOMAIN + "api/"
-    static let IMAGE_URL = newBaseUrl + "image/"
+    static let IMAGE_URL = MAIN_DOMAIN + "image/"
     
     
     //Home

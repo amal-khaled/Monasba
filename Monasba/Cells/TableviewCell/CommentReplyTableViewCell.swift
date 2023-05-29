@@ -48,7 +48,8 @@ class CommentReplyTableViewCell: UITableViewCell {
         // should created response
         
         if let createdDate = reply.createdAt  {
-            let dateFormatter = ISO8601DateFormatter()
+            let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let pastDate = dateFormatter.date(from:createdDate ) ?? Date()
             
             lbl_date.text = pastDate.timeAgoDisplay()
@@ -83,7 +84,8 @@ class CommentReplyTableViewCell: UITableViewCell {
         // should created response
         
         if let createdDate = reply.createdAt  {
-            let dateFormatter = ISO8601DateFormatter()
+            let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let pastDate = dateFormatter.date(from:createdDate ) ?? Date()
             
             lbl_date.text = pastDate.timeAgoDisplay()

@@ -20,10 +20,17 @@ class NotificationsViewController: UIViewController {
 //    let cellSpacingHeight: CGFloat = 8
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+
         tableView.rowHeight = UITableView.automaticDimension
 getData()
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+
+    }
+    
     
     @IBAction func deleteButtonClicked(_ sender: UIButton) {
         deleteNotifications()
@@ -81,15 +88,19 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         
         if let notificatinSenderId = notiiifications[index].oid {
             switch notiiifications[index].ntype {
-            case "ASK_REPLY" :
-//                order.quest_id = "\(notificatinSenderId)"
-//                goNav("ask_repliesv","AskReplies")
+            case "ASK_REPLY" , "LIKE_REPLY_Questions":
+           
+                let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID ) as! AskRepliesViewController
+                vc.data.question = Ask()
+                vc.data.question?.id = notificatinSenderId
+                self.navigationController?.pushViewController(vc, animated: true)
                 print("ASK_REPLY")
-            case "REPLY_COMMENT":
+            case "REPLY_COMMENT" , "LIKE_REPLY":
                 print("REPLY_COMMENT")
-//                print("\(notificatinSenderId)")
-//                order.comment_id = "\(notificatinSenderId)"
-//                goNav("comment_repliesv","AskReplies")
+                let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID) as! CommentRepliesViewController
+                vc.data.comment = Comment()
+                vc.data.comment?.id = notificatinSenderId
+                self.navigationController?.pushViewController(vc, animated: true)
             case "COMMENT_ADV":
                 print("COMMENT_ADV")
                 let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
@@ -130,7 +141,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
 //                    self.msg(" هذا المستخدم تم حذف بياناته من قبل المسؤل","msg")
 //                }
             default:
-                print("FOLLOW")
+                print(notiiifications[index].ntype)
             }
         }
     }
