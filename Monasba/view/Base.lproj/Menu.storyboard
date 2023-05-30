@@ -989,6 +989,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Menu" id="BbD-6q-MAJ"/>
                     <connections>
+                        <outlet property="dateLabel" destination="S82-U2-sjh" id="QVg-Tb-2Z0"/>
                         <outlet property="loginButton" destination="f2y-Op-a2A" id="lFg-u0-CME"/>
                         <outlet property="logoutView" destination="rXc-0p-Wt0" id="D2R-gT-HOw"/>
                         <outlet property="userImageView" destination="yYO-Kv-O7Z" id="oKR-FO-iBY"/>

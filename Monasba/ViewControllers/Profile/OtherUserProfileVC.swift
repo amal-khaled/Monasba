@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import MOLH
 
 class OtherUserProfileVC: UIViewController {
 
@@ -41,19 +43,21 @@ class OtherUserProfileVC: UIViewController {
     
     
     var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userNameLabel.text = "@ISOAYED"
-        fullNameUserLabel.text = "Elsayed Ahmed"
-        UserLocationLabel.text = "Cairo,Egypt"
-        userBioLabel.text = "hello every body I'm here, hello every body I'm here "
-        userImageView.image = UIImage(named: "logo_photo")
-        CoverImageView.image = UIImage(named: "login_bg")
-        advsCountLabel.text = "1220"
-        followersCountLabel.text = "15"
-        followingsCountLabel.text = "10"
-        userVerifiedImageView.isHidden = false
+//        userNameLabel.text = "@ISOAYED"
+//        fullNameUserLabel.text = "Elsayed Ahmed"
+//        UserLocationLabel.text = "Cairo,Egypt"
+//        userBioLabel.text = "hello every body I'm here, hello every body I'm here "
+//        userImageView.image = UIImage(named: "logo_photo")
+//        CoverImageView.image = UIImage(named: "login_bg")
+//        advsCountLabel.text = "1220"
+//        followersCountLabel.text = "15"
+//        followingsCountLabel.text = "10"
+//        userVerifiedImageView.isHidden = false
+        getProfile()
 
     }
     
@@ -94,8 +98,99 @@ class OtherUserProfileVC: UIViewController {
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
         
+        
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+        Constants.userOtherId = "\(user.id ?? 0)"
+        vc.modalPresentationStyle = .fullScreen
+        
+        createRoom("\(user.id ?? 0)"){[weak self] success in
+            guard let self = self else {return}
+            if success {
+                self.present(vc, animated: true)
+            }else{
+                StaticFunctions.createErrorAlert(msg: "Can't Create Room")
+            }
+            
+        }
     }
     
     
+}
+extension OtherUserProfileVC {
+    private func getProfile(){
+        ProfileController.shared.getProfile(completion: {[weak self] userProfile, msg in
+            guard let self = self else {return}
+            if let userProfile = userProfile {
+                print("======= profile Data ======== ")
+                print(userProfile)
+                self.bindProfileData(from: userProfile)
+               // self.getProductsByUser()
+            }
+        }, user: user)
+    }
+    
+    private func bindProfileData(from profileModel:User){
+        if let cover =  profileModel.cover {
+            if cover.contains(".png") || cover.contains(".jpg"){
+                CoverImageView.setImageWithLoading(url:profileModel.cover ?? "" )
+            }
+        }
+        if let userPic =  profileModel.pic {
+            if userPic.contains(".png") || userPic.contains(".jpg"){
+                userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
+            }
+        }
+        
+        fullNameUserLabel.text = "\(profileModel.name ?? "") \(profileModel.lastName ?? "")"
+        if profileModel.verified != 0 {
+            userVerifiedImageView.isHidden = false
+        }else{
+            userVerifiedImageView.isHidden = true
+        }
+        
+        advsCountLabel.text = "\(profileModel.numberOfProds ?? 0)"
+        followersCountLabel.text = "\(profileModel.followers ?? 0)"
+        followingsCountLabel.text = "\(profileModel.following ?? 0)"
+//        rateCountLabel.text = "\(profileModel.userRate ?? 0)"
+//        firstNameLabel.text = profileModel.name
+//        lastNameLabel.text = profileModel.lastName
+        userNameLabel.text = profileModel.username
+//        passwordLabel.text = "******"
+        
+        userBioLabel.text = profileModel.bio
+        if MOLHLanguage.currentAppleLanguage() == "en" {
+            UserLocationLabel.text = "\(profileModel.countriesNameEn ?? "") - \(profileModel.citiesNameEn ?? "")"
+        }else {
+            UserLocationLabel.text = "\(profileModel.countriesNameAr ?? "") - \(profileModel.citiesNameAr ?? "")"
+        }
+        
+        
+    }
+    
+    
+    func createRoom(_ recieverId:String, completion:@escaping (Bool)->()){
+        let params : [String: Any]  = ["rid":recieverId]
+        print(params , "Headers  \(Constants.headerProd)" )
+        guard let url = URL(string: Constants.DOMAIN+"create_room")else{return}
+        AF.request(url, method: .post, parameters: params, headers: Constants.headerProd).responseDecodable(of:RoomSuccessModel.self) { res in
+            print(res)
+            switch res.result {
+                
+            case .success(let data):
+                if let receiverId = data.data?.id {
+                   
+                    print(data)
+                    receiver.room_id = "\(receiverId)"
+                    print(receiver.room_id)
+                    completion(true)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(false)
+            }
+        }
+        
+    }
 }
 

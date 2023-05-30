@@ -24,6 +24,18 @@ extension UIViewController :NVActivityIndicatorViewable{
     }
     
     
+    func isTextEmpty(_ txt:UITextField) -> Bool{
+        guard let text = txt.text else {return false}
+        return text.isEmpty ? true : false
+    }
+    
+    func FormattedDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d-MM-YYYY"
+        formatter.locale = NSLocale(localeIdentifier: "en_USA") as Locale
+        return formatter.string(from: date)
+    }
     
     //Share
     func shareContent(text:String) {

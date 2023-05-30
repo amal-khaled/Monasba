@@ -184,5 +184,5 @@ class Constants {
     
     //chat
     static var room_id:String = "0"
-    static var headerProd:HTTPHeaders = ["Authorization":"\(AppDelegate.currentUser.toke ?? "")"]
+    static var headerProd:HTTPHeaders = ["Authorization":"Bearer \(AppDelegate.currentUser.toke ?? "")"]
 }

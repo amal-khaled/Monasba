@@ -631,7 +631,7 @@
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTa-TJ-SAX">
                                                                                 <rect key="frame" x="10" y="10" width="298" height="105.66666666666667"/>
                                                                                 <subviews>
-                                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-dp-xUx">
+                                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-dp-xUx">
                                                                                         <rect key="frame" x="4" y="4" width="290" height="97.666666666666671"/>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                         <color key="textColor" systemColor="labelColor"/>
