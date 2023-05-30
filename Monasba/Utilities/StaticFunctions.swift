@@ -51,42 +51,42 @@ class StaticFunctions {
     
     
     static func createErrorAlert(msg: String){
+
+        let banner = NotificationBanner(title: msg, subtitle: "", style: .danger)
+        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
+        banner.show(bannerPosition: .top)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            banner.dismiss()
+        }
+        
+//        let snackbar = TTGSnackbar(message: msg, duration: .middle)
 //
-//        let banner = NotificationBanner(title: msg, subtitle: "", style: .danger)
-//        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
-//        banner.show(bannerPosition: .top)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//            banner.dismiss()
-//        }
-        
-        let snackbar = TTGSnackbar(message: msg, duration: .middle)
-        
-      
-            snackbar.backgroundColor = UIColor.init(hexString: "#f44245")
-        
-        snackbar.animationType = .slideFromBottomBackToBottom
-        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
-        snackbar.messageTextFont = UIFont(name: "Tajawal-Regular", size: 14)!
-        snackbar.show()
+//
+//            snackbar.backgroundColor = UIColor.init(hexString: "#f44245")
+//
+//        snackbar.animationType = .slideFromBottomBackToBottom
+//        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
+//        snackbar.messageTextFont = UIFont(name: "Tajawal-Regular", size: 14)!
+//        snackbar.show()
         
     }
     static func createSuccessAlert(msg: String){
        
-//        let banner = NotificationBanner(title: msg, subtitle: "", style: .success)
-//        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
-//        banner.show(bannerPosition: .top)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//            banner.dismiss()
-//        }
-        let snackbar = TTGSnackbar(message: msg, duration: .middle)
-        
+        let banner = NotificationBanner(title: msg, subtitle: "", style: .success)
+        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
+        banner.show(bannerPosition: .top)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            banner.dismiss()
+        }
+//        let snackbar = TTGSnackbar(message: msg, duration: .middle)
+//
+//
+//            snackbar.backgroundColor = UIColor.init(hexString: "#0EBFB1")
+//
+//        snackbar.animationType = .slideFromBottomBackToBottom
+//        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
       
-            snackbar.backgroundColor = UIColor.init(hexString: "#0EBFB1")
-        
-        snackbar.animationType = .slideFromBottomBackToBottom
-        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
-      
-        snackbar.show()
+//        snackbar.show()
     }
     static func enableBtn(btn: UIButton, status check: Bool){
         if check{

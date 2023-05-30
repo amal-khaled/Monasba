@@ -30,6 +30,12 @@ getData()
         self.navigationController?.navigationBar.isHidden = false
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if !StaticFunctions.isLogin(){
+            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+
+        }
+    }
     
     
     @IBAction func deleteButtonClicked(_ sender: UIButton) {
