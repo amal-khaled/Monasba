@@ -14,10 +14,9 @@ class ProfileController {
     func getProfile(completion: @escaping(User?, String)->(),user:User){
         
         var param = [
-            //"id": "\(user.id ?? 0)",
-            "id" :"2359",
+            "id" :AppDelegate.currentUser.id ?? 0,
             "anther_user_id": "0"
-        ]
+        ] as [String : Any]
         
        
         APIConnection.apiConnection.postConnection(completion: {
@@ -25,12 +24,23 @@ class ProfileController {
             guard let data = data else { return }
             
             do {
+                
                 let ProfileModel = try JSONDecoder().decode(ProfileModel.self, from: data)
-                completion(ProfileModel.data,ProfileModel.message ?? "")
+                    var token = AppDelegate.currentUser.toke
+                    AppDelegate.currentUser = ProfileModel.data ?? User()
+                    AppDelegate.currentUser.toke = token
+                AppDelegate.defaults.set( AppDelegate.currentUser.toke, forKey: "token")
+                AppDelegate.defaults.set(AppDelegate.currentUser.id ?? 0, forKey: "userId")
+                    completion(ProfileModel.data,ProfileModel.message ?? "")
+                
                 
             } catch (let jerrorr){
                 
                 print(jerrorr)
+                AppDelegate.currentUser = User()
+                AppDelegate.defaults.removeObject(forKey: "token")
+                AppDelegate.defaults.removeObject(forKey: "userId") 
+
                 completion(nil,SERVER_ERROR)
                 
                 

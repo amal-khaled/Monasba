@@ -7,26 +7,66 @@
 
 import UIKit
 import MOLH
+import FirebaseMessaging
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     static var currentUser = User()
-
+    
     static var defaults:UserDefaults = UserDefaults.standard
-
+    static var playerId = ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: "#0EBFB1")
-        if let token = AppDelegate.defaults.string(forKey:"token"){
-            AppDelegate.currentUser.toke = token
-        }
-        MOLH.setLanguageTo( "en")
+        UIFont.overrideInitialize()
 
+        print(AppDelegate.defaults.integer(forKey: "userId"))
+        MOLH.setLanguageTo( "en")
+        if AppDelegate.defaults.string(forKey: "token") != nil && AppDelegate.defaults.integer(forKey: "userId") != 0{
+            
+            AppDelegate.currentUser.toke = AppDelegate.defaults.string(forKey: "token")
+            AppDelegate.currentUser.id = AppDelegate.defaults.integer(forKey: "userId")
+            ProfileController.shared.getProfile(completion: {user,msg in
+                    self.checkNotificationToken()
+                
+            }, user: AppDelegate.currentUser)
+        }else{
+            checkNotificationToken()
+        }
         getCounties()
         getCities()
         
+        
+        FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
+        
+        application.registerForRemoteNotifications()
+        Messaging.messaging().delegate = self
         return true
+    }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // refreshedToken is variable. I use it in viewcontroller.
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching remote instange ID: \(error)")
+            } else if let token = token {
+                print("Remote instance ID token: \(token)")
+                AppDelegate.playerId = token
+            }
+        }
+    }
+    func checkNotificationToken(){
+        if AppDelegate.defaults.string(forKey: "playerId") != nil{
+            
+            AppDelegate.playerId = AppDelegate.defaults.string(forKey: "playerId") ?? ""
+            NotificationsController.shared.saveToken(token: AppDelegate.playerId)
+            
+        }
     }
     
     func getCounties(){
@@ -42,19 +82,136 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }, countryId: 6)
     }
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    
 }
 
+
+extension AppDelegate : UNUserNotificationCenterDelegate{
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification) async
+    -> UNNotificationPresentationOptions {
+        let userInfo = notification.request.content.userInfo
+        let title = notification.request.content.title
+        print(userInfo)
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // ...
+        
+        // Print full message.
+        
+        //   print("notification Title ",title)
+        
+        // Change this to your preferred presentation option
+        return [[.alert, .sound]]
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse) async {
+        let userInfo = response.notification.request.content.userInfo
+        
+        print(userInfo)
+        if UIApplication.shared.applicationState == .active {
+            
+            //              if let aps = userInfo as? NSDictionary {
+            //                            print(aps)
+            //                  if let apsDidt = aps["a_data"] as? NSDictionary{
+            //                     print(apsDidt)
+            //
+            //                      if let nftype = apsDidt["ntype"]  as? String {
+            //                          print(nftype)
+            //                      }
+            ////                      if let oid = (apsDidt as! NSDictionary).value(forKey: "oid") as? String {
+            ////                          print(oid)
+            ////                      }
+            ////                          if let notification_type = alertDict.value(forKey: "name") as? String {
+            ////
+            ////                          }
+            //
+            //                      }}}
+            print(userInfo["fid"] as? Int)
+            
+            if let ntype = userInfo["ntype"] as? String {
+                print(ntype)
+            }
+            // ...
+            
+            // With swizzling disabled you must let Messaging know about the message, for Analytics
+            // Messaging.messaging().appDidReceiveMessage(userInfo)
+            
+            // Print full message.
+            
+        }
+        
+    }
+    
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async
+    -> UIBackgroundFetchResult {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo["gcm.Message_ID"] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print("user Data ",userInfo)
+        
+        return UIBackgroundFetchResult.newData
+    }
+    
+    
+    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+                return json
+            } catch {
+                print("Something went wrong")
+            }
+        }
+        return nil
+    }
+    
+}
+
+
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        
+        
+        
+        AppDelegate.playerId = fcmToken ?? ""
+        NotificationsController.shared.saveToken( token: fcmToken ?? "")
+
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+        
+    }
+    
+    
+}

@@ -36,6 +36,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
@@ -46,8 +48,12 @@ class HomeViewController: UIViewController {
         
     }
     
- 
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+
+    }
     override func viewWillAppear(_ animated: Bool) {
+
         if categoryId == 1 {
             sell = nil
             typeLbl.text = "All"

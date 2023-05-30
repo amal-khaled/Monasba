@@ -1,14 +1,14 @@
 //
-//  ReplyViewController.swift
+//  ReplyAskViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 15/05/2023.
+//  Created by Amal Elgalant on 28/05/2023.
 //
 
 import UIKit
 import TransitionButton
 
-class ReplyViewController: UIViewController {
+class ReplyAskViewController: UIViewController {
     
     @IBOutlet weak var commentTF: UITextView!
     @IBOutlet var textFields: [UITextView]!
@@ -44,7 +44,7 @@ class ReplyViewController: UIViewController {
      */
     
 }
-extension ReplyViewController : UITextViewDelegate{
+extension ReplyAskViewController : UITextViewDelegate{
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         let (valid , message) = ValidTextView(textField: textView)
         
@@ -55,7 +55,7 @@ extension ReplyViewController : UITextViewDelegate{
     
     
 }
-extension ReplyViewController{
+extension ReplyAskViewController{
     
     
     func ValidTextView(textField : UITextView)->(Bool, String?) {
@@ -95,7 +95,7 @@ extension ReplyViewController{
         if Reachability.isConnectedToNetwork(){
             self.sendBtn.startAnimation()
             
-            ProductController.shared.replyComment(completion: {
+            CategoryController.shared.replyAsk(completion: {
                 check, msg in
                 self.sendBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
                 StaticFunctions.enableBtnWithoutAlpha(btn: self.sendBtn, status: true)

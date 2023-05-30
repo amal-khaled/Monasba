@@ -12,6 +12,7 @@ import PhoneNumberKit
 import NotificationBannerSwift
 import CoreLocation
 import MOLH
+import TTGSnackbar
 
 class StaticFunctions {
     
@@ -50,33 +51,42 @@ class StaticFunctions {
     
     
     static func createErrorAlert(msg: String){
-        //        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-        //        vc.present(alert, animated: true, completion: {
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-        //                alert.dismiss(animated: true, completion: nil)
-        //            })
-        //        })
-        let banner = NotificationBanner(title: msg, subtitle: "", style: .danger)
-        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
-        banner.show(bannerPosition: .top)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            banner.dismiss()
-        }
+//
+//        let banner = NotificationBanner(title: msg, subtitle: "", style: .danger)
+//        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
+//        banner.show(bannerPosition: .top)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            banner.dismiss()
+//        }
+        
+        let snackbar = TTGSnackbar(message: msg, duration: .middle)
+        
+      
+            snackbar.backgroundColor = UIColor.init(hexString: "#f44245")
+        
+        snackbar.animationType = .slideFromBottomBackToBottom
+        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
+        snackbar.messageTextFont = UIFont(name: "Tajawal-Regular", size: 14)!
+        snackbar.show()
         
     }
     static func createSuccessAlert(msg: String){
-        //        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-        //        vc.present(alert, animated: true, completion: {
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-        //                alert.dismiss(animated: true, completion: nil)
-        //            })
-        //        })
-        let banner = NotificationBanner(title: msg, subtitle: "", style: .success)
-        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
-        banner.show(bannerPosition: .top)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            banner.dismiss()
-        }
+       
+//        let banner = NotificationBanner(title: msg, subtitle: "", style: .success)
+//        ///banner.backgroundColor = UIColor(rgb: Constant.greenColor)
+//        banner.show(bannerPosition: .top)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            banner.dismiss()
+//        }
+        let snackbar = TTGSnackbar(message: msg, duration: .middle)
+        
+      
+            snackbar.backgroundColor = UIColor.init(hexString: "#0EBFB1")
+        
+        snackbar.animationType = .slideFromBottomBackToBottom
+        snackbar.messageTextAlign = MOLHLanguage.currentAppleLanguage() == "en" ? .left : .right
+      
+        snackbar.show()
     }
     static func enableBtn(btn: UIButton, status check: Bool){
         if check{

@@ -46,10 +46,9 @@ class ProductCommentTableViewCell: UITableViewCell {
         }
          name.text = comment.commentUserName
 
-        let dateFormatter = ISO8601DateFormatter()
-        let pastDate = dateFormatter.date(from:comment.date ?? "") ?? Date()
-        
-        
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let pastDate = dateFormatter.date(from:comment.date ?? "")!
         date.text = pastDate.timeAgoDisplay()
 
          commentLbl.text = comment.comment

@@ -225,6 +225,40 @@ class ProductController{
             
         }, link: Constants.LIKE_COMMENT_URL , param: param)
     }
+    func likeReply(completion: @escaping( Int, String)->(), id: Int){
+        
+        let param = ["comment_id": id,
+                     "uid": AppDelegate.currentUser.id ?? 0,"like_type":"0"
+        ] as [String : Any]
+        
+      
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.LIKE_COMMENT_URL , param: param)
+    }
     func likeAd(completion: @escaping( Int, String)->(), id: Int){
         
         let param = ["prod_id": id,
@@ -294,5 +328,102 @@ class ProductController{
             }
             
         }, link: Constants.REPORT_AD_URL , param: param)
+    }
+    func getCommentsReply(completion: @escaping(CommentsReplayObject, Int, String)->(), id: Int){
+        
+        let param = ["id": id]
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let commentsReplayPagination = try JSONDecoder().decode(CommentsReplayPagination.self, from: data)
+                
+                if commentsReplayPagination.code == 200{
+                    
+                    completion(commentsReplayPagination.data, 0 ,"")
+                }
+                else {
+                    completion(CommentsReplayObject(),1,commentsReplayPagination.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(CommentsReplayObject(),1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.COMMENT_REPLY_URL , param: param)
+    }
+    func flagReply(completion: @escaping( Int, String)->(), id: Int, comment: String){
+        
+        let param = ["reply_id": id,
+                     "reason": comment] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.REPORT_REPLY_URL , param: param)
+    }
+    func deleteReply(completion: @escaping( Int, String)->(), id: Int){
+        
+        let param = ["id": id,
+                     ] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.DELETE_REPLY_URL , param: param)
     }
 }

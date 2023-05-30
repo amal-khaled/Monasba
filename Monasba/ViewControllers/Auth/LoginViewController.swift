@@ -68,8 +68,12 @@ class LoginViewController: UIViewController {
     @IBAction func createAction(_ sender: Any) {
         self.basicNavigation(storyName: Auth_STORYBOARD, segueId: SIGNUP_VCID)
     }
-    /*
-    // MARK: - Navigation
+    
+     @IBAction func skipAction(_ sender: Any) {
+         self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+
+     }
+    /* // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -177,6 +181,7 @@ extension LoginViewController{
                  StaticFunctions.enableBtnWithoutAlpha(btn: self.loginBtn, status: true)
 
                  if check == 0{
+                     NotificationsController.shared.saveToken( token: AppDelegate.playerId)
                      self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
 
                  }else{

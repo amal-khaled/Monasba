@@ -1,10 +1,10 @@
 //
 //  VKImageZoom.swift
-//  VKImageZoom
+//  Monasba
 //
-//  Created by Kondaiah V on 9/6/18.
-//  Copyright © 2018 Kondaiah Veeraboyina. All rights reserved.
+//  Created by Amal Elgalant on 29/05/2023.
 //
+
 
 import UIKit
 

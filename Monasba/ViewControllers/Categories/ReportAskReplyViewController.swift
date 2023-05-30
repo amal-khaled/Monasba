@@ -1,50 +1,57 @@
 //
-//  ReplyViewController.swift
+//  ReportAskReplyViewController.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 15/05/2023.
+//  Created by Amal Elgalant on 28/05/2023.
 //
 
 import UIKit
 import TransitionButton
 
-class ReplyViewController: UIViewController {
-    
+class ReportAskReplyViewController: UIViewController {
+
     @IBOutlet weak var commentTF: UITextView!
     @IBOutlet var textFields: [UITextView]!
     @IBOutlet weak var sendBtn: TransitionButton!
     var id = 0
     
+    var reportList = ["prohibited on Monasba",
+                     "Offensive or inappropriate","Identical or imitation product","Located in the wrong section","Looks like a scam", "The publisher is a fake or stolen account"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
+        
+
         // Do any additional setup after loading the view.
     }
+  
     @objc func textDidChange(_ notification: Notification){
         enableButton()
         
     }
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: false)
+
     }
     @IBAction func sendAction(_ sender: Any) {
-        reply()
+        comment()
+
     }
-    
+  
     /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
-extension ReplyViewController : UITextViewDelegate{
+extension ReportAskReplyViewController : UITextViewDelegate{
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         let (valid , message) = ValidTextView(textField: textView)
         
@@ -55,13 +62,13 @@ extension ReplyViewController : UITextViewDelegate{
     
     
 }
-extension ReplyViewController{
+extension ReportAskReplyViewController{
     
     
     func ValidTextView(textField : UITextView)->(Bool, String?) {
         if textField == commentTF{
             if commentTF.text!.count == 0{
-                return (false ,NSLocalizedString("enter your reply", comment: ""))
+                return (false ,NSLocalizedString("enter your comment", comment: ""))
                 
             }
             else {
@@ -89,20 +96,20 @@ extension ReplyViewController{
         
         StaticFunctions.enableBtn(btn: sendBtn, status: formIsValid)
     }
-      
-    func reply(){
+    
+    func comment(){
         StaticFunctions.enableBtnWithoutAlpha(btn: sendBtn, status: false)
         if Reachability.isConnectedToNetwork(){
             self.sendBtn.startAnimation()
             
-            ProductController.shared.replyComment(completion: {
+            CategoryController.shared.flagReply(completion: {
                 check, msg in
                 self.sendBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
                 StaticFunctions.enableBtnWithoutAlpha(btn: self.sendBtn, status: true)
                 
                 if check == 0{
                     StaticFunctions.createSuccessAlert(msg: msg)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue:"updateData"), object: nil)
+                  
                     self.dismiss(animated: false)
 
                     
