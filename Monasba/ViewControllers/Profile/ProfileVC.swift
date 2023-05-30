@@ -45,14 +45,20 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+       
+        
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       // getProfile()
+        getProfile()
         getProductsByUser()
     }
+      
+       
+    
     
     
     //MARK: Private Methods
@@ -74,7 +80,7 @@ class ProfileVC: UIViewController {
                 print("======= profile Data ======== ")
                 print(userProfile)
                 self.bindProfileData(from: userProfile)
-                self.getProductsByUser()
+               // self.getProductsByUser()
             }
         }, user: AppDelegate.currentUser)
     }
@@ -119,12 +125,12 @@ class ProfileVC: UIViewController {
             regionLabel.text = profileModel.regionsNameAr
         }
         
-        if profileModel.numberOfProds == 0 {
+        if products.count == 0 {
             emptyAdsLabel.isHidden = false
-            myAdsCollectionView.isHidden = true
+//            myAdsCollectionView.isHidden = true
         }else {
             emptyAdsLabel.isHidden = true
-            myAdsCollectionView.isHidden = false
+//            myAdsCollectionView.isHidden = false
         }
         
         EditProfileParams =
@@ -177,7 +183,7 @@ class ProfileVC: UIViewController {
 extension ProfileVC {
     
    private func getProductsByUser(){
-//        guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
+        guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
         
         ProfileController.shared.getProductsByUser(completion: {
             products, check, msg in
@@ -189,11 +195,14 @@ extension ProfileVC {
                     
                 }else{
                     self.products.append(contentsOf: products)
+                    
                 }
                 if products.isEmpty{
                     self.page = self.page == 1 ? 1 : self.page - 1
                     self.isTheLast = true
                 }
+                print("Count of products: \(products.count)")
+                      print("Message: \(msg)")
                 self.myAdsCollectionView.reloadData()
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)
@@ -201,7 +210,7 @@ extension ProfileVC {
             }
             
             //use 128 as user id to check
-        }, userId: 111 , page: page, countryId:6 )
+        }, userId: userId , page: page, countryId:countryId )
     }
     
     private func displayImageActionSheet() {

@@ -18,7 +18,7 @@ class ProfileController {
             "anther_user_id": "0"
         ] as [String : Any]
         
-       
+       print(param)
         APIConnection.apiConnection.postConnection(completion: {
             data  in
             guard let data = data else { return }
