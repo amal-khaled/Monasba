@@ -278,7 +278,4 @@ extension VKImageZoom: UIScrollViewDelegate {
 
 // Zoom level...
 let ZOOM_STEP = 2.0
-<<<<<<< HEAD
 
-=======
->>>>>>> main
