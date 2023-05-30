@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 
 class OtherUserProfileVC: UIViewController {
 
@@ -41,19 +42,21 @@ class OtherUserProfileVC: UIViewController {
     
     
     var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userNameLabel.text = "@ISOAYED"
-        fullNameUserLabel.text = "Elsayed Ahmed"
-        UserLocationLabel.text = "Cairo,Egypt"
-        userBioLabel.text = "hello every body I'm here, hello every body I'm here "
-        userImageView.image = UIImage(named: "logo_photo")
-        CoverImageView.image = UIImage(named: "login_bg")
-        advsCountLabel.text = "1220"
-        followersCountLabel.text = "15"
-        followingsCountLabel.text = "10"
-        userVerifiedImageView.isHidden = false
+//        userNameLabel.text = "@ISOAYED"
+//        fullNameUserLabel.text = "Elsayed Ahmed"
+//        UserLocationLabel.text = "Cairo,Egypt"
+//        userBioLabel.text = "hello every body I'm here, hello every body I'm here "
+//        userImageView.image = UIImage(named: "logo_photo")
+//        CoverImageView.image = UIImage(named: "login_bg")
+//        advsCountLabel.text = "1220"
+//        followersCountLabel.text = "15"
+//        followingsCountLabel.text = "10"
+//        userVerifiedImageView.isHidden = false
+        getProfile()
 
     }
     
@@ -97,5 +100,60 @@ class OtherUserProfileVC: UIViewController {
     }
     
     
+}
+extension OtherUserProfileVC {
+    private func getProfile(){
+        ProfileController.shared.getProfile(completion: {[weak self] userProfile, msg in
+            guard let self = self else {return}
+            if let userProfile = userProfile {
+                print("======= profile Data ======== ")
+                print(userProfile)
+                self.bindProfileData(from: userProfile)
+               // self.getProductsByUser()
+            }
+        }, user: user)
+    }
+    
+    private func bindProfileData(from profileModel:User){
+        if let cover =  profileModel.cover {
+            if cover.contains(".png") || cover.contains(".jpg"){
+                CoverImageView.setImageWithLoading(url:profileModel.cover ?? "" )
+            }
+        }
+        if let userPic =  profileModel.pic {
+            if userPic.contains(".png") || userPic.contains(".jpg"){
+                userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
+            }
+        }
+        
+        fullNameUserLabel.text = "\(profileModel.name ?? "") \(profileModel.lastName ?? "")"
+        if profileModel.verified != 0 {
+            userVerifiedImageView.isHidden = false
+        }else{
+            userVerifiedImageView.isHidden = true
+        }
+        
+        advsCountLabel.text = "\(profileModel.numberOfProds ?? 0)"
+        followersCountLabel.text = "\(profileModel.followers ?? 0)"
+        followingsCountLabel.text = "\(profileModel.following ?? 0)"
+//        rateCountLabel.text = "\(profileModel.userRate ?? 0)"
+//        firstNameLabel.text = profileModel.name
+//        lastNameLabel.text = profileModel.lastName
+        userNameLabel.text = profileModel.username
+//        passwordLabel.text = "******"
+        
+        userBioLabel.text = profileModel.bio
+        if MOLHLanguage.currentAppleLanguage() == "en" {
+            UserLocationLabel.text = "\(profileModel.countriesNameEn ?? "") - \(profileModel.citiesNameEn ?? "")"
+//            cityLabel.text = profileModel.citiesNameEn
+//            regionLabel.text = profileModel.regionsNameEn
+        }else {
+            UserLocationLabel.text = "\(profileModel.countriesNameAr ?? "") - \(profileModel.citiesNameAr ?? "")"
+//            cityLabel.text = profileModel.citiesNameAr
+//            regionLabel.text = profileModel.regionsNameAr
+        }
+        
+        
+    }
 }
 

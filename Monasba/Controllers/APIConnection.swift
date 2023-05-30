@@ -165,7 +165,7 @@ func uploadImageConnection(completion: @escaping(Bool,String)-> (), link : Strin
 }
 
 
-func uploadImagesAndVideos(images: [UIImage], videos: [URL], completionHandler: @escaping (Result<String, Error>) -> Void) {
+    func uploadImagesAndVideos(images: [UIImage], videos: [URL], completionHandler: @escaping (Swift.Result<String, Error>) -> Void) {
     let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
     
     AF.upload(multipartFormData: { multipartFormData in

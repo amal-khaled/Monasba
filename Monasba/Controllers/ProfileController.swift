@@ -13,13 +13,12 @@ class ProfileController {
     
     func getProfile(completion: @escaping(User?, String)->(),user:User){
         
-        var param = [
-            //"id": "\(user.id ?? 0)",
-            "id" :"2359",
+        let param = [
+            "id": "\(user.id ?? 0)",
             "anther_user_id": "0"
         ]
         
-       
+       print(param)
         APIConnection.apiConnection.postConnection(completion: {
             data  in
             guard let data = data else { return }
