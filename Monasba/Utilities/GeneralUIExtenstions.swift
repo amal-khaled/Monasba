@@ -661,3 +661,36 @@ extension UITableView {
         return cells
     }
 }
+
+extension UITextView {
+    func addPlaceholder(_ placeholder: String) {
+        let placeholderLabel = UILabel()
+        placeholderLabel.numberOfLines = 0
+        placeholderLabel.text = placeholder
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.font = .systemFont(ofSize: 15.0, weight: .medium)
+        placeholderLabel.sizeToFit()
+        placeholderLabel.tag = 999
+        placeholderLabel.isHidden = !self.text.isEmpty
+        
+        self.addSubview(placeholderLabel)
+        self.resizePlaceholderLabel(placeholderLabel)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textChanged), name: UITextView.textDidChangeNotification, object: nil)
+    }
+    
+    private func resizePlaceholderLabel(_ placeholderLabel: UILabel) {
+        let labelX = self.textContainer.lineFragmentPadding
+        let labelY = self.textContainerInset.top - 2
+        let labelWidth  = self.frame.width
+        let labelHeight = self.frame.height
+        
+        placeholderLabel.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelHeight)
+    }
+    
+    @objc private func textChanged() {
+        if let placeholderLabel = self.viewWithTag(999) as? UILabel {
+            placeholderLabel.isHidden = !self.text.isEmpty
+        }
+    }
+}

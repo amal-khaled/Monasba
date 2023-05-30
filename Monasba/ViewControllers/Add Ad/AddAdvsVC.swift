@@ -8,6 +8,8 @@
 import UIKit
 import DropDown
 import MOLH
+import IQKeyboardManagerSwift
+
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
@@ -298,32 +300,53 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     @IBAction func addAdBtnAction(_ sender: UIButton) {
-//        params = ["uid":"111",
-//                  "name":advsTitleTF.text!, "price":priceTF.text!,
-//                  "amount":"0", "lat": "0", "lng":"0",
-//                  "prod_size":"25","color":"red",
-//                  "color_name":"red",
-//                  "cat_id":"\(mainCatID)",
-//                  "sub_cat_id": "\(subCatID)",
-//                  "sell_cost":priceTF.text!,"errors":"",
-//                  "brand_id":"Nike",
-//                  "material_id":"",
-//                  //AppDelegate.currentUser.countryId ?? "0"
-//                  "country_id":"6",
-//                  "city_id":"\(cityId)",
-//                  "region_id":"\(regionId)",
-//                  "loc":"\(cityName) \(regionName)",
-//                  "phone":"\(phone)","wts":phone,"descr":descTextView.text!,
-//                  "has_chat":hasChat,"has_wts":hasWhats,"has_phone":hasPhone,
-//                  "tajeer_or_sell":"\(tajeer)"
-//]
-        AddAdvsController.shared.addAdvs(params: params, images: selectedImages, videos: selectedVideos) { success, message in
-            if success{
-                print(message)
-            }else{
-                print("error" , message)
+        params = [
+                        "uid":AppDelegate.currentUser.id ?? 0,
+                          "name":advsTitleTF.text!, "price":priceTF.text!,
+                          "amount":"0", "lat": "0", "lng":"0",
+                          "prod_size":"25","color":"red",
+                          "color_name":"red",
+                          "cat_id":"\(mainCatID)",
+                          "sub_cat_id": "\(subCatID)",
+                          "sell_cost":priceTF.text!,"errors":"",
+                          "brand_id":"Nike",
+                          "material_id":"",
+                          
+                          "country_id":AppDelegate.currentUser.countryId ?? "0",
+                          "city_id":"\(cityId)",
+                          "region_id":"\(regionId)",
+                          "loc":"\(cityName) \(regionName)",
+                          "phone":"\(phone)","wts":phone,"descr":descTextView.text!,
+                          "has_chat":hasChat,"has_wts":hasWhats,"has_phone":hasPhone,
+                          "tajeer_or_sell":"\(tajeer)"
+        ]
+        if  selectedImages.count <= 0{
+            StaticFunctions.createErrorAlert(msg: "ضع صورة واحدة علي الأقل للإعلان")
+        } else if isTextEmpty(advsTitleTF) {
+            StaticFunctions.createErrorAlert(msg: "ادخل عنوان الإعلان")
+        } else if isTextEmpty(priceTF) {
+            StaticFunctions.createErrorAlert(msg: "ادخل سعر بيع أو تأجير المنتج")
+        } else if isTextEmpty(newPhoneTF) && hasNewPhone {
+            StaticFunctions.createErrorAlert(msg: "ضع رقم الجوال الخاص بالتواصل")
+        }
+        else {
+            
+            AddAdvsController.shared.addAdvs(params: params, images: selectedImages, videos: selectedVideos) { success, message in
+                if success{
+                    print(message)
+                    let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SUCCESS_ADDING_VCID) as! SuccessAddingVC
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.present(vc, animated: true)
+                }else{
+                    print("error" , message)
+                    StaticFunctions.createErrorAlert(msg: message)
+                    
+                }
             }
         }
+        
+
+        
     }
     
 }
@@ -349,6 +372,8 @@ extension AddAdvsVC {
     
     //MARK: Methods
     private func setupView(){
+        
+        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.")
         configerSelectedButtons()
     }
     

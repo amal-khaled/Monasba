@@ -13,6 +13,7 @@ class MenuVC: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -27,14 +28,21 @@ class MenuVC: UIViewController {
     //MARK: Private Methods
     
     private func ConfigureUI(){
+        
+        userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
+        dateLabel.text = FormattedDate()
+        
         loginButton.shake()
         if AppDelegate.currentUser.toke == nil {
             logoutView.isHidden = false
+            logoutView.isHidden = false
         }else {
             logoutView.isHidden = true
+            loginButton.isHidden = true
         }
     }
     
+   
     
     @IBAction func didTapLoginButton(_ sender: UIButton) {
       //  basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")

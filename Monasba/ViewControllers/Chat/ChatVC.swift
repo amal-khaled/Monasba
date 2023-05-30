@@ -19,7 +19,7 @@ import Foundation
 import iRecordView
 
 @available(iOS 14.0, *)
-class chatC: ViewController,UITableViewDataSource,UITableViewDelegate,
+class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
              UIImagePickerControllerDelegate,
              UINavigationControllerDelegate,
              UIColorPickerViewControllerDelegate,
@@ -267,7 +267,7 @@ class chatC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     @IBAction func ConfirmBlockDeleteChat(_ sender: UIButton) {
         if isDelete {
-            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ,
+            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ?? 0 ,
                                            "room_id":Constants.room_id]
             print("delete room id Params ", params)
             guard let url = URL(string: Constants.DOMAIN+"destroy_room")else{return}
@@ -305,7 +305,7 @@ class chatC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //                    }
 //                }
         }else {
-            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ,
+            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ?? 0,
                                            "room_id":Constants.room_id]
             guard let url = URL(string: Constants.DOMAIN+"block_room")else{return}
             print("block room id Params ", params)
@@ -1103,7 +1103,7 @@ protocol RecordVoiceVCDelegate:AnyObject {
     func getVoiceNote(with URL:URL?)
 }
 
-extension chatC {
+extension ChatVC {
     
     
     

@@ -28,10 +28,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--ChatC-->
+        <!--ChatVC-->
         <scene sceneID="t36-69-dS3">
             <objects>
-                <viewController storyboardIdentifier="chatv" id="Yir-E8-bHQ" customClass="chatC" customModule="مناسبة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVC" id="Yir-E8-bHQ" customClass="ChatVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y7e-5y-Syz"/>
                         <viewControllerLayoutGuide type="bottom" id="b3e-Vs-tXN"/>
@@ -951,7 +951,7 @@
         <!--Send LocC-->
         <scene sceneID="VO8-zg-fCV">
             <objects>
-                <viewController storyboardIdentifier="slocv" id="oE1-x7-1Ga" customClass="SendLocC" customModule="مناسبة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="slocv" id="oE1-x7-1Ga" customClass="SendLocC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="njj-tS-cMl"/>
                         <viewControllerLayoutGuide type="bottom" id="ThP-ZK-RyP"/>

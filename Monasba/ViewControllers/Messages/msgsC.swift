@@ -414,6 +414,10 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
              }
      //        goNav("chatv","Chat")
              //Goto Chat
+             let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+             vc.modalPresentationStyle = .fullScreen
+             present(vc, animated: true)
+             
          }else {
 //             self.msg(" لم يعد بإمكانك التحدث مع هذا المستخدم تم حذف بياناتة من مناسبة ","msg")
              StaticFunctions.createErrorAlert(msg: " لم يعد بإمكانك التحدث مع هذا المستخدم تم حذف بياناتة من مناسبة ")

@@ -19,24 +19,24 @@ class AddAdvsController{
         //main_image
         AF.upload(multipartFormData: {  multipartFormData in
             // Upload the main image
-            parameters =   [            "uid":111,
-                                        "name":"test", "price":"1200",
-                                        "amount":"0", "lat": "0", "lng":"0",
-                                        "prod_size":"25","color":"red",
-                                        "color_name":"red",
-                                        "cat_id":1,
-                                        "sub_cat_id": 10,
-                                        "sell_cost":"1200","errors":"",
-                                        "brand_id":"Nike",
-                                        "material_id":"",
-                                        //AppDelegate.currentUser.countryId ?? "0"
-                                        "country_id":"6",
-                                        "city_id":47,
-                                        "region_id":7465,
-                                        "loc":" EGYPT",
-                                        "phone":"54545","wts":"211212","descr":"testt",
-                                        "has_chat":"on","has_wts":"on","has_phone":"on",
-                                        "tajeer_or_sell":0]
+//            parameters =   [            "uid":111,
+//                                        "name":"test", "price":"1200",
+//                                        "amount":"0", "lat": "0", "lng":"0",
+//                                        "prod_size":"25","color":"red",
+//                                        "color_name":"red",
+//                                        "cat_id":1,
+//                                        "sub_cat_id": 10,
+//                                        "sell_cost":"1200","errors":"",
+//                                        "brand_id":"Nike",
+//                                        "material_id":"",
+//                                        //AppDelegate.currentUser.countryId ?? "0"
+//                                        "country_id":"6",
+//                                        "city_id":47,
+//                                        "region_id":7465,
+//                                        "loc":" EGYPT",
+//                                        "phone":"54545","wts":"211212","descr":"testt",
+//                                        "has_chat":"on","has_wts":"on","has_phone":"on",
+//                                        "tajeer_or_sell":0]
             
             for (index,image) in images.enumerated() {
                 
@@ -66,8 +66,8 @@ class AddAdvsController{
                 //                    parameters["mtype[]"] = "VIDEO"
                 //                    multipartFormData.append(video, withName: "sub_image[]", fileName: "sub_video\(index).mp4", mimeType: "video/mp4")
                 //                }
-                print(parameters)
-                for (key,value) in parameters {
+                print(params)
+                for (key,value) in params {
                     multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
                 }
                 
