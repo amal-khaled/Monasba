@@ -42,10 +42,10 @@ class ProfileController {
     
     func getProductsByUser(completion: @escaping([Product], Int, String)->(),userId:Int, page: Int,countryId: Int){
         
-        var param = ["page": page,
+        let param = ["page": page,
                      "uid": userId,
                      "country_id": countryId]
-      
+      print(param)
         APIConnection.apiConnection.postConnection(completion: {
             data  in
             guard let data = data else { return }

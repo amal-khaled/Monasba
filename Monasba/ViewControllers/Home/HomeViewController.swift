@@ -97,7 +97,7 @@ class HomeViewController: UIViewController {
         
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        presentDetail(vc)
     }
     
     @objc func categoryBtnAction(){
@@ -321,8 +321,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productCollectionView{
             let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+            vc.modalPresentationStyle = .fullScreen
             vc.product = products[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
+//            self.navigationController?.pushViewController(vc, animated: true)
+            presentDetail(vc)
         }
         else if collectionView == mainCategoryCollectionView{
             self.subcategoryId = -1
