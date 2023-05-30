@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 struct AppFontName {
-    static let regular = "Tajawal-Regular"
-    static let bold = "Tajawal-Bold"
-    static let semiBold = "Tajawal-Bold"
+    static let regular = "BalooBhaijaan2-Regular"
+    static let SemiBold = "BalooBhaijaan2-Bold"
+    static let medium = "BalooBhaijaan2-Medium"
+    static let Bold = "BalooBhaijaan2-ExtraBold"
+
 }
 
 extension UIFontDescriptor.AttributeName {
@@ -23,15 +25,18 @@ extension UIFont {
     static var isOverrided: Bool = false
 
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.regular, size: size)!
+        return UIFont(name: AppFontName.SemiBold, size: size)!
     }
 
+    @objc class func mySemiBoldSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.SemiBold, size: size)!
+    }
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.bold, size: size)!
+        return UIFont(name: AppFontName.Bold, size: size)!
     }
 
-    @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.semiBold, size: size)!
+    @objc class func mediumSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.medium, size: size)!
     }
 
     @objc convenience init(myCoder aDecoder: NSCoder) {
@@ -45,10 +50,13 @@ extension UIFont {
         switch fontAttribute {
         case "CTFontRegularUsage":
             fontName = AppFontName.regular
-        case "CTFontEmphasizedUsage", "CTFontBoldUsage":
-            fontName = AppFontName.bold
-        case "CTFontObliqueUsage":
-            fontName = AppFontName.semiBold
+            
+        case "CTFontEmphasizedUsage", "CTFontBoldUsage", "CTFontSemiboldUsage":
+            fontName = AppFontName.SemiBold
+        case "CTFontHeavyUsage", "CTFontBlackUsage":
+            fontName = AppFontName.Bold
+        case "CTFontMediumUsage":
+            fontName = AppFontName.medium
         default:
             fontName = AppFontName.regular
         }
@@ -66,14 +74,18 @@ extension UIFont {
             method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
         }
 
-        if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
-            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
-            method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
+//        if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
+//            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(appBoldFontWith(ofSize:))) {
+//            method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
+//        }
+        if let semiBoldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
+            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(mySemiBoldSystemFont(ofSize:))) {
+            method_exchangeImplementations(semiBoldSystemFontMethod, myBoldSystemFontMethod)
         }
 
-        if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
-            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
-            method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+        if let mediumSystemFontMethod = class_getClassMethod(self, #selector(mediumSystemFont(ofSize:))),
+            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(mediumSystemFont(ofSize:))) {
+            method_exchangeImplementations(mediumSystemFontMethod, myItalicSystemFontMethod)
         }
 
         if let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))), // Trick to get over the lack of UIFont.init(coder:))

@@ -53,8 +53,7 @@ class NotificationTableViewCell: UITableViewCell {
         if let createdDate = userNotification.ndate  {
           
             
-            let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let dateFormatter = ISO8601DateFormatter()
             let pastDate = dateFormatter.date(from:createdDate ?? "") ?? Date()
             
             
