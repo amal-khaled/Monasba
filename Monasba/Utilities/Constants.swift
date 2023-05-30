@@ -17,6 +17,7 @@ let ADVS_STORYBOARD = "Advs"
 let PROFILE_STORYBOARD = "Profile"
 let CATEGORRY_STORYBOARD = "Category"
 let PRODUCT_STORYBOARD = "Product"
+let MENU_STORYBOARD = "Menu"
 
 //Auth Controllers
 let LOGIN_VCID = "login"
@@ -61,6 +62,14 @@ let SERVER_ERROR = "server error ... try again later".localize
 let ADDADVS_VCID = "AddAdvsVC"
 let PICKUP_MEDIA_POPUP_VCID = "PickupMediaPopupVC"
 let SUCCESS_ADDING_VCID = "SuccessAddingVC"
+
+//Edit Ads Controllers
+let EDITAD_VCID = "EditAdVC"
+
+// menu Cntrollers
+
+let MENU_VCID = "MenuVC"
+let MYADS_VCID  = "MyAdsVC"
 
 //Profile Controllers
 
@@ -146,4 +155,34 @@ class Constants {
     static var STATUS = [Country]()
 
     
+    
+    //location
+    static var lat:Double = 0
+    static var lng:Double = 0
+    static var loc:String = "موقعك علي الخريطة"
+    
+    //location order
+    static var orderLoc_represnted = false
+    static var orderLat:Double=31
+    static var orderLng:Double=31
+    static var orderLoc:String="موقعك علي الخريطة"
+    static var orderSub_loc:String=""
+    static var orderFilePath:URL?
+    static var loc_img:String = ""
+    static var api_key:String = "AIzaSyDrkcLvUTdoNRekyjFnGrDyD8D9XMJggpI"
+    //autocomplete places
+    static var tempPlace_id:String = ""
+    static var tempPlace_name:String = ""
+    
+    static var tempLat:Double = 0;
+    static var tempLng:Double = 0;
+    
+    static var otherUserPic = ""
+    static var otherUserName = ""
+    static var userOtherId = ""
+    
+    
+    //chat
+    static var room_id:String = "0"
+    static var headerProd:HTTPHeaders = ["Authorization":"\(AppDelegate.currentUser.toke ?? "")"]
 }

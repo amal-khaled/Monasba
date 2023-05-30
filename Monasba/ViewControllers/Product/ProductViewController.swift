@@ -83,12 +83,14 @@ class ProductViewController: UIViewController {
     
     @IBAction func userClickedAction(_ sender: Any) {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-        vc.user.id = product.userId 
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.user.id = product.userId
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func backAction(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
+        dismissDetail()
+//        navigationController?.popViewController(animated: true)
     }
     @IBAction func flageActiion(_ sender: Any) {
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: FLAG_VCID) as! ReportViewController

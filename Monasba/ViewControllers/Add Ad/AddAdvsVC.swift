@@ -183,7 +183,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismissDetail()
     }
     
     
@@ -336,8 +336,9 @@ extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdvsImagesCollectionViewCell", for: indexPath) as? AdvsImagesCollectionViewCell else {return UICollectionViewCell()}
-    
-        cell.imageView.image = selectedImages[indexPath.row]
+        cell.indexPath = indexPath
+        cell.delegate = self
+        cell.configureCell(images: selectedImages)
         return cell
     }
     
@@ -629,5 +630,15 @@ extension AddAdvsVC {
             self.regionButton.setTitle(self.regionName, for: .normal)
         }
     }
+    
+}
+//MARK: AdvsImagesCollectionViewCellDelegate
+
+extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
+    func didRemoveCell(indexPath: IndexPath) {
+        self.selectedImages.remove(at: indexPath.item)
+        collectionView.reloadData()
+    }
+    
     
 }

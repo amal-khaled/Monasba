@@ -87,6 +87,28 @@ extension UIView {
         animation.values = [15.0, -15.0, 15.0, -15.0, 10.0, -10.0, 5.0, -5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
+    
+    func apply_right_bubble() {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 15
+        self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner]
+    }
+    
+    func hideMe(){
+        self.isHidden = true
+    }
+    
+    func showMe(){
+        self.isHidden = false
+    }
+    func shadow(_ height:Int = 3,_ opcity:Float = 0.5){
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius)
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: height);
+        layer.shadowOpacity = opcity
+        layer.shadowPath = shadowPath.cgPath
+    }
 }
 
 @IBDesignable
@@ -300,6 +322,92 @@ extension String {
         let langBundle = Bundle(path: bundle)
         return NSLocalizedString(self, tableName: nil, bundle: langBundle!, comment: "")
     }
+    
+    
+    var formatAddress:[String:String]{
+        var map = [String:String]()
+        var subloc:String = ""
+        let new_loc = self.replacingOccurrences(of: "،Unnamed Road", with: "").replacingOccurrences(of: ",Unnamed Road", with: "").replacingOccurrences(of: "Unnamed Road", with: "شارع غير معروف")
+        
+        if new_loc.contains(","){
+            let n = new_loc.components(separatedBy: ",")
+            map["main"] = n[0]
+            for i in 1...n.count-1 {
+                subloc.append("\(n[i]) - ")
+            }
+            map["sub"] = String((subloc.dropLast(2)))
+        }else if new_loc.contains("،"){
+            let n = new_loc.components(separatedBy: "،")
+            map["main"] = n[0]
+            for i in 1...n.count-1 {
+                subloc.append("\(n[i]) - ")
+            }
+            map["sub"] = String((subloc.dropLast(2)))
+            
+        }else{
+            map["main"] = new_loc
+            map["sub"] = ""
+        }
+        return map
+    }
+    func replace(_ target: String,_ withString: String) -> String
+    {
+        return self.replacingOccurrences(of: target, with: withString)
+    }
+    
+    var formattedDateSince: String {
+        return diffDates(GetDateFromString(self)).replace("-","")
+    }
+    
+    var formattedDate: String {
+        return diffDates(GetDateFromString(self)).replace("-","")
+    }
+    
+    func diffDates(_ dateRangeEnd:Date) -> String {
+        let dateRangeStart = Date()
+        return dateDiff(dateRangeStart, dateRangeEnd)
+    }
+    
+    
+    func dateDiff(_ dateRangeStart:Date , _ dateRangeEnd:Date) -> String {
+        let components = Calendar.current.dateComponents([.month,.day,.hour,.minute,.second], from: dateRangeStart, to: dateRangeEnd)
+        if(components.month != 0){
+            return "\(components.month ?? 0) شهر"
+        }else if(components.day != 0){
+            return "\(components.day ?? 0) يوم"
+        }else if(components.hour != 0){
+            return "\(components.hour ?? 0) ساعة"
+        }else if(components.day != 0){
+            return "\(components.minute ?? 0) دقيقة"
+        }else{
+            return "\(components.second ?? 0) ثانية"
+        }
+    }
+    
+    func GetDateFromString(_ DateStr: String)-> Date
+    {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let DateArray = DateStr.components(separatedBy: " ")
+        let part1 = DateArray[0].components(separatedBy: "-")
+        let part2 = DateArray[1].components(separatedBy: ":")
+        let components = NSDateComponents()
+        components.year = Int(part1[0])!
+        components.month = Int(part1[1])!
+        components.day = Int(part1[2])!
+        components.hour = Int(part2[0])!
+        components.minute = Int(part2[1])!
+        components.second = Int(part2[2].components(separatedBy: ".")[0])!
+        components.timeZone = TimeZone(abbreviation: "UTC")
+        let date = calendar?.date(from: components as DateComponents)
+        
+        return date!
+    }
+    
+    var toUrl: URL {
+        let encoded = addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+        return URL(string: encoded!)!
+    }
+ 
 }
 
 
@@ -444,12 +552,43 @@ extension UILabel {
             }
         }
     }
+    
+    func setLineSpacing(lineSpacing: CGFloat = 1, lineHeightMultiple: CGFloat = 1.5,alignment:NSTextAlignment = .right) {
+        
+        guard let labelText = self.text else { return }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        paragraphStyle.alignment = alignment
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        let attributedString:NSMutableAttributedString
+        if let labelattributedText = self.attributedText {
+            attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+        } else {
+            attributedString = NSMutableAttributedString(string: labelText)
+        }
+        
+        // Line spacing attribute
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        
+        self.attributedText = attributedString
+    }
 }
 extension UIImageView{
     func setImageWithLoading(url: String){
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.sd_setImage(with: URL(string: "\(Constants.IMAGE_URL)\(url)"))
     }
+    
+    func localImg(src:String){
+        if(src == ""){
+            self.image = nil
+        }else{
+            self.image = UIImage(named:src)
+        }
+    }
+   
 }
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
@@ -468,5 +607,57 @@ extension UIColor {
                   green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
                   blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
                   alpha: alpha)
+    }
+}
+
+extension UITableView {
+    
+    func registerCell<Cell: UITableViewCell>(cell: Cell.Type){
+        self.register(UINib(nibName: String(describing: Cell.self), bundle: nil), forCellReuseIdentifier: String(describing: Cell.self))
+    }
+    
+    
+    func dequeue<Cell: UITableViewCell>(inx:IndexPath) -> Cell{
+        let identifier = String(describing: Cell.self)
+        
+        guard let cell = self.dequeueReusableCell(withIdentifier: identifier, for: inx) as? Cell else {
+            fatalError("Error in cell")
+        }
+        
+        return cell
+    }
+    
+    //    func configure(top:CGFloat=0,bottom:CGFloat=0,left:CGFloat=0,
+    //                   right:CGFloat=0,vspace:CGFloat=0,hspace:CGFloat=0,scroll:ScrollDirection = .vertical){
+    //        let layout: uitable = UICollectionViewFlowLayout()
+    //        layout.sectionInset = UIEdgeInsets(top: top, left:left, bottom: bottom, right: right)
+    //        layout.scrollDirection = scroll
+    //        layout.minimumInteritemSpacing = vspace
+    //        layout.minimumLineSpacing = hspace
+    //    }
+    
+    
+    func reloadData(completion: @escaping () -> ()) {
+        UIView.animate(withDuration: 0.1, animations: { self.reloadData()})
+        {_ in completion() }
+    }
+    
+    func getAllCells() -> [UITableViewCell] {
+        
+        var cells = [UITableViewCell]()
+        // assuming tableView is your self.tableView defined somewhere
+        
+        for i in 0...self.numberOfSections-1
+        {
+            for j in 0...self.numberOfRows(inSection: i) - 1
+            {
+                if let cell = self.cellForRow(at: NSIndexPath(row: j, section: i) as IndexPath) {
+                    
+                    cells.append(cell)
+                }
+                
+            }
+        }
+        return cells
     }
 }

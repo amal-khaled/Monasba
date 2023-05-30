@@ -82,9 +82,9 @@ struct Product: Codable{
     var hasWhatsapp: String?
     var hasPhone: String?
     var userId: Int?
-    
-    
-    
+    var countryId:Int?
+    var cityId: Int?
+    var regionId:Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -112,8 +112,9 @@ struct Product: Codable{
         case hasChat = "hasChat"
         case hasWhatsapp = "hasWts"
         case hasPhone = "hasPhone"
-        
-        
+        case countryId = "country_id"
+        case cityId = "city_id"
+        case regionId = "region_id"
         
         
     }

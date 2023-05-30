@@ -248,7 +248,22 @@ class StaticFunctions {
         })
         
     }
-        
+    
+   static func setImageFromAssets(_ img:UIImageView, _ src:String){
+        if(src == ""){
+            img.image = nil
+        }else{
+            img.image = UIImage(named:src)
+        }
+    }
+    
+    static func setTextColor(_ v:UIView,_ color:UIColor){
+        if let v = v as? UILabel {
+            v.textColor = color
+        }else if let v = v as? UIButton {
+            v.setTitleColor(color, for: .normal)
+        }
+    }
         
     
 }
