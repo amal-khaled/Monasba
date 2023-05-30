@@ -1108,8 +1108,8 @@
                     <connections>
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
                         <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
-                        <segue destination="Cat-tQ-xsp" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
                         <segue destination="gRK-vn-3Bk" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
+                        <segue destination="Cat-tQ-xsp" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFX-hz-FK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6038,7 +6038,7 @@ Gz8bRhtIG0pZXFlhWWRZZlloWWpZcVlzWXXR29Hg0e/R89H+0gbSE9Ig0jXSOtI+0kDSQtJE0k3SUtJY
         </image>
         <image name="logo_photo" width="90" height="90"/>
         <image name="logo_splash" width="270" height="468"/>
-        <image name="menu" width="96" height="96"/>
+        <image name="menu" width="25" height="19"/>
         <image name="noMessagesImage" width="232" height="244.66667175292969"/>
         <image name="place_black_24dp" width="17" height="22.666666030883789"/>
         <image name="square" width="13.333333015441895" height="13.333333015441895"/>
