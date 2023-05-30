@@ -38,6 +38,9 @@ class OtherUserProfileVC: UIViewController {
     
     @IBOutlet weak var chatButton: UIButton!
     
+    
+    
+    var user = User()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +59,7 @@ class OtherUserProfileVC: UIViewController {
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismissDetail()
     }
     
     @IBAction func shareBtnAction(_ sender: UIButton) {

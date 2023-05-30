@@ -89,7 +89,7 @@ extension ReplyViewController{
         
         StaticFunctions.enableBtn(btn: sendBtn, status: formIsValid)
     }
-    
+      
     func reply(){
         StaticFunctions.enableBtnWithoutAlpha(btn: sendBtn, status: false)
         if Reachability.isConnectedToNetwork(){

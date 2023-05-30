@@ -82,9 +82,9 @@ struct Product: Codable{
     var hasWhatsapp: String?
     var hasPhone: String?
     var userId: Int?
-    
-    
-    
+    var countryId:Int?
+    var cityId: Int?
+    var regionId:Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -112,8 +112,9 @@ struct Product: Codable{
         case hasChat = "hasChat"
         case hasWhatsapp = "hasWts"
         case hasPhone = "hasPhone"
-        
-        
+        case countryId = "country_id"
+        case cityId = "city_id"
+        case regionId = "region_id"
         
         
     }
@@ -138,36 +139,3 @@ struct ProductImage: Codable{
     }
 }
 
-struct Comment: Codable {
-    var id: Int?
-    var userId: Int?
-    var productID: Int?
-    var comment: String?
-    var rating: Int?
-    var date: String?
-    var updatedAt: String?
-    var createdAt: String?
-    var commentUserName: String?
-    var commentUserLastName: String?
-    var commentUserVerified: Int?
-    var commentUserPic: String?
-    var isLike: Int?
-    var countLike: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case userId = "uid"
-        case productID = "prod_id"
-        case comment = "comment"
-        case rating = "rating"
-        case date = "date"
-        case updatedAt = "updated_at"
-        case createdAt = "created_at"
-        case commentUserName = "comment_user_name"
-        case commentUserLastName = "comment_user_last_name"
-        case commentUserVerified = "comment_user_verified"
-        case commentUserPic = "comment_user_pic"
-        case isLike = "is_like"
-        case countLike = "count_like"
-    }
-}

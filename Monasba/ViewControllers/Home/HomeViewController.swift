@@ -36,6 +36,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
@@ -48,6 +50,8 @@ class HomeViewController: UIViewController {
     
  
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+
         if categoryId == 1 {
             sell = nil
             typeLbl.text = "All"
@@ -56,10 +60,10 @@ class HomeViewController: UIViewController {
             self.typeView.isHidden = true
             
         }
-        if AppDelegate.currentUser.id == nil{
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
-
-        }
+//        if AppDelegate.currentUser.id == nil{
+//            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+//
+//        }
     }
     
    
@@ -97,7 +101,7 @@ class HomeViewController: UIViewController {
         
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        presentDetail(vc)
     }
     
     @objc func categoryBtnAction(){
@@ -321,8 +325,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productCollectionView{
             let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+            vc.modalPresentationStyle = .fullScreen
             vc.product = products[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
+//            self.navigationController?.pushViewController(vc, animated: true)
+            presentDetail(vc)
         }
         else if collectionView == mainCategoryCollectionView{
             self.subcategoryId = -1

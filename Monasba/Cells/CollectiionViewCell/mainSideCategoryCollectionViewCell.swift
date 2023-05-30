@@ -16,15 +16,30 @@ class mainSideCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var divider: UIView!
     
     func setData(category:Category) {
+        if let name = category.nameAr  {
+            if name.contains("اسال"){
+                if  MOLHLanguage.currentAppleLanguage() == "en" {
+                    lbl_name.text = "ask \(AppDelegate.currentUser.countriesNameEn ?? "")"
+                }
+                else{
+                    lbl_name.text = "اسال \(AppDelegate.currentUser.countriesNameAr ?? "")"
+                    
+                }
+                cImageView.image = UIImage(named: "askImage")
+            }
+            else{
+                if  MOLHLanguage.currentAppleLanguage() == "en" {
+                    lbl_name.text = category.nameEn ?? category.nameAr ?? ""
+                }
+                else{
+                    lbl_name.text = category.nameAr ?? category.nameEn ?? ""
+                    
+                }
+                cImageView.setImageWithLoading(url: category.image ?? "")
+            }
+        }
         
-        if  MOLHLanguage.currentAppleLanguage() == "en" {
-            lbl_name.text = category.nameEn ?? category.nameAr ?? ""
-        }
-        else{
-            lbl_name.text = category.nameAr ?? category.nameEn ?? ""
-            
-        }
-        cImageView.setImageWithLoading(url: category.image ?? "")
+       
     }
     override var isSelected: Bool {
         didSet {

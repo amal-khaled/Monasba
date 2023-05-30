@@ -321,8 +321,9 @@ extension RegisterViewController{
 
                  if check == 0{
 //                     UtilitiesController.shared.SendPlayerId(playerID: AppDelegate.playerID)
+                     
                      StaticFunctions.createSuccessAlert(msg: msg)
-
+                     NotificationsController.shared.saveToken( token: AppDelegate.playerId)
                      self.basicNavigation(storyName: Auth_STORYBOARD, segueId: SIGNUP_CODE_VCID)
                  }else{
                      StaticFunctions.createErrorAlert(msg: msg)
