@@ -38,31 +38,37 @@ class MenuVC: UIViewController {
     
     @IBAction func didTapLoginButton(_ sender: UIButton) {
       //  basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
-        basicNavigation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+        basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
     }
     
     @IBAction func didTapProfileButton(_ sender: UIButton) {
         print("didTapProfileButton")
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+       // present(vc, animated: true)
+        presentDetail(vc)
 
     }
     
     @IBAction func didTapAddAdButton(_ sender: Any) {
+        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
+        
     }
+    
     
     @IBAction func didTapFavoutitesButton(_ sender: UIButton) {
     }
     
     @IBAction func didTapMyAdsButton(_ sender: UIButton)  {
-        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "MyAdsVC") as? MyAdsVC {
+        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
             vc.modalPresentationStyle = .fullScreen
-            vc.title = "MyAds"
-            navigationController?.pushViewController(vc, animated: true)
+            presentDetail(vc)
             
         }
     }
+    
     
     @IBAction func didTapMyAsksButton(_ sender: UIButton) {
     }

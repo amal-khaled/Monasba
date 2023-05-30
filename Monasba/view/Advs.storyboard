@@ -214,6 +214,9 @@
                                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                             <state key="normal" image="multiply" catalog="system"/>
+                                                                                            <connections>
+                                                                                                <action selector="didTapRemoveCellButton:" destination="07d-lF-j2g" eventType="touchUpInside" id="j9P-QH-3Uy"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <constraints>
@@ -2282,7 +2285,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Ad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXh-tR-bQu">
                                         <rect key="frame" x="146.33333333333334" y="54.666666666666664" width="55.666666666666657" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl8-Sg-Pw7">
@@ -2292,13 +2295,13 @@
                                             <constraint firstAttribute="width" constant="25" id="hV6-sz-fSn"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="" image="arrowBack"/>
+                                        <state key="normal" title="" image="IconBack"/>
                                         <connections>
                                             <action selector="backBtnAction:" destination="g4j-EK-lhm" eventType="touchUpInside" id="9ef-er-SqQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="#0EBFB1"/>
                                 <constraints>
                                     <constraint firstItem="hl8-Sg-Pw7" firstAttribute="leading" secondItem="qgN-Id-Pcc" secondAttribute="leading" constant="12" id="BV8-qt-HFk"/>
                                     <constraint firstAttribute="height" constant="90" id="N5U-o3-9T1"/>
@@ -2717,10 +2720,10 @@
             </objects>
             <point key="canvasLocation" x="7209" y="-626"/>
         </scene>
-        <!--Edit AdvC-->
+        <!--Edit AdVC-->
         <scene sceneID="CUE-hZ-BPQ">
             <objects>
-                <viewController storyboardIdentifier="editProdv" id="Nzo-dc-bqn" customClass="editAdvC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditAdVC" id="Nzo-dc-bqn" customClass="EditAdVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4k-Tu-uNC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2784,7 +2787,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
-                                                                            <action selector="editMainImage:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="VCD-UD-k4Y"/>
+                                                                            <action selector="didTapEditMainImageButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="qH0-SV-6P4"/>
                                                                         </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6e-7O-nBW">
@@ -2845,7 +2848,7 @@
                                                                             <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Xy4-WW-vnh" customClass="img_advCell" customModule="Monasba" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdvsImagesCollectionViewCell" id="Xy4-WW-vnh" customClass="AdvsImagesCollectionViewCell" customModule="Monasba" customModuleProvider="target">
                                                                                 <rect key="frame" x="15" y="12" width="122" height="105"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pni-Op-fqM">
@@ -2872,6 +2875,9 @@
                                                                                             <inset key="contentEdgeInsets" minX="14" minY="10" maxX="10" maxY="14"/>
                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                             <state key="normal" image="ic_cross_white"/>
+                                                                                            <connections>
+                                                                                                <action selector="didTapRemoveCellButton:" destination="Xy4-WW-vnh" eventType="touchUpInside" id="5zB-63-B6t"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <constraints>
@@ -2898,8 +2904,8 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <outlet property="btn_del" destination="ys4-qr-upC" id="gwB-qB-GsX"/>
-                                                                                    <outlet property="img" destination="xuS-Do-hhB" id="eFK-Kf-Yrp"/>
+                                                                                    <outlet property="imageView" destination="xuS-Do-hhB" id="wOD-Og-4Wz"/>
+                                                                                    <outlet property="removeButton" destination="ys4-qr-upC" id="8PI-1b-0eU"/>
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
@@ -2916,9 +2922,6 @@
                                                                             </imageView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPP-Oa-TLI">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="129"/>
-                                                                                <connections>
-                                                                                    <action selector="go_pick_img" destination="Nzo-dc-bqn" eventType="touchUpInside" id="isu-Ib-Thk"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2966,7 +2969,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <action selector="go_pick_img" destination="Nzo-dc-bqn" eventType="touchUpInside" id="jOW-AK-hhd"/>
+                                                                            <action selector="didTapShowPickedImageViewButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="jXw-6O-Zba"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -3060,8 +3063,23 @@
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eP-h6-EfR">
                                                                         <rect key="frame" x="0.0" y="26.333333333333378" width="360" height="123.66666666666669"/>
                                                                         <subviews>
-                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTI-nP-2Br" customClass="NextGrowingTextView" customModule="NextGrowingTextView">
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTI-nP-2Br">
                                                                                 <rect key="frame" x="10" y="10" width="340" height="105.66666666666667"/>
+                                                                                <subviews>
+                                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jjq-Rf-xrk">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="105.66666666666667"/>
+                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <color key="textColor" systemColor="labelColor"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                                    </textView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="jjq-Rf-xrk" secondAttribute="bottom" id="FjA-X3-mEo"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="jjq-Rf-xrk" secondAttribute="trailing" id="GBe-Vt-r9f"/>
+                                                                                    <constraint firstItem="jjq-Rf-xrk" firstAttribute="leading" secondItem="vTI-nP-2Br" secondAttribute="leading" id="aGI-LR-Jra"/>
+                                                                                    <constraint firstItem="jjq-Rf-xrk" firstAttribute="top" secondItem="vTI-nP-2Br" secondAttribute="top" id="ivE-Cm-sHU"/>
+                                                                                </constraints>
                                                                             </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3397,9 +3415,6 @@
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-eN-E5C">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="360" height="60"/>
                                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                                                <connections>
-                                                                                                                    <action selector="go_loc:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="00Y-NG-kCF"/>
-                                                                                                                </connections>
                                                                                                             </button>
                                                                                                         </subviews>
                                                                                                         <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -3459,9 +3474,6 @@
                                                                                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ncp-WU-Fh3">
                                                                                                                                 <rect key="frame" x="72.333333333333329" y="0.0" width="51" height="31"/>
                                                                                                                                 <color key="onTintColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                                                                                <connections>
-                                                                                                                                    <action selector="switch_price:" destination="Nzo-dc-bqn" eventType="valueChanged" id="MlD-E1-7Mk"/>
-                                                                                                                                </connections>
                                                                                                                             </switch>
                                                                                                                         </subviews>
                                                                                                                     </stackView>
@@ -3639,7 +3651,7 @@
                                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yS1-7y-bce">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                         <connections>
-                                                                                                            <action selector="rd_sell_tajeer:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="H2M-YO-soY"/>
+                                                                                                            <action selector="didTapTajeerButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="fiK-JJ-XAZ"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3688,7 +3700,7 @@
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymk-cv-pEY">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                         <connections>
-                                                                                                            <action selector="rd_sell_tajeer:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="liH-Wz-UwD"/>
+                                                                                                            <action selector="didTapSellButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="NW1-pu-BwC"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3794,7 +3806,7 @@
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L1-20-Ikx">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="46.666666666666664"/>
                                                                                                         <connections>
-                                                                                                            <action selector="rd_chat:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="9To-WK-tLE"/>
+                                                                                                            <action selector="didTapChatButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="cxR-gg-48d"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3848,7 +3860,7 @@
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-RZ-qgr">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="46.666666666666664"/>
                                                                                                         <connections>
-                                                                                                            <action selector="rd_wts:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="7ab-8x-ja0"/>
+                                                                                                            <action selector="didTapWhatsButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="yxA-Go-ZSu"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3902,7 +3914,7 @@
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhD-bX-gad">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="46.666666666666664"/>
                                                                                                         <connections>
-                                                                                                            <action selector="rd_call:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="C7a-kD-zWe"/>
+                                                                                                            <action selector="didTapCallButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="DOi-IQ-sDD"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3995,7 +4007,7 @@
                                                                                         <rect key="frame" x="311" y="0.0" width="51" height="31"/>
                                                                                         <color key="onTintColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                         <connections>
-                                                                                            <action selector="switchChanged:" destination="Nzo-dc-bqn" eventType="valueChanged" id="8jC-4H-oEa"/>
+                                                                                            <action selector="didTapSwitchPhoneButton:" destination="Nzo-dc-bqn" eventType="valueChanged" id="wHW-k6-UvY"/>
                                                                                         </connections>
                                                                                     </switch>
                                                                                 </subviews>
@@ -4044,7 +4056,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <action selector="go_next" destination="Nzo-dc-bqn" eventType="touchUpInside" id="HlN-kE-5z0"/>
+                                                                            <action selector="didTapSaveButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="Wif-FA-sHe"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUR-DR-Ytl">
@@ -4064,7 +4076,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <action selector="del_adv:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="Dc3-bC-U6K"/>
+                                                                            <action selector="didTapDeleteButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="nTV-ym-Tu5"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -4125,7 +4137,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="PriceTxetField" destination="hWz-HW-SuZ" id="cen-bX-S7I"/>
                         <outlet property="adsMainImage" destination="cHh-03-dva" id="ohc-gw-ZBu"/>
+                        <outlet property="collectionView" destination="L8u-oO-7Y7" id="eJG-HH-EKA"/>
+                        <outlet property="descTextView" destination="jjq-Rf-xrk" id="NTS-Ce-LP7"/>
                         <outlet property="has_chat_img" destination="ACR-Fw-rmF" id="i8r-Y8-brS"/>
                         <outlet property="has_chat_txt" destination="Bz4-J2-rEc" id="fr9-MV-uv7"/>
                         <outlet property="has_chatv" destination="OQI-NG-tAZ" id="Lei-vv-rsB"/>
@@ -4135,41 +4150,35 @@
                         <outlet property="has_wts_img" destination="yAU-Wu-Tb9" id="465-DS-1kJ"/>
                         <outlet property="has_wts_txt" destination="QqP-bb-Vpg" id="bq8-Za-usb"/>
                         <outlet property="has_wtsv" destination="SKF-El-Byy" id="zvA-U0-h7Z"/>
-                        <outlet property="lbl_name" destination="9DS-9y-aor" id="bC8-IM-XDa"/>
                         <outlet property="lbl_put_phone" destination="ICs-0O-oGb" id="prH-H4-UIy"/>
                         <outlet property="loc_main" destination="C4c-j9-aSx" id="2SU-qE-Qol"/>
                         <outlet property="loc_sub" destination="R1f-tg-Uui" id="jBJ-AX-yIm"/>
-                        <outlet property="lst" destination="L8u-oO-7Y7" id="mpD-Y9-jrY"/>
                         <outlet property="oneImageView" destination="IOD-gL-uDU" id="4hX-XS-T3H"/>
                         <outlet property="pricev" destination="zaD-ex-EWU" id="ia3-LO-jaX"/>
-                        <outlet property="sell_img" destination="S0R-MU-hQz" id="8ew-OL-xjr"/>
-                        <outlet property="sell_txt" destination="awc-x4-24H" id="yiC-0h-mO4"/>
-                        <outlet property="sellv" destination="msB-lu-ASt" id="Dte-8g-NYM"/>
+                        <outlet property="sellButtonImage" destination="S0R-MU-hQz" id="tNz-XN-LKe"/>
+                        <outlet property="sellLabel" destination="awc-x4-24H" id="4Ff-JZ-OcS"/>
+                        <outlet property="sellView" destination="msB-lu-ASt" id="QrU-PP-rbG"/>
                         <outlet property="sw_my_phone" destination="Bgt-oq-z3w" id="wJk-Dp-2cW"/>
                         <outlet property="sw_price" destination="Ncp-WU-Fh3" id="PPs-wg-Ka8"/>
-                        <outlet property="tajeer_img" destination="ldg-DU-C6N" id="kFy-4p-G18"/>
-                        <outlet property="tajeer_txt" destination="IAN-Lw-nVQ" id="wTF-vz-6Ja"/>
-                        <outlet property="tajeerv" destination="iVP-qH-nhP" id="NCL-1W-MN0"/>
-                        <outlet property="txt_brand" destination="8kJ-4l-P3x" id="Qqn-VZ-alb"/>
-                        <outlet property="txt_errors" destination="sm9-Me-6CO" id="Vff-Jn-LDG"/>
-                        <outlet property="txt_material" destination="DP8-r3-TW2" id="g2K-gL-BiQ"/>
+                        <outlet property="tajeerButtonImage" destination="ldg-DU-C6N" id="xnR-FI-dyJ"/>
+                        <outlet property="tajeerLabel" destination="IAN-Lw-nVQ" id="aOS-Y3-yqC"/>
+                        <outlet property="tajeerView" destination="iVP-qH-nhP" id="e9W-WF-Kl7"/>
+                        <outlet property="titleLabel" destination="9DS-9y-aor" id="cx7-VG-pYT"/>
                         <outlet property="txt_phone" destination="vo7-sS-evJ" id="9ei-oA-ZRl"/>
-                        <outlet property="txt_price" destination="hWz-HW-SuZ" id="WXQ-pg-OXt"/>
-                        <outlet property="udescr" destination="vTI-nP-2Br" id="BpD-la-OCq"/>
                         <outlet property="view_put_phone" destination="Zif-tR-yxm" id="WGb-ye-nGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E12-WF-EWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4537" y="-626"/>
+            <point key="canvasLocation" x="4536.9230769230771" y="-626.30331753554503"/>
         </scene>
     </scenes>
     <resources>
         <image name="DoneImage" width="323.66665649414062" height="385"/>
+        <image name="IconBack" width="15" height="15.666666984558105"/>
         <image name="RectangleCancelImage" width="45" height="6"/>
         <image name="addimage" width="352" height="165"/>
         <image name="addimageEnglish" width="352" height="165"/>
-        <image name="arrowBack" width="20.333333969116211" height="13.666666984558105"/>
         <image name="checkbox" width="10" height="10"/>
         <image name="ic_cross_white" width="24" height="24"/>
         <image name="imageadd" width="125" height="125"/>

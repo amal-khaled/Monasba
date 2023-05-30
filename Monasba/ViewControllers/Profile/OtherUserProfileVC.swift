@@ -59,7 +59,7 @@ class OtherUserProfileVC: UIViewController {
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismissDetail()
     }
     
     @IBAction func shareBtnAction(_ sender: UIButton) {
