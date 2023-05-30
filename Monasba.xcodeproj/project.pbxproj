@@ -562,7 +562,6 @@
 				65DD11F029E6845D00A3B8DD /* Frameworks */,
 				65DD11F129E6845D00A3B8DD /* Resources */,
 				F7C93E0049968E833C4FB180 /* [CP] Embed Pods Frameworks */,
-				4B3E5B6AF00C8450571A7F8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -634,23 +633,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B3E5B6AF00C8450571A7F8E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6C7C36FA841450037A777322 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -949,7 +931,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -985,7 +967,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;

@@ -1008,13 +1008,13 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nI8-uD-Ke8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add comment to ad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxL-09-nt0">
-                                                        <rect key="frame" x="0.0" y="27" width="115.33333333333333" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="123.33333333333333" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1219,7 +1219,7 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add reply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cI-XH-NvL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
@@ -1228,7 +1228,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add reply to ..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-Wz-fi2">
-                                                        <rect key="frame" x="0.0" y="27" width="84.666666666666671" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="90.333333333333329" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1590,13 +1590,13 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="report comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBS-fg-zEW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what's the reason for reeporting content / comment owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKW-4R-Yz2">
-                                                        <rect key="frame" x="0.0" y="27" width="348" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="365" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2431,13 +2431,13 @@
                                                 <rect key="frame" x="10" y="20" width="373" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="report comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzV-aj-YqR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what's the reason for reeporting content / comment owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-OT-nZV">
-                                                        <rect key="frame" x="0.0" y="27" width="348" height="21"/>
+                                                        <rect key="frame" x="0.0" y="27" width="365" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2620,16 +2620,16 @@
     </scenes>
     <designables>
         <designable name="1nn-tZ-NAz">
-            <size key="intrinsicContentSize" width="35" height="28"/>
+            <size key="intrinsicContentSize" width="38" height="31"/>
         </designable>
         <designable name="KWK-QE-DuK">
-            <size key="intrinsicContentSize" width="35" height="28"/>
+            <size key="intrinsicContentSize" width="38" height="31"/>
         </designable>
         <designable name="oBl-Hq-9cb">
-            <size key="intrinsicContentSize" width="35" height="28"/>
+            <size key="intrinsicContentSize" width="38" height="31"/>
         </designable>
         <designable name="zB4-Jc-N8F">
-            <size key="intrinsicContentSize" width="35" height="28"/>
+            <size key="intrinsicContentSize" width="38" height="31"/>
         </designable>
     </designables>
     <resources>

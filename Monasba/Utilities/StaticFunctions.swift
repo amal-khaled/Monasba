@@ -12,7 +12,7 @@ import PhoneNumberKit
 import NotificationBannerSwift
 import CoreLocation
 import MOLH
-import TTGSnackbar
+//import TTGSnackbar
 
 class StaticFunctions {
     
