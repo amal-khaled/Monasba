@@ -50,7 +50,8 @@ class ProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getProfile()
+       // getProfile()
+        getProductsByUser()
     }
     
     
@@ -138,7 +139,7 @@ class ProfileVC: UIViewController {
     //MARK: IBActions
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismissDetail()
     }
     @IBAction func didTapEditProfileutton(_ sender: UIButton) {
         
@@ -176,7 +177,7 @@ class ProfileVC: UIViewController {
 extension ProfileVC {
     
    private func getProductsByUser(){
-        guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
+//        guard let userId = AppDelegate.currentUser.id , let countryId = AppDelegate.currentUser.countryId else{return}
         
         ProfileController.shared.getProductsByUser(completion: {
             products, check, msg in
@@ -200,7 +201,7 @@ extension ProfileVC {
             }
             
             //use 128 as user id to check
-        }, userId: userId , page: page, countryId:countryId )
+        }, userId: 111 , page: page, countryId:6 )
     }
     
     private func displayImageActionSheet() {
