@@ -62,11 +62,11 @@ class MenuVC: UIViewController {
     }
     
     @IBAction func didTapMyAdsButton(_ sender: UIButton)  {
-//        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
-//            vc.modalPresentationStyle = .fullScreen
-//            presentDetail(vc)
-//            
-//        }
+        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
+            vc.modalPresentationStyle = .fullScreen
+            presentDetail(vc)
+            
+        }
     }
     
     

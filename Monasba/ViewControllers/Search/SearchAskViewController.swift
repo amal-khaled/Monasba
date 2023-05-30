@@ -64,7 +64,23 @@ extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
                 }
             }, id: self.asks[indexPath.row].id ?? 0)
         }
+        cell.zoomBtclosure = {
+            if let quesPicture = self.asks[indexPath.row].pic{
+                
+                let zoomCtrl = VKImageZoom()
+                zoomCtrl.image_url = URL.init(string: "\(Constants.IMAGE_URL)\(quesPicture)")
+                print("zoomCtrl.image_url ====> ",zoomCtrl.image_url , "\(Constants.IMAGE_URL)\(quesPicture)")
+                self.present(zoomCtrl, animated: true, completion: nil)
+                
+            }
+        }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID) as! AskRepliesViewController
+        vc.data.question = self.asks[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -49,6 +49,9 @@
 		65B5505B2A1C863F002D2264 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505A2A1C863F002D2264 /* SearchController.swift */; };
 		65B5505D2A1CB53E002D2264 /* SearchPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505C2A1CB53E002D2264 /* SearchPersonViewController.swift */; };
 		65B5505F2A1CB640002D2264 /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505E2A1CB640002D2264 /* FollowerTableViewCell.swift */; };
+		65C4B60F2A24850C00A59A4B /* VKImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */; };
+		65C4B6132A248C3300A59A4B /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65C4B6112A248C3300A59A4B /* Tajawal-Bold.ttf */; };
+		65C4B6142A248C3300A59A4B /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65C4B6122A248C3300A59A4B /* Tajawal-Regular.ttf */; };
 		65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */; };
 		65C7FF0229FD461D0062BFAA /* CounriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */; };
 		65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */; };
@@ -155,6 +158,9 @@
 		65B5505A2A1C863F002D2264 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		65B5505C2A1CB53E002D2264 /* SearchPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonViewController.swift; sourceTree = "<group>"; };
 		65B5505E2A1CB640002D2264 /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
+		65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKImageZoom.swift; sourceTree = "<group>"; };
+		65C4B6112A248C3300A59A4B /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
+		65C4B6122A248C3300A59A4B /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
 		65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
 		65C7FF0129FD461D0062BFAA /* CounriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounriesViewController.swift; sourceTree = "<group>"; };
 		65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +373,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		65C4B6102A248C3300A59A4B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				65C4B6112A248C3300A59A4B /* Tajawal-Bold.ttf */,
+				65C4B6122A248C3300A59A4B /* Tajawal-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		65D61ED02A15FE2200C3FC68 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +451,7 @@
 		65DD120D29E6915A00A3B8DD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				65C4B6102A248C3300A59A4B /* Fonts */,
 				65DD120E29E6915A00A3B8DD /* Constants.swift */,
 				65DD120F29E6915A00A3B8DD /* Localizable.strings */,
 				65DD121129E6915A00A3B8DD /* KeyboardLayoutConstraint.swift */,
@@ -447,6 +463,7 @@
 				65DD121C29E6915A00A3B8DD /* GradientView.swift */,
 				65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */,
 				C8CCE33B2A19E29200FFAFB2 /* LocalizedImage.swift */,
+				65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -597,6 +614,7 @@
 			files = (
 				65FFFA142A1E933800B70368 /* GoogleService-Info.plist in Resources */,
 				65F746E62A03CBBE00E1C79E /* Category.storyboard in Resources */,
+				65C4B6142A248C3300A59A4B /* Tajawal-Regular.ttf in Resources */,
 				65FC22132A1172BA0077F1A2 /* Product.storyboard in Resources */,
 				C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */,
 				65DD121F29E6915A00A3B8DD /* Localizable.strings in Resources */,
@@ -608,6 +626,7 @@
 				C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */,
 				65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */,
 				C8CCE3442A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib in Resources */,
+				65C4B6132A248C3300A59A4B /* Tajawal-Bold.ttf in Resources */,
 				65DD11FE29E6845D00A3B8DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,6 +763,7 @@
 				652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */,
 				65F33D052A220DEC00A1A889 /* AddAskViewController.swift in Sources */,
 				656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */,
+				65C4B60F2A24850C00A59A4B /* VKImageZoom.swift in Sources */,
 				65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */,
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,

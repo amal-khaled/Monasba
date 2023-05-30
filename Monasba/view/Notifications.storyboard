@@ -415,7 +415,9 @@
                             <constraint firstItem="JRM-Ct-0Lk" firstAttribute="top" secondItem="9Ak-Jz-t0q" secondAttribute="top" id="zJw-Nh-dcC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="68P-wz-mTk"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="68P-wz-mTk">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9dm-t7-BlV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkBoxValueChanged" destination="NM4-MT-T1I" id="1He-Bv-tKL"/>
                         <outlet property="deleteButton" destination="iLh-gV-ZfH" id="WAW-d0-Ihw"/>
@@ -450,7 +452,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="l62-ge-y08">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="#0EBFB1"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
