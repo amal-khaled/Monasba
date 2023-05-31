@@ -127,6 +127,7 @@
 		C85FFCE52A260D21000C426D /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE32A260D13000C426D /* ChatModel.swift */; };
 		C85FFCE62A260D21000C426D /* AllRoomsSuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE42A260D1A000C426D /* AllRoomsSuccessModel.swift */; };
 		C85FFCE82A260E6A000C426D /* VKImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE72A260E6A000C426D /* VKImageZoom.swift */; };
+		C85FFCEA2A2669C9000C426D /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE92A2669C9000C426D /* EdgeInsetLabel.swift */; };
 		C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */; };
 		C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86678BE29FFA12B0019AE81 /* Advs.storyboard */; };
 		C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12842A10209200669FD9 /* AddAdvsController.swift */; };
@@ -269,6 +270,7 @@
 		C85FFCE32A260D13000C426D /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		C85FFCE42A260D1A000C426D /* AllRoomsSuccessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRoomsSuccessModel.swift; sourceTree = "<group>"; };
 		C85FFCE72A260E6A000C426D /* VKImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKImageZoom.swift; sourceTree = "<group>"; };
+		C85FFCE92A2669C9000C426D /* EdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetLabel.swift; sourceTree = "<group>"; };
 		C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsVC.swift; sourceTree = "<group>"; };
 		C86678BE29FFA12B0019AE81 /* Advs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advs.storyboard; sourceTree = "<group>"; };
 		C89D12842A10209200669FD9 /* AddAdvsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsController.swift; sourceTree = "<group>"; };
@@ -936,6 +938,7 @@
 				657E70452A006FEB0079C558 /* ForgetPasswordModel.swift in Sources */,
 				65B550592A1C812F002D2264 /* SearchAdsViewController.swift in Sources */,
 				C85FFCE62A260D21000C426D /* AllRoomsSuccessModel.swift in Sources */,
+				C85FFCEA2A2669C9000C426D /* EdgeInsetLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

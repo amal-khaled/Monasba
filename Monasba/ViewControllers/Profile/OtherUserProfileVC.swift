@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 import MOLH
 
 class OtherUserProfileVC: UIViewController {
@@ -97,6 +98,20 @@ class OtherUserProfileVC: UIViewController {
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
         
+        
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+        Constants.userOtherId = "\(user.id ?? 0)"
+        vc.modalPresentationStyle = .fullScreen
+        
+        createRoom("\(user.id ?? 0)"){[weak self] success in
+            guard let self = self else {return}
+            if success {
+                self.present(vc, animated: true)
+            }else{
+                StaticFunctions.createErrorAlert(msg: "Can't Create Room")
+            }
+            
+        }
     }
     
     
@@ -145,14 +160,36 @@ extension OtherUserProfileVC {
         userBioLabel.text = profileModel.bio
         if MOLHLanguage.currentAppleLanguage() == "en" {
             UserLocationLabel.text = "\(profileModel.countriesNameEn ?? "") - \(profileModel.citiesNameEn ?? "")"
-//            cityLabel.text = profileModel.citiesNameEn
-//            regionLabel.text = profileModel.regionsNameEn
         }else {
             UserLocationLabel.text = "\(profileModel.countriesNameAr ?? "") - \(profileModel.citiesNameAr ?? "")"
-//            cityLabel.text = profileModel.citiesNameAr
-//            regionLabel.text = profileModel.regionsNameAr
         }
         
+        
+    }
+    
+    
+    func createRoom(_ recieverId:String, completion:@escaping (Bool)->()){
+        let params : [String: Any]  = ["rid":recieverId]
+        print(params , "Headers  \(Constants.headerProd)" )
+        guard let url = URL(string: Constants.DOMAIN+"create_room")else{return}
+        AF.request(url, method: .post, parameters: params, headers: Constants.headerProd).responseDecodable(of:RoomSuccessModel.self) { res in
+            print(res)
+            switch res.result {
+                
+            case .success(let data):
+                if let receiverId = data.data?.id {
+                   
+                    print(data)
+                    receiver.room_id = "\(receiverId)"
+                    print(receiver.room_id)
+                    completion(true)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(false)
+            }
+        }
         
     }
 }

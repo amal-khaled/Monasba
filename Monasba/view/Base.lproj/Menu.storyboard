@@ -987,8 +987,9 @@
                             <constraint firstItem="X6w-9R-P31" firstAttribute="width" secondItem="GeI-wQ-djJ" secondAttribute="width" id="vdg-vx-Hee"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Menu" id="BbD-6q-MAJ"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="menu" id="BbD-6q-MAJ"/>
                     <connections>
+                        <outlet property="dateLabel" destination="S82-U2-sjh" id="QVg-Tb-2Z0"/>
                         <outlet property="loginButton" destination="f2y-Op-a2A" id="lFg-u0-CME"/>
                         <outlet property="logoutView" destination="rXc-0p-Wt0" id="D2R-gT-HOw"/>
                         <outlet property="userImageView" destination="yYO-Kv-O7Z" id="oKR-FO-iBY"/>
@@ -1080,6 +1081,7 @@
         <image name="arrowBack" width="20.333333969116211" height="13.666666984558105"/>
         <image name="country" width="23.666666030883789" height="23.666666030883789"/>
         <image name="log-out" width="20" height="20"/>
+        <image name="menu" width="25" height="19"/>
         <image name="myAds" width="23" height="23"/>
         <image name="settings" width="25" height="25"/>
         <image name="userProfile" width="23" height="23"/>
