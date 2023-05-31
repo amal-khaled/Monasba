@@ -129,23 +129,25 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 print("FOLLOW")
             case "CHAT":
 //
-//                print(receiver.room_id)
-//                receiver.room_id = "\(notificatinSenderId)"
-//                print(receiver.room_id)
-//
-//
-//                if data[index].userf?.count != 0 {
-//                    if let userName = data[index].userf?[0].name , let userPic =  data[index].userf?[0].pic , let userId = data[index].userf?[0].id {
-//                        user.other_id = "\(userId)"
-//                        user.otherUserPic = userPic
-//                        user.otherUserName = userName
-//                    }
+                print(receiver.room_id)
+                receiver.room_id = "\(notificatinSenderId)"
+                print(receiver.room_id)
+
+
+                if notiiifications[index].userf?.count != 0 {
+                    if let userName = notiiifications[index].userf?[0].name , let userPic =  notiiifications[index].userf?[0].pic , let userId = notiiifications[index].userf?[0].id {
+                        Constants.userOtherId = "\(userId)"
+                        Constants.otherUserPic = userPic
+                        Constants.otherUserName = userName
+                    }
+                    basicNavigation(storyName: "Chat", segueId: "ChatVC")
+
 //                        goNav("chatv","Chat")
                         print("CHAT")
-//                }else {
-//                   // let userId = data[index].userf?[0].id
-//                    self.msg(" هذا المستخدم تم حذف بياناته من قبل المسؤل","msg")
-//                }
+                }else {
+                   // let userId = data[index].userf?[0].id
+                    StaticFunctions.createErrorAlert(msg: "this is a deleted user")
+                }
             default:
                 print(notiiifications[index].ntype)
             }

@@ -26,6 +26,8 @@
 		656D77402A1F0D88004EB289 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D773F2A1F0D88004EB289 /* NotificationsViewController.swift */; };
 		656FB05729FD5D5D00751C6C /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05629FD5D5D00751C6C /* CityViewController.swift */; };
 		656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FB05829FD5D6C00751C6C /* CitiesViewController.swift */; };
+		65784C672A270EDD0099A293 /* VKImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784C662A270EDD0099A293 /* VKImageZoom.swift */; };
+		65784C692A27147B0099A293 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784C682A27147B0099A293 /* ChatController.swift */; };
 		657E70452A006FEB0079C558 /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */; };
 		658D00382A135D4E00F512E9 /* ReportCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658D00372A135D4E00F512E9 /* ReportCommentViewController.swift */; };
 		658D003A2A153EC900F512E9 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658D00392A153EC900F512E9 /* ReportTableViewCell.swift */; };
@@ -49,7 +51,6 @@
 		65B5505B2A1C863F002D2264 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505A2A1C863F002D2264 /* SearchController.swift */; };
 		65B5505D2A1CB53E002D2264 /* SearchPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505C2A1CB53E002D2264 /* SearchPersonViewController.swift */; };
 		65B5505F2A1CB640002D2264 /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5505E2A1CB640002D2264 /* FollowerTableViewCell.swift */; };
-		65C4B60F2A24850C00A59A4B /* VKImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */; };
 		65C4B6132A248C3300A59A4B /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65C4B6112A248C3300A59A4B /* Tajawal-Bold.ttf */; };
 		65C4B6142A248C3300A59A4B /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65C4B6122A248C3300A59A4B /* Tajawal-Regular.ttf */; };
 		65C7FF0029FD0A350062BFAA /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */; };
@@ -103,7 +104,6 @@
 		C85FFCAB2A260A4B000C426D /* EditAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCA92A260A4B000C426D /* EditAdVC.swift */; };
 		C85FFCAC2A260A4B000C426D /* MyAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCAA2A260A4B000C426D /* MyAdsVC.swift */; };
 		C85FFCB82A260AAE000C426D /* ProfileProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCAE2A260AAE000C426D /* ProfileProductsCollectionViewCell.swift */; };
-		C85FFCB92A260AAE000C426D /* ProfileProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85FFCAF2A260AAE000C426D /* ProfileProductsCollectionViewCell.xib */; };
 		C85FFCBA2A260AAE000C426D /* MyAdsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85FFCB12A260AAE000C426D /* MyAdsCollectionViewCell.xib */; };
 		C85FFCBB2A260AAE000C426D /* MyAdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCB22A260AAE000C426D /* MyAdsCollectionViewCell.swift */; };
 		C85FFCBC2A260AAE000C426D /* roomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCB42A260AAE000C426D /* roomCell.swift */; };
@@ -126,8 +126,6 @@
 		C85FFCE22A260BEF000C426D /* MsgGlobalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCD12A260BEF000C426D /* MsgGlobalCell.swift */; };
 		C85FFCE52A260D21000C426D /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE32A260D13000C426D /* ChatModel.swift */; };
 		C85FFCE62A260D21000C426D /* AllRoomsSuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE42A260D1A000C426D /* AllRoomsSuccessModel.swift */; };
-		C85FFCE82A260E6A000C426D /* VKImageZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE72A260E6A000C426D /* VKImageZoom.swift */; };
-		C85FFCEA2A2669C9000C426D /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCE92A2669C9000C426D /* EdgeInsetLabel.swift */; };
 		C86678BD29FF9E7F0019AE81 /* AddAdvsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */; };
 		C86678BF29FFA12B0019AE81 /* Advs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86678BE29FFA12B0019AE81 /* Advs.storyboard */; };
 		C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12842A10209200669FD9 /* AddAdvsController.swift */; };
@@ -166,6 +164,8 @@
 		656D773F2A1F0D88004EB289 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		656FB05629FD5D5D00751C6C /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		656FB05829FD5D6C00751C6C /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		65784C662A270EDD0099A293 /* VKImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKImageZoom.swift; sourceTree = "<group>"; };
+		65784C682A27147B0099A293 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		657E70442A006FEB0079C558 /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		658D00372A135D4E00F512E9 /* ReportCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCommentViewController.swift; sourceTree = "<group>"; };
 		658D00392A153EC900F512E9 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
@@ -189,7 +189,6 @@
 		65B5505A2A1C863F002D2264 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		65B5505C2A1CB53E002D2264 /* SearchPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonViewController.swift; sourceTree = "<group>"; };
 		65B5505E2A1CB640002D2264 /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
-		65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKImageZoom.swift; sourceTree = "<group>"; };
 		65C4B6112A248C3300A59A4B /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
 		65C4B6122A248C3300A59A4B /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
 		65C7FEFF29FD0A350062BFAA /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
@@ -269,8 +268,6 @@
 		C85FFCD12A260BEF000C426D /* MsgGlobalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgGlobalCell.swift; sourceTree = "<group>"; };
 		C85FFCE32A260D13000C426D /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		C85FFCE42A260D1A000C426D /* AllRoomsSuccessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRoomsSuccessModel.swift; sourceTree = "<group>"; };
-		C85FFCE72A260E6A000C426D /* VKImageZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKImageZoom.swift; sourceTree = "<group>"; };
-		C85FFCE92A2669C9000C426D /* EdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetLabel.swift; sourceTree = "<group>"; };
 		C86678BC29FF9E7F0019AE81 /* AddAdvsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsVC.swift; sourceTree = "<group>"; };
 		C86678BE29FFA12B0019AE81 /* Advs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advs.storyboard; sourceTree = "<group>"; };
 		C89D12842A10209200669FD9 /* AddAdvsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsController.swift; sourceTree = "<group>"; };
@@ -348,6 +345,13 @@
 				656D773F2A1F0D88004EB289 /* NotificationsViewController.swift */,
 			);
 			path = Notifiications;
+			sourceTree = "<group>";
+		};
+		65784C652A270B510099A293 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		658DE50C29F7FB720015D549 /* Home */ = {
@@ -438,6 +442,7 @@
 				C8CCE33D2A19E33B00FFAFB2 /* ProfileController.swift */,
 				65B5505A2A1C863F002D2264 /* SearchController.swift */,
 				65FFFA152A1E972600B70368 /* NotificationsController.swift */,
+				65784C682A27147B0099A293 /* ChatController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				65DD11F429E6845D00A3B8DD /* Products */,
 				DE02A0323CA247B868BF8A85 /* Pods */,
 				67C554C5A92EC5CB858FD606 /* Frameworks */,
+				65784C652A270B510099A293 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -533,7 +539,7 @@
 				65DD121C29E6915A00A3B8DD /* GradientView.swift */,
 				65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */,
 				C8CCE33B2A19E29200FFAFB2 /* LocalizedImage.swift */,
-				65C4B60E2A24850C00A59A4B /* VKImageZoom.swift */,
+				65784C662A270EDD0099A293 /* VKImageZoom.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 				65DD11F029E6845D00A3B8DD /* Frameworks */,
 				65DD11F129E6845D00A3B8DD /* Resources */,
 				F7C93E0049968E833C4FB180 /* [CP] Embed Pods Frameworks */,
+				EAB5B32B82A41B2BDFEB88E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -774,9 +781,7 @@
 				65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */,
 				C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */,
 				65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */,
-				C8CCE3442A1A0D4500FFAFB2 /* ProfileProductsCollectionViewCell.xib in Resources */,
 				65C4B6132A248C3300A59A4B /* Tajawal-Bold.ttf in Resources */,
-				65DD11FE29E6845D00A3B8DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +808,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAB5B32B82A41B2BDFEB88E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Monasba/Pods-Monasba-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7C93E0049968E833C4FB180 /* [CP] Embed Pods Frameworks */ = {
@@ -842,7 +864,9 @@
 				65C7FF0429FD46DE0062BFAA /* CountryTableViewCell.swift in Sources */,
 				652085412A00416800C38B45 /* GeneralObject.swift in Sources */,
 				C85FFCD82A260BEF000C426D /* MsgColorCell.swift in Sources */,
+				65784C672A270EDD0099A293 /* VKImageZoom.swift in Sources */,
 				6520853F29FFB99A00C38B45 /* RegisterVerifyViewController.swift in Sources */,
+				65784C692A27147B0099A293 /* ChatController.swift in Sources */,
 				65E15A712A210B1C006930A4 /* AskSubCategoryCollectionViewCell.swift in Sources */,
 				65F33D0B2A22DCC700A1A889 /* ReportAskReplyViewController.swift in Sources */,
 				65FC22112A1172A80077F1A2 /* CommentViewController.swift in Sources */,
@@ -900,7 +924,6 @@
 				65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */,
 				C85FFCAB2A260A4B000C426D /* EditAdVC.swift in Sources */,
 				65DD122929E6915A00A3B8DD /* UIViewControllerExtenstions.swift in Sources */,
-				C85FFCE82A260E6A000C426D /* VKImageZoom.swift in Sources */,
 				658D003A2A153EC900F512E9 /* ReportTableViewCell.swift in Sources */,
 				C8A72A422A00C29C00F9C26D /* OtherUserProfileVC.swift in Sources */,
 				656D773B2A1F04A6004EB289 /* NotificationTableViewCell.swift in Sources */,
@@ -910,7 +933,6 @@
 				652711ED29EBF81600D503F9 /* RegisterViewController.swift in Sources */,
 				65F33D052A220DEC00A1A889 /* AddAskViewController.swift in Sources */,
 				656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */,
-				65C4B60F2A24850C00A59A4B /* VKImageZoom.swift in Sources */,
 				65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */,
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
 				C85FFCD62A260BEF000C426D /* MsgCell.swift in Sources */,
@@ -938,7 +960,6 @@
 				657E70452A006FEB0079C558 /* ForgetPasswordModel.swift in Sources */,
 				65B550592A1C812F002D2264 /* SearchAdsViewController.swift in Sources */,
 				C85FFCE62A260D21000C426D /* AllRoomsSuccessModel.swift in Sources */,
-				C85FFCEA2A2669C9000C426D /* EdgeInsetLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

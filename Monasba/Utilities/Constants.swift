@@ -150,6 +150,11 @@ class Constants {
     static let ASK_REPLY_REPORT_URL = DOMAIN + "questions_reports"
     static let ASK_LIKE_REPLY_URL = DOMAIN + "like_on_questions"
     
+    
+    //Chat
+    static let CREATE_CHAT_ROOM = DOMAIN + "create_room"
+
+    
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()
     static var STATUS = [Country]()
