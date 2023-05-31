@@ -667,3 +667,49 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
     
     
 }
+
+//MARK: Session Object
+
+extension AddAdvsVC {
+    // Function to save session data
+    func saveSessionData(images: [UIImage], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int)) {
+        var sessionData: [String: Any] = [:]
+        var imagesData = [Data]()
+        for image in images {
+            imagesData.append(image.jpegData(compressionQuality: 0.1))
+        }
+        
+        sessionData["images"] = image
+        sessionData["description"] = description
+        sessionData["title"] = title
+        sessionData["price"] = price
+        sessionData["catId"] = catId
+        sessionData["subCatId"] = subCatId
+        sessionData["CityId"] = CityId
+        sessionData["catId"] = RegionId
+        
+
+        UserDefaults.standard.set(sessionData, forKey: "postSessionData")
+    }
+
+    // Function to retrieve session data
+    func retrieveSessionData() -> (image: [Data]?, description: String?, title: String? , price:String,catId:Int,subCatId:Int,CityId:Int,ResionId:Int) {
+        if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
+            let image = sessionData["images"] as? [Data]
+            let description = sessionData["description"] as? String
+            let title    = sessionData["title"] as? String
+            let price    = sessionData["price"] as? String
+            let catId    = sessionData["catId"] as? Int
+            let subCatId = sessionData["subCatId"] as? Int
+            let cityId   = sessionData["cityId"] as? Int
+            let regionId = sessionData["reginId"] as? Int
+            return (image, description, title, price,catId,subCatId,cityId,regionId)
+        }
+        return (nil, nil, nil,nil,nil,nil,nil,nil)
+    }
+
+    // Function to clear session data
+    func clearSessionData() {
+        UserDefaults.standard.removeObject(forKey: "postSessionData")
+    }
+}
