@@ -162,8 +162,11 @@ class ProductViewController: UIViewController {
     
     @IBAction func chatActoin(_ sender: Any) {
         ChatController.shared.create_room(completion: {
-            check, msg in
+            id,check, msg in
             if check == 0{
+                if id != -1{
+                    receiver.room_id = "\(id)"
+                }
                 self.basicNavigation(storyName: "Chat", segueId: "ChatVC")
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)

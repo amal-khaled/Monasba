@@ -12,7 +12,7 @@ import Foundation
 class ChatController{
     static let shared = ChatController()
     
-    func create_room(completion: @escaping( Int, String)->(), id: Int){
+    func create_room(completion: @escaping( Int ,Int, String)->(), id: Int){
         
         let param = ["rid": id]
 
@@ -27,21 +27,16 @@ class ChatController{
                 let generalObject = try JSONDecoder().decode(RoomSuccessModel.self, from: data)
 //
                 if generalObject.statusCode == 200{
-                    if let receiverId = data.data?.id {
-                        //  self.msg(msg,"msg")
-                        print(data)
-                        receiver.room_id = "\(receiverId)"
-                        print(receiver.room_id)
-                    }
-                    completion( 0 ,generalObject.message ?? "")
+
+                    completion( generalObject.data?.id ?? -1  ,0 ,generalObject.message ?? "")
                 }
                 else {
-                    completion(1,generalObject.message ?? "")
+                    completion(-1, 1,generalObject.message ?? "")
                 }
             } catch (let jerrorr){
 
                 print(jerrorr)
-                completion(1,SERVER_ERROR)
+                completion(-1,1,SERVER_ERROR)
 
 
             }
