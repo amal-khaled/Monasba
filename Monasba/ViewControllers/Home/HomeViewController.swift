@@ -20,7 +20,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var listBtn: UIButton!
     @IBOutlet weak var gridBtn: UIButton!
     var coountryVC = CounriesViewController()
-    var countryId = 6
+    var countryId = Constants.countryId
+    var countryName = "Kuwait"
+    var countryChanged = false
     var categoryId = -1
     var subcategoryId = -1
     var page = 1
@@ -42,7 +44,11 @@ class HomeViewController: UIViewController {
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         mainCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
+        if countryChanged {
+            resetProducts()
+        }
         getData()
+//        didChangeCountry()
         getCategory()
         createAddAdvsButton()
         
@@ -53,7 +59,7 @@ class HomeViewController: UIViewController {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-
+        
         if categoryId == 1 {
             sell = nil
             typeLbl.text = "All"
@@ -68,8 +74,23 @@ class HomeViewController: UIViewController {
 //        }
     }
     
+    
    
     //MARK: Methods
+    
+//    func didChangeCountry(){
+//        let changeCountryVC = ChangeCountryVC()
+//        changeCountryVC.countryBtclosure = {
+//            (country) in
+//
+//            self.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (country.nameEn ?? "") : (country.nameAr ?? "")
+//            self.countryId = country.id ?? 6
+//            self.cityId = -1
+//
+//            self.resetProducts()
+//            self.getData()
+//        }
+  //  }
     
     func createAddAdvsButton(){
         let leftView = UIView()
