@@ -158,7 +158,7 @@ class Constants {
     static var COUNTRIES = [Country]()
     static var CITIES = [Country]()
     static var STATUS = [Country]()
-
+    static var countryId = 6
     
     
     //location

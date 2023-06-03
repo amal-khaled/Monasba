@@ -131,6 +131,9 @@ class MenuVC: UIViewController {
     }
     @IBAction func didTapChangeCountryButton(_ sender: UIButton) {
         
+        let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangeCountryVC") as! ChangeCountryVC
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     @IBAction func didTapSettingsButton(_ sender: UIButton) {

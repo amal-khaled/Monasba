@@ -95,6 +95,8 @@
 		65FFFA162A1E972600B70368 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFFA152A1E972600B70368 /* NotificationsController.swift */; };
 		65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FFFA172A1E9FF200B70368 /* Notifications.storyboard */; };
 		C836CED42A07FC880009F20D /* AdvsImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */; };
+		C843137E2A2B26C7008D24BD /* ChangeCountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */; };
+		C84313812A2B289D008D24BD /* ChangeCountyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84313802A2B289D008D24BD /* ChangeCountyTableViewCell.swift */; };
 		C85FFC9D2A2608AC000C426D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85FFC9B2A2608AC000C426D /* Main.storyboard */; };
 		C85FFC9E2A2608AC000C426D /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85FFC9C2A2608AC000C426D /* Chat.storyboard */; };
 		C85FFCA32A260A0F000C426D /* receiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FFCA02A260A0F000C426D /* receiver.swift */; };
@@ -244,6 +246,8 @@
 		65FFFA152A1E972600B70368 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		65FFFA172A1E9FF200B70368 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvsImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCountryVC.swift; sourceTree = "<group>"; };
+		C84313802A2B289D008D24BD /* ChangeCountyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCountyTableViewCell.swift; sourceTree = "<group>"; };
 		C85FFC9B2A2608AC000C426D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C85FFC9C2A2608AC000C426D /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		C85FFCA02A260A0F000C426D /* receiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = receiver.swift; sourceTree = "<group>"; };
@@ -398,6 +402,7 @@
 		658DE51429F82AE80015D549 /* TableviewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C843137F2A2B2870008D24BD /* ChangeCounrtyTableViewCell */,
 				C85FFCBF2A260BEF000C426D /* ChatTableViewCells */,
 				65FC22142A1172D30077F1A2 /* ProductCommentTableViewCell.swift */,
 				65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */,
@@ -601,6 +606,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C843137F2A2B2870008D24BD /* ChangeCounrtyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C84313802A2B289D008D24BD /* ChangeCountyTableViewCell.swift */,
+			);
+			path = ChangeCounrtyTableViewCell;
+			sourceTree = "<group>";
+		};
 		C85FFC9F2A260A0F000C426D /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +743,7 @@
 				C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */,
 				C85FFCA92A260A4B000C426D /* EditAdVC.swift */,
 				C85FFCAA2A260A4B000C426D /* MyAdsVC.swift */,
+				C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -931,6 +945,7 @@
 				65FC22172A12716E0077F1A2 /* ReplyViewController.swift in Sources */,
 				65DD122229E6915A00A3B8DD /* Localization.swift in Sources */,
 				65FC220F2A1172A80077F1A2 /* ProductViewController.swift in Sources */,
+				C84313812A2B289D008D24BD /* ChangeCountyTableViewCell.swift in Sources */,
 				C85FFCDD2A260BEF000C426D /* MsgFileCell.swift in Sources */,
 				C8CCE3402A19E81100FFAFB2 /* Profile.swift in Sources */,
 				C85FFCDE2A260BEF000C426D /* MsgMapCell.swift in Sources */,
@@ -951,6 +966,7 @@
 				65495D7E2A1DFEFE00A23579 /* SearchAskViewController.swift in Sources */,
 				65F33D092A229D4100A1A889 /* AskRepliesViewController.swift in Sources */,
 				65B5505B2A1C863F002D2264 /* SearchController.swift in Sources */,
+				C843137E2A2B26C7008D24BD /* ChangeCountryVC.swift in Sources */,
 				65FC22152A1172D30077F1A2 /* ProductCommentTableViewCell.swift in Sources */,
 				C85FFCB82A260AAE000C426D /* ProfileProductsCollectionViewCell.swift in Sources */,
 				65DD122029E6915A00A3B8DD /* KeyboardLayoutConstraint.swift in Sources */,

@@ -1072,10 +1072,10 @@
             </objects>
             <point key="canvasLocation" x="769" y="717"/>
         </scene>
-        <!--View Controller-->
+        <!--Change CountryVC-->
         <scene sceneID="c0Q-X5-tJE">
             <objects>
-                <viewController storyboardIdentifier="country_list" modalPresentationStyle="overFullScreen" id="CpF-xH-Ke0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeCountryVC" modalPresentationStyle="overFullScreen" id="CpF-xH-Ke0" customClass="ChangeCountryVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KQ-t3-aDI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1083,51 +1083,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rag-R1-HRo">
                                 <rect key="frame" x="0.0" y="100" width="390" height="744"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g3F-gF-oMd">
-                                        <rect key="frame" x="10" y="0.0" width="370" height="747"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g3F-gF-oMd">
+                                        <rect key="frame" x="10" y="0.0" width="370" height="694"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PSG-z4-eVQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="370" height="747"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PSG-z4-eVQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="694"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mZj-Fd-cI7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="10"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RectangleCancelImage" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-v7-hLI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="370" height="10"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="10" id="XbU-RW-IZY"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="10" id="Udu-AN-9wi"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C6l-5Z-JFw">
-                                                        <rect key="frame" x="0.0" y="18" width="370" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRT-vS-lOa">
-                                                                <rect key="frame" x="340" y="0.0" width="30" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="30" id="liO-wh-uA8"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="lm4-Ao-Tbs"/>
-                                                                </constraints>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="Close-1"/>
-                                                                <connections>
-                                                                    <action selector="closeAction:" destination="CpF-xH-Ke0" eventType="touchUpInside" id="UjZ-vN-3Um"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="JWT-Gs-1Zj"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-cS-Viw">
-                                                        <rect key="frame" x="0.0" y="56" width="370" height="691"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-cS-Viw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="694"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="74" id="Mt5-jL-v2D" customClass="CountryTableViewCell" customModule="Monasba" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChangeCountyTableViewCell" rowHeight="74" id="Mt5-jL-v2D" customClass="ChangeCountyTableViewCell" customModule="Monasba" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="50" width="370" height="74"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mt5-jL-v2D" id="3yk-1E-tsr">
@@ -1148,11 +1114,18 @@
                                                                                             </constraints>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-Hv-2ap">
-                                                                                            <rect key="frame" x="48" y="27" width="302" height="20.333333333333329"/>
+                                                                                            <rect key="frame" x="48" y="27" width="274" height="20.333333333333329"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_icon" translatesAutoresizingMaskIntoConstraints="NO" id="le3-ne-QeK">
+                                                                                            <rect key="frame" x="330" y="27" width="20" height="20"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="20" id="84y-aQ-oOl"/>
+                                                                                                <constraint firstAttribute="width" constant="20" id="qOh-Na-DXW"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                             </subviews>
@@ -1174,6 +1147,7 @@
                                                                 <connections>
                                                                     <outlet property="cImageView" destination="XJe-HX-AuR" id="f5K-Sd-bV4"/>
                                                                     <outlet property="cNameLbl" destination="Wyt-Hv-2ap" id="fSl-gL-vQE"/>
+                                                                    <outlet property="checkImageView" destination="le3-ne-QeK" id="pO6-LH-OUT"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -1191,6 +1165,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="g3F-gF-oMd" secondAttribute="trailing" constant="10" id="gG3-bV-dyb"/>
                                     <constraint firstAttribute="bottom" secondItem="g3F-gF-oMd" secondAttribute="bottom" constant="50" id="gwE-3d-aYd"/>
+                                    <constraint firstItem="g3F-gF-oMd" firstAttribute="top" secondItem="Rag-R1-HRo" secondAttribute="top" id="lWF-sd-HxN"/>
                                     <constraint firstItem="g3F-gF-oMd" firstAttribute="leading" secondItem="Rag-R1-HRo" secondAttribute="leading" constant="10" id="mCf-1x-UP2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1241,11 +1216,10 @@
         <image name="AddAdvertise" width="23" height="23"/>
         <image name="ArrowLeftSetting" width="8" height="14.333333015441895"/>
         <image name="ChangeLanguageImage" width="100" height="100"/>
-        <image name="Close-1" width="27" height="27"/>
         <image name="FavoritesIcon" width="23" height="23"/>
         <image name="QA" width="23" height="23"/>
-        <image name="RectangleCancelImage" width="45" height="6"/>
         <image name="arrowBack" width="20.333333969116211" height="13.666666984558105"/>
+        <image name="check_icon" width="19" height="14"/>
         <image name="country" width="16" height="16"/>
         <image name="log-out" width="20" height="20"/>
         <image name="menu" width="25" height="19"/>
