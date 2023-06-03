@@ -462,4 +462,16 @@ extension UIViewController :NVActivityIndicatorViewable{
         formatter.pmSymbol = "م"
         return formatter.string(from: date)
     }
+    
+    func dawnloadAppFromStore(appID:String){
+        if let url = URL(string: "itms-apps://itunes.apple.com/app/id\(appID)"),
+           UIApplication.shared.canOpenURL(url)
+        {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
 }

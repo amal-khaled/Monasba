@@ -70,7 +70,9 @@ class LoginViewController: UIViewController {
     }
     
      @IBAction func skipAction(_ sender: Any) {
-         self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+         // retain Cycle 
+//         self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+         dismiss(animated: true)
 
      }
     /* // MARK: - Navigation

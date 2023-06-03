@@ -136,11 +136,26 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getCitis()
         getMainCats()
         //setupCitiesDropDown()
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
+        guard  let title = retrieveSessionData().title else {return}
+        advsTitleTF.text = title
+        if let imageDatas = retrieveSessionData().images {
+            selectedImages = imageDatas.compactMap { UIImage(data: $0) }
+           
+            DispatchQueue.main.async {
+                self.addMorePhotoButton.isHidden = false
+                self.moreImageViewContainer.isHidden = false
+                self.collectionView.isHidden = false
+                self.firstImageViewContainer.isHidden = true
+                self.collectionView.reloadData()
+            }
+                
+            }
+        print(selectedImages.count)
         print(selectedVideos)
     }
     
@@ -159,10 +174,10 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             collectionView.isHidden = false
             
         }else {
-            moreImageViewContainer.isHidden = true
+//            moreImageViewContainer.isHidden = true
             addMorePhotoButton.isHidden = true
-            collectionView.isHidden = true
-            firstImageViewContainer.isHidden = false
+           // collectionView.isHidden = true
+           // firstImageViewContainer.isHidden = false
         }
         self.collectionView.reloadData()
        
@@ -185,7 +200,11 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        dismissDetail()
+        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+            self.dismissDetail()
+//        }
+        
     }
     
     
@@ -300,8 +319,28 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     @IBAction func addAdBtnAction(_ sender: UIButton) {
+//        params = [
+//                        "uid":AppDelegate.currentUser.id ?? 0,
+//                          "name":advsTitleTF.text!, "price":priceTF.text!,
+//                          "amount":"0", "lat": "0", "lng":"0",
+//                          "prod_size":"25","color":"red",
+//                          "color_name":"red",
+//                          "cat_id":"\(mainCatID)",
+//                          "sub_cat_id": "\(subCatID)",
+//                          "sell_cost":priceTF.text!,"errors":"",
+//                          "brand_id":"Nike",
+//                          "material_id":"",
+//
+//                          "country_id":AppDelegate.currentUser.countryId ?? "0",
+//                          "city_id":"\(cityId)",
+//                          "region_id":"\(regionId)",
+//                          "loc":"\(cityName) \(regionName)",
+//                          "phone":"\(phone)","wts":phone,"descr":descTextView.text!,
+//                          "has_chat":hasChat,"has_wts":hasWhats,"has_phone":hasPhone,
+//                          "tajeer_or_sell":"\(tajeer)"
+//        ]
         params = [
-                        "uid":AppDelegate.currentUser.id ?? 0,
+                        "uid":2359,
                           "name":advsTitleTF.text!, "price":priceTF.text!,
                           "amount":"0", "lat": "0", "lng":"0",
                           "prod_size":"25","color":"red",
@@ -312,7 +351,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                           "brand_id":"Nike",
                           "material_id":"",
                           
-                          "country_id":AppDelegate.currentUser.countryId ?? "0",
+                          "country_id":5,
                           "city_id":"\(cityId)",
                           "region_id":"\(regionId)",
                           "loc":"\(cityName) \(regionName)",
@@ -438,14 +477,7 @@ extension AddAdvsVC {
         sellButtonLabel.textColor = .black
         rentButtonLabel.textColor = .white
     }
-    
-    // Add Advs Method
-    
-    private func addAdvs(){
-        
-        
-        
-    }
+
    
 }
 
@@ -672,14 +704,15 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
 
 extension AddAdvsVC {
     // Function to save session data
-    func saveSessionData(images: [UIImage], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int)) {
+    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int) {
         var sessionData: [String: Any] = [:]
         var imagesData = [Data]()
         for image in images {
-            imagesData.append(image.jpegData(compressionQuality: 0.1))
+            imagesData.append(image.jpegData(compressionQuality: 0.1)!)
         }
         
-        sessionData["images"] = image
+        sessionData["images"] = imagesData
+        sessionData["videos"] = videos
         sessionData["description"] = description
         sessionData["title"] = title
         sessionData["price"] = price
@@ -693,20 +726,22 @@ extension AddAdvsVC {
     }
 
     // Function to retrieve session data
-    func retrieveSessionData() -> (image: [Data]?, description: String?, title: String? , price:String,catId:Int,subCatId:Int,CityId:Int,ResionId:Int) {
+    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?) {
         if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
-            let image = sessionData["images"] as? [Data]
+            let images = sessionData["images"] as? [Data]
+            let videos = sessionData["videos"] as? [Data]
             let description = sessionData["description"] as? String
-            let title    = sessionData["title"] as? String
-            let price    = sessionData["price"] as? String
-            let catId    = sessionData["catId"] as? Int
+            let title = sessionData["title"] as? String
+            let price = sessionData["price"] as? String
+            let catId = sessionData["catId"] as? Int
             let subCatId = sessionData["subCatId"] as? Int
-            let cityId   = sessionData["cityId"] as? Int
-            let regionId = sessionData["reginId"] as? Int
-            return (image, description, title, price,catId,subCatId,cityId,regionId)
+            let cityId = sessionData["CityId"] as? Int
+            let regionId = sessionData["RegionId"] as? Int
+            return (images, videos, description, title, price, catId, subCatId, cityId, regionId)
         }
-        return (nil, nil, nil,nil,nil,nil,nil,nil)
+        return (nil, nil, nil, nil, nil, nil, nil, nil, nil)
     }
+
 
     // Function to clear session data
     func clearSessionData() {

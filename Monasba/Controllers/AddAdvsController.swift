@@ -50,28 +50,36 @@ class AddAdvsController{
                         multipartFormData.append(imageData, withName: "sub_image[]", fileName: "file\(index).jpg", mimeType: "image/jpg")
                     }
                 }
-               
+                
                 // Upload the sub-images
-//                for (index, image) in images.enumerated() {
-//                    if index != 0 { // Skip the first image (already uploaded as main image)
-//                        if let imageData = image.jpegData(compressionQuality: 0.01) {
-//                            parameters["mtype[]"] = "IMAGE"
-//                            multipartFormData.append(imageData, withName: "sub_image[]", fileName: "file\(index).jpg", mimeType: "image/jpg")
-//                        }
-//                    }
-//                }
+                //                for (index, image) in images.enumerated() {
+                //                    if index != 0 { // Skip the first image (already uploaded as main image)
+                //                        if let imageData = image.jpegData(compressionQuality: 0.01) {
+                //                            parameters["mtype[]"] = "IMAGE"
+                //                            multipartFormData.append(imageData, withName: "sub_image[]", fileName: "file\(index).jpg", mimeType: "image/jpg")
+                //                        }
+                //                    }
+                //                }
                 
                 //                // Upload the videos
                 //                for (index, video) in videos.enumerated() {
                 //                    parameters["mtype[]"] = "VIDEO"
                 //                    multipartFormData.append(video, withName: "sub_image[]", fileName: "sub_video\(index).mp4", mimeType: "video/mp4")
                 //                }
+            }
+            
+            for (index,video) in videos.enumerated() {
+                parameters["mtype[]"] = "VIDEO"
+                multipartFormData.append(video, withName: "sub_image[]", fileName: "file\(index).jpg", mimeType: "video/jpg")
+            }
+            
+            
                 print(params)
                 for (key,value) in params {
                     multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
                 }
                 
-            }
+            
           
             
         },to:Constants.ADDADVS_URL)
@@ -86,10 +94,15 @@ class AddAdvsController{
                     completion(false , data.message ?? "")
                 }
             case .failure(let error):
-                print(error)
-                completion(false,SERVER_ERROR)
-                
-            }
+                if let decodingError = error.underlyingError as? DecodingError {
+                           // Handle decoding errors
+                           completion(false, "Decoding error: \(decodingError)")
+                       } else {
+                           // Handle other network or server errors
+                           completion(false, SERVER_ERROR)
+                       }
+                   }
+            
         }
         
     }

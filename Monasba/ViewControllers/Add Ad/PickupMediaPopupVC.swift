@@ -128,6 +128,7 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                 // end of compress
                 let videoThumbnil = self.generateThumbnail(path: mediaURL)
                 guard let videoThumbnil = videoThumbnil else{return}
+                // pass video as image to images[]
                 self.images.append(videoThumbnil as UIImage)
 //                do {
 //                    compressedVideo = try Data(contentsOf: compressedURL)
