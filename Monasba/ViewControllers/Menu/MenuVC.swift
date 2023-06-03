@@ -29,15 +29,16 @@ class MenuVC: UIViewController {
     
     private func ConfigureUI(){
         
-        userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
         dateLabel.text = FormattedDate()
         
         loginButton.shake()
-        if AppDelegate.currentUser.toke == nil {
-            logoutView.isHidden = false
-            logoutView.isHidden = false
-        }else {
+        if AppDelegate.currentUser.toke == nil && !StaticFunctions.isLogin() {
+            userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
             logoutView.isHidden = true
+            loginButton.isHidden = false
+        }else {
+            userNameLabel.text = "Guest"
+            logoutView.isHidden = false
             loginButton.isHidden = true
         }
     }
@@ -58,7 +59,10 @@ class MenuVC: UIViewController {
             presentDetail(vc)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Profile!")
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
+           
         }
        
 
@@ -75,7 +79,9 @@ class MenuVC: UIViewController {
             presentDetail(vc)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Add Post!")
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
         }
         
     }
@@ -87,13 +93,14 @@ class MenuVC: UIViewController {
             
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Favoutites!")
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
+            
         }
     }
     
     @IBAction func didTapMyAdsButton(_ sender: UIButton)  {
-       
-        
         if StaticFunctions.isLogin() {
             if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
                 vc.modalPresentationStyle = .fullScreen
@@ -102,27 +109,70 @@ class MenuVC: UIViewController {
             }
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Ads !")
-            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
         }
     }
     
     
     @IBAction func didTapMyAsksButton(_ sender: UIButton) {
         
+        if StaticFunctions.isLogin() {
+            
+        }else {
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Asks!")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
+        }
+
+        
     }
     @IBAction func didTapChangeCountryButton(_ sender: UIButton) {
+        
     }
     
     @IBAction func didTapSettingsButton(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     @IBAction func didTapVerifyAccountButton(_ sender: UIButton) {
         
+        if StaticFunctions.isLogin() {
+            
+        }else {
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Verify Account!")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
+        }
+
     }
     
     @IBAction func didTapLogoutButton(_ sender: UIButton) {
+        logout()
     }
     
     
     
+}
+extension MenuVC {
+    
+    func logout(){
+       
+        AppDelegate.currentUser.id = nil
+        AppDelegate.currentUser.toke = nil
+        AppDelegate.currentUser.pic = "-"
+        AppDelegate.currentUser.name = "Guest"
+        AppDelegate.defaults.string(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "userId")
+        UserDefaults.standard.synchronize()
+        
+        self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+      
+    }
 }

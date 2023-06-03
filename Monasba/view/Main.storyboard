@@ -1092,10 +1092,10 @@
             </objects>
             <point key="canvasLocation" x="1646.5648854961833" y="21.83098591549296"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab BarVC View Controller-->
         <scene sceneID="lLD-Kj-bV9">
             <objects>
-                <tabBarController storyboardIdentifier="homeT" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="KYL-Iu-bg6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeT" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="KYL-Iu-bg6" customClass="MainTabBarVCViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F5y-8g-5Xj">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

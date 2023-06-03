@@ -157,8 +157,6 @@ class StaticFunctions {
         if AppDelegate.currentUser.toke != nil  {
             if AppDelegate.currentUser.toke == ""{
                 return false
-                
-                
             }
             return true
         }
