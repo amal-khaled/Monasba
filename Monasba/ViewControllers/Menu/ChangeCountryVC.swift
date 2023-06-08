@@ -60,8 +60,6 @@ extension ChangeCountryVC: UITableViewDataSource, UITableViewDelegate{
         homeVC.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
         homeVC.countryId = counties[indexPath.row].id ?? 6
         homeVC.cityId = -1
-        homeVC.countryChanged = true
-
         self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
 
 //        self.dismiss(animated: false, completion: { [self] in

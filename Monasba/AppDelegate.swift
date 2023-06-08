@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var playerId = ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        AppDelegate.defaults.removeObject(forKey: "postSessionData")
+        
         IQKeyboardManager.shared.enable = true
         print(AppDelegate.defaults.integer(forKey: "userId"))
         MOLH.setLanguageTo( "en")

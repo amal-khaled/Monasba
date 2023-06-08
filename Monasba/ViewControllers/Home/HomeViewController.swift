@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     var coountryVC = CounriesViewController()
     var countryId = Constants.countryId
     var countryName = "Kuwait"
-    var countryChanged = false
     var categoryId = -1
     var subcategoryId = -1
     var page = 1
@@ -44,9 +43,6 @@ class HomeViewController: UIViewController {
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         mainCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
-        if countryChanged {
-            resetProducts()
-        }
         getData()
 //        didChangeCountry()
         getCategory()

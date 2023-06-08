@@ -326,6 +326,12 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let inx = indexPath.row
         let cell = lst.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! roomCell
+         if roomsData[indexPath.row].messages?.sid == AppDelegate.currentUser.id {
+             lst.contentMode = .right
+         }else {
+             lst.contentMode = .left
+         }
+         
         if roomsData[inx].user?.count != 0{
             if  let userName = roomsData[inx].user?[0].name  {
                 

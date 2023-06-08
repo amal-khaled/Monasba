@@ -9,10 +9,13 @@ import UIKit
 import DropDown
 import MOLH
 import IQKeyboardManagerSwift
+import Alamofire
 
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
+   
+    
     
     //MARK: IBOutlets
     
@@ -126,6 +129,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     var selectedImages = [UIImage]()
     var selectedVideos = [Data]()
+    var selectedMedia = [String:Data]()
     
     //MARK: App LifeCycle
     
@@ -136,16 +140,30 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getCitis()
         getMainCats()
         //setupCitiesDropDown()
-       
+        setDataFromSession()
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard  let title = retrieveSessionData().title else {return}
+        
+        print(selectedImages.count)
+        print(selectedVideos)
+        print(selectedMedia)
+    }
+    
+    
+    private func setDataFromSession(){
+        guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia else {return}
+        self.selectedMedia = selectedMedia
         advsTitleTF.text = title
+        addNewPhoneLabel.text = AppDelegate.currentUser.phone ?? ""
+        cityId = retrieveSessionData().CityId ?? 0
+        regionId = retrieveSessionData().RegionId ?? 0
+        mainCatID = retrieveSessionData().catId ?? 0
+        subCatID = retrieveSessionData().subCatId ?? 0
+        
         if let imageDatas = retrieveSessionData().images {
             selectedImages = imageDatas.compactMap { UIImage(data: $0) }
-           
             DispatchQueue.main.async {
                 self.addMorePhotoButton.isHidden = false
                 self.moreImageViewContainer.isHidden = false
@@ -155,18 +173,18 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             }
                 
             }
-        print(selectedImages.count)
-        print(selectedVideos)
     }
     
-    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage],videos:[Data]) {
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage],videos:[Data],selectedMedia:[String:Data] ) {
        // self.dismiss(animated: false)
        // self.Images.append(contentsOf: images)
         self.selectedImages = images
         self.selectedVideos = videos
+        self.selectedMedia = selectedMedia
         print("Images Count ", images.count)
         print(selectedVideos)
         print("Videos Count " , selectedVideos.count)
+        print("selectedMedia ------->",selectedMedia)
         if images.count > 0 {
             firstImageViewContainer.isHidden = true
             moreImageViewContainer.isHidden = false
@@ -200,7 +218,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId)
+        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia)
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
             self.dismissDetail()
 //        }
@@ -214,9 +232,10 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             vc.delegate = self
             vc.images = selectedImages
             vc.videos = selectedVideos
+            vc.selectedMedia = selectedMedia
             present(vc, animated: false)
         }else{
-            StaticFunctions.createErrorAlert(msg: "لقد وصلت للحد الاقصى من الفديوهات والصور")
+            StaticFunctions.createErrorAlert(msg: "You have reached the limit of videos and photos")
         }
         
     }
@@ -319,28 +338,10 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     @IBAction func addAdBtnAction(_ sender: UIButton) {
-//        params = [
-//                        "uid":AppDelegate.currentUser.id ?? 0,
-//                          "name":advsTitleTF.text!, "price":priceTF.text!,
-//                          "amount":"0", "lat": "0", "lng":"0",
-//                          "prod_size":"25","color":"red",
-//                          "color_name":"red",
-//                          "cat_id":"\(mainCatID)",
-//                          "sub_cat_id": "\(subCatID)",
-//                          "sell_cost":priceTF.text!,"errors":"",
-//                          "brand_id":"Nike",
-//                          "material_id":"",
-//
-//                          "country_id":AppDelegate.currentUser.countryId ?? "0",
-//                          "city_id":"\(cityId)",
-//                          "region_id":"\(regionId)",
-//                          "loc":"\(cityName) \(regionName)",
-//                          "phone":"\(phone)","wts":phone,"descr":descTextView.text!,
-//                          "has_chat":hasChat,"has_wts":hasWhats,"has_phone":hasPhone,
-//                          "tajeer_or_sell":"\(tajeer)"
-//        ]
+        
+        AppDelegate.defaults.removeObject(forKey:"postSessionData")
         params = [
-                        "uid":2359,
+            "uid":AppDelegate.currentUser.id ?? 0,
                           "name":advsTitleTF.text!, "price":priceTF.text!,
                           "amount":"0", "lat": "0", "lng":"0",
                           "prod_size":"25","color":"red",
@@ -350,8 +351,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                           "sell_cost":priceTF.text!,"errors":"",
                           "brand_id":"Nike",
                           "material_id":"",
-                          
-                          "country_id":5,
+                          "country_id":AppDelegate.currentUser.countryId ?? 0,
                           "city_id":"\(cityId)",
                           "region_id":"\(regionId)",
                           "loc":"\(cityName) \(regionName)",
@@ -360,35 +360,110 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                           "tajeer_or_sell":"\(tajeer)"
         ]
         if  selectedImages.count <= 0{
-            StaticFunctions.createErrorAlert(msg: "ضع صورة واحدة علي الأقل للإعلان")
+            StaticFunctions.createErrorAlert(msg: "Post at least one photo for the ad.")
         } else if isTextEmpty(advsTitleTF) {
-            StaticFunctions.createErrorAlert(msg: "ادخل عنوان الإعلان")
+            StaticFunctions.createErrorAlert(msg: "Enter the title of the ad")
         } else if isTextEmpty(priceTF) {
-            StaticFunctions.createErrorAlert(msg: "ادخل سعر بيع أو تأجير المنتج")
+            StaticFunctions.createErrorAlert(msg: "Enter the sale or rental price of the product")
         } else if isTextEmpty(newPhoneTF) && hasNewPhone {
-            StaticFunctions.createErrorAlert(msg: "ضع رقم الجوال الخاص بالتواصل")
+            StaticFunctions.createErrorAlert(msg: "Put your contact phone number")
         }
         else {
-            
-            AddAdvsController.shared.addAdvs(params: params, images: selectedImages, videos: selectedVideos) { success, message in
-                if success{
-                    print(message)
-                    let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SUCCESS_ADDING_VCID) as! SuccessAddingVC
-                    vc.modalPresentationStyle = .fullScreen
-                    vc.present(vc, animated: true)
-                }else{
-                    print("error" , message)
-                    StaticFunctions.createErrorAlert(msg: message)
-                    
-                }
-            }
+            createAds()
+//            AddAdvsController.shared.addAdvs(params: params,selectedMedia: self.selectedMedia) { success, message in
+//                if success{
+//                    print(message)
+//                    let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SUCCESS_ADDING_VCID) as! SuccessAddingVC
+//                    vc.modalPresentationStyle = .fullScreen
+//                    vc.present(vc, animated: true)
+//                }else{
+//                    print("error" , message)
+//                    StaticFunctions.createErrorAlert(msg: message)
+//
+//                }
+//            }
         }
         
 
         
     }
     
-}
+    func createAds() {
+        var type = ""
+        var index = ""
+        var image = Data()
+    
+        //main_image
+        
+        print(selectedMedia)
+        AF.upload(multipartFormData: { [self] multipartFormData in
+            for (key,value) in selectedMedia {
+                if key.contains("IMAGE"){
+                    if key.contains("0"){
+                        type = key.components(separatedBy: " ")[0]
+                        index = key.components(separatedBy: " ")[1]
+                        image = value
+                       // params["mtype[]"] = type
+                        multipartFormData.append(image, withName: "main_image",fileName: "file\(index).jpg", mimeType: "image/jpg")
+                    }else{
+                        type = key.components(separatedBy: " ")[0]
+                        index = key.components(separatedBy: " ")[1]
+                        image = value
+                        params["mtype[]"] = type
+                        multipartFormData.append(image, withName: "sub_image[]",fileName: "file\(index).jpg", mimeType: "image/jpg")
+                    }
+                }else{
+                    type = key.components(separatedBy: " ")[0]
+//                    index = key.components(separatedBy: " ")[1]
+                    index = "6"
+                    image = value
+                    params["mtype[]"] = type
+                    multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                }
+               
+                 print("send Image Parameters : -----> ", params)
+            for (key,value) in params {
+                multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        }
+        
+
+        },to:Constants.ADDADVS_URL)
+        .responseDecodable(of:AddAdvsModel.self){ response in
+            
+            switch response.result {
+            case .success(let data):
+                print("success")
+                print(data)
+                if data.statusCode == 200{
+//                    completion(true,data.message ?? "")
+                    print(data.message ?? "")
+                    let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SUCCESS_ADDING_VCID) as! SuccessAddingVC
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }else{
+//                    completion(false , data.message ?? "")
+                    StaticFunctions.createErrorAlert(msg: data.message ?? "")
+                }
+            case .failure(let error):
+                if let decodingError = error.underlyingError as? DecodingError {
+                           // Handle decoding errors
+//                           completion(false, "Decoding error: \(decodingError)")
+                    StaticFunctions.createErrorAlert(msg: "Decoding error: \(decodingError)")
+                       } else {
+                           // Handle other network or server errors
+                           print("error" , SERVER_ERROR)
+                           StaticFunctions.createErrorAlert(msg: SERVER_ERROR)
+                           
+                       }
+                   }
+            
+        }
+        
+    }
+    }
+    
+
 //MARK: CollectionView Delegate
 
 extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -670,14 +745,15 @@ extension AddAdvsVC {
       //  regionsDropDwon.frame = regionButton.bounds
         regionsDropDwon.bottomOffset = CGPoint(x: 0, y: regionButton.bounds.height)
         regionsDropDwon.dataSource = regionsList
-        if regionsIDsList.count > 0 {
-            regionButton.setTitle(regionsList[0], for: .normal)
-        }
+//        if regionsIDsList.count > 0 {
+//            regionButton.setTitle(regionsList[0], for: .normal)
+//        }
         
-        
-//            if let region = regionsIDsList.firstIndex(of: regionId) {
-//                regionButton.setTitle(regionsList[region], for: .normal)
-//            }
+        regionId = 4069
+        print(regionId)
+            if let region = regionsIDsList.firstIndex(of: regionId) {
+                regionButton.setTitle(regionsList[region], for: .normal)
+            }
         regionsDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.regionId = self.regionsIDsList[index]
@@ -704,11 +780,11 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
 
 extension AddAdvsVC {
     // Function to save session data
-    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int) {
+    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data]) {
         var sessionData: [String: Any] = [:]
         var imagesData = [Data]()
         for image in images {
-            imagesData.append(image.jpegData(compressionQuality: 0.1)!)
+            imagesData.append(image.jpegData(compressionQuality: 0.01)!)
         }
         
         sessionData["images"] = imagesData
@@ -720,13 +796,13 @@ extension AddAdvsVC {
         sessionData["subCatId"] = subCatId
         sessionData["CityId"] = CityId
         sessionData["catId"] = RegionId
-        
+        sessionData["selectedMedia"] = selectedMedia
 
         UserDefaults.standard.set(sessionData, forKey: "postSessionData")
     }
 
     // Function to retrieve session data
-    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?) {
+    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?) {
         if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
             let images = sessionData["images"] as? [Data]
             let videos = sessionData["videos"] as? [Data]
@@ -737,9 +813,10 @@ extension AddAdvsVC {
             let subCatId = sessionData["subCatId"] as? Int
             let cityId = sessionData["CityId"] as? Int
             let regionId = sessionData["RegionId"] as? Int
-            return (images, videos, description, title, price, catId, subCatId, cityId, regionId)
+            let selectedMedia = sessionData["selectedMedia"] as? [String:Data]
+            return (images, videos, description, title, price, catId, subCatId, cityId, regionId, selectedMedia)
         }
-        return (nil, nil, nil, nil, nil, nil, nil, nil, nil)
+        return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil)
     }
 
 

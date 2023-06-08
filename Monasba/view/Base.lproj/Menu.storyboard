@@ -1177,9 +1177,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlT-Ss-Nux">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-lK-NRw">
-                                        <rect key="frame" x="174" y="55" width="121" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-lK-NRw">
+                                        <rect key="frame" x="134.66666666666666" y="62" width="121" height="18"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1187,6 +1186,8 @@
                                 </subviews>
                                 <color key="backgroundColor" name="#0EBFB1"/>
                                 <constraints>
+                                    <constraint firstItem="LKy-lK-NRw" firstAttribute="centerX" secondItem="BlT-Ss-Nux" secondAttribute="centerX" id="2AH-D4-g9A"/>
+                                    <constraint firstAttribute="bottom" secondItem="LKy-lK-NRw" secondAttribute="bottom" constant="20" id="xu9-ll-4vp"/>
                                     <constraint firstAttribute="height" constant="100" id="yte-Kb-G6L"/>
                                 </constraints>
                             </view>
