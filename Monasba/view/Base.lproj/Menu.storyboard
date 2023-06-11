@@ -60,11 +60,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="75X-YD-uvT">
                                                         <rect key="frame" x="98" y="15.000000000000004" width="49" height="40.333333333333343"/>
                                                         <subviews>
-                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guest" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-iP-K8P">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-iP-K8P">
                                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="17.666666666666668"/>
                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-1-2022" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S82-U2-sjh">
                                                                 <rect key="frame" x="0.0" y="22.666666666666671" width="49" height="17.666666666666671"/>
@@ -133,6 +136,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapProfileButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="DBS-NJ-Nh8"/>
@@ -200,6 +204,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapAddAdButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="u5Q-xv-3ah"/>
@@ -267,6 +272,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapFavoutitesButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="gSm-TN-zO3"/>
@@ -334,6 +340,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapMyAdsButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="oud-xj-Cpx"/>
@@ -401,6 +408,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapMyAsksButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="Ewl-gS-ouB"/>
@@ -468,6 +476,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapChangeCountryButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="Y6q-ig-E2c"/>
@@ -536,15 +545,9 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowLeftSetting" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-3W-XB6" customClass="LocalizableImage">
-                                                                        <rect key="frame" x="325" y="21.333333333333371" width="10" height="15"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="15" id="1hU-5r-7ya"/>
-                                                                            <constraint firstAttribute="width" constant="10" id="3Na-id-O0a"/>
-                                                                        </constraints>
-                                                                    </imageView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="521-C6-2MX">
                                                                         <rect key="frame" x="63" y="9" width="1" height="40"/>
                                                                         <color key="backgroundColor" name="#E2E1E1"/>
@@ -555,6 +558,56 @@
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                                 <color key="value" name="#E2E1E1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zac-Gp-tta">
+                                                                        <rect key="frame" x="220" y="14" width="120" height="30"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BSq-dW-WKh">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                                                <subviews>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kY2-Eu-Vah" userLabel="EN">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="18"/>
+                                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                        <state key="normal" title="En."/>
+                                                                                    </button>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBF-6W-2jH">
+                                                                                        <rect key="frame" x="60" y="0.0" width="60" height="30"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="18"/>
+                                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                        <state key="normal" title="عربي">
+                                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        </state>
+                                                                                    </button>
+                                                                                </subviews>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="12"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                        <real key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" name="#0EBFB1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" name="#0EBFB1"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="BSq-dW-WKh" firstAttribute="top" secondItem="Zac-Gp-tta" secondAttribute="top" id="QWE-wW-acM"/>
+                                                                            <constraint firstItem="BSq-dW-WKh" firstAttribute="leading" secondItem="Zac-Gp-tta" secondAttribute="leading" id="YJk-Tg-7WY"/>
+                                                                            <constraint firstAttribute="width" constant="120" id="eVa-Mi-wj1"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="BSq-dW-WKh" secondAttribute="trailing" id="rl4-fr-9IK"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="tvA-QI-wSG"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="BSq-dW-WKh" secondAttribute="bottom" id="wDe-th-kV3"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="12"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
@@ -569,9 +622,9 @@
                                                                     <constraint firstItem="521-C6-2MX" firstAttribute="leading" secondItem="RfM-Pd-Zj9" secondAttribute="trailing" constant="20" id="Hmt-Js-6VA"/>
                                                                     <constraint firstItem="0SR-AR-V6E" firstAttribute="top" secondItem="GNa-8Q-JjT" secondAttribute="top" id="Pfy-fY-SDd"/>
                                                                     <constraint firstItem="521-C6-2MX" firstAttribute="centerY" secondItem="RfM-Pd-Zj9" secondAttribute="centerY" id="Pq2-VA-FSp"/>
-                                                                    <constraint firstItem="A0x-3W-XB6" firstAttribute="trailing" secondItem="GNa-8Q-JjT" secondAttribute="trailing" constant="-15" id="b3c-2x-4qG"/>
-                                                                    <constraint firstItem="A0x-3W-XB6" firstAttribute="centerY" secondItem="RfM-Pd-Zj9" secondAttribute="centerY" id="m54-68-Dkg"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Zac-Gp-tta" secondAttribute="trailing" constant="10" id="Xla-lr-TUa"/>
                                                                     <constraint firstItem="0SR-AR-V6E" firstAttribute="centerY" secondItem="RfM-Pd-Zj9" secondAttribute="centerY" id="oLy-a8-HyS"/>
+                                                                    <constraint firstItem="Zac-Gp-tta" firstAttribute="centerY" secondItem="GNa-8Q-JjT" secondAttribute="centerY" id="wTg-MR-fOn"/>
                                                                 </constraints>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCl-eW-E33" userLabel="Setting View">
@@ -600,6 +653,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapSettingsButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="UaN-hS-MYk"/>
@@ -660,13 +714,14 @@
                                                                         <rect key="frame" x="84" y="0.0" width="266" height="57.666666666666664"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                                        <state key="normal" title="Account verification">
+                                                                        <state key="normal" title="Account Verification">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapVerifyAccountButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="8F0-CX-dkg"/>
@@ -751,6 +806,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didTapLoginButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="227-99-bF1"/>
@@ -782,6 +838,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="0.0"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="didTapLogoutButton:" destination="Q3R-z2-mxY" eventType="touchUpInside" id="7tV-of-xEn"/>
@@ -869,17 +926,23 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-LE-g6S">
                                                 <rect key="frame" x="20" y="23" width="350" height="66"/>
                                                 <subviews>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الخروج" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XId-t0-beK">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XId-t0-beK">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="18"/>
                                                         <color key="textColor" red="0.34164178369999998" green="0.74987715479999995" blue="0.69411522150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="هل ترغب بتسجبل الخروج" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abw-z5-fur">
-                                                        <rect key="frame" x="113.66666666666666" y="48" width="122.66666666666666" height="18"/>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to log out?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abw-z5-fur">
+                                                        <rect key="frame" x="100.00000000000001" y="48" width="150.33333333333337" height="18"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                         <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
@@ -912,7 +975,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="الغاء">
+                                                        <state key="normal" title="Cancel">
                                                             <color key="titleColor" red="0.34164178369999998" green="0.74987715479999995" blue="0.69411522150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -925,6 +988,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud4-Ju-veQ">
@@ -932,7 +996,7 @@
                                                         <color key="backgroundColor" red="0.34164178369999998" green="0.74987715479999995" blue="0.69411522150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="موافق">
+                                                        <state key="normal" title="Yes">
                                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -999,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcI-cr-ttW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="717"/>
+            <point key="canvasLocation" x="-23.076923076923077" y="715.87677725118476"/>
         </scene>
         <!--My AdsVC-->
         <scene sceneID="qB8-lQ-lRD">
@@ -2038,7 +2102,7 @@
         <image name="arrowBack" width="20.333333969116211" height="13.666666984558105"/>
         <image name="arrow_Down" width="12" height="6.3333334922790527"/>
         <image name="check_icon" width="19" height="14"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="log-out" width="20" height="20"/>
         <image name="menu" width="25" height="19"/>
         <image name="mobile" width="13.666666984558105" height="22.333333969116211"/>

@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         
         if categoryId == 1 {
             sell = nil
-            typeLbl.text = "All"
+            typeLbl.text = "All".localize
             self.typeView.isHidden = false
         }else{
             self.typeView.isHidden = true
@@ -93,7 +93,7 @@ class HomeViewController: UIViewController {
         //view.backgroundColor = .black
         let leftButton = UIButton(type: .system)
         leftButton.setImage(UIImage(named: "addAdvsImage")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        leftButton.setTitle("Add Ad", for: .normal)
+        leftButton.setTitle("Add Ad".localize, for: .normal)
         leftButton.addTarget(self, action: #selector(addAdvsBtnAction), for: .touchUpInside)
         leftButton.sizeToFit()
         leftView.addSubview(leftButton)
@@ -105,7 +105,7 @@ class HomeViewController: UIViewController {
         let rightButton = UIButton(type: .system)
         rightButton.semanticContentAttribute = .forceRightToLeft
         rightButton.setImage(UIImage(named: "square")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        rightButton.setTitle("Categories", for: .normal)
+        rightButton.setTitle("Categories".localize, for: .normal)
         rightButton.addTarget(self, action: #selector(categoryBtnAction), for: .touchUpInside)
         rightButton.sizeToFit()
         rightView.addSubview(rightButton)
@@ -360,7 +360,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             }
             if categoryId == 1 {
                 sell = nil
-                typeLbl.text = "All"
+                typeLbl.text = "All".localize
                 self.typeView.isHidden = false
             }else{
                 self.typeView.isHidden = true
