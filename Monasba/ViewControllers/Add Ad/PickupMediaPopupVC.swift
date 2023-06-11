@@ -10,7 +10,7 @@ import PhotosUI
 import MobileCoreServices
 
 protocol PickupMediaPopupVCDelegate: AnyObject {
-    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage] , videos:[Data])
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage] , videos:[Data] , selectedMedia:[String:Data])
 }
 
 class PickupMediaPopupVC: UIViewController {
@@ -18,6 +18,8 @@ class PickupMediaPopupVC: UIViewController {
     weak var delegate: PickupMediaPopupVCDelegate?
     var images = [UIImage]()
     var videos = [Data]()
+    var selectedMedia = [String:Data]()
+    
     //MARK: App LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,7 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
        
         // empty the images Array
         images = []
+        selectedMedia = [:]
         print(results)
         for (_,result) in results.enumerated() {
             result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
@@ -73,10 +76,12 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                     let newImage = UIImage(data: data!)
                     self.images.append(newImage! as UIImage)
 //                    self.images.append(image)
+                    guard let index = self.images.firstIndex(of: newImage!) else {return}
+                    self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
                     print(self.images.count)
                 }
                 DispatchQueue.main.async {
-                    self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos)
+                    self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
                     self.dismiss(animated: false)
                 }
             }
@@ -90,6 +95,8 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             picker.dismiss(animated: true, completion: nil)
             
+        let dispatchGroup = DispatchGroup()
+
         if let mediaURL = info[.mediaURL] as? URL {
                    print("Captured video URL: \(mediaURL)")
             //Compress Video
@@ -102,11 +109,17 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                 //compress
                 let compressedURL = NSURL.fileURL(withPath: NSTemporaryDirectory() + NSUUID().uuidString + ".mp4")
                 var compressedVideo : Data? =  nil
+                
+                dispatchGroup.enter()
                 // Encode to mp4
                 compressVideo(inputURL: mediaURL, outputURL: compressedURL, handler: { [weak self] (_ exportSession: AVAssetExportSession?) -> Void in
                                     guard let self = self else {return}
 
 
+                    defer {
+                                       dispatchGroup.leave()
+                                   }
+                                   
                     switch exportSession!.status {
                         case .completed:
 
@@ -116,6 +129,10 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                             print(compressedVideo)
                             guard let compressedVideo = compressedVideo else{return}
                             self.videos.append(compressedVideo)
+                            
+                            guard let index = self.videos.firstIndex(of: compressedVideo) else {return}
+                            self.selectedMedia.updateValue(compressedVideo, forKey: "VIDEO \(index)")
+                            
                         } catch let error {
                             print ("Error converting compressed file to Data", error)
                         }
@@ -130,10 +147,7 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                 guard let videoThumbnil = videoThumbnil else{return}
                 // pass video as image to images[]
                 self.images.append(videoThumbnil as UIImage)
-//                do {
-//                    compressedVideo = try Data(contentsOf: compressedURL)
-//                    self.videos.append(compressedVideo!)
-//                }
+           
             } catch let error {
                 print(error)
             }
@@ -142,11 +156,24 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                } else if let capturedImage = info[.originalImage] as? UIImage {
                    print("Captured image: \(capturedImage)")
                    self.images.append(capturedImage as UIImage)
+                   DispatchQueue.main.async {
+                       self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
+                                       self.dismiss(animated: false)
+                   }
+//                   DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+//                       self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
+//                       self.dismiss(animated: false)
+//                   }
                }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos)
-            self.dismiss(animated: false)
+        dispatchGroup.notify(queue: .main) { [weak self] in
+                guard let self = self else { return }
+                
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
+                self.dismiss(animated: false)
+            }
         }
+        
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

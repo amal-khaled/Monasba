@@ -8,16 +8,17 @@
 import UIKit
 
 class SuccessAddingVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
-//MARK:  IBActions
+    //MARK:  IBActions
     
     @IBAction func goToHomeBtnAction(_ sender: UIButton) {
         
+        basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
     }
 }

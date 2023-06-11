@@ -145,6 +145,10 @@ class MenuVC: UIViewController {
     @IBAction func didTapVerifyAccountButton(_ sender: UIButton) {
         
         if StaticFunctions.isLogin() {
+            let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "VerifyAccountVC") as! VerifyAccountVC
+            vc.modalPresentationStyle = .fullScreen
+            presentDetail(vc)
+            
             
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Verify Account!")
