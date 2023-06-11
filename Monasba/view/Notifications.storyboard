@@ -14,11 +14,11 @@
         <array key="Medium.ttf">
             <string>Tajawal-Medium</string>
         </array>
-        <array key="Regular.ttf">
-            <string>Tajawal-Regular</string>
-        </array>
-        <array key="bold.ttf">
+        <array key="Tajawal-Bold.ttf">
             <string>Tajawal-Bold</string>
+        </array>
+        <array key="Tajawal-Regular.ttf">
+            <string>Tajawal-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -51,10 +51,10 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-qR-mIC">
-                                                                                        <rect key="frame" x="0.0" y="20" width="3" height="0.0"/>
+                                                                                        <rect key="frame" x="0.0" y="20" width="4.333333333333333" height="0.0"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Uu-Gt-y5Y">
-                                                                                                <rect key="frame" x="3" y="0.0" width="0.0" height="0.0"/>
+                                                                                                <rect key="frame" x="4.3333333333333321" y="0.0" width="0.0" height="0.0"/>
                                                                                                 <subviews>
                                                                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s26-Ve-crd">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -88,7 +88,7 @@
                                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                                     </view>
                                                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msT-el-AJ8">
-                                                                                                                        <rect key="frame" x="33" y="11.666666666666657" width="27" height="17"/>
+                                                                                                                        <rect key="frame" x="33" y="12.666666666666657" width="27" height="14.666666666666664"/>
                                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14.5"/>
                                                                                                                         <color key="textColor" red="0.1019607843" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                         <nil key="highlightedColor"/>
@@ -130,7 +130,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM4-MT-T1I" customClass="M13Checkbox" customModule="M13Checkbox">
-                                                                                        <rect key="frame" x="11" y="7.6666666666666572" width="25" height="25"/>
+                                                                                        <rect key="frame" x="12.333333333333332" y="7.6666666666666572" width="24.999999999999996" height="25"/>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="25" id="a0n-OX-1aI"/>
@@ -155,7 +155,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-N8-yq0">
-                                                                                        <rect key="frame" x="44" y="11.666666666666657" width="16" height="17"/>
+                                                                                        <rect key="frame" x="45.333333333333336" y="12.666666666666657" width="14.666666666666664" height="14.666666666666664"/>
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14.5"/>
                                                                                         <color key="textColor" red="0.1019607843" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                         <nil key="highlightedColor"/>
@@ -310,7 +310,7 @@
                                                                                     <rect key="frame" x="48" y="0.0" width="291" height="57"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIH-9t-yg6">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="32" height="15"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="30.333333333333332" height="15"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="15" id="kzX-Br-Qm6"/>
                                                                                             </constraints>
@@ -417,6 +417,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="68P-wz-mTk">
                         <barButtonItem key="backBarButtonItem" title=" " id="9dm-t7-BlV"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <connections>
                         <outlet property="checkBoxValueChanged" destination="NM4-MT-T1I" id="1He-Bv-tKL"/>
@@ -461,6 +464,9 @@
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

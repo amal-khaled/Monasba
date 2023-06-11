@@ -58,6 +58,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redAstric" translatesAutoresizingMaskIntoConstraints="NO" id="myz-EU-1aO">
                                                                         <rect key="frame" x="161.33333333333334" y="15.333333333333343" width="15" height="15"/>
@@ -106,6 +109,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="8"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="addPhotoBtnAction:" destination="g4j-EK-lhm" eventType="touchUpInside" id="CKC-bE-qfJ"/>
@@ -275,6 +279,9 @@
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="17"/>
                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6K-Uo-oKh">
                                                                                         <rect key="frame" x="0.0" y="27.999999999999996" width="318" height="46.666666666666657"/>
@@ -284,6 +291,9 @@
                                                                                                 <color key="textColor" name="textColor"/>
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -321,11 +331,14 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWn-xt-3Rj">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="153" height="73"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Main Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQs-bc-7WA">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="18.333333333333332"/>
+                                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQs-bc-7WA">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="18.333333333333332"/>
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="692-Hj-okP">
                                                                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="153" height="50"/>
@@ -353,6 +366,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,6 +412,9 @@
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuZ-nG-AYC">
                                                                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="153" height="50"/>
@@ -412,6 +431,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-RW-aV8">
                                                                                                         <rect key="frame" x="5" y="0.0" width="140" height="50"/>
@@ -471,6 +493,9 @@
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-Ic-uLQ">
                                                                                                 <rect key="frame" x="0.0" y="25.666666666666629" width="153" height="50"/>
@@ -487,6 +512,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-bj-3So">
                                                                                                         <rect key="frame" x="5" y="0.0" width="140" height="50"/>
@@ -541,6 +569,9 @@
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqc-Cj-UuN">
                                                                                                 <rect key="frame" x="0.0" y="25.666666666666629" width="153" height="50"/>
@@ -557,6 +588,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36t-5Y-hAU">
                                                                                                         <rect key="frame" x="5" y="0.0" width="140" height="50"/>
@@ -624,6 +658,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebe-23-DNx">
                                                                         <rect key="frame" x="0.0" y="26.333333333333378" width="318" height="123.66666666666669"/>
@@ -637,6 +674,9 @@
                                                                                         <color key="textColor" systemColor="labelColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </textView>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -685,6 +725,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HW2-gJ-yya">
                                                                         <rect key="frame" x="64.333333333333329" y="0.0" width="253.66666666666669" height="48"/>
@@ -698,6 +741,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                                         <real key="value" value="0.0"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
@@ -733,6 +777,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="من فضلك اختر نوع الإعلان" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogz-2T-erJ">
                                                                         <rect key="frame" x="200" y="17.666666666666742" width="118" height="0.0"/>
@@ -767,6 +814,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                             </stackView>
@@ -817,6 +867,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                         <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                             </stackView>
@@ -888,6 +941,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50B-gz-JJb">
                                                                         <rect key="frame" x="0.0" y="23.666666666666739" width="298" height="40.666666666666657"/>
@@ -896,6 +952,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="11.600000381469727"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWJ-tO-UiS">
                                                                         <rect key="frame" x="0.0" y="53.666666666666742" width="318" height="46.333333333333343"/>
@@ -926,6 +985,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                         <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                             </stackView>
@@ -980,6 +1042,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                             </stackView>
@@ -1034,6 +1099,9 @@
                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                         <nil key="highlightedColor"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </label>
                                                                                                 </subviews>
                                                                                             </stackView>
@@ -1176,6 +1244,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="12.600000381469727"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-FD-4rO">
                                                                         <rect key="frame" x="0.0" y="74.666666666666742" width="318" height="46.333333333333343"/>
@@ -1185,6 +1256,9 @@
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="ASCIICapableNumberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iof-PK-qdu">
                                                                                 <rect key="frame" x="236" y="0.0" width="82" height="46.333333333333336"/>
@@ -1277,6 +1351,7 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                                 <real key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
                                                                                             <action selector="useRegisteredBtnAction:" destination="g4j-EK-lhm" eventType="touchUpInside" id="1fc-EG-xWy"/>
@@ -1299,6 +1374,7 @@
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                                 <real key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
                                                                                             <action selector="useNewPhoneNumBtnAction:" destination="g4j-EK-lhm" eventType="touchUpInside" id="kZ4-yi-Zyj"/>
@@ -1324,6 +1400,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
@@ -1359,6 +1438,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="10"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="addAdBtnAction:" destination="g4j-EK-lhm" eventType="touchUpInside" id="U2j-Gp-vI2"/>
@@ -2287,6 +2367,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl8-Sg-Pw7">
                                         <rect key="frame" x="12" y="55" width="25" height="20"/>
@@ -2410,6 +2493,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -2515,6 +2601,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -2664,6 +2753,9 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2692,6 +2784,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="goToHomeBtnAction:" destination="kSw-mF-2JO" eventType="touchUpInside" id="ayb-4N-WZW"/>
                                                     <action selector="movetoHomeAction:" destination="kSw-mF-2JO" eventType="touchUpInside" id="Ch2-5c-XD1"/>
@@ -2745,6 +2840,9 @@
                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17.5"/>
                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ujt-ng-DoK">
                                                                 <rect key="frame" x="0.0" y="34.666666666666671" width="360" height="19.333333333333329"/>
@@ -2757,6 +2855,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="16"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUP-gU-V9j">
                                                                         <rect key="frame" x="85" y="0.0" width="275" height="19.333333333333332"/>
@@ -2802,6 +2903,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                         <real key="value" value="4"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                         </subviews>
@@ -2967,6 +3069,7 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="8"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="didTapShowPickedImageViewButton:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="jXw-6O-Zba"/>
@@ -3000,6 +3103,9 @@
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-Im-ag2">
                                                                                         <rect key="frame" x="0.0" y="26.333333333333368" width="360" height="46.666666666666657"/>
@@ -3059,6 +3165,9 @@
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15.5"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eP-h6-EfR">
                                                                         <rect key="frame" x="0.0" y="26.333333333333378" width="360" height="123.66666666666669"/>
@@ -3123,6 +3232,9 @@
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17.5"/>
                                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="7T1-95-Pl6">
                                                                                 <rect key="frame" x="0.0" y="17.666666666666629" width="360" height="78"/>
@@ -3307,6 +3419,9 @@
                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                                                 <color key="textColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akc-af-hrW">
                                                                                                 <rect key="frame" x="42.333333333333343" y="0.0" width="317.66666666666663" height="46.666666666666664"/>
@@ -3356,7 +3471,7 @@
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-b4-UUX">
-                                                                                                        <rect key="frame" x="89.333333333333314" y="0.0" width="270.66666666666663" height="15"/>
+                                                                                                        <rect key="frame" x="89.333333333333343" y="0.0" width="270.66666666666663" height="15"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لن تتم مشاركة موقع الخريطة مع المستخدمين" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-4i-Ngn">
                                                                                                                 <rect key="frame" x="0.0" y="2" width="247.66666666666666" height="13"/>
@@ -3614,6 +3729,9 @@
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                                 <color key="textColor" red="0.24520145939999999" green="0.24520145939999999" blue="0.24520145939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Choose Ad Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcs-nA-q5e">
                                                                                 <rect key="frame" x="0.0" y="23.666666666666629" width="134" height="15"/>
@@ -3631,16 +3749,19 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="PpI-gi-xqe">
-                                                                                                        <rect key="frame" x="43" y="15.666666666666742" width="89" height="15"/>
+                                                                                                        <rect key="frame" x="38.666666666666664" y="15.666666666666742" width="97.666666666666686" height="15"/>
                                                                                                         <subviews>
-                                                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad For Rent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAN-Lw-nVQ">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="65" height="13"/>
+                                                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD FOR RENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAN-Lw-nVQ">
+                                                                                                                <rect key="frame" x="0.0" y="2" width="73.666666666666671" height="13"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
+                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                                </userDefinedRuntimeAttributes>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio_grey" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-DU-C6N">
-                                                                                                                <rect key="frame" x="74" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="82.666666666666686" y="0.0" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="Y6b-bF-389"/>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="oy1-qJ-fcw"/>
@@ -3680,16 +3801,19 @@
                                                                                                 <rect key="frame" x="185" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-Ap-9py">
-                                                                                                        <rect key="frame" x="45.666666666666657" y="15.666666666666742" width="84" height="15"/>
+                                                                                                        <rect key="frame" x="40.666666666666664" y="15.666666666666742" width="93.666666666666686" height="15"/>
                                                                                                         <subviews>
-                                                                                                            <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad For Sell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awc-x4-24H">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="60" height="13"/>
+                                                                                                            <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD FOR SELL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awc-x4-24H">
+                                                                                                                <rect key="frame" x="0.0" y="2" width="69.666666666666671" height="13"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
+                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                                </userDefinedRuntimeAttributes>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radiobtn" translatesAutoresizingMaskIntoConstraints="NO" id="S0R-MU-hQz">
-                                                                                                                <rect key="frame" x="69.000000000000028" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="78.666666666666657" y="0.0" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="r3m-h0-qi6"/>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="uOH-LU-kbd"/>
@@ -3759,20 +3883,25 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciu-GL-1mL">
                                                                         <rect key="frame" x="0.0" y="215" width="360" height="240"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Communication Type" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIM-Ec-vgD">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="142" height="17.666666666666668"/>
+                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection type" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIM-Ec-vgD">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="17.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="15"/>
                                                                                 <color key="textColor" red="0.24520145939999999" green="0.24520145939999999" blue="0.24520145939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Determine The Communication means that Customers will communicate with you ." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-h5-bNO">
-                                                                                <rect key="frame" x="0.0" y="23.666666666666629" width="507" height="15"/>
+                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-h5-bNO">
+                                                                                <rect key="frame" x="0.0" y="23.666666666666629" width="454" height="29.666666666666671"/>
+                                                                                <string key="text">Determine the means by which customers will contact you for this advertisement
+</string>
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="12.600000381469727"/>
                                                                                 <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izk-z7-euJ">
-                                                                                <rect key="frame" x="0.0" y="50.666666666666742" width="360" height="46.666666666666657"/>
+                                                                                <rect key="frame" x="0.0" y="65.333333333333258" width="360" height="46.666666666666657"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FxG-mF-7in">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="360" height="46.666666666666664"/>
@@ -3781,7 +3910,7 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="q5H-Xe-at5">
-                                                                                                        <rect key="frame" x="32.333333333333329" y="15.666666666666515" width="50.333333333333329" height="15"/>
+                                                                                                        <rect key="frame" x="32.333333333333329" y="15.666666666666742" width="50.333333333333329" height="15"/>
                                                                                                         <subviews>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACR-Fw-rmF">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -3835,7 +3964,7 @@
                                                                                                 <rect key="frame" x="122.66666666666666" y="0.0" width="114.66666666666666" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-kN-uSU">
-                                                                                                        <rect key="frame" x="28" y="15.666666666666515" width="59" height="15"/>
+                                                                                                        <rect key="frame" x="28" y="15.666666666666742" width="59" height="15"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqP-bb-Vpg">
                                                                                                                 <rect key="frame" x="0.0" y="2" width="35" height="13"/>
@@ -3889,7 +4018,7 @@
                                                                                                 <rect key="frame" x="245.33333333333329" y="0.0" width="114.66666666666666" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6XS-je-XQa">
-                                                                                                        <rect key="frame" x="35" y="15.666666666666515" width="44.666666666666657" height="15"/>
+                                                                                                        <rect key="frame" x="35" y="15.666666666666742" width="44.666666666666657" height="15"/>
                                                                                                         <subviews>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-Hw-s3x">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="15"/>
@@ -3959,19 +4088,25 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aw3-7r-5xb">
-                                                                                <rect key="frame" x="0.0" y="120.33333333333326" width="360" height="110"/>
+                                                                                <rect key="frame" x="0.0" y="135" width="360" height="110"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use My  Registered Phone Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIu-gp-XXI">
                                                                                         <rect key="frame" x="0.0" y="7" width="227" height="15"/>
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICs-0O-oGb">
                                                                                         <rect key="frame" x="0.0" y="33" width="127.66666666666667" height="16"/>
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="13.600000381469727"/>
                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                         <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-tR-yxm">
                                                                                         <rect key="frame" x="0.0" y="60" width="360" height="46.333333333333343"/>

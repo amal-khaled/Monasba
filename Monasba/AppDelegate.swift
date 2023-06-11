@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         print(AppDelegate.defaults.integer(forKey: "userId"))
-        MOLH.setLanguageTo( "en")
+        MOLH.setLanguageTo( "ar")
         if AppDelegate.defaults.string(forKey: "token") != nil && AppDelegate.defaults.integer(forKey: "userId") != 0{
             
             AppDelegate.currentUser.toke = AppDelegate.defaults.string(forKey: "token")
