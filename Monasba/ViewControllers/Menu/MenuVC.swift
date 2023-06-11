@@ -32,14 +32,16 @@ class MenuVC: UIViewController {
         dateLabel.text = FormattedDate()
         
         loginButton.shake()
-        if AppDelegate.currentUser.toke == nil && !StaticFunctions.isLogin() {
+        if StaticFunctions.isLogin() {
+            //logged in
             userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
-            logoutView.isHidden = true
-            loginButton.isHidden = false
-        }else {
-            userNameLabel.text = "Guest"
             logoutView.isHidden = false
             loginButton.isHidden = true
+        }else {
+           // logged out
+            userNameLabel.text = "Guest".localize
+            logoutView.isHidden = true
+            loginButton.isHidden = false
         }
     }
     
@@ -58,7 +60,7 @@ class MenuVC: UIViewController {
            // present(vc, animated: true)
             presentDetail(vc)
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Profile!")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Profile!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -78,7 +80,7 @@ class MenuVC: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             presentDetail(vc)
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Add Post!")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Add Post!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -92,7 +94,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Favoutites!")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Favoutites!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -108,7 +110,7 @@ class MenuVC: UIViewController {
                 
             }
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Ads !")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Ads !".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -121,7 +123,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Asks!")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Asks!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -151,7 +153,7 @@ class MenuVC: UIViewController {
             
             
         }else {
-            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Verify Account!")
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Verify Account!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
                 self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
@@ -173,7 +175,7 @@ extension MenuVC {
         AppDelegate.currentUser.id = nil
         AppDelegate.currentUser.toke = nil
         AppDelegate.currentUser.pic = "-"
-        AppDelegate.currentUser.name = "Guest"
+        AppDelegate.currentUser.name = "Guest".localize
         AppDelegate.defaults.string(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "userId")

@@ -1,1 +1,93 @@
 
+//MARK: Home
+"Home" = "الرئيسية";
+"Categories" = "الأقسام";
+"Add Ad" = "إضافة إعلان";
+"All" = "الكل";
+"Messages" = "الرسائل";
+"Menu" = "القائمة";
+"Notifications" = "الإشعارات";
+"Search" = "البحث";
+
+
+//MARK: Messages
+"you Don't have any messages" = "ليس لديك أية رسائل";
+
+//MARK: Srearch
+"Most popular questions" = "الأسئلة الأكثر شيوعًا";
+"Questions relevant to your search result" = "الأسئلة ذات الصلة بنتيجة البحث الخاص بك";
+"Most popular ads" = "الإعلانات الأكثر شعبية";
+"Ads relevant to your search result" = "الإعلانات ذات الصلة بنتيجة البحث الخاصة بك";
+"Most popular persons" = "الأشخاص الأكثر شعبية";
+"Persons relevant to your search result" = "الأشخاص ذوي الصلة بنتيجة البحث الخاصة بك";
+
+//MARK: Menu
+"My Profile" = "الملف الشخصي";
+"Add Ad" = "أضف إعلان";
+"Favourites" = "المفضلة";
+"My Ads" = "إعلاناتي";
+"My Asks" = "أسئلتي";
+"Change Country" = "تغيير الدولة";
+"Change Languge" = "تغيير اللغة";
+"Settings" = "الإعدادات";
+"Account Verification" = "توثيق الحساب";
+"Log out" = "تسجيل خروج";
+"Do you want to log out?" = "هل ترغب بتسجبل الخروج";
+"Cancel" = "الغاء";
+"Yes" = "موافق";
+"Login/Sign up" = "تسجيل الدخول/إنشاء حساب";
+"Guest" = "زائر";
+"Please Login First To Can Go To Profile!" = "الرجاء تسجيل الدخول أولاً لتتمكن من الانتقال إلى الملف الشخصي!";
+"Please Login First To Can Add Post!" = "الرجاء تسجيل الدخول أولاً لتتمكن من إضافة منشور!";
+"Please Login First To Can Go To Favoutites!" = "الرجاء تسجيل الدخول أولا للذهاب إلى المفضلة!";
+"Please Login First To Can Go To Ads !" = "الرجاء تسجيل الدخول أولاً لتتمكن من الانتقال إلى الإعلانات!";
+
+"Please Login First To Can Go To Asks!" = "الرجاء تسجيل الدخول أولاً ليتمكن من الذهاب إلى اسألتي!";
+"Please Login First To Can Go To Verify Account!" = "الرجاء تسجيل الدخول أولاً لتتمكن من توثيق الحساب!";
+
+//MARK: ADD ADs
+
+"Add Photos or Videos" = "أضف صورًا أو مقاطع فيديو";
+"Add Photo" = "إضافة صورة";
+"Ad Title" = "عنوان الاعلان";
+"Ad title (five words only)" = "عنوان الإعلان (خمس كلمات فقط)";
+"Main Category" = "القسم الرئيسي";
+"Sub Category" = "القسم الفرعي";
+"City" = "المدينة";
+"Region" = "المنطقة";
+"Choose" = "أختر";
+"Ad description" = "وصف الإعلان";
+"Price" = "السعر";
+"Sale or rent price" = "سعر البيع أو الإيجار";
+"Ad type" = "نوع الإعلان";
+"AD FOR SELL" = "إعلان للبيع";
+"AD FOR RENT" = " إعلان للإيجار";
+"Connection type" = "وسائل التواصل";
+"Determine the means by which customers will contact you for this advertisement
+" = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
+"Phone Call" = "هاتف";
+"WhatsApp" = "واتساب";
+"Chat" = "شات";
+"Use my registered mobile number to communicate" = "استخدم رقم هاتفي المحمول المسجل للتواصل";
+"Enter the mobile number" = "أدخل رقم الهاتف المحمول";
+"YES" = "نعم";
+"NO" = "لا";
+"Mobile" = "الهاتف";
+"ADD AD" = "أضف إعلانك";
+"Open the Gallery" = "افتح المعرض";
+"Open Video Gallery" = "افتح معرض الفيديو";
+"Take a Photo" = "التقاط صورة";
+"Record a Video" = "سجل فيديو";
+"Thank you... Your ad has been added successfully" = "شكرا لك ... تمت إضافة إعلانك بنجاح";
+"Go to Home Page" = "اذهب إلى الصفحة الرئيسية";
+
+//MARK: Edit Ads
+"Ad Details" = "تفاصيل الإعلان";
+"Ad Images" = "صور الإعلان";
+"Main Image" = "الصورة الرئيسية";
+"Add Image" = "إضافة صورة";
+"Ad Title" = "عنوان الاعلان";
+"Description" = "الوصف";
+
+
+

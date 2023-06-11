@@ -669,12 +669,19 @@ extension AddAdvsVC {
     private func setupMainCategoryDropDown() {
         mainCatDropDwon.anchorView = mainCatButton
         //  regionsDropDwon.frame = regionButton.bounds
+        if MOLHLanguage.currentAppleLanguage() == "en"{
+            mainCatDropDwon.anchorView = mainCatButton
+        }else{
+            mainCatDropDwon.anchorView = subCatButton
+        }
         mainCatDropDwon.bottomOffset = CGPoint(x: 0, y: mainCatButton.bounds.height)
         mainCatDropDwon.dataSource = mainCatsList
-        mainCatButton.setTitle(mainCatsList[0], for: .normal)
-        //            if let region = mainCatsIDsList.firstIndex(of: mainCatID) {
-        //                mainCatButton.setTitle(mainCatsList[region], for: .normal)
-        //            }
+//        mainCatButton.setTitle(mainCatsList[0], for: .normal)
+                    if let region = mainCatsIDsList.firstIndex(of: mainCatID) {
+                        mainCatButton.setTitle(mainCatsList[region], for: .normal)
+                    }else{
+                        mainCatButton.setTitle(mainCatsList[0], for: .normal)
+                    }
         if self.mainCatID != 1 {
             self.rentViewContainer.isHidden = true
         }else {
@@ -700,14 +707,21 @@ extension AddAdvsVC {
     
     // Sub Category
     private func setupSubCategoryDropDown() {
-        subCatDropDwon.anchorView = subCatButton
+//        subCatDropDwon.anchorView = subCatButton
       //  regionsDropDwon.frame = regionButton.bounds
+       if MOLHLanguage.currentAppleLanguage() == "en"{
+            subCatDropDwon.anchorView = subCatButton
+        }else{
+            subCatDropDwon.anchorView = mainCatButton
+        }
         subCatDropDwon.bottomOffset = CGPoint(x: 0, y: subCatButton.bounds.height)
         subCatDropDwon.dataSource = subCatsList
-        subCatButton.setTitle(subCatsList[0], for: .normal)
-//            if let region = subCatsIDsList.firstIndex(of: subCatID) {
-//                subCatButton.setTitle(subCatsList[region], for: .normal)
-//            }
+//        subCatButton.setTitle(subCatsList[0], for: .normal)
+            if let region = subCatsIDsList.firstIndex(of: subCatID) {
+                subCatButton.setTitle(subCatsList[region], for: .normal)
+            }else{
+                subCatButton.setTitle(subCatsList[0], for: .normal)
+            }
         subCatDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.mainCatID = self.subCatsIDsList[index]
@@ -719,14 +733,21 @@ extension AddAdvsVC {
     
     // Citis DropDwon
     private func setupCitiesDropDown() {
-        cityDropDwon.anchorView = cityButton
+//        cityDropDwon.anchorView = cityButton
       //  regionsDropDwon.frame = regionButton.bounds
+       if MOLHLanguage.currentAppleLanguage() == "en"{
+            cityDropDwon.anchorView = cityButton
+        }else{
+            cityDropDwon.anchorView = regionButton
+        }
         cityDropDwon.bottomOffset = CGPoint(x: 0, y: cityButton.bounds.height)
         cityDropDwon.dataSource = cityList
-        cityButton.setTitle(cityList[0], for: .normal)
-//            if let region = cityIDsList.firstIndex(of: cityId) {
-//                cityButton.setTitle(cityList[region], for: .normal)
-//            }
+//        cityButton.setTitle(cityList[0], for: .normal)
+            if let region = cityIDsList.firstIndex(of: cityId) {
+                cityButton.setTitle(cityList[region], for: .normal)
+            }else {
+                cityButton.setTitle(cityList[0], for: .normal)
+            }
         cityDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.cityId = self.cityIDsList[index]
@@ -741,7 +762,12 @@ extension AddAdvsVC {
     
     // regions
     private func setupRegionsDropDown() {
-        regionsDropDwon.anchorView = regionButton
+//        regionsDropDwon.anchorView = regionButton
+       if MOLHLanguage.currentAppleLanguage() == "en"{
+            regionsDropDwon.anchorView = regionButton
+        }else{
+            regionsDropDwon.anchorView = cityButton
+        }
       //  regionsDropDwon.frame = regionButton.bounds
         regionsDropDwon.bottomOffset = CGPoint(x: 0, y: regionButton.bounds.height)
         regionsDropDwon.dataSource = regionsList
@@ -753,6 +779,8 @@ extension AddAdvsVC {
         print(regionId)
             if let region = regionsIDsList.firstIndex(of: regionId) {
                 regionButton.setTitle(regionsList[region], for: .normal)
+            }else {
+                regionButton.setTitle(regionsList[0], for: .normal)
             }
         regionsDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}

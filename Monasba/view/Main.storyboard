@@ -1038,7 +1038,11 @@
         <scene sceneID="xNX-cd-qHQ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Search" id="pQI-R6-gJy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qxA-38-f6q"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="qxA-38-f6q">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGz-Va-A6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2106,7 +2110,11 @@
         <scene sceneID="EFl-AI-tNQ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Notifications" id="viT-4u-0g3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ryW-x6-g41"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" id="ryW-x6-g41">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWo-KD-9f3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2116,7 +2124,11 @@
         <scene sceneID="Ssw-yS-pZu">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="MenuVC" storyboardName="Menu" referencedIdentifier="MenuVC" id="Cat-tQ-xsp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu" image="menu" id="Jnz-aq-kNT"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="menu" id="Jnz-aq-kNT">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="832-h4-aa0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2405,14 +2417,17 @@
                                             <constraint firstAttribute="height" constant="300" id="ETX-72-zHs"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا توجد لديك رسائل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmQ-Tr-7rH">
-                                        <rect key="frame" x="130.66666666666666" y="511" width="131.99999999999997" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you Don't have any messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmQ-Tr-7rH">
+                                        <rect key="frame" x="62.333333333333343" y="511" width="268.66666666666663" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Zkk-Ck-AMI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2426,9 +2441,22 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf8-mG-VN7">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrX-vJ-gRg">
+                                        <rect key="frame" x="154.33333333333334" y="60" width="84.333333333333343" height="20"/>
+                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="jrX-vJ-gRg" firstAttribute="centerX" secondItem="kf8-mG-VN7" secondAttribute="centerX" id="0Kc-LK-st1"/>
                                     <constraint firstAttribute="height" constant="100" id="mkR-GH-Q4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="jrX-vJ-gRg" secondAttribute="bottom" constant="20" id="zDX-pt-QU5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2454,7 +2482,11 @@
                             <constraint firstAttribute="bottom" secondItem="STa-8z-gPM" secondAttribute="bottom" id="z9K-YF-zTt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="btn_del" destination="dxC-Vx-Hrf" id="Zup-8K-Qww"/>
                         <outlet property="btn_select" destination="ndF-HU-5F6" id="3ea-F2-lza"/>
