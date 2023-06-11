@@ -23,8 +23,8 @@ class ChangeCountryVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: false)
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        dismissDetail()
     }
     
     
