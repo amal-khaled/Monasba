@@ -38,7 +38,18 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-
+//        self.navigationController?.navigationBar.barStyle = .default
+//       n
+//        self.navigationController?.navigationBar.isTranslucent = false
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
+            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
+        // Set your desired background color
+            view.addSubview(customNavBar)
+            
+            // Adjust the top constraint of your main content to align with the bottom of the custom navigation bar
+//            if let topConstraint = view.constraints.first(where: { $0.firstAttribute == .top }) {
+//                topConstraint.constant = customNavBar.frame.height
+//            }
         NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight

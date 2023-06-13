@@ -94,6 +94,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-9P-83a">
                                                         <rect key="frame" x="0.0" y="48" width="121" height="2"/>
@@ -112,6 +115,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="#929292"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTw-WW-FyQ">
                                                         <rect key="frame" x="0.0" y="48" width="121" height="2"/>
@@ -130,6 +136,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="#929292"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8z-ms-M0h">
                                                         <rect key="frame" x="0.0" y="48" width="121" height="2"/>
@@ -176,6 +185,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-r1-s2E">
                                         <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="adsBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pif-Fs-uBm"/>
                                         </connections>
@@ -183,6 +195,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-hb-vEn">
                                         <rect key="frame" x="121" y="0.0" width="121" height="50"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="personsBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YiW-CQ-Ad3"/>
                                         </connections>
@@ -495,7 +510,7 @@
                                                                                             <rect key="frame" x="0.0" y="83.333333333333343" width="311" height="20"/>
                                                                                             <subviews>
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-dG-ZDR">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="80.666666666666671" height="20"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
                                                                                                     <subviews>
                                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:X1q-81-Mm2:image" translatesAutoresizingMaskIntoConstraints="NO" id="X1q-81-Mm2">
                                                                                                             <rect key="frame" x="0.0" y="2.6666666666666856" width="12" height="15"/>
@@ -511,7 +526,7 @@
                                                                                                             <nil key="highlightedColor"/>
                                                                                                         </label>
                                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:ALI-BK-M6X:image" translatesAutoresizingMaskIntoConstraints="NO" id="ALI-BK-M6X">
-                                                                                                            <rect key="frame" x="65" y="2.6666666666666856" width="15.666666666666671" height="15"/>
+                                                                                                            <rect key="frame" x="65" y="2.6666666666666856" width="15" height="15"/>
                                                                                                             <constraints>
                                                                                                                 <constraint firstAttribute="width" constant="15" id="C4h-eS-fSJ"/>
                                                                                                                 <constraint firstAttribute="height" constant="15" id="G5V-sZ-J1Y"/>
@@ -520,17 +535,17 @@
                                                                                                     </subviews>
                                                                                                 </stackView>
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RfL-Ov-xOi">
-                                                                                                    <rect key="frame" x="250.33333333333329" y="0.0" width="60.666666666666657" height="20"/>
+                                                                                                    <rect key="frame" x="262.33333333333331" y="0.0" width="48.666666666666686" height="20"/>
                                                                                                     <subviews>
                                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:oZa-1s-9cx:image" translatesAutoresizingMaskIntoConstraints="NO" id="oZa-1s-9cx">
-                                                                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="8" height="20"/>
                                                                                                             <constraints>
                                                                                                                 <constraint firstAttribute="width" constant="20" id="0xj-bS-vgC"/>
                                                                                                                 <constraint firstAttribute="height" constant="20" id="v6b-ct-eU5"/>
                                                                                                             </constraints>
                                                                                                         </imageView>
                                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egypt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="QVZ-qd-5Qe">
-                                                                                                            <rect key="frame" x="27.999999999999996" y="0.0" width="32.666666666666657" height="20"/>
+                                                                                                            <rect key="frame" x="15.999999999999996" y="0.0" width="32.666666666666657" height="20"/>
                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                             <color key="textColor" name="textColor"/>
                                                                                                             <nil key="highlightedColor"/>
