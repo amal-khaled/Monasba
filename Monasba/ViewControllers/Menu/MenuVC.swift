@@ -19,6 +19,10 @@ class MenuVC: UIViewController {
     
     @IBOutlet weak var logoutView: UIView!
   
+    @IBOutlet weak var englishButton: UIButton!
+    
+    @IBOutlet weak var arabicButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +48,7 @@ class MenuVC: UIViewController {
             loginButton.isHidden = false
         }
     }
+    
     
    
     
@@ -161,14 +166,56 @@ class MenuVC: UIViewController {
 
     }
     
+    //Change Language
+    
+    
+    @IBAction func didTapEnglishButton(_ sender: UIButton) {
+        englishButton.backgroundColor = UIColor(named: "#0EBFB1")
+        englishButton.setTitleColor(UIColor.white, for: .normal)
+        arabicButton.setTitleColor(UIColor.black, for: .normal)
+        arabicButton.backgroundColor = UIColor.white
+    }
+    
+    @IBAction func didTapArabicButton(_ sender: UIButton) {
+        arabicButton.backgroundColor = UIColor(named: "#0EBFB1")
+        englishButton.backgroundColor = UIColor.white
+        arabicButton.setTitleColor(UIColor.white, for: .normal)
+        englishButton.setTitleColor(UIColor.black, for: .normal)
+    }
+    
     @IBAction func didTapLogoutButton(_ sender: UIButton) {
-        logout()
+        displayImageActionSheet()
+      //  logout()
     }
     
     
     
 }
 extension MenuVC {
+    
+    private func displayImageActionSheet() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let selectAction = UIAlertAction(title: "Log out".localize, style: .default) { (_) in
+                    self.logout()
+                }
+        // Customize the color of the actions
+        selectAction.setValue(UIColor.red, forKey: "titleTextColor")
+                alertController.addAction(selectAction)
+        let cancelAction = UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                let imageView = UIImageView(image: UIImage(named: "log-out"))
+                imageView.contentMode = .scaleAspectFit
+                imageView.clipsToBounds = true
+                let imageWidth: CGFloat = 20
+                let imageHeight: CGFloat = 20
+                let padding: CGFloat = 16.0
+                let customView = UIView(frame: CGRect(x: padding, y: padding, width: imageWidth, height: imageHeight))
+                imageView.frame = customView.bounds
+                customView.addSubview(imageView)
+                alertController.view.addSubview(customView)
+                alertController.view.bounds.size.height += (imageHeight + padding * 2)
+                present(alertController, animated: true, completion: nil)
+       }
     
     func logout(){
        

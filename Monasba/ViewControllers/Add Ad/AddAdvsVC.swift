@@ -487,7 +487,7 @@ extension AddAdvsVC {
     //MARK: Methods
     private func setupView(){
         
-        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.")
+        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
         configerSelectedButtons()
     }
     
