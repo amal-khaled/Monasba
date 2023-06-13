@@ -26,6 +26,8 @@
 "Ads relevant to your search result" = "الإعلانات ذات الصلة بنتيجة البحث الخاصة بك";
 "Most popular persons" = "الأشخاص الأكثر شعبية";
 "Persons relevant to your search result" = "الأشخاص ذوي الصلة بنتيجة البحث الخاصة بك";
+"Persons" = "الأشخاص";
+"Questions" = "أسئلة";
 
 //MARK: Menu
 "My Profile" = "الملف الشخصي";
@@ -173,3 +175,18 @@
 "Forget Password" = "نسيت كلمة المرور";
 "Please type the correct email to receive the activation code" = "يرجى كتابة البريد الإلكتروني الصحيح لتلقي رمز التفعيل";
 
+//MARK: Profile
+"My Profile" = "ملفي الشخصي";
+"Change Photo" = "تغيير الصوره";
+"Ads" = "إعلان";
+"Rate" = "تقييم";
+"Followers" = "متابعون";
+"Followings" = "يتابع";
+"FirstName" = "الاسم الأول";
+"UserName" = "اسم المستخدم";
+"Mobile" = "رقم الهاتف";
+"LastName" = "LastName";
+"Bio" = "السيرة الذاتية";
+"There Are No Ads....!" = "لا توجد اعلانات ....!";
+"Follow" = "تابع";
+"Select the reason why you are reporting the account holder" = "حدد سبب الإبلاغ عن صاحب الحساب";
