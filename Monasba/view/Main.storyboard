@@ -986,7 +986,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1p4-YQ-K1v"/>
-                        <color key="backgroundColor" name="#0EBFB1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1p4-YQ-K1v" firstAttribute="trailing" secondItem="vBV-y2-aN6" secondAttribute="trailing" id="9rD-JN-hdu"/>
                             <constraint firstItem="1p4-YQ-K1v" firstAttribute="bottom" secondItem="vBV-y2-aN6" secondAttribute="bottom" id="ANf-7K-VdY"/>
@@ -1032,7 +1032,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2p-lp-7nO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="lyS-sc-q94" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="2515.2671755725191" y="21.83098591549296"/>
+            <point key="canvasLocation" x="2165.6488549618321" y="-8.4507042253521139"/>
         </scene>
         <!--Search-->
         <scene sceneID="xNX-cd-qHQ">
@@ -1067,7 +1067,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="Rjm-XN-1HX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="Rjm-XN-1HX" customClass="RoundedNavigationBar" customModule="Monasba" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="#0EBFB1"/>
@@ -1094,7 +1094,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1646.5648854961833" y="21.83098591549296"/>
+            <point key="canvasLocation" x="1140" y="-8"/>
         </scene>
         <!--Main Tab BarVC View Controller-->
         <scene sceneID="lLD-Kj-bV9">
@@ -2527,6 +2527,9 @@
     <designables>
         <designable name="MUI-H5-TZT">
             <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="Rjm-XN-1HX">
+            <size key="intrinsicContentSize" width="-1" height="44"/>
         </designable>
         <designable name="WiW-qh-heE">
             <size key="intrinsicContentSize" width="24" height="14"/>
