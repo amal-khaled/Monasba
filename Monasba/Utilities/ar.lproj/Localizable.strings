@@ -8,8 +8,14 @@
 "Menu" = "القائمة";
 "Notifications" = "الإشعارات";
 "Search" = "البحث";
-
-
+"Latest" = "الأحدث";
+"Sort" = "رتب";
+"Highest price" = "الأغلى سعر";
+"Lowest price" = "الأقل سعر";
+"Apply" = "تطبيق";
+"Filter" = "فلتر";
+"choose city" = "اختر المدينة";
+"Back to All" = "رجوع إلى الكل";
 //MARK: Messages
 "you Don't have any messages" = "ليس لديك أية رسائل";
 
@@ -44,6 +50,23 @@
 
 "Please Login First To Can Go To Asks!" = "الرجاء تسجيل الدخول أولاً ليتمكن من الذهاب إلى اسألتي!";
 "Please Login First To Can Go To Verify Account!" = "الرجاء تسجيل الدخول أولاً لتتمكن من توثيق الحساب!";
+
+//MARK: Verify Account
+"Verify Account" = "التحقق من الحساب";
+"Select the account type" = "حدد نوع الحساب";
+"Company / institution" = "الشركة / المؤسسة";
+"Public figure/famous" = "شخصية عامة / مشهور";
+"Country" = "الدولة";
+"Phone" = "هاتف";
+"Phone Number" = "رقم التليفون";
+"Category you belong to" = "الفئة التي تنتمي إليها";
+"Select category" = "إختار الفئة";
+"Confirmation of credibility" = "تأكيد المصدقية";
+"Please add an official document to prove personal identity" = "يرجى إضافة مستند رسمي لاثبات الهويه الشخصية";
+"Document type" = "نوع المستند";
+"Document type" = "حدد نوع المستند";
+"Upload Document" = "تحميل المستند";
+
 
 //MARK: ADD ADs
 
@@ -80,6 +103,7 @@
 "Record a Video" = "سجل فيديو";
 "Thank you... Your ad has been added successfully" = "شكرا لك ... تمت إضافة إعلانك بنجاح";
 "Go to Home Page" = "اذهب إلى الصفحة الرئيسية";
+"Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price." = "الرجاء إدخال الوصف الكامل مع المزايا والعيوب وسعر الشراء والبيع.";
 
 //MARK: Edit Ads
 "Ad Details" = "تفاصيل الإعلان";
@@ -90,4 +114,62 @@
 "Description" = "الوصف";
 
 
+//MARK: Chat
+"Delete The Conversation" = "حذف المحادثة";
+"Report The Conversation" = "أبلغ عن المحادثة";
+"Block" = "حظر";
+"Select the reason for reporting the chat content" = "حدد سبب الإبلاغ  عن محتوى المحادثة";
+"Report" = "إبلاغ";
+"Type here ..." = "اكتب هنا ...";
+"Type Your Message" = "اكتب رسالتك";
+"Confirm Location" = "تأكيد الموقع";
+
+//MARK: Product Details
+
+"Description" = "وصف";
+"Comments" = "تعليقات";
+"Reply" = "رد";
+"Like" = "أعجبني";
+"Call the advertisement owner" = "اتصل بصاحب الإعلان";
+"The owner of the advertisement has hidden the mobile number" = "قام صاحب الإعلان بإخفاء رقم الهاتف المحمول";
+"Add reply" = "إضافة رد";
+"add reply to ..." = "أضف رد على ...";
+"report comment" = "الإبلاغ عن تعليق";
+"what's the reason for reeporting content / comment owner" = "ما سبب الإبلاغ عن مالك المحتوى / التعليق";
+"choose your reason to report content / ad owner" = "اختر سببًا للإبلاغ عن مالك المحتوى / الإعلان";
+
+
+//MARK: Auth
+" Phone number" = "رقم الهاتف";
+"User name or Phone number" = "اسم المستخدم أو رقم الهاتف";
+"Password" = "كلمة المرور";
+"Forget password ?" = "نسيت كلمة المرور؟";
+"Login" = "تسجيل الدخول";
+"or" = "أو";
+"Create new account" = "انشاء حساب جديد";
+"Continue" = "استمر";
+"Verify Code" = "التحقق من الكود";
+"Please check your email and phone number to get the activation code" = "يرجى التحقق من بريدك الإلكتروني ورقم هاتفك للحصول على رمز التفعيل";
+"sent to" = "أرسل إلى";
+"Verify" = "تأكيد";
+"Resend Code " = "أعد إرسال الرمز";
+"New password" = "كلمة المرور الجديدة";
+"Confirm new password" = "تأكيد كلمة المرور الجديدة";
+"Save" = "حفظ";
+"New Account" = "حساب جديد";
+//Signup
+"User name" = "اسم المستخدم";
+"Your username is how friends add you on Monasba" = "اسم المستخدم الخاص بك هو كيف يضيفك الأصدقاء على مناسبه";
+"Choose your username (English letters)" = "اختر اسم المستخدم الخاص بك (الحروف الانجليزية)";
+"Name" = "الاسم";
+"Family name" = "اسم العائلة";
+"Phone" = "هاتف";
+"Email" = "البريد إلكتروني";
+"Governorate" = "المحافظة";
+"About me" = "ْعَنِّي";
+"Register" = "تسجيل";
+"you accept" = "هل توافق";
+"Usage agreement" = "اتفاقية الاستخدام";
+"Forget Password" = "نسيت كلمة المرور";
+"Please type the correct email to receive the activation code" = "يرجى كتابة البريد الإلكتروني الصحيح لتلقي رمز التفعيل";
 
