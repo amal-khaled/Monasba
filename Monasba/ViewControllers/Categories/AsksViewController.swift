@@ -16,6 +16,12 @@ class AsksViewController: UIViewController {
     var cityId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
+            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
+        // Set your desired background color
+            view.addSubview(customNavBar)
+        
         getData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(_:)), name: NSNotification.Name(rawValue: "updateData"), object: nil)
 
@@ -127,5 +133,18 @@ extension AsksViewController{
                 self.page = self.page == 1 ? 1 : self.page - 1
             }
         }, id: cityId, page: self.page)
+    }
+}
+
+extension AsksViewController:UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+
+        // Check if the scroll direction is upwards
+        if contentOffsetY > 0 {
+            navigationController?.setNavigationBarHidden(true, animated: false)
+        } else {
+            navigationController?.setNavigationBarHidden(false, animated: false)
+        }
     }
 }
