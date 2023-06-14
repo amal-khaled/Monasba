@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 
 class MenuVC: UIViewController {
 
@@ -27,6 +28,16 @@ class MenuVC: UIViewController {
         super.viewDidLoad()
 
         ConfigureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if MOLHLanguage.currentAppleLanguage() == "en"{
+            englishButtonPressed()
+        }else{
+            arabicButtonPressed()
+        }
     }
     
     //MARK: Private Methods
@@ -170,17 +181,36 @@ class MenuVC: UIViewController {
     
     
     @IBAction func didTapEnglishButton(_ sender: UIButton) {
-        englishButton.backgroundColor = UIColor(named: "#0EBFB1")
-        englishButton.setTitleColor(UIColor.white, for: .normal)
-        arabicButton.setTitleColor(UIColor.black, for: .normal)
-        arabicButton.backgroundColor = UIColor.white
+        if MOLHLanguage.currentAppleLanguage() != "en" {
+            MOLH.setLanguageTo("en")
+            englishButtonPressed()
+            if #available(iOS 13.0, *) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    let delegate = UIApplication.shared.delegate as? AppDelegate
+                    delegate!.swichRoot()
+                }
+            } else {
+                // Fallback on earlier versions
+                MOLH.reset()
+            }
+        }
     }
     
     @IBAction func didTapArabicButton(_ sender: UIButton) {
-        arabicButton.backgroundColor = UIColor(named: "#0EBFB1")
-        englishButton.backgroundColor = UIColor.white
-        arabicButton.setTitleColor(UIColor.white, for: .normal)
-        englishButton.setTitleColor(UIColor.black, for: .normal)
+        if MOLHLanguage.currentAppleLanguage() != "ar" {
+            MOLH.setLanguageTo("ar")
+            arabicButtonPressed()
+            if #available(iOS 13.0, *) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    let delegate = UIApplication.shared.delegate as? AppDelegate
+                    delegate!.swichRoot()
+                }
+                
+            } else {
+                // Fallback on earlier versions
+                MOLH.reset()
+            }
+        }
     }
     
     @IBAction func didTapLogoutButton(_ sender: UIButton) {
@@ -188,6 +218,20 @@ class MenuVC: UIViewController {
       //  logout()
     }
     
+    
+    fileprivate func arabicButtonPressed(){
+        arabicButton.backgroundColor = UIColor(named: "#0EBFB1")
+        englishButton.backgroundColor = UIColor.white
+        arabicButton.setTitleColor(UIColor.white, for: .normal)
+        englishButton.setTitleColor(UIColor.black, for: .normal)
+    }
+    
+    fileprivate func englishButtonPressed(){
+        englishButton.backgroundColor = UIColor(named: "#0EBFB1")
+        englishButton.setTitleColor(UIColor.white, for: .normal)
+        arabicButton.setTitleColor(UIColor.black, for: .normal)
+        arabicButton.backgroundColor = UIColor.white
+    }
     
     
 }
