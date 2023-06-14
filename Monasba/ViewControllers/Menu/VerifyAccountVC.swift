@@ -8,6 +8,7 @@
     import UIKit
     import Alamofire
     import DropDown
+    import MOLH
 //    import NextGrowingTextView
 
 class VerifyAccountVC: UIViewController, UITextFieldDelegate {
@@ -59,7 +60,14 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             sellv.backgroundColor = UIColor(named: "#0EBFB1")
             StaticFunctions.setTextColor(sell_txt, UIColor.white)
             phoneNumber.delegate = self
-            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3))"
+            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
+           if MOLHLanguage.currentAppleLanguage() == "en" {
+               self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
+            }else{
+                self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameAr, for: .normal)
+            }
+            
+            
             countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
             
             dropDowns.forEach { $0.dismissMode = .onTap }
@@ -67,10 +75,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             customizeDropDown()
             setupDropDownCats()
 //            getCountries()
-            documents_name = ["بطاقة الهوية",
-                                  "جواز سفر",
-                                  "رخصة قيادة"]
-            
+            documents_name = ["ID card".localize,"passport".localize ,"Driving License".localize]
             setupDropDownDocuments()
             
         }
@@ -80,17 +85,19 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         @IBOutlet weak var catsBtn: UIButton!
         
         var cat_name:String = ""
-        var cats_name = [  "اختار الفئة",
-                                "رياضة",
-                                "موسيقى وغناء",
-                                "ترفيه",
-                                "تمثيل",
-                                "موضة وأزياء",
-                                "منشئ محتوى/مدوّن/شخصية مؤثرة",
-                                "كاتب/مؤلف",
-                                "حكومة وسياسة",
-                                "نشاط تجاري/علامة تجارية"]
-        
+    var cats_name =
+    [
+        "select category".localize,
+        "sports".localize,
+        "music and singing".localize,
+        "entertainment".localize,
+        "acting".localize,
+        "Fashion".localize,
+        "Content Creator/Blogger/Influencer".localize,
+        "writer/author".localize,
+        "Government and Politics".localize,
+        "business/brand".localize
+    ]
         let cats = DropDown()
         
         func setupDropDownCats() {
@@ -220,12 +227,14 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             //order.askImage
 //                BG.load(self)
             guard let mobile = phoneNumber.text else{return}
-            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id,
+            
+            guard let imageData = pic.image?.jpegData(compressionQuality: 0.1) else {return}
+            let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ?? 0,
                                               "note":" ",
                                                "account_type":tajeer,
                                                "category":cat_name,
                                                "document_type":document_name,
-                                           "country_id":AppDelegate.currentUser.countryId, "mobile":mobile]
+                                           "country_id":AppDelegate.currentUser.countryId ?? 0, "mobile":mobile]
             if cat_name == "" && country_name == "" && document_name == "" {
                 StaticFunctions.createErrorAlert(msg:"من فضلك ادخل جميع البيانات")
             }else {
@@ -233,7 +242,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                 print(params)
                 AF.upload(multipartFormData: {multipartFormData in
                     
-                    multipartFormData.append(Data(), withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
+                    multipartFormData.append(imageData, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
                     print("send Image Parameters : -----> ", params)
                     for (key,value) in params {
                         multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
@@ -251,7 +260,6 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                             if success {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                                    self.goNav("SettingVC","Main")
                                     self.dismissDetail()
                                 }
                             }
@@ -260,24 +268,6 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                         print(error)
                     }
                 }
-            
-    //            AF.request(user.url, method: .post, parameters: params, encoding:URLEncoding.httpBody , headers: temp.header)
-    //                .responseString { (e) in
-    //                    BG.hide(self)
-    //                    if let res = e.value {
-    //                        print(res)
-    //                        if(res.contains("true")){
-    //                            self.showMiracle()
-    //                            self.dimissMe()
-    //                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-    //                                self.goNav("SettingVC","Main")
-    //                            }
-    //
-    //                        }else{
-    //                            self.msg("بيانات خطأ")
-    //                        }
-    //                    }
-    //                }
             }
         }
         
@@ -288,16 +278,21 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
     }
     
         @IBAction func go_pick_img() {
-//            img = pic
             
+            print("login")
+            
+            let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:ASK_IMAGE_PICKER_VCID ) as! AskImagePickerViewController
+            vc.chooseImageBtclosure = {
+                image in
+                self.pic.image = image
+            }
+            self.present(vc, animated: false, completion: nil)
         }
         
         
         @IBAction func rd_sell_tajeer(_ sender:UIButton) {
             tajeer = sender.tag
             if(sender.tag == 1){
-    //            sellv.backgroundColor = colors.main
-    //            tajeerv.backgroundColor = colors.whiteColor
                 sellv.borderWidth = 0.7
                 tajeerv.borderWidth = 1.2
                 sellv.borderColor = UIColor.gray
@@ -309,10 +304,11 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                 sellv.backgroundColor = UIColor.white
                 tajeerv.backgroundColor = UIColor(named: "#0EBFB1")
                 
-                documents_name = [  "عقد تأسيس",
-                                    "سجل تجاري",
-                                    "الرخصة التجارية",
-                                    ]
+                documents_name = [
+                    "Establishment contract".localize,
+                    "Commercial Record".localize,
+                    "Commercial license".localize
+                ]
                 
                 
             }else{
@@ -336,19 +332,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             }
             setupDropDownDocuments()
         }
-//        @objc func showMiracle() {
-//            let slideVC = OverlayView()
-//            slideVC.imageName = "DoneImage"
-//                slideVC.isForgetPassword = true
-//                slideVC.onDoneBlock = { result in
-//                    let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-//                       self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-//                }
-//            slideVC.text = "جاري مراجعه حسابك من قبل الادارة"
-//            slideVC.modalPresentationStyle = .custom
-//            slideVC.transitioningDelegate = self
-//            self.present(slideVC, animated: true, completion: nil)
-//        }
+
     }
   
     extension VerifyAccountVC  {
