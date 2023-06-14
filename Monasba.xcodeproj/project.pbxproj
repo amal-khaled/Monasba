@@ -149,6 +149,10 @@
 		C8AD40EE2A2B177500E464DB /* MainTabBarVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD40ED2A2B177500E464DB /* MainTabBarVCViewController.swift */; };
 		C8CC468B2A3874B800C90476 /* ProfileProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85FFCAF2A260AAE000C426D /* ProfileProductsCollectionViewCell.xib */; };
 		C8CC468E2A387F4500C90476 /* RoundedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC468D2A387F4500C90476 /* RoundedNavigationBar.swift */; };
+		C8CC46912A3918C900C90476 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC46902A3918C900C90476 /* Loading.swift */; };
+		C8CC46932A39190500C90476 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CC46922A39190500C90476 /* loader.json */; };
+		C8CC46952A391F4800C90476 /* load2.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CC46942A391F4700C90476 /* load2.json */; };
+		C8CC46972A39A79E00C90476 /* VerifyAccountImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC46962A39A79E00C90476 /* VerifyAccountImagePickerVC.swift */; };
 		C8CCE3342A18CFC300FFAFB2 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */; };
 		C8CCE3382A18FC5F00FFAFB2 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CCE3362A18FC5F00FFAFB2 /* Menu.storyboard */; };
 		C8CCE33A2A19DE9900FFAFB2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CCE3392A19DE9900FFAFB2 /* ProfileVC.swift */; };
@@ -304,6 +308,10 @@
 		C8AD40EA2A2B110F00E464DB /* CondsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondsVC.swift; sourceTree = "<group>"; };
 		C8AD40ED2A2B177500E464DB /* MainTabBarVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCViewController.swift; sourceTree = "<group>"; };
 		C8CC468D2A387F4500C90476 /* RoundedNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedNavigationBar.swift; sourceTree = "<group>"; };
+		C8CC46902A3918C900C90476 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		C8CC46922A39190500C90476 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		C8CC46942A391F4700C90476 /* load2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load2.json; sourceTree = "<group>"; };
+		C8CC46962A39A79E00C90476 /* VerifyAccountImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountImagePickerVC.swift; sourceTree = "<group>"; };
 		C8CCE3332A18CFC300FFAFB2 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C8CCE3372A18FC5F00FFAFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Menu.storyboard; sourceTree = "<group>"; };
 		C8CCE3392A19DE9900FFAFB2 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -561,6 +569,7 @@
 		65DD120D29E6915A00A3B8DD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C8CC468F2A3918B000C90476 /* Loading */,
 				C8CC468C2A387EC800C90476 /* CustomViews */,
 				65C4B6102A248C3300A59A4B /* Fonts */,
 				65DD120E29E6915A00A3B8DD /* Constants.swift */,
@@ -754,6 +763,16 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		C8CC468F2A3918B000C90476 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				C8CC46942A391F4700C90476 /* load2.json */,
+				C8CC46922A39190500C90476 /* loader.json */,
+				C8CC46902A3918C900C90476 /* Loading.swift */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
 		C8CCE3322A18CFAF00FFAFB2 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +781,7 @@
 				C85FFCAA2A260A4B000C426D /* MyAdsVC.swift */,
 				C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */,
 				C8ECBD532A34535E003178DA /* VerifyAccountVC.swift */,
+				C8CC46962A39A79E00C90476 /* VerifyAccountImagePickerVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -851,6 +871,7 @@
 				658D003C2A15F22200F512E9 /* Search.storyboard in Resources */,
 				C8AD40E02A28EB9400E464DB /* Settings.storyboard in Resources */,
 				C85FFCE02A260BEF000C426D /* MsgCell.xib in Resources */,
+				C8CC46952A391F4800C90476 /* load2.json in Resources */,
 				C85FFCDB2A260BEF000C426D /* AttachCell.xib in Resources */,
 				C85FFC9E2A2608AC000C426D /* Chat.storyboard in Resources */,
 				C85FFC9D2A2608AC000C426D /* Main.storyboard in Resources */,
@@ -858,6 +879,7 @@
 				65DD120C29E6848500A3B8DD /* Auth.storyboard in Resources */,
 				C8CCE3382A18FC5F00FFAFB2 /* Menu.storyboard in Resources */,
 				C85FFCD72A260BEF000C426D /* MsgFileCell.xib in Resources */,
+				C8CC46932A39190500C90476 /* loader.json in Resources */,
 				65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */,
 				C85FFCBA2A260AAE000C426D /* MyAdsCollectionViewCell.xib in Resources */,
 				65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */,
@@ -933,6 +955,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CC46912A3918C900C90476 /* Loading.swift in Sources */,
 				65DD11FB29E6845D00A3B8DD /* ViewController.swift in Sources */,
 				65F33D0D2A22DCD500A1A889 /* ReplyAskViewController.swift in Sources */,
 				C8A72A3B2A00B45600F9C26D /* SuccessAddingVC.swift in Sources */,
@@ -942,6 +965,7 @@
 				65E54A3A2A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift in Sources */,
 				65DD11F729E6845D00A3B8DD /* AppDelegate.swift in Sources */,
 				65E54A382A02991D00FEC9A3 /* SideCategoryCollectionViewCell.swift in Sources */,
+				C8CC46972A39A79E00C90476 /* VerifyAccountImagePickerVC.swift in Sources */,
 				C8CC468E2A387F4500C90476 /* RoundedNavigationBar.swift in Sources */,
 				65FFFA162A1E972600B70368 /* NotificationsController.swift in Sources */,
 				652711F429EBF87900D503F9 /* ResetPsswordViewController.swift in Sources */,

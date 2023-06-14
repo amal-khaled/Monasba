@@ -1,13 +1,13 @@
 //
-//  AskImagePickerViewController.swift
+//  dsds.swift
 //  Monasba
 //
-//  Created by Amal Elgalant on 27/05/2023.
+//  Created by iOSayed on 14/06/2023.
 //
 
 import UIKit
 
-class AskImagePickerViewController: UIViewController {
+class VerifyAccountImagePickerVC: UIViewController {
     var chooseImageBtclosure : ((UIImage) -> Void)? = nil
 
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class AskImagePickerViewController: UIViewController {
   
 
 }
-extension AskImagePickerViewController : UIImagePickerControllerDelegate,
+extension VerifyAccountImagePickerVC : UIImagePickerControllerDelegate,
                                          UINavigationControllerDelegate {
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
          // Local variable inserted by Swift 4.2 migrator.

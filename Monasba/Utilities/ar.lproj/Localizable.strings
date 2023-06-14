@@ -66,9 +66,24 @@
 "Confirmation of credibility" = "تأكيد المصدقية";
 "Please add an official document to prove personal identity" = "يرجى إضافة مستند رسمي لاثبات الهويه الشخصية";
 "Document type" = "نوع المستند";
-"Document type" = "حدد نوع المستند";
+"Select Document Type" = "حدد نوع المستند";
 "Upload Document" = "تحميل المستند";
-
+"ID card" = "بطاقة الهوية";
+"passport" = "جواز سفر";
+"Driving License" = "رخصة قيادة";
+"select category" = "اختار الفئة";
+"sports" = "رياضة";
+"music and singing" = "موسيقى وغناء";
+"entertainment" = "ترفيه";
+"acting" = "تمثيل";
+"Fashion" = "موضة وأزياء";
+"Content Creator/Blogger/Influencer" = "منشئ محتوى/مدوّن/شخصية مؤثرة";
+"writer/author" = "كاتب/مؤلف";
+"Government and Politics" = "حكومة وسياسة";
+"business/brand" = "نشاط تجاري/علامة تجارية";
+"Establishment contract" = "عقد تأسيس";
+"Commercial Record" = "سجل تجاري";
+"Commercial license" = "الرخصة التجارية";
 
 //MARK: ADD ADs
 
@@ -194,3 +209,11 @@
 "There Are No Ads....!" = "لا توجد اعلانات ....!";
 "Follow" = "تابع";
 "Select the reason why you are reporting the account holder" = "حدد سبب الإبلاغ عن صاحب الحساب";
+
+//MARK: Ask
+"Remove" = "حذف";
+"show comments" = "عرض كل التعليقات";
+"Add comment" = "إضافة تعليق";
+"add comment to ad" = "إضافة تعليق علي اعلان";
+"Take Photo" = "إلتقاط صورة";
+"Photo Library" = "معرض الصور";
