@@ -12,7 +12,9 @@ import Firebase
 import IQKeyboardManagerSwift
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
+    
+    
     
     static var currentUser = User()
     
@@ -24,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         print(AppDelegate.defaults.integer(forKey: "userId"))
-        MOLH.setLanguageTo( "ar")
+//        MOLH.setLanguageTo( "ar")
+        MOLH.shared.activate(true)
+        reset()
         if AppDelegate.defaults.string(forKey: "token") != nil && AppDelegate.defaults.integer(forKey: "userId") != 0{
             
             AppDelegate.currentUser.toke = AppDelegate.defaults.string(forKey: "token")
@@ -96,6 +100,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    @available(iOS 13.0, *)
+    func swichRoot(){
+        //Flip Animation before changing rootView
+        animateView()
+        
+        // switch root view controllers
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "homeT")
+        
+        let scene = UIApplication.shared.connectedScenes.first
+        if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
+            sd.window!.rootViewController = nav
+        }
+        
+    }
+    @available(iOS 13.0, *)
+    func animateView() {
+        var transition = UIView.AnimationOptions.transitionFlipFromRight
+        if !MOLHLanguage.isRTLLanguage() {
+            transition = .transitionFlipFromLeft
+        }
+        animateView(transition: transition)
+    }
+    
+    @available(iOS 13.0, *)
+    func animateView(transition: UIView.AnimationOptions) {
+        if let delegate = UIApplication.shared.connectedScenes.first?.delegate {
+            UIView.transition(with: (((delegate as? SceneDelegate)!.window)!), duration: 0.5, options: transition, animations: {}) { (f) in
+            }
+        }
+    }
+    func reset() {
+        if let window = UIApplication.shared.windows.first {
+            let sb = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil)
+               window.rootViewController = sb.instantiateViewController(withIdentifier: "homeT")
+               window.makeKeyAndVisible()
+           }
+//        let rootViewController: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+//                let story = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil)
+//                rootViewController.rootViewController = story.instantiateViewController(withIdentifier: "homeT")
+        
+//        let rootviewcontroller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+//        let stry = UIStoryboard(name: "Main", bundle: nil)
+//        rootviewcontroller.rootViewController = stry.instantiateViewController(withIdentifier: "homeT")
     }
     
     
