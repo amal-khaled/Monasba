@@ -165,7 +165,7 @@ extension CategoryViewController{
             }, countryId: AppDelegate.currentUser.countryId ?? 0)
         }else{
             //asks_side
-                self.cities = [ Country(nameAr: AppDelegate.currentUser.citiesNameAr, nameEn:  AppDelegate.currentUser.citiesNameEn , id: AppDelegate.currentUser.cityId )]
+            self.cities = [ Country(nameAr: AppDelegate.currentUser.countriesNameAr ?? "الكويت", nameEn:  AppDelegate.currentUser.countriesNameEn ?? "Kuwait", id: AppDelegate.currentUser.countryId  ?? 6)]
             
         }
     }

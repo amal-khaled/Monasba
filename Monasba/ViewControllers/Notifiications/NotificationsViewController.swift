@@ -17,23 +17,27 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var deleteLabel: UILabel!
     @IBOutlet weak var deleteImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-//    let cellSpacingHeight: CGFloat = 8
+    //    let cellSpacingHeight: CGFloat = 8
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !StaticFunctions.isLogin(){
+            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            
+        }
         self.navigationController?.navigationBar.isHidden = false
-
+        
         tableView.rowHeight = UITableView.automaticDimension
-getData()
+        getData()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
-
+            
         }
     }
     
@@ -42,15 +46,15 @@ getData()
         deleteNotifications()
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 extension NotificationsViewController{
     func getData(){
@@ -66,14 +70,14 @@ extension NotificationsViewController{
     }
     func deleteNotifications(){
         NotificationsController.shared.deleteNotifications(completion: {
-        check, msg in
+            check, msg in
             if check == 0{
                 self.notiiifications.removeAll()
                 self.tableView.reloadData()
                 StaticFunctions.createSuccessAlert(msg: msg)
-
+                
             }
-           else{
+            else{
                 StaticFunctions.createErrorAlert(msg: msg)
             }
         })
@@ -95,7 +99,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         if let notificatinSenderId = notiiifications[index].oid {
             switch notiiifications[index].ntype {
             case "ASK_REPLY" , "LIKE_REPLY_Questions":
-           
+                
                 let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID ) as! AskRepliesViewController
                 vc.data.question = Ask()
                 vc.data.question?.id = notificatinSenderId
@@ -128,12 +132,12 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 self.navigationController?.pushViewController(vc, animated: true)
                 print("FOLLOW")
             case "CHAT":
-//
+                //
                 print(receiver.room_id)
                 receiver.room_id = "\(notificatinSenderId)"
                 print(receiver.room_id)
-
-
+                
+                
                 if notiiifications[index].userf?.count != 0 {
                     if let userName = notiiifications[index].userf?[0].name , let userPic =  notiiifications[index].userf?[0].pic , let userId = notiiifications[index].userf?[0].id {
                         Constants.userOtherId = "\(userId)"
@@ -141,11 +145,11 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                         Constants.otherUserName = userName
                     }
                     basicNavigation(storyName: "Chat", segueId: "ChatVC")
-
-//                        goNav("chatv","Chat")
-                        print("CHAT")
+                    
+                    //                        goNav("chatv","Chat")
+                    print("CHAT")
                 }else {
-                   // let userId = data[index].userf?[0].id
+                    // let userId = data[index].userf?[0].id
                     StaticFunctions.createErrorAlert(msg: "this is a deleted user")
                 }
             default:

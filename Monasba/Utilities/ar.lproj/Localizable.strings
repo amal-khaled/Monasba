@@ -178,10 +178,11 @@
 "Save" = "حفظ";
 "New Account" = "حساب جديد";
 //Signup
+
 "User name" = "اسم المستخدم";
 "Your username is how friends add you on Monasba" = "اسم المستخدم الخاص بك هو كيف يضيفك الأصدقاء على مناسبه";
 "Choose your username (English letters)" = "اختر اسم المستخدم الخاص بك (الحروف الانجليزية)";
-"Name" = "الاسم";
+"Full name" = "الاسم بالكامل";
 "Family name" = "اسم العائلة";
 "Phone" = "هاتف";
 "Email" = "البريد إلكتروني";
