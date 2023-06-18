@@ -429,7 +429,13 @@ extension UIViewController :NVActivityIndicatorViewable{
         return result
     }
     
+    func addObserver(_ str:String,_ selector:Selector){
+        NotificationCenter.default.addObserver(self, selector: selector, name:NSNotification.Name(str), object: nil)
+    }
     
+    func remObserver(){
+        NotificationCenter.default.removeObserver(self)
+    }
     
     
     func GetDateFromString(_ DateStr: String)-> Date
@@ -461,6 +467,12 @@ extension UIViewController :NVActivityIndicatorViewable{
         formatter.amSymbol = "ص"
         formatter.pmSymbol = "م"
         return formatter.string(from: date)
+    }
+    
+    func getViewController(_ id:String,_ story:String="Main") -> UIViewController{
+        let story = UIStoryboard(name: story, bundle: nil)
+        let vc = story.instantiateViewController(withIdentifier: id)
+        return vc
     }
     
     func dawnloadAppFromStore(appID:String){

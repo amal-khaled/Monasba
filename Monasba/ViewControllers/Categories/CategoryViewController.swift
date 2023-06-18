@@ -18,6 +18,7 @@ class CategoryViewController: UIViewController {
     var cities = [Country]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Categories".localize
         getCategory()
         getCities()
         sideCategoyCollectionView.semanticContentAttribute = .forceLeftToRight

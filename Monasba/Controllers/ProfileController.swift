@@ -82,4 +82,29 @@ class ProfileController {
         }, link: Constants.PRODUCTS_BY_USER_URL , param: param)
     }
     
+    
+    func getOtherProfile(completion: @escaping(User?, String)->(),userId:Int){
+        
+        var param = [
+            "id" :userId,
+            "anther_user_id": AppDelegate.currentUser.id ?? 0
+        ] as [String : Any]
+        
+       print(param)
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let ProfileModel = try JSONDecoder().decode(ProfileModel.self, from: data)
+                    completion(ProfileModel.data,ProfileModel.message ?? "")
+                
+            } catch (let jerrorr){
+                print(jerrorr)
+                completion(nil,SERVER_ERROR)
+            }
+            
+        }, link: Constants.PROFILE_URL , param: param)
+    }
+    
 }
