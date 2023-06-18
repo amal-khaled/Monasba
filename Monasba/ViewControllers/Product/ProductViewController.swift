@@ -85,12 +85,11 @@ class ProductViewController: UIViewController {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
         vc.OtherUserId = product.userId ?? 0
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
-//        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func backAction(_ sender: Any) {
-        dismissDetail()
-//        navigationController?.popViewController(animated: true)
+//        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func flageActiion(_ sender: Any) {
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: FLAG_VCID) as! ReportViewController
@@ -410,6 +409,7 @@ extension ProductViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID) as! CommentRepliesViewController
         vc.data.comment = self.comments[indexPath.row]
+//        self.present(vc, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

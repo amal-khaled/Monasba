@@ -144,7 +144,7 @@ class HomeViewController: UIViewController {
         let subcategoryIndex = notification.userInfo?["sub_cat_index"] as! Int
         subCategories = notification.userInfo?["subCategories"] as! [Category]
         categoryId = categories[categoryIndex].id ?? 0
-        cityId = subCategories[subcategoryIndex].id ?? 0
+        subcategoryId = subCategories[subcategoryIndex].id ?? 0
         self.subCategories.insert(Category(nameAr: "الكل", nameEn: "All",id: -1, hasSubCat: 0), at: 0)
 
         mainCategoryCollectionView.selectItem(at: [0, categoryIndex+1], animated: true, scrollPosition: .centeredHorizontally)
@@ -358,8 +358,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
             vc.modalPresentationStyle = .fullScreen
             vc.product = products[indexPath.row]
-//            self.navigationController?.pushViewController(vc, animated: true)
-            presentDetail(vc)
+            self.navigationController?.pushViewController(vc, animated: true)
+//            presentDetail(vc)
         }
         else if collectionView == mainCategoryCollectionView{
             self.subcategoryId = -1
