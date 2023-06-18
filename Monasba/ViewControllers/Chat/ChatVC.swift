@@ -131,7 +131,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         super.viewDidLoad()
         handelRecordPermission()
         Constants.orderLoc_represnted = false
-        lbl_title.text = "الرسائل"
+        lbl_title.text = "Messages".localize
         confirmMessageLabel.text = ""
        
         txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
@@ -216,6 +216,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //        user.other_id = user.other_id
 //        goNav("otherProfilev","Profile")
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.OtherUserId = Int(Constants.userOtherId) ?? 0
         present(vc, animated: true)
     }
     

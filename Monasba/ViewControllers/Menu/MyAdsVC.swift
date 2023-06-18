@@ -16,11 +16,13 @@ class MyAdsVC: UIViewController {
     private var products = [Product]()
     private var page = 1
     private var isTheLast = false
+            var userId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ConfigureUIView()
         getProductsByUser()
+        print(userId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +31,6 @@ class MyAdsVC: UIViewController {
 
     
     @IBAction func didTapBackButton(_ sender:UIButton){
-        
         dismissDetail()
     }
     
@@ -133,6 +134,6 @@ extension MyAdsVC {
              }
              
              //use 128 as user id to check
-         }, userId: 111 , page: page, countryId:6 )
+         }, userId: userId , page: page, countryId:6 )
      }
 }

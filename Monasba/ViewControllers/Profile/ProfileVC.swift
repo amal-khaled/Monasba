@@ -148,7 +148,10 @@ class ProfileVC: UIViewController {
         dismissDetail()
     }
     @IBAction func didTapEditProfileutton(_ sender: UIButton) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
         
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     
@@ -167,15 +170,32 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func didTapMyadsButton(_ sender: UIButton) {
+        
+            if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
+                vc.modalPresentationStyle = .fullScreen
+                vc.userId = AppDelegate.currentUser.id ?? 0
+                presentDetail(vc)
+                
+            }
     }
     
     @IBAction func didTapRateButton(_ sender: UIButton) {
     }
     
     @IBAction func didTapFollowersButton(_ sender: UIButton) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+        Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
+        Constants.followIndex = 0
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     @IBAction func didTapFollowingsButton(_ sender: UIButton) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+        Constants.followIndex = 1
+        Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     

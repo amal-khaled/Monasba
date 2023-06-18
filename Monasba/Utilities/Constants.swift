@@ -186,6 +186,9 @@ class Constants {
     static var otherUserName = ""
     static var userOtherId = ""
     
+    //Follow
+    static var followIndex = 0
+    static var followOtherUserId = 0
     
     //chat
     static var room_id:String = "0"

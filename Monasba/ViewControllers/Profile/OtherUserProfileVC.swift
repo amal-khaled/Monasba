@@ -13,53 +13,90 @@ class OtherUserProfileVC: UIViewController {
 
     //MARK: IBOutlets
     
-    
+    @IBOutlet weak var blockAndReportStackView: UIStackView!
+    @IBOutlet weak var followView: UIView!
     @IBOutlet weak var CoverImageView: UIImageView!
-    
     @IBOutlet weak var userImageView: UIImageView!
-    
     @IBOutlet weak var userVerifiedImageView: UIImageView!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var fullNameUserLabel: UILabel!
-    
     @IBOutlet weak var UserLocationLabel: UILabel!
-    
     @IBOutlet weak var userBioLabel: UILabel!
-    
     @IBOutlet weak var notificationImageView: UIImageView!
-    
     @IBOutlet weak var advsCountLabel: UILabel!
-    
     @IBOutlet weak var followersCountLabel: UILabel!
-    
     @IBOutlet weak var followingsCountLabel: UILabel!
-    
     @IBOutlet weak var pages: UIView!
-    
     @IBOutlet weak var chatButton: UIButton!
+    @IBOutlet weak var followButton: UIButton!
     
-    
-    
+    var OtherUserId = 0
+    var tabs = [tab]()
+    var viewPager:ViewPagerController!
+    var options:ViewPagerOptions!
+    var cids = ["ads","ratings"]
     var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        userNameLabel.text = "@ISOAYED"
-//        fullNameUserLabel.text = "Elsayed Ahmed"
-//        UserLocationLabel.text = "Cairo,Egypt"
-//        userBioLabel.text = "hello every body I'm here, hello every body I'm here "
-//        userImageView.image = UIImage(named: "logo_photo")
-//        CoverImageView.image = UIImage(named: "login_bg")
-//        advsCountLabel.text = "1220"
-//        followersCountLabel.text = "15"
-//        followingsCountLabel.text = "10"
-//        userVerifiedImageView.isHidden = false
         getProfile()
-
+        setupProfileUI()
+        initTabs()
     }
+    
+    //MARK: Methods
+    
+    fileprivate func setupProfileUI(){
+        if user.id == OtherUserId {
+            blockAndReportStackView.isHidden = true
+            followView.isHidden = true
+        }else{
+            blockAndReportStackView.isHidden = false
+            followView.isHidden = false
+        }
+    }
+    
+    func initTabs(){
+        tabs.append(tab(i: "advertisements".localize))
+        tabs.append(tab(i: "Rates".localize))
+        
+        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
+        
+        let frame =  CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height )
+        options = ViewPagerOptions(viewPagerWithFrame: frame)
+        options.tabType = ViewPagerTabType.basic
+        //options.tabViewImageSize = CGSize(width: 20, height: 20)
+        options.tabViewTextFont = UIFont(name: "Tajawal-Bold", size: 15)!
+        options.tabViewPaddingLeft = 10
+        options.tabViewPaddingRight = 10
+        
+        options.tabViewTextDefaultColor = UIColor(hexString: "#9AA6AE")
+        options.tabViewTextHighlightColor = UIColor(hexString: "#0EBFB1")
+        options.viewPagerTransitionStyle = .scroll
+        options.isTabHighlightAvailable = true
+        options.tabViewBackgroundDefaultColor = UIColor.white
+        options.tabViewBackgroundHighlightColor = UIColor.white
+        
+        options.isTabIndicatorAvailable = true
+        options.tabIndicatorViewBackgroundColor = UIColor(hexString: "#0EBFB1")
+        options.tabIndicatorViewHeight = 2.3
+        
+        options.fitAllTabsInView = true
+        options.textCorner = 0
+        options.tabViewHeight = 50
+        
+        viewPager = ViewPagerController()
+        viewPager.options = options
+        viewPager.dataSource = self
+        viewPager.delegate = self
+        options.viewPagerFrame = self.view.bounds
+        
+        self.addChild(viewPager)
+        pages.addSubview(viewPager.view)
+        viewPager.didMove(toParent: self)
+    }
+    
+    
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
@@ -67,7 +104,7 @@ class OtherUserProfileVC: UIViewController {
     }
     
     @IBAction func shareBtnAction(_ sender: UIButton) {
-        
+        shareContent(text: "share Profile of ")
     }
     
     @IBAction func reportAboutUserBtnAction(_ sender: UIButton) {
@@ -79,31 +116,80 @@ class OtherUserProfileVC: UIViewController {
     }
     
     @IBAction func followBtnAction(_ sender: UIButton) {
-        
+
+     guard let url = URL(string: Constants.DOMAIN+"make_follow") else {return}
+     let params : [String: Any]  = ["to_id":OtherUserId]
+     print(params)
+     AF.request(url, method: .post, parameters: params,headers: Constants.headerProd).responseDecodable(of:SuccessModel.self){res in
+//         BG.hide(self)
+         print(Constants.headerProd)
+         switch res.result {
+         case .success(let data):
+             if let message = data.message {
+                 StaticFunctions.createSuccessAlert(msg: message)
+                 self.getProfile()
+             }
+         case .failure(let error):
+             print(error)
+         }
+     }
     }
     
     @IBAction func activeNotificationBtnAction(_ sender: UIButton) {
-        
+        let params : [String: Any]  = ["uid":  OtherUserId,
+                                       "anther_user_id":AppDelegate.currentUser.id ?? 0]
+        guard let url = URL(string: Constants.DOMAIN+"active_fuser_notification") else {return}
+        print(params)
+        AF.request(url, method: .post, parameters: params)
+            .responseDecodable(of:SuccessModel.self){ [weak self ]res in
+                guard let self else {return }
+                switch res.result {
+                   
+                case .success(let data):
+                    if let message = data.message {
+                        DispatchQueue.global().async {
+                            self.getProfile()
+                        }
+                        StaticFunctions.createSuccessAlert(msg: message)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
     @IBAction func advsBtnAction(_ sender: UIButton) {
-        
+        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
+            vc.modalPresentationStyle = .fullScreen
+            vc.userId = OtherUserId
+            presentDetail(vc)
+            
+        }
     }
     
     @IBAction func FollowersBtnAction(_ sender: UIButton) {
-        
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+        Constants.followIndex = 1
+        Constants.followOtherUserId = OtherUserId
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     @IBAction func followingsBtnAction(_ sender: UIButton) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+        Constants.followIndex = 0
+        Constants.followOtherUserId = OtherUserId
+        vc.modalPresentationStyle = .fullScreen
+        presentDetail(vc)
     }
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
         
         
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        Constants.userOtherId = "\(user.id ?? 0)"
+        Constants.userOtherId = "\(OtherUserId)"
         vc.modalPresentationStyle = .fullScreen
         
-        createRoom("\(user.id ?? 0)"){[weak self] success in
+        createRoom("\(OtherUserId)"){[weak self] success in
             guard let self = self else {return}
             if success {
                 self.present(vc, animated: true)
@@ -118,7 +204,7 @@ class OtherUserProfileVC: UIViewController {
 }
 extension OtherUserProfileVC {
     private func getProfile(){
-        ProfileController.shared.getProfile(completion: {[weak self] userProfile, msg in
+        ProfileController.shared.getOtherProfile(completion: {[weak self] userProfile, msg in
             guard let self = self else {return}
             if let userProfile = userProfile {
                 print("======= profile Data ======== ")
@@ -126,7 +212,7 @@ extension OtherUserProfileVC {
                 self.bindProfileData(from: userProfile)
                // self.getProductsByUser()
             }
-        }, user: user)
+        }, userId: OtherUserId)
     }
     
     private func bindProfileData(from profileModel:User){
@@ -151,12 +237,7 @@ extension OtherUserProfileVC {
         advsCountLabel.text = "\(profileModel.numberOfProds ?? 0)"
         followersCountLabel.text = "\(profileModel.followers ?? 0)"
         followingsCountLabel.text = "\(profileModel.following ?? 0)"
-//        rateCountLabel.text = "\(profileModel.userRate ?? 0)"
-//        firstNameLabel.text = profileModel.name
-//        lastNameLabel.text = profileModel.lastName
         userNameLabel.text = profileModel.username
-//        passwordLabel.text = "******"
-        
         userBioLabel.text = profileModel.bio
         if MOLHLanguage.currentAppleLanguage() == "en" {
             UserLocationLabel.text = "\(profileModel.countriesNameEn ?? "") - \(profileModel.citiesNameEn ?? "")"
@@ -164,6 +245,27 @@ extension OtherUserProfileVC {
             UserLocationLabel.text = "\(profileModel.countriesNameAr ?? "") - \(profileModel.citiesNameAr ?? "")"
         }
         
+        if profileModel.activeNotification == 1 {
+            StaticFunctions.setImageFromAssets(notificationImageView, "bell_fill")
+                
+            }else{
+                StaticFunctions.setImageFromAssets(notificationImageView, "bell_main")
+            }
+        
+        if profileModel.isFollow == 1 {
+            self.followButton.setTitle("unfollow".localize, for: .normal)
+        }else{
+            self.followButton.setTitle("follow".localize, for: .normal)
+        }
+        
+        if AppDelegate.currentUser.id == OtherUserId {
+//            self.enable([self.btn_follow,self.btn_not], enabled: false)
+//            self.setTxtColor(self.btn_follow,"#000000")
+//            self.contactv.constant = 0
+            self.chatButton.isHidden = true
+            self.followView.isHidden = true
+            self.blockAndReportStackView.isHidden = true
+        }
         
     }
     
@@ -194,3 +296,39 @@ extension OtherUserProfileVC {
     }
 }
 
+extension OtherUserProfileVC: ViewPagerControllerDataSource {
+    
+    func numberOfPages() -> Int {
+        return tabs.count
+    }
+    
+    func viewControllerAtPosition(position:Int) -> UIViewController {
+        if position == 1{
+            return getViewController("profileRatesVC",PROFILE_STORYBOARD)
+        }else{
+            return getViewController("OtherUserProductVC",PROFILE_STORYBOARD)
+        }
+    }
+    
+    func tabsForPages() -> [tab] {
+        return tabs
+    }
+    
+    func startViewPagerAtIndex() -> Int {
+        return 0
+    }
+}
+extension OtherUserProfileVC: ViewPagerControllerDelegate {
+    
+    func willMoveToControllerAtIndex(index:Int) {
+        print("index=\(index)")
+    }
+    
+    func didMoveToControllerAtIndex(index: Int) {
+        if index == 1 {
+            chatButton.setTitle("إضافة تقييم", for: .normal)
+        }else{
+            chatButton.setTitle("محادثة", for: .normal)
+        }
+    }
+}

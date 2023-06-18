@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.title = "Home".localize
 //        self.navigationController?.navigationBar.barStyle = .default
 //       n
 //        self.navigationController?.navigationBar.isTranslucent = false

@@ -178,4 +178,12 @@ extension UIView{
         }
         return result
     }
+    func cDate(_ date:Date = Date(),_ format:String = "EEEE d MMMM ،  h a") -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale
+        formatter.amSymbol = "ص"
+        formatter.pmSymbol = "م"
+        return formatter.string(from: date)
+    }
 }

@@ -124,7 +124,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 print("LIKE_COMMENT")
             case "FOLLOW":
                 let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-                vc.user.id = notificatinSenderId
+                vc.OtherUserId = notificatinSenderId
                 self.navigationController?.pushViewController(vc, animated: true)
                 print("FOLLOW")
             case "CHAT":

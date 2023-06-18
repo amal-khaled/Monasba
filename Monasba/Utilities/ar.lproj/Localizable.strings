@@ -210,6 +210,21 @@
 "Follow" = "تابع";
 "Select the reason why you are reporting the account holder" = "حدد سبب الإبلاغ عن صاحب الحساب";
 
+"advertisements" = "الإعلانات";
+"Rates" = "التقييمات";
+
+"Followings/Followers" = "المتابعين/المتابعون";
+"Followers" = "المتابعون";
+"Followings" = "المتابعين";
+"unfollow" = "الغاء المتابعة";
+"follow" = "متابعة";
+"Added Successfully" = "تمت الاضافة بنجاح";
+
+//MARK: Edit Profile
+
+"Edit Profile" = "تعديل الملف الشخصي";
+"FamilyName" = "اسم العائلة ";
+
 //MARK: Ask
 "Remove" = "حذف";
 "show comments" = "عرض كل التعليقات";
@@ -217,3 +232,27 @@
 "add comment to ad" = "إضافة تعليق علي اعلان";
 "Take Photo" = "إلتقاط صورة";
 "Photo Library" = "معرض الصور";
+ 
+//MARK: Setting
+"Settings" = "الإعدادات";
+"About App" = "عن التطبيق";
+"Share App" = "مشاركة التطبيق";
+"Rate App" = "تقييم التطبيق";
+"Tech Support" = "الدعم الفني";
+"Conditions & terms" = "الشروط والأحكام";
+"Delete Account" = "حذف الحساب";
+"Monasba application
+
+Your investment with every occasion" = "تطبيق مناسبة
+
+استثمارك في كل مناسبة";
+"What is a Monasba application?" = "ما هو تطبيق مناسبة؟";
+"Contacts us" = "تواصل معنا";
+"You can send a message for support and assistance for free" = "يمكنك إرسال رسالة للحصول على الدعم والمساعدة مجانًا";
+"Name" = "الأسم";
+"Descreption" = "الوصف";
+"Do you really want to delete the account All your data will be erased and your membership will be lost" = "هل تريد حقًا حذف الحساب ، سيتم مسح جميع بياناتك وستفقد عضويتك";
+
+//MARK: Favourites
+"There are no favorites here" = "لايوجد مفضلة هنا";
+"Please start adding more to your favourites" = "";

@@ -122,6 +122,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
                 vc.modalPresentationStyle = .fullScreen
+                vc.userId = 111
                 presentDetail(vc)
                 
             }

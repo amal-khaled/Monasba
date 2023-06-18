@@ -79,6 +79,14 @@ import UIKit
 
 extension UIView {
     
+    func flipX() {
+        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    }
+    
+    
+    func flipY() {
+        transform = CGAffineTransform(scaleX: transform.a, y: -transform.d)
+    }
     func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
         layer.masksToBounds = false
         layer.shadowOffset = offset
@@ -704,5 +712,17 @@ extension UITextView {
         if let placeholderLabel = self.viewWithTag(999) as? UILabel {
             placeholderLabel.isHidden = !self.text.isEmpty
         }
+    }
+}
+
+extension UICollectionView {
+    func configure(top:CGFloat=0,bottom:CGFloat=0,left:CGFloat=0,
+                   right:CGFloat=0,vspace:CGFloat=0,hspace:CGFloat=0,scroll:ScrollDirection = .vertical){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: top, left:left, bottom: bottom, right: right)
+        layout.scrollDirection = scroll
+        layout.minimumInteritemSpacing = vspace
+        layout.minimumLineSpacing = hspace
+        self.collectionViewLayout = layout
     }
 }
