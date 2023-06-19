@@ -27,17 +27,28 @@ class MyAdsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Back", style: .plain, target: nil, action: nil)
+        tabBarController?.tabBar.isHidden = true
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
+    }
     
     @IBAction func didTapBackButton(_ sender:UIButton){
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     
     //MARK: Private Methods
     
     private func ConfigureUIView(){
+        navigationController?.navigationBar.tintColor = .white
         configureCollectionView()
     }
     
@@ -137,3 +148,4 @@ extension MyAdsVC {
          }, userId: userId , page: page, countryId:6 )
      }
 }
+

@@ -80,6 +80,18 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             
         }
         
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        
+    }
         
         //===================================     cats   ===================================
         @IBOutlet weak var catsBtn: UIButton!
@@ -274,7 +286,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
         @IBAction func go_pick_img() {

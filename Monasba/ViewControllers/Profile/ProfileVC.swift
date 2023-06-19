@@ -50,14 +50,19 @@ class ProfileVC: UIViewController {
         
     }
     
-    
+      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getProfile()
         getProductsByUser()
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        tabBarController?.tabBar.isHidden = true
     }
-      
-       
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     
     

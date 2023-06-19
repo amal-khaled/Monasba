@@ -156,15 +156,17 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                } else if let capturedImage = info[.originalImage] as? UIImage {
                    print("Captured image: \(capturedImage)")
                    self.images.append(capturedImage as UIImage)
-                   DispatchQueue.main.async {
-                       self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
-                                       self.dismiss(animated: false)
-                   }
-//                   DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                   guard let imageData = capturedImage.jpegData(compressionQuality: 0.01) else {
+                       print("Error converting image to data")
+                       return}
+                   guard let index = self.images.firstIndex(of: capturedImage) else {return}
+                   self.selectedMedia.updateValue(imageData, forKey: "IMAGE \(index)")
+//                   DispatchQueue.main.async {
 //                       self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
-//                       self.dismiss(animated: false)
+//                                       self.dismiss(animated: false)
 //                   }
                }
+               
         dispatchGroup.notify(queue: .main) { [weak self] in
                 guard let self = self else { return }
                 
