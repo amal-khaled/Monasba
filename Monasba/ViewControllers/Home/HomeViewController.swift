@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var gridBtn: UIButton!
     var coountryVC = CounriesViewController()
     var countryId = Constants.countryId
-    var countryName = "Kuwait"
+    var countryName = "Kuwait".localize
     var categoryId = -1
     var subcategoryId = -1
     var page = 1

@@ -1112,8 +1112,8 @@
                     <connections>
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
                         <segue destination="viT-4u-0g3" kind="relationship" relationship="viewControllers" id="Kss-so-ogd"/>
-                        <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="gRK-vn-3Bk" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
+                        <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="Cat-tQ-xsp" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
                     </connections>
                 </tabBarController>
@@ -2527,9 +2527,6 @@
     <designables>
         <designable name="MUI-H5-TZT">
             <size key="intrinsicContentSize" width="24" height="14"/>
-        </designable>
-        <designable name="Rjm-XN-1HX">
-            <size key="intrinsicContentSize" width="-1" height="44"/>
         </designable>
         <designable name="WiW-qh-heE">
             <size key="intrinsicContentSize" width="24" height="14"/>

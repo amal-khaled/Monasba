@@ -162,7 +162,7 @@ class AuthCoontroller{
                 
             }
             
-        }, link: Constants.SIGN_UP_VERIFY_URL , param: param)
+        }, link: Constants.SIGN_UP_RESEND_CODE_URL , param: param)
     }
     func checkUser(completion: @escaping(Int, Int, String)->(), mobile:String){
         
