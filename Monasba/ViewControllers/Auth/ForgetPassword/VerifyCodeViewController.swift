@@ -147,6 +147,10 @@ class VerifyCodeViewController: UIViewController {
         
         func resendCode(){
             if Reachability.isConnectedToNetwork(){
+                timeLeft = 120
+                setupCounter()
+                resendCodeBtn.isEnabled = false
+                resendCodeBtn.alpha = 0.5
                 
                 AuthCoontroller.shared.resendCodeRegister(completion: {
                     check, msg in
