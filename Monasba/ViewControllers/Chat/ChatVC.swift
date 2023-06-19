@@ -590,6 +590,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //            }
 //        }
         if let url = data[sender.tag].image {
+            print(data[sender.tag].image )
             playAudioFromURL("\(Constants.DOMAIN)\(url)")
             print(url)
         }

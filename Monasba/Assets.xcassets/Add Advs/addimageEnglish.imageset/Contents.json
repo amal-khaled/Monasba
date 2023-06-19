@@ -16,25 +16,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "UPLOAD.png",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "UPLOAD@2x.png",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "UPLOAD@3x.png",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "3x"
-    },
-    {
-      "filename" : "sssssssaass@3x.png",
+      "filename" : "sssssssaass.png",
       "idiom" : "universal",
       "locale" : "ar",
       "scale" : "1x"
@@ -46,7 +28,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "sssssssaass@3x 1.png",
+      "filename" : "sssssssaass@3x.png",
       "idiom" : "universal",
       "locale" : "ar",
       "scale" : "3x"

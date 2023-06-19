@@ -141,26 +141,49 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getMainCats()
         //setupCitiesDropDown()
         setDataFromSession()
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print(selectedImages.count)
-        print(selectedVideos)
-        print(selectedMedia)
+        configureUI()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        
+    }
+    
+    
+    private func configureUI(){
+        if selectedImages.isEmpty {
+            firstImageViewContainer.isHidden = false
+            moreImageViewContainer.isHidden = true
+            addMorePhotoButton.isHidden = true
+            collectionView.isHidden = true
+            
+        }else {
+            moreImageViewContainer.isHidden = false
+            addMorePhotoButton.isHidden = false
+            collectionView.isHidden = false
+            firstImageViewContainer.isHidden = true
+        }
+    }
     
     private func setDataFromSession(){
         guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia else {return}
         self.selectedMedia = selectedMedia
         advsTitleTF.text = title
-        addNewPhoneLabel.text = AppDelegate.currentUser.phone ?? ""
+        newPhoneTF.text = AppDelegate.currentUser.phone ?? ""
         cityId = retrieveSessionData().CityId ?? 0
         regionId = retrieveSessionData().RegionId ?? 0
         mainCatID = retrieveSessionData().catId ?? 0
         subCatID = retrieveSessionData().subCatId ?? 0
+        priceTF.text = retrieveSessionData().price
+        descTextView.text = retrieveSessionData().description
         
         if let imageDatas = retrieveSessionData().images {
             selectedImages = imageDatas.compactMap { UIImage(data: $0) }
@@ -220,7 +243,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBAction func backBtnAction(_ sender: UIButton) {
         saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia)
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-            self.dismissDetail()
+        self.navigationController?.popViewController(animated: true)
 //        }
         
     }
@@ -235,7 +258,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
             vc.selectedMedia = selectedMedia
             present(vc, animated: false)
         }else{
-            StaticFunctions.createErrorAlert(msg: "You have reached the limit of videos and photos")
+            StaticFunctions.createErrorAlert(msg: "You have reached the limit of videos and photos".localize)
         }
         
     }
@@ -444,9 +467,11 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                     self.present(vc, animated: true)
                 }else{
 //                    completion(false , data.message ?? "")
+                    print(data.message)
                     StaticFunctions.createErrorAlert(msg: data.message ?? "")
                 }
             case .failure(let error):
+                print(error)
                 if let decodingError = error.underlyingError as? DecodingError {
                            // Handle decoding errors
 //                           completion(false, "Decoding error: \(decodingError)")
@@ -593,8 +618,11 @@ extension AddAdvsVC {
                     print(self.cityList)
                 }
             }
+            if self.cityId == -1 {
+                self.cityId = self.cityIDsList[0]
+            }
             self.setupCitiesDropDown()
-            self.getRegions(cityId: self.cityIDsList[0])
+            self.getRegions(cityId: self.cityId)
         }, countryId: countryId)
         
         
@@ -639,9 +667,18 @@ extension AddAdvsVC {
                     print(self.mainCatsIDsList)
                 }
             }
+            if self.mainCatID == -1 {
+                self.mainCatID = self.mainCatsIDsList[0]
+            }
+            
+            if self.mainCatID == 1 {
+                self.rentViewContainer.isHidden = false
+            }else {
+                self.rentViewContainer.isHidden = true
+            }
            
             self.setupMainCategoryDropDown()
-            self.getSubCats(catId: self.mainCatsIDsList[0])
+            self.getSubCats(catId: self.mainCatID)
         }
     }
     
@@ -683,10 +720,10 @@ extension AddAdvsVC {
                     }else{
                         mainCatButton.setTitle(mainCatsList[0], for: .normal)
                     }
-        if self.mainCatID != 1 {
-            self.rentViewContainer.isHidden = true
-        }else {
+        if self.mainCatID == 1 {
             self.rentViewContainer.isHidden = false
+        }else {
+            self.rentViewContainer.isHidden = true
         }
         mainCatDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
@@ -695,11 +732,17 @@ extension AddAdvsVC {
             print(self.mainCatID)
             
             self.getSubCats(catId:self.mainCatID )
-            self.mainCatButton.setTitle(self.mainCatName, for: .normal)
-            if self.mainCatID != 1 {
-                self.rentViewContainer.isHidden = true
+           // self.mainCatButton.setTitle(self.mainCatName, for: .normal)
+            
+            if let region = self.mainCatsIDsList.firstIndex(of: self.mainCatID) {
+                self.mainCatButton.setTitle(self.mainCatsList[region], for: .normal)
             }else {
+                self.mainCatButton.setTitle(self.mainCatsList[0], for: .normal)
+            }
+            if self.mainCatID == 1 {
                 self.rentViewContainer.isHidden = false
+            }else {
+                self.rentViewContainer.isHidden = true
             }
         }
         
@@ -718,14 +761,14 @@ extension AddAdvsVC {
         subCatDropDwon.bottomOffset = CGPoint(x: 0, y: subCatButton.bounds.height)
         subCatDropDwon.dataSource = subCatsList
 //        subCatButton.setTitle(subCatsList[0], for: .normal)
-            if let region = subCatsIDsList.firstIndex(of: subCatID) {
-                subCatButton.setTitle(subCatsList[region], for: .normal)
+            if let subCatId = subCatsIDsList.firstIndex(of: subCatID) {
+                subCatButton.setTitle(subCatsList[subCatId], for: .normal)
             }else{
                 subCatButton.setTitle(subCatsList[0], for: .normal)
             }
         subCatDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
-            self.mainCatID = self.subCatsIDsList[index]
+            self.subCatID = self.subCatsIDsList[index]
             self.subCatName = self.subCatsList[index]
             print(self.subCatID)
             self.subCatButton.setTitle(self.subCatName, for: .normal)
@@ -776,7 +819,6 @@ extension AddAdvsVC {
 //            regionButton.setTitle(regionsList[0], for: .normal)
 //        }
         
-        regionId = 4069
         print(regionId)
             if let region = regionsIDsList.firstIndex(of: regionId) {
                 regionButton.setTitle(regionsList[region], for: .normal)
@@ -824,7 +866,7 @@ extension AddAdvsVC {
         sessionData["catId"] = catId
         sessionData["subCatId"] = subCatId
         sessionData["CityId"] = CityId
-        sessionData["catId"] = RegionId
+        sessionData["RegionId"] = RegionId
         sessionData["selectedMedia"] = selectedMedia
 
         UserDefaults.standard.set(sessionData, forKey: "postSessionData")

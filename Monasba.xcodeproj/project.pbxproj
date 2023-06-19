@@ -94,6 +94,11 @@
 		65FFFA142A1E933800B70368 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65FFFA132A1E933800B70368 /* GoogleService-Info.plist */; };
 		65FFFA162A1E972600B70368 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFFA152A1E972600B70368 /* NotificationsController.swift */; };
 		65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FFFA172A1E9FF200B70368 /* Notifications.storyboard */; };
+		C8191F972A4055030057AA28 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8191F962A4055030057AA28 /* PaddingLabel.swift */; };
+		C8191F992A40748D0057AA28 /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8191F982A40748D0057AA28 /* FavouritesVC.swift */; };
+		C8191F9D2A40765C0057AA28 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8191F9B2A40765C0057AA28 /* FavouritesCollectionViewCell.swift */; };
+		C8191F9E2A40765C0057AA28 /* FavouritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8191F9C2A40765C0057AA28 /* FavouritesCollectionViewCell.xib */; };
+		C8191FA02A4078B90057AA28 /* FavouriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8191F9F2A4078B90057AA28 /* FavouriteProductModel.swift */; };
 		C836CED42A07FC880009F20D /* AdvsImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */; };
 		C843137E2A2B26C7008D24BD /* ChangeCountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */; };
 		C84313812A2B289D008D24BD /* ChangeCountyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84313802A2B289D008D24BD /* ChangeCountyTableViewCell.swift */; };
@@ -274,6 +279,11 @@
 		65FFFA132A1E933800B70368 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65FFFA152A1E972600B70368 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		65FFFA172A1E9FF200B70368 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		C8191F962A4055030057AA28 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		C8191F982A40748D0057AA28 /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		C8191F9B2A40765C0057AA28 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		C8191F9C2A40765C0057AA28 /* FavouritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCollectionViewCell.xib; sourceTree = "<group>"; };
+		C8191F9F2A4078B90057AA28 /* FavouriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProductModel.swift; sourceTree = "<group>"; };
 		C836CED32A07FC880009F20D /* AdvsImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvsImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCountryVC.swift; sourceTree = "<group>"; };
 		C84313802A2B289D008D24BD /* ChangeCountyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCountyTableViewCell.swift; sourceTree = "<group>"; };
@@ -478,6 +488,7 @@
 		658DE51529F82AFA0015D549 /* CollectiionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C8191F9A2A4076250057AA28 /* FavouritesCell */,
 				C8A2BED52A3B5F7F00A05E77 /* FollowersCell */,
 				C8A2BEB62A3A558200A05E77 /* OtherUserProductsCell */,
 				C85FFCB32A260AAE000C426D /* MessageCollectionViewCell */,
@@ -516,6 +527,7 @@
 				C8A2BEBD2A3A5F0400A05E77 /* RatingModel.swift */,
 				C8A2BED12A3B55C900A05E77 /* FollowersSuccessModel.swift */,
 				C89286BD2A3DB8A800FB0A8A /* EditProfileModel.swift */,
+				C8191F9F2A4078B90057AA28 /* FavouriteProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -635,6 +647,7 @@
 				65DD121D29E6915A00A3B8DD /* AddingCustomFont.swift */,
 				C8CCE33B2A19E29200FFAFB2 /* LocalizedImage.swift */,
 				65784C662A270EDD0099A293 /* VKImageZoom.swift */,
+				C8191F962A4055030057AA28 /* PaddingLabel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -673,6 +686,15 @@
 				FAA66330CCBC04BB0F75DC81 /* Pods_Monasba.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8191F9A2A4076250057AA28 /* FavouritesCell */ = {
+			isa = PBXGroup;
+			children = (
+				C8191F9B2A40765C0057AA28 /* FavouritesCollectionViewCell.swift */,
+				C8191F9C2A40765C0057AA28 /* FavouritesCollectionViewCell.xib */,
+			);
+			path = FavouritesCell;
 			sourceTree = "<group>";
 		};
 		C843137F2A2B2870008D24BD /* ChangeCounrtyTableViewCell */ = {
@@ -885,6 +907,7 @@
 				C843137D2A2B26C7008D24BD /* ChangeCountryVC.swift */,
 				C8ECBD532A34535E003178DA /* VerifyAccountVC.swift */,
 				C8CC46962A39A79E00C90476 /* VerifyAccountImagePickerVC.swift */,
+				C8191F982A40748D0057AA28 /* FavouritesVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -976,6 +999,7 @@
 				658D003C2A15F22200F512E9 /* Search.storyboard in Resources */,
 				C8AD40E02A28EB9400E464DB /* Settings.storyboard in Resources */,
 				C85FFCE02A260BEF000C426D /* MsgCell.xib in Resources */,
+				C8191F9E2A40765C0057AA28 /* FavouritesCollectionViewCell.xib in Resources */,
 				C8CC46952A391F4800C90476 /* load2.json in Resources */,
 				C85FFCDB2A260BEF000C426D /* AttachCell.xib in Resources */,
 				C85FFC9E2A2608AC000C426D /* Chat.storyboard in Resources */,
@@ -1139,6 +1163,7 @@
 				65D61ED22A15FE4000C3FC68 /* SearchViewController.swift in Sources */,
 				C89D12872A10245B00669FD9 /* AddAdvsModel.swift in Sources */,
 				C8A2BECA2A3A64A300A05E77 /* ViewPagerTab.swift in Sources */,
+				C8191F9D2A40765C0057AA28 /* FavouritesCollectionViewCell.swift in Sources */,
 				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
 				65E15A732A21DA98006930A4 /* AsksViewController.swift in Sources */,
 				C85FFCA32A260A0F000C426D /* receiver.swift in Sources */,
@@ -1152,6 +1177,7 @@
 				C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */,
 				C8AD40EB2A2B110F00E464DB /* CondsVC.swift in Sources */,
 				C85FFCA42A260A0F000C426D /* ChatVC.swift in Sources */,
+				C8191F992A40748D0057AA28 /* FavouritesVC.swift in Sources */,
 				65B5505F2A1CB640002D2264 /* FollowerTableViewCell.swift in Sources */,
 				C8CCE33E2A19E33B00FFAFB2 /* ProfileController.swift in Sources */,
 				65DD122729E6915A00A3B8DD /* GeneralUIExtenstions.swift in Sources */,
@@ -1163,6 +1189,7 @@
 				C8A72A422A00C29C00F9C26D /* OtherUserProfileVC.swift in Sources */,
 				656D773B2A1F04A6004EB289 /* NotificationTableViewCell.swift in Sources */,
 				65400C5429FB28DA009E07C9 /* CountryController.swift in Sources */,
+				C8191FA02A4078B90057AA28 /* FavouriteProductModel.swift in Sources */,
 				658DE52329F921620015D549 /* ProductController.swift in Sources */,
 				C8A2BECE2A3A64B200A05E77 /* ViewPagerOptions.swift in Sources */,
 				C85FFCDF2A260BEF000C426D /* MsgContactCell.swift in Sources */,
@@ -1174,6 +1201,7 @@
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
 				C85FFCD62A260BEF000C426D /* MsgCell.swift in Sources */,
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
+				C8191F972A4055030057AA28 /* PaddingLabel.swift in Sources */,
 				658D00382A135D4E00F512E9 /* ReportCommentViewController.swift in Sources */,
 				65DD122129E6915A00A3B8DD /* StaticFunctions.swift in Sources */,
 				65B5505D2A1CB53E002D2264 /* SearchPersonViewController.swift in Sources */,
@@ -1357,7 +1385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -1393,7 +1421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;

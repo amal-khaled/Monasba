@@ -28,6 +28,7 @@ class MenuVC: UIViewController {
         super.viewDidLoad()
 
         ConfigureUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,8 @@ class MenuVC: UIViewController {
     //MARK: Private Methods
     
     private func ConfigureUI(){
+        
+        navigationController?.navigationBar.isHidden = true
         
         dateLabel.text = FormattedDate()
         
@@ -74,7 +77,8 @@ class MenuVC: UIViewController {
             let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
             vc.modalPresentationStyle = .fullScreen
            // present(vc, animated: true)
-            presentDetail(vc)
+//            presentDetail(vc)
+            navigationController?.pushViewController(vc, animated: true)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Profile!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
@@ -108,7 +112,9 @@ class MenuVC: UIViewController {
     @IBAction func didTapFavoutitesButton(_ sender: UIButton) {
         
         if StaticFunctions.isLogin() {
-            
+            let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "FavouritesVC") as! FavouritesVC
+            vc.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(vc, animated: true)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Favoutites!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
@@ -123,8 +129,9 @@ class MenuVC: UIViewController {
             if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
                 vc.modalPresentationStyle = .fullScreen
                 vc.userId = 111
-                presentDetail(vc)
-                
+//                presentDetail(vc)
+                vc.navigationController?.navigationBar.isHidden = false
+                navigationController?.pushViewController(vc, animated: true)
             }
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Ads !".localize)
@@ -152,13 +159,15 @@ class MenuVC: UIViewController {
         
         let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangeCountryVC") as! ChangeCountryVC
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+//        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapSettingsButton(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+//        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapVerifyAccountButton(_ sender: UIButton) {
@@ -166,7 +175,8 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "VerifyAccountVC") as! VerifyAccountVC
             vc.modalPresentationStyle = .fullScreen
-            presentDetail(vc)
+//            presentDetail(vc)
+            navigationController?.pushViewController(vc, animated: true)
             
             
         }else {

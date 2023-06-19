@@ -18,6 +18,7 @@
 "Back to All" = "رجوع إلى الكل";
 //MARK: Messages
 "you Don't have any messages" = "ليس لديك أية رسائل";
+"Please Login First To Can Uplaod ads" = "الرجاء تسجيل الدخول أولاً لتتمكن من تحميل الإعلانات";
 
 //MARK: Srearch
 "Most popular questions" = "الأسئلة الأكثر شيوعًا";
@@ -30,6 +31,7 @@
 "Questions" = "أسئلة";
 
 //MARK: Menu
+"Back" = "رجوع";
 "My Profile" = "الملف الشخصي";
 "Add Ad" = "أضف إعلان";
 "Favourites" = "المفضلة";
@@ -52,6 +54,7 @@
 
 "Please Login First To Can Go To Asks!" = "الرجاء تسجيل الدخول أولاً ليتمكن من الذهاب إلى اسألتي!";
 "Please Login First To Can Go To Verify Account!" = "الرجاء تسجيل الدخول أولاً لتتمكن من توثيق الحساب!";
+
 
 //MARK: Verify Account
 "Verify Account" = "التحقق من الحساب";
@@ -86,7 +89,7 @@
 "Commercial license" = "الرخصة التجارية";
 
 //MARK: ADD ADs
-
+"You have reached the limit of videos and photos" = "لقد وصلت إلى الحد الأقصى من مقاطع الفيديو والصور";
 "Add Photos or Videos" = "أضف صورًا أو مقاطع فيديو";
 "Add Photo" = "إضافة صورة";
 "Ad Title" = "عنوان الاعلان";
@@ -256,4 +259,5 @@ Your investment with every occasion" = "تطبيق مناسبة
 
 //MARK: Favourites
 "There are no favorites here" = "لايوجد مفضلة هنا";
-"Please start adding more to your favourites" = "";
+"Please start adding more to your favourites" = "من فضلك باشر في اضافة المزيد الى مفضلتك";
+"the data you entered does not match our data" = "البيانات التي أدخلتها لا تتطابق مع بياناتنا";
