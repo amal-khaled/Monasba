@@ -20,6 +20,8 @@ class NotificationsViewController: UIViewController {
     //    let cellSpacingHeight: CGFloat = 8
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Notifications".localize
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             

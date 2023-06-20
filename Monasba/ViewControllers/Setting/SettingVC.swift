@@ -66,7 +66,7 @@ class SettingVC: UIViewController {
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func goRating(_ sender: Any) {
         dawnloadAppFromStore(appID: "1589937521")

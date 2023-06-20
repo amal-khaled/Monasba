@@ -39,6 +39,8 @@ class OtherUserProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         getProfile()
         setupProfileUI()
         initTabs()
@@ -46,11 +48,8 @@ class OtherUserProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.navigationBar.isHidden = true
-            self.tabBarController?.tabBar.isHidden = true
-        }
+           navigationController?.navigationBar.isHidden = true
+           tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

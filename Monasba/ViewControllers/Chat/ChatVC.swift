@@ -225,7 +225,9 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //        goNav("otherProfilev","Profile")
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
         vc.OtherUserId = Int(Constants.userOtherId) ?? 0
-        present(vc, animated: true)
+//        present(vc, animated: true)
+//        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
