@@ -226,6 +226,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
         }
@@ -277,54 +278,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
             }
             
         }
-//            .responseJSON { (e) in
-//                BG.hide(self)
-//                if let res = e.value {
-//                    print(res)
-//                    if let arr = res as? NSArray {
-//                        for itm in arr {
-//                            if let d = itm as? NSDictionary {
-//
-//                                let u = d["user"] as! NSDictionary
-//
-//                                let last_msg = d["last_msg"] as! NSDictionary
-//                                if(last_msg["mtype"] as! String == "TEXT"){
-//                                    self.cmsgs.append(last_msg["msg"] as! String)
-//                                }else{
-//                                    self.cmsgs.append("تم ارسال مرفق")
-//                                }
-//
-//                                if let name = d.value(forKey: "id") as? String {
-//                                    self.cids.append(name)
-//                                    print(self.cids)
-//                                }
-//                                if let name = u.value(forKey: "id") as? String {
-//                                    self.crids.append(name)
-//                                }
-//                                if let name = u.value(forKey: "name") as? String {
-//                                    self.cnames.append(name)
-//                                }
-//                                if let name = u.value(forKey: "pic") as? String {
-//                                    self.cimgs.append(name)
-//                                }
-//                                if let name = last_msg.value(forKey: "date") as? String {
-//                                    self.cdates.append(name)
-//                                }
-//                                if let name = d.value(forKey: "unseen_count") as? String {
-//                                    self.ccounts.append(name)
-//                                }
-//                                if let name = d.value(forKey: "user_make_block") as? String {
-//                                    self.cuser_make_block.append(name)
-//                                }
-//                                self.cshow_check.append(0)
-//                                self.cselected.append(false)
-//
-//                            }
-//                        }
-//                    }
-//                    self.lst.reloadData()
-//                }
-//        }
+
     }
     
     

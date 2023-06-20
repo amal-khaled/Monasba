@@ -101,6 +101,12 @@ class EditProfileVC : UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     
     fileprivate func setupUI(){
 
@@ -147,7 +153,7 @@ class EditProfileVC : UIViewController {
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     

@@ -175,10 +175,11 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         setupRecordButton()
     }
    
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = true
-        tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     
@@ -1032,6 +1033,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
        
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         if Constants.orderLoc_represnted {
          //   self.send_message("\(order.lat)%%\(order.lng)%%\(order.loc)%%\(order.loc_img)", "LOCATION")
             if let filePath = Constants.orderFilePath {
