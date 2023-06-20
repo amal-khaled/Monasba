@@ -98,7 +98,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
             vc.modalPresentationStyle = .fullScreen
-            presentDetail(vc)
+            navigationController?.pushViewController(vc, animated: true)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Add Post!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){

@@ -224,7 +224,13 @@ extension ProductViewController{
     func setData(){
         print(product.name)
         
-        if let mainImage = product.image{
+         var mainImage = ""
+        if product.mainImage != ""  {
+            mainImage = product.mainImage ?? ""
+        }else{
+            mainImage = product.image ?? ""
+        }
+            
             if mainImage != ""{
                 if mainImage.contains(".mp4") || mainImage.contains(".mov"){
                     images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "VIDEO", createdAt: "", updatedAt: "", image: Constants.IMAGE_URL + mainImage), at: 0)
@@ -233,7 +239,7 @@ extension ProductViewController{
                 }
                 
             }
-        }
+        
         let dataSource = ImageAndVideoSlideshowDataSource(sources:[
             
             
