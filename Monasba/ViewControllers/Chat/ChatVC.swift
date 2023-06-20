@@ -175,6 +175,13 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         setupRecordButton()
     }
    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    
     
     fileprivate func setupRecordButton(){
        
@@ -646,7 +653,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     @IBAction func go_back(_ sender: Any) {
 //        dimissMe()
-        dismiss(animated: true)
+//        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     

@@ -46,8 +46,11 @@ class OtherUserProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-        tabBarController?.tabBar.isHidden = true
+        
+        DispatchQueue.main.async {
+            self.navigationController?.navigationBar.isHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -111,7 +114,7 @@ class OtherUserProfileVC: UIViewController {
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func shareBtnAction(_ sender: UIButton) {
@@ -169,12 +172,11 @@ class OtherUserProfileVC: UIViewController {
             }
     }
     @IBAction func advsBtnAction(_ sender: UIButton) {
-        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
-            vc.modalPresentationStyle = .fullScreen
-            vc.userId = OtherUserId
-            presentDetail(vc)
-            
-        }
+//        if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
+//            vc.modalPresentationStyle = .fullScreen
+//            vc.userId = OtherUserId
+//            presentDetail(vc)
+//        }
     }
     
     @IBAction func FollowersBtnAction(_ sender: UIButton) {
@@ -182,7 +184,7 @@ class OtherUserProfileVC: UIViewController {
         Constants.followIndex = 1
         Constants.followOtherUserId = OtherUserId
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func followingsBtnAction(_ sender: UIButton) {
@@ -190,7 +192,7 @@ class OtherUserProfileVC: UIViewController {
         Constants.followIndex = 0
         Constants.followOtherUserId = OtherUserId
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
@@ -203,9 +205,11 @@ class OtherUserProfileVC: UIViewController {
         createRoom("\(OtherUserId)"){[weak self] success in
             guard let self = self else {return}
             if success {
-                self.present(vc, animated: true)
+//                self.present(vc, animated: true)
+                vc.navigationController?.navigationBar.isHidden = true
+                self.navigationController?.pushViewController(vc, animated: true)
             }else{
-                StaticFunctions.createErrorAlert(msg: "Can't Create Room")
+                StaticFunctions.createErrorAlert(msg: "Can't Create Room".localize)
             }
             
         }

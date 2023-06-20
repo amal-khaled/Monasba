@@ -183,6 +183,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        navigationController?.navigationBar.isHidden = true
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             
@@ -200,6 +201,8 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
         chk_select_all.stateChangeAnimation = .bounce(.fill)
         get()
     }
+    
+
     
     func clear_all(){
         cids.removeAll()
@@ -222,6 +225,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
         }
@@ -429,7 +433,8 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
              //Goto Chat
              let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
              vc.modalPresentationStyle = .fullScreen
-             present(vc, animated: true)
+//             present(vc, animated: true)
+             navigationController?.pushViewController(vc, animated: true)
              
          }else {
 //             self.msg(" لم يعد بإمكانك التحدث مع هذا المستخدم تم حذف بياناتة من مناسبة ","msg")

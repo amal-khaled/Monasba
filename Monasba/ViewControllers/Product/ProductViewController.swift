@@ -88,6 +88,7 @@ class ProductViewController: UIViewController {
     @IBAction func userClickedAction(_ sender: Any) {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
         vc.OtherUserId = product.userId ?? 0
+        vc.navigationController?.navigationBar.isHidden = true
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }

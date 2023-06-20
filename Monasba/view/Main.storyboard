@@ -1047,7 +1047,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGz-Va-A6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898.4732824427481" y="463.38028169014086"/>
+            <point key="canvasLocation" x="2825.1908396946565" y="463.38028169014086"/>
         </scene>
         <!--Home-->
         <scene sceneID="DXQ-Fn-a1D">
@@ -1113,7 +1113,7 @@
                     <connections>
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
                         <segue destination="viT-4u-0g3" kind="relationship" relationship="viewControllers" id="Kss-so-ogd"/>
-                        <segue destination="gRK-vn-3Bk" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
+                        <segue destination="7Ug-i8-4cx" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
                         <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="HZj-gY-P1d" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
                     </connections>
@@ -1412,7 +1412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGZ-cG-q8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4173.2824427480919" y="324.64788732394368"/>
+            <point key="canvasLocation" x="5100" y="324.64788732394368"/>
         </scene>
         <!--City View Controller-->
         <scene sceneID="lUl-HA-Czb">
@@ -2138,7 +2138,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWo-KD-9f3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="463"/>
+            <point key="canvasLocation" x="1256.4885496183206" y="462.67605633802822"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="Ssw-yS-pZu">
@@ -2148,9 +2148,9 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="832-h4-aa0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="927"/>
+            <point key="canvasLocation" x="2344.2748091603053" y="926.76056338028172"/>
         </scene>
-        <!--Messages-->
+        <!--MsgsC-->
         <scene sceneID="tiy-ls-7iQ">
             <objects>
                 <viewController storyboardIdentifier="msgsv" id="gRK-vn-3Bk" customClass="msgsC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
@@ -2461,14 +2461,14 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrX-vJ-gRg">
                                         <rect key="frame" x="154.33333333333334" y="60" width="84.333333333333343" height="20"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="20"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="#0EBFB1"/>
                                 <constraints>
                                     <constraint firstItem="jrX-vJ-gRg" firstAttribute="centerX" secondItem="kf8-mG-VN7" secondAttribute="centerX" id="0Kc-LK-st1"/>
                                     <constraint firstAttribute="height" constant="100" id="mkR-GH-Q4T"/>
@@ -2498,11 +2498,7 @@
                             <constraint firstAttribute="bottom" secondItem="STa-8z-gPM" secondAttribute="bottom" id="z9K-YF-zTt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="G1f-0c-NLv"/>
                     <connections>
                         <outlet property="btn_del" destination="dxC-Vx-Hrf" id="Zup-8K-Qww"/>
                         <outlet property="btn_select" destination="ndF-HU-5F6" id="3ea-F2-lza"/>
@@ -2518,7 +2514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVB-pw-u0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="793"/>
+            <point key="canvasLocation" x="437" y="793"/>
         </scene>
         <!--Menu-->
         <scene sceneID="BC7-sI-y10">
@@ -2541,16 +2537,36 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb1-ci-q8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="927"/>
+            <point key="canvasLocation" x="1608.3969465648854" y="821.83098591549299"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="eB6-Tr-nZp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Ug-i8-4cx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hhj-cl-xVk">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gRK-vn-3Bk" kind="relationship" relationship="rootViewController" id="3lX-mq-1rn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m07-Sr-EzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-338.16793893129767" y="792.95774647887333"/>
         </scene>
     </scenes>
     <designables>
         <designable name="FCs-24-oAO"/>
         <designable name="MUI-H5-TZT">
             <size key="intrinsicContentSize" width="24" height="14"/>
-        </designable>
-        <designable name="Rjm-XN-1HX">
-            <size key="intrinsicContentSize" width="-1" height="44"/>
         </designable>
         <designable name="WiW-qh-heE">
             <size key="intrinsicContentSize" width="24" height="14"/>

@@ -224,7 +224,7 @@
 "unfollow" = "الغاء المتابعة";
 "follow" = "متابعة";
 "Added Successfully" = "تمت الاضافة بنجاح";
-
+"Can't Create Room" = "لا تستطيع انشاء محادثة";
 //MARK: Edit Profile
 
 "Edit Profile" = "تعديل الملف الشخصي";

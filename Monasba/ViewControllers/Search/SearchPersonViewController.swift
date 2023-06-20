@@ -47,6 +47,7 @@ extension SearchPersonViewController: UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.navigationController?.navigationBar.isHidden = true
         vc.OtherUserId = users[indexPath.row].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
