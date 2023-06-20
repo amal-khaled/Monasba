@@ -26,14 +26,13 @@ class MenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         ConfigureUI()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.navigationBar.isHidden = true
         if MOLHLanguage.currentAppleLanguage() == "en"{
             englishButtonPressed()
         }else{
@@ -62,6 +61,7 @@ class MenuVC: UIViewController {
             loginButton.isHidden = false
         }
     }
+    
     
     
    
@@ -128,7 +128,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
                 vc.modalPresentationStyle = .fullScreen
-                vc.userId = 111
+                vc.userId = AppDelegate.currentUser.id ?? 0
 //                presentDetail(vc)
                 vc.navigationController?.navigationBar.isHidden = false
                 navigationController?.pushViewController(vc, animated: true)

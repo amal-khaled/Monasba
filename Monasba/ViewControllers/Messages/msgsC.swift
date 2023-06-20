@@ -183,6 +183,10 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        if !StaticFunctions.isLogin(){
+            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            
+        }
         lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         selectAndDeleteViewContainer.isHidden = true
         //chk_select_all
@@ -218,6 +222,9 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if !StaticFunctions.isLogin(){
+            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+        }
         if roomsData.count == 0 {
             selectAndDeleteViewContainer.isHidden = true
         }else {

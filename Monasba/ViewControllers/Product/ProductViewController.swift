@@ -66,17 +66,21 @@ class ProductViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
 
     }
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
+        self.tabBarController?.tabBar.isHidden = false
     }
 //    override func viewWillDisappear(_ animated: Bool) {
 //    }

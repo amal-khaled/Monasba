@@ -10,6 +10,8 @@ import SDWebImage
 import MOLH
 
 class MainCategoryCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var categoryContainerView: UIView!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     
@@ -22,7 +24,14 @@ class MainCategoryCollectionViewCell: UICollectionViewCell {
           
         }
     func setData(category: Category){
-        categoryImageView.sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))
+        
+        if category.id == -1{
+            categoryImageView.image = UIImage(named: "CategoryIcon")
+        }else{
+            categoryImageView.sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))
+        }
+        
+      //  categoryImageView.sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))
         if  MOLHLanguage.currentAppleLanguage() == "en" {
             
             titleLbl.text = category.nameEn ??  category.nameAr ?? ""

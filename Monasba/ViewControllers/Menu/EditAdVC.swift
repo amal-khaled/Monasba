@@ -62,6 +62,7 @@ class EditAdVC:UIViewController  {
    private var subCatId = ""
    private var editedMainImage = false
     
+    var productId = 0
     var product = Product()
     var images = [String]()
     
@@ -75,11 +76,19 @@ class EditAdVC:UIViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
     //MARK: Private Methods
     
     private func configureUI(){
+        
         has_chatv.borderWidth = 0.7
         has_wtsv.borderWidth = 0.7
         tajeerView.borderWidth = 0.7
@@ -89,6 +98,11 @@ class EditAdVC:UIViewController  {
     
     
     //MARK: IBActions
+    
+    
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func didTapEditMainImageButton(_ sender: UIButton) {
         
@@ -320,8 +334,18 @@ extension EditAdVC : UICollectionViewDelegate,UICollectionViewDataSource ,UIColl
         if let url = URL(string:  self.images[indexPath.item]) {
             cell.imageView.sd_setImage(with:url , placeholderImage: nil)
         }
+        cell.indexPath = indexPath
        
         return cell
     }
+    
+}
+
+extension EditAdVC: AdvsImagesCollectionViewCellDelegate {
+    func didRemoveCell(indexPath: IndexPath) {
+        self.images.remove(at: indexPath.item)
+        self.collectionView.reloadData()
+    }
+    
     
 }
