@@ -368,6 +368,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell-grid", for: indexPath) as! ProductCollectionViewCell
             }
             cell.setData(product: products[indexPath.row])
+            
             if (indexPath.row % 2) == 0 {
                 cell.backView.backgroundColor = UIColor(hexString: "#F4F8FF", alpha: 1)
                 cell.backView.backgroundColor = UIColor(hexString: "#F4F8FF", alpha: 1)

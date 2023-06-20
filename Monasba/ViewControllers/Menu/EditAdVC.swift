@@ -193,7 +193,7 @@ extension EditAdVC{
                 self.navigationController?.popViewController(animated: true)
             }
             
-        }, id: 9571)
+        }, id: productId)
     }
     
     fileprivate func setData(){
@@ -231,7 +231,7 @@ extension EditAdVC{
         
         
         //Main Image
-        if let mainImage = product.image {
+        if let mainImage = product.mainImage {
             adsMainImage.setImageWithLoading(url: mainImage)
         }
         DispatchQueue.main.async {

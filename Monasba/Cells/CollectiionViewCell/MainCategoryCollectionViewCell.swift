@@ -28,7 +28,8 @@ class MainCategoryCollectionViewCell: UICollectionViewCell {
         if category.id == -1{
             categoryImageView.image = UIImage(named: "CategoryIcon")
         }else{
-            categoryImageView.sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))
+            categoryImageView.setImageWithLoading(url: category.image ?? "")
+//            sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))
         }
         
       //  categoryImageView.sd_setImage(with: URL(string: category.image ?? ""), placeholderImage: UIImage(named: "logo_monasba"))

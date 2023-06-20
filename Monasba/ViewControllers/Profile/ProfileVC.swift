@@ -16,7 +16,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var userImageView: UIImageView!
     @IBOutlet weak private var VerifyUserImageView: UIImageView!
     @IBOutlet weak private var userFullNameLabel: UILabel!
-    @IBOutlet weak private var emptyAdsLabel: UILabel!
+    @IBOutlet weak private var emptyAdsView: UIView!
     @IBOutlet weak private var bioLabel: UILabel!
     @IBOutlet weak private var adsCountLabel: UILabel!
     @IBOutlet weak private var rateCountLabel: UILabel!
@@ -45,9 +45,6 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-       
-        
-        
     }
     
       
@@ -72,7 +69,7 @@ class ProfileVC: UIViewController {
         
         myAdsCollectionView.delegate = self
         myAdsCollectionView.dataSource = self
-        emptyAdsLabel.isHidden = true
+        emptyAdsView.isHidden = true
         myAdsCollectionView.register(UINib(nibName: "ProfileProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProfileProductsCollectionViewCell")
         
         
@@ -130,11 +127,11 @@ class ProfileVC: UIViewController {
             regionLabel.text = profileModel.regionsNameAr
         }
         
-        if products.count == 0 {
-            emptyAdsLabel.isHidden = false
+        if products.count == 0 && profileModel.numberOfProds == 0 {
+            emptyAdsView.isHidden = false
 //            myAdsCollectionView.isHidden = true
         }else {
-            emptyAdsLabel.isHidden = true
+            emptyAdsView.isHidden = true
 //            myAdsCollectionView.isHidden = false
         }
         
@@ -179,7 +176,7 @@ class ProfileVC: UIViewController {
             if let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: MYADS_VCID) as? MyAdsVC {
                 vc.modalPresentationStyle = .fullScreen
                 vc.userId = AppDelegate.currentUser.id ?? 0
-                presentDetail(vc)
+                navigationController?.pushViewController(vc, animated: true)
                 
             }
     }
@@ -192,7 +189,7 @@ class ProfileVC: UIViewController {
         Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
         Constants.followIndex = 0
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapFollowingsButton(_ sender: UIButton) {
@@ -200,7 +197,7 @@ class ProfileVC: UIViewController {
         Constants.followIndex = 1
         Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
