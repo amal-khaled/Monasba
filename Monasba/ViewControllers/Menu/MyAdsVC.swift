@@ -72,7 +72,6 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
         myAdCell.delegate = self
         myAdCell.indexPath = indexPath
         myAdCell.setData(product: products[indexPath.item])
-        myAdCell.userNameLabel.text = "ELSAYED AHMED"
         return myAdCell
     }
     
@@ -84,7 +83,7 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
         vc.modalPresentationStyle = .fullScreen
         vc.product = products[indexPath.row]
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -113,8 +112,8 @@ extension MyAdsVC:MyAdsCollectionViewCellDelegate {
         let product =  products[indexPath.item]
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: EDITAD_VCID) as! EditAdVC
         vc.modalPresentationStyle = .fullScreen
-        vc.product = product
-        presentDetail(vc)
+        vc.productId = product.id ?? 0
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

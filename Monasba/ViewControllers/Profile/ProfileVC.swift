@@ -55,12 +55,12 @@ class ProfileVC: UIViewController {
         super.viewWillAppear(animated)
         getProfile()
         getProductsByUser()
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        self.navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -150,13 +150,13 @@ class ProfileVC: UIViewController {
     //MARK: IBActions
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func didTapEditProfileutton(_ sender: UIButton) {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
-        
         vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+//        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
