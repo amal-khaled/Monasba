@@ -137,6 +137,7 @@
 "Share" = "شارك";
 "Delete" = "حذف";
 "Edit" = "تعديل";
+"Ads Deleted Seccessfully" = "تم حذف اعلانك بنجاح";
 
 //MARK: Chat
 "Delete The Conversation" = "حذف المحادثة";

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     static var defaults:UserDefaults = UserDefaults.standard
     static var playerId = ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       
         
         AppDelegate.defaults.removeObject(forKey: "postSessionData")
         
@@ -67,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             }
         }
     }
+    
+    
     func checkNotificationToken(){
         if AppDelegate.defaults.string(forKey: "playerId") != nil{
             
@@ -171,7 +174,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate{
         //   print("notification Title ",title)
         
         // Change this to your preferred presentation option
-        return [[.alert, .sound]]
+        return [[.alert, .sound , .badge]]
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MyAdsVC: UIViewController {
 
@@ -100,6 +101,23 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
 extension MyAdsVC:MyAdsCollectionViewCellDelegate {
     func deleteAdCell(buttonDidPressed indexPath: IndexPath) {
         //delete ad
+        let params : [String: Any]  = ["id":products[indexPath.item].id ?? 0]
+        print(params)
+        guard let url = URL(string: Constants.DOMAIN+"prods_delete")else{return}
+        AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:SuccessModel.self){res in
+            switch res.result{
+            case .success(let data):
+                if let success = data.success {
+                    if success {
+                        StaticFunctions.createSuccessAlert(msg:"Ads Deleted Seccessfully".localize)
+                        self.getProductsByUser()
+                        self.myAdsCollectionView.reloadData()
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func shareAdCell(buttonDidPressed indexPath: IndexPath) {

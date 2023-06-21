@@ -486,4 +486,20 @@ extension UIViewController :NVActivityIndicatorViewable{
             }
         }
     }
+    
+    
+    func generateThumbnailImage(url:URL) -> UIImage {
+           let asset = AVAsset(url: url)
+           let imageGenerator = AVAssetImageGenerator(asset: asset)
+           imageGenerator.appliesPreferredTrackTransform = true
+
+           do {
+               let thumbnailCGImage = try imageGenerator.copyCGImage(at: .zero, actualTime: nil)
+               let thumbnailImage = UIImage(cgImage: thumbnailCGImage)
+               return  thumbnailImage
+           } catch {
+               print("Failed to generate thumbnail image: \(error)")
+               return UIImage()
+           }
+       }
 }

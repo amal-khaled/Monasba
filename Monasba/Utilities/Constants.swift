@@ -61,6 +61,7 @@ let SERVER_ERROR = "server error ... try again later".localize
 //Advs Controllers
 let ADDADVS_VCID = "AddAdvsVC"
 let PICKUP_MEDIA_POPUP_VCID = "PickupMediaPopupVC"
+let PICKUP_MEDIA_POPUP_EDIT_VCID = "PickupMediaPopupEditAdsVC"
 let SUCCESS_ADDING_VCID = "SuccessAddingVC"
 
 //Edit Ads Controllers

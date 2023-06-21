@@ -37,22 +37,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.isHidden = false
+        createCustomNavBar()
         self.navigationItem.title = "Home".localize
-//        self.navigationController?.navigationBar.barStyle = .default
-//       n
-//        self.navigationController?.navigationBar.isTranslucent = false
-        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 60))
-            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
-        customNavBar.cornerRadius = 30
-        // Set your desired background color
-            view.addSubview(customNavBar)
-//
-            // Adjust the top constraint of your main content to align with the bottom of the custom navigation bar
-//            if let topConstraint = view.constraints.first(where: { $0.firstAttribute == .top }) {
-//                topConstraint.constant = 80
-//            }
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
@@ -103,33 +91,12 @@ class HomeViewController: UIViewController {
   //  }
     
     func createCustomNavBar(){
-        self.navigationController?.navigationBar.isHidden = true  // Hide the default navigation bar
-            
-            // Create a custom navigation bar
-            let customNavBarHeight: CGFloat = 80  // Set your desired height
-            let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: customNavBarHeight))
-            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")  // Set your desired background color
-            
-            let navigationItem = UINavigationItem(title: "Home".localize)  // Set the title
-            
-            // Create and set the left bar button items with images and text
-            let leftImage1 = UIImage(named: "addAdvsImage")
-        let leftBarButtonItem1 = UIBarButtonItem( image: leftImage1?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(leftBarButtonItem1Tapped))
-            navigationItem.leftBarButtonItems = [leftBarButtonItem1]
-            
-            // Create and set the right bar button items with images and text
-            let rightImage1 = UIImage(named: "square")
-        let rightBarButtonItem1 = UIBarButtonItem( image: rightImage1?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(rightBarButtonItem1Tapped))
-            navigationItem.rightBarButtonItems = [rightBarButtonItem1]
-            
-            customNavBar.items = [navigationItem]
-            
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 60))
+            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
+        customNavBar.cornerRadius = 30
+        customNavBar.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        // Set your desired background color
             view.addSubview(customNavBar)
-            
-            // Adjust the top constraint of your main content to align with the bottom of the custom navigation bar
-            if let topConstraint = view.constraints.first(where: { $0.firstAttribute == .top }) {
-                topConstraint.constant = customNavBarHeight
-            }
     }
     @objc func leftBarButtonItem1Tapped() {
         // Handle left bar button item 1 tap

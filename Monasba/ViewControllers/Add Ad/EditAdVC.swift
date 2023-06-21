@@ -8,9 +8,12 @@
 import UIKit
 import Alamofire
 
-class EditAdVC:UIViewController  {
-    
-    
+enum ImageDataSource {
+    case url(URL)
+    case image(UIImage)
+}
+
+class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
     @IBOutlet weak private var adsMainImage: UIImageView!
     @IBOutlet weak private var titleLabel: UITextField!
@@ -62,16 +65,23 @@ class EditAdVC:UIViewController  {
    private var subCatId = ""
    private var editedMainImage = false
     
+    var selectedImages = [UIImage]()
+    var selectedVideos = [Data]()
+    var selectedMedia = [String:Data]()
     var productId = 0
     var product = Product()
-    var images = [String]()
-    
+//    var images = [String]()
+    var dataSource: [ImageDataSource] = []
+    var isMainImage = false
+    var productsImages = [ProductImage]()
+    var imagesDeleted = [Int]()
     //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         getData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +107,23 @@ class EditAdVC:UIViewController  {
     
     
     
+    func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage, videos: [Data], selectedMedia: [String : Data]) {
+        if isMainImage {
+            adsMainImage.image = image
+        }else{
+            self.dataSource.append(.image(image))
+        }
+        
+//        self.selectedImages = images
+        self.selectedVideos = videos
+        self.selectedMedia = selectedMedia
+//        print("Images Count ", images.count)
+        print(selectedVideos)
+        print("Videos Count " , selectedVideos.count)
+        print("selectedMedia ------->",selectedMedia)
+        self.collectionView.reloadData()
+    }
+    
     //MARK: IBActions
     
     
@@ -105,11 +132,28 @@ class EditAdVC:UIViewController  {
     }
     
     @IBAction func didTapEditMainImageButton(_ sender: UIButton) {
-        
+        isMainImage = true
+        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_EDIT_VCID) as! PickupMediaPopupEditAdsVC
+        vc.delegate = self
+        vc.image = adsMainImage.image ?? UIImage()
+//            vc.images = selectedImages
+        //vc.videos = selectedVideos
+       // vc.selectedMedia = selectedMedia
+        present(vc, animated: false)
     }
     
     @IBAction func didTapShowPickedImageViewButton(_ sender: UIButton) {
-        
+        isMainImage = false
+        if selectedImages.count < 6 {
+            let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_EDIT_VCID) as! PickupMediaPopupEditAdsVC
+            vc.delegate = self
+//            vc.images = selectedImages
+            vc.videos = selectedVideos
+            vc.selectedMedia = selectedMedia
+            present(vc, animated: false)
+        }else{
+            StaticFunctions.createErrorAlert(msg: "You have reached the limit of videos and photos".localize)
+        }
     }
     
     @IBAction func didTapTajeerButton(_ sender: UIButton) {
@@ -166,9 +210,25 @@ class EditAdVC:UIViewController  {
     }
     
     @IBAction func didTapSaveButton(_ sender: UIButton) {
+        
     }
     
     @IBAction func didTapDeleteButton(_ sender: UIButton) {
+        let params : [String: Any]  = ["id":product.id ?? 0]
+        guard let url = URL(string: Constants.DOMAIN+"prods_delete")else{return}
+        AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:SuccessModel.self){res in
+            switch res.result{
+            case .success(let data):
+                if let success = data.success {
+                    if success {
+                        StaticFunctions.createSuccessAlert(msg:"Ads Deleted Seccessfully".localize)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }
@@ -181,11 +241,20 @@ extension EditAdVC{
             
             if check == 0{
                 self.product = product.data
+                self.productsImages = product.images
                 print(product.images)
                 for i in product.images{
-                    self.images.append(i.image ?? "")
+//                    self.images.append(i.image ?? "")
+                    guard let imageURL = URL(string: i.image ?? "" ) else { return }
+                    if i.image?.contains(".mp4") == true {
+                        self.dataSource.append(.image(self.generateThumbnailImage(url: imageURL)))
+                        
+                    }else{
+                        self.dataSource.append(.url(imageURL))
+                    }
+                    
                 }
-                print(self.images)
+                print(self.dataSource)
                 self.setData()
                 
             }else{
@@ -325,25 +394,38 @@ extension EditAdVC{
 }
 extension EditAdVC : UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return dataSource.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdvsImagesCollectionViewCell", for: indexPath) as? AdvsImagesCollectionViewCell else {return UICollectionViewCell()}
-        if let url = URL(string:  self.images[indexPath.item]) {
-            cell.imageView.sd_setImage(with:url , placeholderImage: nil)
-        }
+//        if let url = URL(string:  self.dataSource[indexPath.item]) {
+//            cell.imageView.sd_setImage(with:url , placeholderImage: nil)
+//        }
+        let data = dataSource[indexPath.item]
+            
+            switch data {
+            case .url(let url):
+                // Load image from URL and set it in the cell
+                cell.imageView.sd_setImage(with:url , placeholderImage: nil)
+            case .image(let image):
+                // Set the gallery image in the cell
+                cell.imageView.image = image
+            }
         cell.indexPath = indexPath
-       
+        cell.delegate = self
+        
         return cell
     }
     
 }
 
 extension EditAdVC: AdvsImagesCollectionViewCellDelegate {
-    func didRemoveCell(indexPath: IndexPath) {
-        self.images.remove(at: indexPath.item)
+    func didRemoveCell(indexPath: IndexPath) {        self.imagesDeleted.append(self.productsImages[indexPath.item].id ?? 0)
+        productsImages.remove(at: indexPath.item)
+        self.dataSource.remove(at: indexPath.item)
+        print(imagesDeleted)
         self.collectionView.reloadData()
     }
     
