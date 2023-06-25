@@ -100,6 +100,7 @@ class Constants {
     static let LIKE_COMMENT_URL = DOMAIN + "like_prods"
     static let LIKE_AD_URL = DOMAIN + "fav_prod"
     static let REPORT_AD_URL = DOMAIN + "report_on_prods"
+    static let REPORT_USER_URL = DOMAIN + "report_user"
     static let COMMENT_REPLY_URL = DOMAIN + "prods_comments_replay"
     static let REPORT_REPLY_URL = DOMAIN + "reply_reports"
     static let DELETE_REPLY_URL = DOMAIN + "delete_comment_on_rates"
@@ -142,6 +143,7 @@ class Constants {
     //Asks
     //question_by_city_id
     static let ASKS_CITY_URL = DOMAIN + "question_by_city_id"
+    static let ASKS_USER_URL = DOMAIN + "question_by_user_id"
     static let ASK_ADD_URL = DOMAIN + "questions_add"
     static let ASK_DELETE_URL = DOMAIN + "questions_delete"
     static let GET_ASK_REPLY_URL = DOMAIN + "question_comments"
@@ -194,4 +196,5 @@ class Constants {
     //chat
     static var room_id:String = "0"
     static var headerProd:HTTPHeaders = ["Authorization":"Bearer \(AppDelegate.currentUser.toke ?? "")"]
+    static var header: HTTPHeaders = ["Content-Type":"application/x-www-form-urlencoded"]
 }

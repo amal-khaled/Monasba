@@ -9,36 +9,42 @@ import UIKit
 
 class ReportAboutUserVC: UIViewController {
 
-    //MARK: IBOutlets
-    
     @IBOutlet weak var tableView: UITableView!
+    var reportList = ["prohibited on Monasba",
+                     "Offensive or inappropriate","Identical or imitation product","Located in the wrong section","Looks like a scam", "The publisher is a fake or stolen account"]
     
-    //TODO :- translate and ckeck App language
-    let reasonsList = ["سبام او محتوى غير مرغوب فيه","يحتوي على معلومات وهمية","يحوي كلمات مسيئة ومحتوى ينطوي على التنمر والعنف","يحض على الكراهية","سبب آخر ...."]
-    
+    var uid = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+      print(uid)
         
+        // Do any additional setup after loading the view.
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        dismiss(animated: true)
+    @IBAction func cancelAction(_ sender: Any) {
+        self.dismiss(animated: false)
     }
-
+    
+   
 }
-extension ReportAboutUserVC : UITableViewDelegate , UITableViewDataSource {
+extension ReportAboutUserVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reasonsList.count
+        return reportList.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportTableViewCell", for: indexPath) as? ReportTableViewCell else{return UITableViewCell()}
-        cell.reasonLabel.text = reasonsList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ReportTableViewCell
+        cell.seetData(reason: reportList[indexPath.row])
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ProfileController.shared.flageProfile(completion: {
+            check, msg in
+            if check == 0 {
+                StaticFunctions.createSuccessAlert(msg: msg)
+                self.dismiss(animated: false)
+            }else{
+                StaticFunctions.createErrorAlert(msg: msg)
+            }
+        }, uid: uid,reason: reportList[indexPath.row])
+    }
 }

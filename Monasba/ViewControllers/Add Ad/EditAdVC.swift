@@ -73,6 +73,8 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
 //    var images = [String]()
     var dataSource: [ImageDataSource] = []
     var isMainImage = false
+    var isEditImages = false
+    var mainImage:Data?
     var productsImages = [ProductImage]()
     var imagesDeleted = [Int]()
     //MARK: Life Cycle
@@ -98,7 +100,6 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     //MARK: Private Methods
     
     private func configureUI(){
-        
         has_chatv.borderWidth = 0.7
         has_wtsv.borderWidth = 0.7
         tajeerView.borderWidth = 0.7
@@ -110,7 +111,11 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage, videos: [Data], selectedMedia: [String : Data]) {
         if isMainImage {
             adsMainImage.image = image
+            mainImage = image.jpegData(compressionQuality: 0.1)!
+            editedMainImage = true
+//            guard  mainImage == image.jpegData(compressionQuality: 0.1) else {return}
         }else{
+            isEditImages = true
             self.dataSource.append(.image(image))
         }
         
@@ -133,6 +138,7 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
     @IBAction func didTapEditMainImageButton(_ sender: UIButton) {
         isMainImage = true
+        
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_EDIT_VCID) as! PickupMediaPopupEditAdsVC
         vc.delegate = self
         vc.image = adsMainImage.image ?? UIImage()
@@ -210,6 +216,130 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     }
     
     @IBAction func didTapSaveButton(_ sender: UIButton) {
+        
+//        var phone = AppDelegate.currentUser.phone ?? ""
+        guard var phone = AppDelegate.currentUser.phone else {return}
+        if(!sw_my_phone.isOn){
+            phone = txt_phone.text!
+        }
+        let errors = "لايوجد"
+        guard let price = PriceTxetField.text else {return}
+        guard let url = URL(string: Constants.DOMAIN+"prods_update")else{return}
+        var params : [String: Any]  = ["id":product.id ?? 0,
+                                       "name":titleLabel.text ?? "", "price":price,
+                                       "uid":AppDelegate.currentUser.id ?? 0,"cat_id":catId,"sub_cat_id":subCatId,
+                                       "country_id":countryId,"city_id":cityId,"region_id":regionId,
+                                       "amount":0,
+                                      "errors":errors,
+                                       "brand_id":"NIKE",
+                                       "material_id":"Hareer",
+                                       "phone":phone,"wts":phone,"descr":descTextView.text!,
+                                       "has_chat":has_chat,"has_wts":has_wts,"has_phone":has_phone,
+                                       "tajeer_or_sell":tajeer]
+        print(params)
+        var type = ""
+        var index = ""
+        var indexDeletedImage = 0
+        var image = Data()
+        
+        if isEditImages || editedMainImage {
+           
+            AF.upload(multipartFormData: { [weak self] multipartFormData in
+                guard let self = self else {return}
+                print(self.editedMainImage)
+                print(self.selectedMedia.count , self.isEditImages)
+                if self.editedMainImage {
+                    guard let mainImage = self.mainImage else {return}
+                multipartFormData.append(mainImage, withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
+                }
+                print(self.selectedMedia.count , self.isEditImages)
+                
+                if self.selectedMedia.count > 0 || self.isEditImages{
+                    for (value,key) in self.selectedMedia {
+                        
+                        if value.contains("IMAGE"){
+                            type = value.components(separatedBy: " ")[0]
+                            index = value.components(separatedBy: " ")[1]
+//                            type = value
+                            image = key
+                            print( "VALUE  ",value ,"KEY  " ,key)
+                            params["mtype[]"] = type
+                            multipartFormData.append(image, withName: "sub_image[]",fileName: "file\(index).jpg", mimeType: "image/jpg")
+                        }else{
+                             index = "6"
+                            type = value
+                            image = key
+                            params["mtype[]"] = type
+                            multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                        }
+                    }
+                }
+                    
+                    if self.imagesDeleted.count > 0 {
+                        for img in self.imagesDeleted {
+                            indexDeletedImage += 1
+//                          , "delete_img_ids[]":"6235"
+                            params["delete_img_ids[\(indexDeletedImage)]"] = img
+
+                        }
+                    }
+                   
+                    
+                for (key,value) in params {
+                    multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
+                }
+           
+                print("send Image Parameters : -----> ", params)
+                 
+            },to:"\(url)")
+            .responseDecodable(of:EditAdvSuccessModel.self){ response in
+                print(response)
+                switch response.result {
+                case .success(let data):
+                    if let message = data.message , let success = data.success{
+                        if success {
+                        print(message)
+                            StaticFunctions.createSuccessAlert(msg:message)
+                            self.navigationController?.popViewController(animated: true)
+                        }else{
+                            StaticFunctions.createErrorAlert(msg: message)
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }else{
+            
+            if imagesDeleted.count > 0 {
+                for img in imagesDeleted {
+                    indexDeletedImage += 1
+                    //                          , "delete_img_ids[]":"6235"
+                    params["delete_img_ids[\(indexDeletedImage)]"] = img
+                    
+                }
+            }
+            print(params)
+            AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:EditAdvSuccessModel.self){ response in
+                print(response)
+                switch response.result {
+                case .success(let data):
+                    if let message = data.message , let success = data.success{
+                        if success {
+                            print(message)
+                            StaticFunctions.createSuccessAlert(msg:message)
+                            self.navigationController?.popViewController(animated: true)
+                        }else{
+                            StaticFunctions.createErrorAlert(msg:message)
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+            
+        }
         
     }
     
@@ -296,8 +426,20 @@ extension EditAdVC{
         self.has_wts = product.hasWhatsapp == "on" ? "off":"on"
         self.has_chat = product.hasChat == "on" ? "off":"on"
         
+        if product.hasWhatsapp == "on" {
+            setupWhatsOn()
+        }
+        if product.hasPhone == "on" {
+            setupHasPhoneViewUI()
+        }
+        
         self.txt_phone.text = product.phone
         
+        if product.type == 1 {
+            setupTajeerViewUI()
+        }else{
+            setupSellViewUI()
+        }
         
         //Main Image
         if let mainImage = product.mainImage {
@@ -326,6 +468,7 @@ extension EditAdVC{
         lbl_put_phone.isHidden = true
     }
     fileprivate func setupTajeerViewUI() {
+        tajeer = 1
         sellView.borderWidth = 0.7
         tajeerView.borderWidth = 1.2
         sellButtonImage.borderWidth = 0.7
@@ -343,6 +486,7 @@ extension EditAdVC{
     }
     
     fileprivate func setupSellViewUI() {
+        tajeer = 0
         sellView.borderWidth = 1.2
         tajeerView.borderWidth = 0.7
         tajeerButtonImage.borderWidth = 0.7

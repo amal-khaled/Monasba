@@ -106,6 +106,40 @@ class CategoryController{
             
         }, link: Constants.ASKS_CITY_URL , param: param)
     }
+    
+    func getUserAsks(completion: @escaping([Ask], Int, String)->(), id: Int, page: Int){
+        
+        let param = ["uid": id,
+                     "page": page,
+                     ] as [String : Any]
+       
+            print(param)
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let askObject = try JSONDecoder().decode(AskArrayPaging.self, from: data)
+                
+                if askObject.code == 200{
+                    
+                    completion(askObject.data.data, 0 ,"")
+                }
+                else {
+                    completion([Ask](),1,askObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion([Ask](),1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.ASKS_USER_URL , param: param)
+    }
+    
     func addComment(completion: @escaping( Int, String)->(), id: Int, comment: String, image: UIImage?){
         
         let param = ["country_id": "\(AppDelegate.currentUser.countryId ?? 0)",

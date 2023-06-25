@@ -182,6 +182,10 @@
 "Confirm new password" = "تأكيد كلمة المرور الجديدة";
 "Save" = "حفظ";
 "New Account" = "حساب جديد";
+"Please Fill All Fields" = "إملء كافة الحقول";
+"Make sure your new password matches." = "تأكد من تطابق كلمة المرور الجديدة";
+"Change Password" = "تغيير كلمة المرور";
+
 //Signup
 
 "User name" = "اسم المستخدم";
@@ -198,6 +202,11 @@
 "Usage agreement" = "اتفاقية الاستخدام";
 "Forget Password" = "نسيت كلمة المرور";
 "Please type the correct email to receive the activation code" = "يرجى كتابة البريد الإلكتروني الصحيح لتلقي رمز التفعيل";
+
+//MARK: Change Phone
+"Change Phone Number" = "تغيير رقم الجوال";
+"Please enter your mobile number to be sent" = "من فضلك أدخل رقم جوالك حتى يتم إرسال";
+"Your activation code" = "كود التفعيل إليك";
 
 //MARK: Profile
 "My Profile" = "ملفي الشخصي";
@@ -226,6 +235,7 @@
 "follow" = "متابعة";
 "Added Successfully" = "تمت الاضافة بنجاح";
 "Can't Create Room" = "لا تستطيع انشاء محادثة";
+"Really Do You want to Block this user?" = "حقا هل تريد حظر هذا المستخدم";
 //MARK: Edit Profile
 
 "Edit Profile" = "تعديل الملف الشخصي";

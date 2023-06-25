@@ -146,6 +146,10 @@ class MenuVC: UIViewController {
         
         if StaticFunctions.isLogin() {
             
+            let vc = UIStoryboard(name: MENU_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "MyAsksVC") as! MyAsksVC
+            vc.modalPresentationStyle = .fullScreen
+    //        presentDetail(vc)
+            navigationController?.pushViewController(vc, animated: true)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Go To Asks!".localize)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){

@@ -79,7 +79,8 @@ class tabsFollowVC: UIViewController {
     
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+//        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     

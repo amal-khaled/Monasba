@@ -12,6 +12,7 @@ import PhoneNumberKit
 import AVFoundation
 import AVKit
 import MapKit
+import DropDown
 
 extension UIViewController :NVActivityIndicatorViewable{
     
@@ -486,7 +487,23 @@ extension UIViewController :NVActivityIndicatorViewable{
             }
         }
     }
+    func checkEmpty(cont:[UIView]) -> Bool{
+        for view in cont {
+            let v =  view as! UITextField
+            if(v.text == nil){
+                return false
+            }
+            if(v.text!.isEmpty){
+                return false
+            }
+        }
+        return true
+    }
     
+    func empty(_ txt:UITextField) -> Bool{
+        guard let text = txt.text else {return false}
+        return text.isEmpty ? true : false
+    }
     
     func generateThumbnailImage(url:URL) -> UIImage {
            let asset = AVAsset(url: url)
@@ -502,4 +519,20 @@ extension UIViewController :NVActivityIndicatorViewable{
                return UIImage()
            }
        }
+    
+    func customizeDropDown() {
+        let appearance = DropDown.appearance()
+        appearance.cellHeight = 37
+        appearance.backgroundColor = UIColor(white: 1, alpha: 1)
+        appearance.selectionBackgroundColor = UIColor(red: 0.6494, green: 0.8155, blue: 1.0, alpha: 0.2)
+        appearance.separatorColor = UIColor(white: 1, alpha: 0.8)
+        //appearance.cornerRadius = 4
+        appearance.shadowColor = UIColor(white: 0.6, alpha: 1)
+//        appearance.shadowOpacity = 0.9
+//        appearance.shadowRadius = 8
+        appearance.animationduration = 0.25
+        appearance.textColor = .black
+        //appearance.textFont =  UIFont(name: "Tajawal-Regular", size: 14)!
+        appearance.textFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+    }
 }

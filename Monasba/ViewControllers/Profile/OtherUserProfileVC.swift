@@ -13,6 +13,7 @@ class OtherUserProfileVC: UIViewController {
 
     //MARK: IBOutlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var blockAndReportStackView: UIStackView!
     @IBOutlet weak var followView: UIView!
     @IBOutlet weak var CoverImageView: UIImageView!
@@ -36,11 +37,16 @@ class OtherUserProfileVC: UIViewController {
     var options:ViewPagerOptions!
     var cids = ["ads","ratings"]
     var user = User()
-    
+    var userId = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
+//        scrollView.delegate = self
+        
         navigationController?.navigationBar.isHidden = true
-        tabBarController?.tabBar.isHidden = true
+//        tabBarController?.tabBar.isHidden = true
+//        tabBarController?.hidesBottomBarWhenPushed = true
+        tabBarController?.tabBar.layer.zPosition = -1
+        
         getProfile()
         setupProfileUI()
         initTabs()
@@ -48,8 +54,9 @@ class OtherUserProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-           navigationController?.navigationBar.isHidden = true
-           tabBarController?.tabBar.isHidden = true
+//        navigationController?.navigationBar.backgroundColor = .clear
+//           navigationController?.navigationBar.isHidden = true
+//           tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,7 +128,10 @@ class OtherUserProfileVC: UIViewController {
     }
     
     @IBAction func reportAboutUserBtnAction(_ sender: UIButton) {
-        
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ReportAboutUserVC") as! ReportAboutUserVC
+        vc.uid = "\(OtherUserId)"
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: false)
     }
     
     @IBAction func blockUserBtnAction(_ sender: UIButton) {
@@ -223,6 +233,7 @@ extension OtherUserProfileVC {
             if let userProfile = userProfile {
                 print("======= profile Data ======== ")
                 print(userProfile)
+                self.userId = userProfile.uid ?? "0"
                 self.bindProfileData(from: userProfile)
                // self.getProductsByUser()
             }
@@ -346,3 +357,15 @@ extension OtherUserProfileVC: ViewPagerControllerDelegate {
         }
     }
 }
+//extension OtherUserProfileVC:UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let contentOffsetY = scrollView.contentOffset.y
+//
+//        // Check if the scroll direction is upwards
+//        if contentOffsetY > 0 {
+//            navigationController?.setNavigationBarHidden(true, animated: false)
+//        } else {
+//            navigationController?.setNavigationBarHidden(false, animated: false)
+//        }
+//    }
+//}

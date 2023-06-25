@@ -19,20 +19,31 @@ class FavouritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emptyView.isHidden = true
-        
+         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isHidden = false
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
+        navigationController?.navigationBar.tintColor = .white
+            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
+        // Set your desired background color
+            view.addSubview(customNavBar)
         lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        lst.register(FavouritesCollectionViewCell.self, forCellWithReuseIdentifier: "FavouritesCollectionViewCell")
-        lst.configure(top:15, bottom:100, left: 15, right: 15,hspace:15)
+        lst.register(UINib(nibName: "FavouritesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FavouritesCollectionViewCell")
+//        if let layout = lst.collectionViewLayout as? UICollectionViewFlowLayout {
+//                layout.scrollDirection = .vertical
+//            }
+        //lst.configure(top:15, bottom:100, left: 15, right: 15,hspace:15,scroll: .vertical)
+        lst.delegate = self
+        lst.dataSource = self
         
+        get()
 
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        get()
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        
         tabBarController?.tabBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,9 +103,9 @@ extension FavouritesVC:UICollectionViewDelegate,UICollectionViewDataSource {
        let inx = indexPath.row
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouritesCollectionViewCell", for: indexPath) as? FavouritesCollectionViewCell else{return UICollectionViewCell()}
        cell.configure(data: data[inx])
-      //  cell.titleText.text = "dsdsdsdsdddsdsddd"
-//       cell.removeFromFavButton.tag = inx
-//       cell.removeFromFavButton.addTarget(self, action: #selector(removeFromFavs), for: .touchUpInside)
+//        cell.titleText.text = "dsdsdsdsdddsdsddd"
+       cell.removeFromFavButton.tag = inx
+       cell.removeFromFavButton.addTarget(self, action: #selector(removeFromFavs), for: .touchUpInside)
        return cell
    }
    
@@ -125,7 +136,7 @@ extension FavouritesVC:UICollectionViewDelegate,UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView,
                        layout collectionViewLayout: UICollectionViewLayout,
                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-       return CGSize(width: lst.frame.width - 30, height: 120)
+       return CGSize(width: lst.frame.width , height: 120)
    }
    
    
@@ -139,4 +150,16 @@ extension FavouritesVC:UICollectionViewDelegate,UICollectionViewDataSource {
          self.navigationController?.pushViewController(vc, animated: true)
 //        goNav("prodv","Prods")
    }
+}
+extension FavouritesVC:UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+
+        // Check if the scroll direction is upwards
+        if contentOffsetY > 0 {
+            navigationController?.setNavigationBarHidden(true, animated: false)
+        } else {
+            navigationController?.setNavigationBarHidden(false, animated: false)
+        }
+    }
 }

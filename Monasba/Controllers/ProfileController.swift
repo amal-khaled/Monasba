@@ -106,5 +106,40 @@ class ProfileController {
             
         }, link: Constants.PROFILE_URL , param: param)
     }
-    
+    func flageProfile(completion: @escaping( Int, String)->(), uid: String, reason: String){
+        
+        let param = ["uid": uid,
+                     "from_uid": AppDelegate.currentUser.id ?? 0 ,
+                     "reson": reason
+                     
+        ] as [String : Any]
+        
+        
+       
+            
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.REPORT_USER_URL , param: param)
+    }
 }

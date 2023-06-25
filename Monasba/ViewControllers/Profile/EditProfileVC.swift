@@ -147,9 +147,17 @@ class EditProfileVC : UIViewController {
     }
     
     @IBAction func changePasswordActiion(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func changePhoneAction(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangePhoneVC") as! ChangePhoneVC
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
