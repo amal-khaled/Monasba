@@ -13,8 +13,9 @@ class ProductController{
                          countryId: Int,cityId: Int, categoryId: Int,subCategoryId: Int, type: Int, sorting: String, sell: Int?){
         
         var param = ["page": page,
+                     sorting: 1,
                      "country_id": countryId,
-                     sorting: 1]
+                     ]
         
         if categoryId != -1 {
             param["cat_id"] = categoryId

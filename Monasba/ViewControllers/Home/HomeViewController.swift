@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var listBtn: UIButton!
     @IBOutlet weak var gridBtn: UIButton!
     var coountryVC = CounriesViewController()
-    var countryId = Constants.countryId
-    var countryName = "Kuwait".localize
+    var countryId = AppDelegate.currentCountryId
+    var countryName = AppDelegate.currentCountry
     var categoryId = -1
     var subcategoryId = -1
     var page = 1
@@ -359,7 +359,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == productCollectionView{
             if isList{
-                return CGSize(width: UIScreen.main.bounds.width-10, height: (collectionView.bounds.height-40)/4)
+                return CGSize(width: UIScreen.main.bounds.width-10, height: 130)
             }else{
                 print((UIScreen.main.bounds.width/2 )-15)
                 return CGSize(width: (UIScreen.main.bounds.width/2)-15, height: 280)

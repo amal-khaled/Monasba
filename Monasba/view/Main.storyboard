@@ -991,7 +991,7 @@
                             <constraint firstItem="1p4-YQ-K1v" firstAttribute="trailing" secondItem="vBV-y2-aN6" secondAttribute="trailing" id="9rD-JN-hdu"/>
                             <constraint firstItem="1p4-YQ-K1v" firstAttribute="bottom" secondItem="vBV-y2-aN6" secondAttribute="bottom" id="ANf-7K-VdY"/>
                             <constraint firstItem="vBV-y2-aN6" firstAttribute="leading" secondItem="1p4-YQ-K1v" secondAttribute="leading" id="GgW-J7-6PI"/>
-                            <constraint firstItem="vBV-y2-aN6" firstAttribute="top" secondItem="1p4-YQ-K1v" secondAttribute="top" id="gZF-tf-hUD"/>
+                            <constraint firstItem="vBV-y2-aN6" firstAttribute="top" secondItem="1p4-YQ-K1v" secondAttribute="top" constant="20" id="gZF-tf-hUD"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -2214,7 +2214,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCs-24-oAO" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="25.333333333333336" width="50" height="20"/>
+                                                            <rect key="frame" x="15" y="25.333333333333336" width="20" height="20"/>
                                                             <color key="backgroundColor" red="0.2666666667" green="0.2901960784" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="mwT-Vt-EhQ"/>
@@ -2525,8 +2525,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="FCs-24-oAO">
+            <size key="intrinsicContentSize" width="20" height="13"/>
+        </designable>
         <designable name="MUI-H5-TZT">
             <size key="intrinsicContentSize" width="24" height="14"/>
+        </designable>
+        <designable name="Rjm-XN-1HX">
+            <size key="intrinsicContentSize" width="-1" height="44"/>
         </designable>
         <designable name="WiW-qh-heE">
             <size key="intrinsicContentSize" width="24" height="14"/>

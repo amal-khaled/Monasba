@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     
     
     static var currentUser = User()
-    
+    static var currentCountry = "Kuwait".localize
+    static var currentCountryId = Constants.countryId
+
+   
     static var defaults:UserDefaults = UserDefaults.standard
     static var playerId = ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             AppDelegate.currentUser.id = AppDelegate.defaults.integer(forKey: "userId")
             ProfileController.shared.getProfile(completion: {user,msg in
                     self.checkNotificationToken()
+                AppDelegate.currentCountry = (MOLHLanguage.currentAppleLanguage() == "en" ? AppDelegate.currentUser.countriesNameEn : AppDelegate.currentUser.countriesNameAr) ?? "Kuwait".localize
+                
+                AppDelegate.currentCountryId = AppDelegate.currentUser.countryId ?? Constants.countryId
                 
             }, user: AppDelegate.currentUser)
         }else{
