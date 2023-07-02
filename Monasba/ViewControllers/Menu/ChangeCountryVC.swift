@@ -74,6 +74,8 @@ extension ChangeCountryVC: UITableViewDataSource, UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AppDelegate.currentCountry = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
+        AppDelegate.currentCountryId = counties[indexPath.row].id ?? 6
         Constants.countryId = counties[indexPath.row].id ?? 0
         let homeVC = HomeViewController()
         homeVC.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")

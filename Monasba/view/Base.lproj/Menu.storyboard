@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q3R-z2-mxY">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -22,7 +22,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Menu-->
+        <!--MenuVC-->
         <scene sceneID="DY1-e3-VNf">
             <objects>
                 <viewController storyboardIdentifier="MenuVC" id="Q3R-z2-mxY" customClass="MenuVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
@@ -1058,11 +1058,7 @@
                             <constraint firstItem="X6w-9R-P31" firstAttribute="width" secondItem="GeI-wQ-djJ" secondAttribute="width" id="vdg-vx-Hee"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Menu" image="menu" id="BbD-6q-MAJ">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="orY-8K-L85"/>
                     <connections>
                         <outlet property="arabicButton" destination="TBF-6W-2jH" id="FB3-T7-Cwq"/>
                         <outlet property="dateLabel" destination="S82-U2-sjh" id="QVg-Tb-2Z0"/>
@@ -1075,7 +1071,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcI-cr-ttW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.076923076923077" y="715.87677725118476"/>
+            <point key="canvasLocation" x="906.15384615384608" y="715.87677725118476"/>
         </scene>
         <!--My AdsVC-->
         <scene sceneID="qB8-lQ-lRD">
@@ -1153,7 +1149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qne-SU-rS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="717"/>
+            <point key="canvasLocation" x="1696.9230769230769" y="716.5876777251184"/>
         </scene>
         <!--Change CountryVC-->
         <scene sceneID="c0Q-X5-tJE">
@@ -1314,7 +1310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCj-Jj-Nop" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.8461538461538" y="703.79146919431275"/>
+            <point key="canvasLocation" x="2463.0769230769229" y="703.79146919431275"/>
         </scene>
         <!--Verify AccountVC-->
         <scene sceneID="YXN-oH-Taz">
@@ -2161,7 +2157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDh-rN-sMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2232.3076923076924" y="712.32227488151659"/>
+            <point key="canvasLocation" x="3161.5384615384614" y="712.32227488151659"/>
         </scene>
         <!--Verify Account Image PickerVC-->
         <scene sceneID="lnW-di-3Pb">
@@ -2370,7 +2366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clA-a4-98b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091" y="716"/>
+            <point key="canvasLocation" x="4020" y="715.87677725118476"/>
         </scene>
         <!--FavouritesVC-->
         <scene sceneID="Ps2-OV-S0n">
@@ -2503,7 +2499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tj-0p-BOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3953.8461538461538" y="715.87677725118476"/>
+            <point key="canvasLocation" x="4883.0769230769229" y="715.87677725118476"/>
         </scene>
         <!--My AsksVC-->
         <scene sceneID="rsf-kT-icR">
@@ -2954,12 +2950,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IvY-Cl-ZxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4646" y="712"/>
+            <point key="canvasLocation" x="5573.8461538461534" y="711.61137440758296"/>
         </scene>
     </scenes>
     <designables>
         <designable name="Iaf-YA-Al6">
-            <size key="intrinsicContentSize" width="32" height="14.666666666666666"/>
+            <size key="intrinsicContentSize" width="42" height="24.666666666666664"/>
         </designable>
         <designable name="xi7-HO-hg1">
             <size key="intrinsicContentSize" width="41" height="26"/>
@@ -2986,7 +2982,6 @@
         <image name="del_gray" width="64" height="64"/>
         <image name="empty-favourite" width="185.33332824707031" height="151.66667175292969"/>
         <image name="log-out" width="20" height="20"/>
-        <image name="menu" width="25" height="19"/>
         <image name="mobile" width="13.666666984558105" height="22.333333969116211"/>
         <image name="myAds" width="23" height="23"/>
         <image name="phone2" width="64" height="64"/>
