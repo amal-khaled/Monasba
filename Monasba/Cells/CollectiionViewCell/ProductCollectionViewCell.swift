@@ -94,7 +94,16 @@ class ProductCollectionViewCell: UICollectionViewCell {
                 
             }
         }
-        var imageLink = Constants.IMAGE_URL +  (product.image ?? "")
+        
+        var imageLink = ""
+        if product.mainImage == "" {
+             imageLink = product.image ?? ""
+        }else{
+             imageLink = product.mainImage ?? ""
+        }
+        
+       
+        
         imageView.setImageWithLoading(url: imageLink )
         if imageLink.contains(".mp4")  || imageLink.contains(".mov") {
             videoIcone.isHidden = false
@@ -102,7 +111,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
             videoIcone.isHidden = true
             
         }
-        
         
         
         

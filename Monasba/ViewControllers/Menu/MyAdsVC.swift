@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MyAdsVC: UIViewController {
 
@@ -27,17 +28,28 @@ class MyAdsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Back", style: .plain, target: nil, action: nil)
+        tabBarController?.tabBar.isHidden = true
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
+    }
     
     @IBAction func didTapBackButton(_ sender:UIButton){
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     
     //MARK: Private Methods
     
     private func ConfigureUIView(){
+        navigationController?.navigationBar.tintColor = .white
         configureCollectionView()
     }
     
@@ -61,7 +73,6 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
         myAdCell.delegate = self
         myAdCell.indexPath = indexPath
         myAdCell.setData(product: products[indexPath.item])
-        myAdCell.userNameLabel.text = "ELSAYED AHMED"
         return myAdCell
     }
     
@@ -73,7 +84,7 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
         vc.modalPresentationStyle = .fullScreen
         vc.product = products[indexPath.row]
-        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -90,6 +101,23 @@ extension MyAdsVC : UICollectionViewDelegate,UICollectionViewDataSource , UIColl
 extension MyAdsVC:MyAdsCollectionViewCellDelegate {
     func deleteAdCell(buttonDidPressed indexPath: IndexPath) {
         //delete ad
+        let params : [String: Any]  = ["id":products[indexPath.item].id ?? 0]
+        print(params)
+        guard let url = URL(string: Constants.DOMAIN+"prods_delete")else{return}
+        AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:SuccessModel.self){res in
+            switch res.result{
+            case .success(let data):
+                if let success = data.success {
+                    if success {
+                        StaticFunctions.createSuccessAlert(msg:"Ads Deleted Seccessfully".localize)
+                        self.getProductsByUser()
+                        self.myAdsCollectionView.reloadData()
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func shareAdCell(buttonDidPressed indexPath: IndexPath) {
@@ -102,8 +130,8 @@ extension MyAdsVC:MyAdsCollectionViewCellDelegate {
         let product =  products[indexPath.item]
         let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: EDITAD_VCID) as! EditAdVC
         vc.modalPresentationStyle = .fullScreen
-        vc.product = product
-        presentDetail(vc)
+        vc.productId = product.id ?? 0
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -137,3 +165,4 @@ extension MyAdsVC {
          }, userId: userId , page: page, countryId:6 )
      }
 }
+

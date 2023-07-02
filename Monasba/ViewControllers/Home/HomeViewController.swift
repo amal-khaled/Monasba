@@ -38,19 +38,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
+        createCustomNavBar()
         self.navigationItem.title = "Home".localize
-//        self.navigationController?.navigationBar.barStyle = .default
-//       n
-//        self.navigationController?.navigationBar.isTranslucent = false
-        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0))
-            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
-        // Set your desired background color
-            view.addSubview(customNavBar)
-            
-            // Adjust the top constraint of your main content to align with the bottom of the custom navigation bar
-//            if let topConstraint = view.constraints.first(where: { $0.firstAttribute == .top }) {
-//                topConstraint.constant = customNavBar.frame.height
-//            }
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.chooseCategory(_:)), name: NSNotification.Name(rawValue: "chooseCategory"), object: nil)
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
@@ -67,7 +57,7 @@ class HomeViewController: UIViewController {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationController?.navigationBar.isHidden = false
         if categoryId == 1 {
             sell = nil
             typeLbl.text = "All".localize
@@ -100,6 +90,24 @@ class HomeViewController: UIViewController {
 //        }
   //  }
     
+    func createCustomNavBar(){
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 60))
+            customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
+        customNavBar.cornerRadius = 30
+        customNavBar.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        // Set your desired background color
+            view.addSubview(customNavBar)
+    }
+    @objc func leftBarButtonItem1Tapped() {
+        // Handle left bar button item 1 tap
+        print("Handle left bar button item 1 tap")
+    }
+
+    @objc func rightBarButtonItem1Tapped() {
+        // Handle right bar button item 1 tap
+        print("Handle right bar button item 1 tap")
+    }
+    
     func createAddAdvsButton(){
         let leftView = UIView()
         //view.backgroundColor = .black
@@ -129,10 +137,19 @@ class HomeViewController: UIViewController {
     }
     
     @objc func addAdvsBtnAction(){
+        if StaticFunctions.isLogin() {
+            let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
+            vc.modalPresentationStyle = .fullScreen
+//            presentDetail(vc)
+            navigationController?.pushViewController(vc, animated: true)
+        }else{
+            StaticFunctions.createErrorAlert(msg: "Please Login First To Can Uplaod ads!".localize)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
+        }
         
-        let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
-        vc.modalPresentationStyle = .fullScreen
-        presentDetail(vc)
+      
     }
     
     @objc func categoryBtnAction(){
@@ -318,6 +335,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell-grid", for: indexPath) as! ProductCollectionViewCell
             }
             cell.setData(product: products[indexPath.row])
+            
             if (indexPath.row % 2) == 0 {
                 cell.backView.backgroundColor = UIColor(hexString: "#F4F8FF", alpha: 1)
                 cell.backView.backgroundColor = UIColor(hexString: "#F4F8FF", alpha: 1)

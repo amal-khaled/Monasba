@@ -200,7 +200,7 @@
                                                         <rect key="frame" x="303" y="5" width="60" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nON-XV-KM1">
-                                                                <rect key="frame" x="0.0" y="14" width="73.666666666666671" height="20"/>
+                                                                <rect key="frame" x="0.0" y="14" width="75.333333333333329" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons-trash" translatesAutoresizingMaskIntoConstraints="NO" id="Er5-ug-m74">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -209,16 +209,22 @@
                                                                             <constraint firstAttribute="height" constant="20" id="U5Q-BC-XQc"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remove" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Day-Py-Hsc">
-                                                                        <rect key="frame" x="21.999999999999996" y="0.0" width="51.666666666666657" height="20"/>
+                                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Day-Py-Hsc">
+                                                                        <rect key="frame" x="22.000000000000004" y="0.0" width="53.333333333333343" height="20"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15.5"/>
                                                                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLh-gV-ZfH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="deleteButtonClicked:" destination="qcH-p9-lei" eventType="touchUpInside" id="07b-O4-5VD"/>
                                                                 </connections>

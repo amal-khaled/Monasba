@@ -80,6 +80,18 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             
         }
         
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        
+    }
         
         //===================================     cats   ===================================
         @IBOutlet weak var catsBtn: UIButton!
@@ -274,7 +286,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
         @IBAction func go_pick_img() {
@@ -348,20 +360,4 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-extension VerifyAccountVC {
-    private  func customizeDropDown() {
-        let appearance = DropDown.appearance()
-        appearance.cellHeight = 37
-        appearance.backgroundColor = UIColor(white: 1, alpha: 1)
-        appearance.selectionBackgroundColor = UIColor(red: 0.6494, green: 0.8155, blue: 1.0, alpha: 0.2)
-        appearance.separatorColor = UIColor(white: 1, alpha: 0.8)
-        //appearance.cornerRadius = 4
-        appearance.shadowColor = UIColor(white: 0.6, alpha: 1)
-//        appearance.shadowOpacity = 0.9
-//        appearance.shadowRadius = 8
-        appearance.animationduration = 0.25
-        appearance.textColor = .black
-        //appearance.textFont =  UIFont(name: "Tajawal-Regular", size: 14)!
-        appearance.textFont = UIFont.systemFont(ofSize: 14, weight: .regular)
-    }
-}
+

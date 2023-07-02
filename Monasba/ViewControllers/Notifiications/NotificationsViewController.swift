@@ -20,6 +20,8 @@ class NotificationsViewController: UIViewController {
     //    let cellSpacingHeight: CGFloat = 8
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Notifications".localize
         if !StaticFunctions.isLogin(){
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             
@@ -128,6 +130,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 print("LIKE_COMMENT")
             case "FOLLOW":
                 let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+                vc.navigationController?.navigationBar.isHidden = true
                 vc.OtherUserId = notificatinSenderId
                 self.navigationController?.pushViewController(vc, animated: true)
                 print("FOLLOW")

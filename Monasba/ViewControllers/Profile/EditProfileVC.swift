@@ -101,6 +101,12 @@ class EditProfileVC : UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     
     fileprivate func setupUI(){
 
@@ -141,13 +147,21 @@ class EditProfileVC : UIViewController {
     }
     
     @IBAction func changePasswordActiion(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func changePhoneAction(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: Auth_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "ChangePhoneVC") as! ChangePhoneVC
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     

@@ -176,6 +176,14 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
    
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    
+    
     fileprivate func setupRecordButton(){
        
         recordButton.translatesAutoresizingMaskIntoConstraints = false
@@ -217,7 +225,9 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //        goNav("otherProfilev","Profile")
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
         vc.OtherUserId = Int(Constants.userOtherId) ?? 0
-        present(vc, animated: true)
+//        present(vc, animated: true)
+//        presentDetail(vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -590,6 +600,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //            }
 //        }
         if let url = data[sender.tag].image {
+            print(data[sender.tag].image )
             playAudioFromURL("\(Constants.DOMAIN)\(url)")
             print(url)
         }
@@ -645,7 +656,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     @IBAction func go_back(_ sender: Any) {
 //        dimissMe()
-        dismiss(animated: true)
+//        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -1023,6 +1035,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
        
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         if Constants.orderLoc_represnted {
          //   self.send_message("\(order.lat)%%\(order.lng)%%\(order.loc)%%\(order.loc_img)", "LOCATION")
             if let filePath = Constants.orderFilePath {

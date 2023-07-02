@@ -48,7 +48,7 @@
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="09P-2A-HL1">
-                                                        <rect key="frame" x="10" y="367.33333333333331" width="373" height="70"/>
+                                                        <rect key="frame" x="10" y="59" width="373" height="70"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-e7-jeo">
                                                                 <rect key="frame" x="0.0" y="10" width="50" height="50"/>
@@ -2663,8 +2663,17 @@
         <designable name="1nn-tZ-NAz">
             <size key="intrinsicContentSize" width="35" height="28"/>
         </designable>
+        <designable name="3iO-EI-aqA">
+            <size key="intrinsicContentSize" width="30" height="13.666666666666666"/>
+        </designable>
         <designable name="KWK-QE-DuK">
             <size key="intrinsicContentSize" width="35" height="28"/>
+        </designable>
+        <designable name="MbQ-lW-q07">
+            <size key="intrinsicContentSize" width="4" height="13.666666666666666"/>
+        </designable>
+        <designable name="WjU-j8-YNj">
+            <size key="intrinsicContentSize" width="7.333333333333333" height="19.333333333333332"/>
         </designable>
         <designable name="oBl-Hq-9cb">
             <size key="intrinsicContentSize" width="35" height="28"/>
@@ -2679,7 +2688,7 @@
         <image name="ShowCommentsIcon" width="12.666666984558105" height="8"/>
         <image name="addcomment" width="247" height="247"/>
         <image name="alarm" catalog="system" width="123" height="128"/>
-        <image name="backwhite" width="96" height="102"/>
+        <image name="backwhite" width="48" height="51"/>
         <image name="chat" width="64" height="64"/>
         <image name="del_gray" width="64" height="64"/>
         <image name="favourite-Icon" width="74" height="74"/>

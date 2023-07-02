@@ -62,6 +62,7 @@ extension AsksViewController: UITableViewDelegate, UITableViewDataSource{
         cell.showUserBtclosure = {
             let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
             vc.user.id = self.asks[indexPath.row].userId
+            vc.navigationController?.navigationBar.isHidden = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         cell.deleteBtclosure = {

@@ -45,6 +45,7 @@ extension SearchAskViewController: UITableViewDelegate, UITableViewDataSource{
         cell.setData(ask: asks[indexPath.row])
         cell.showUserBtclosure = {
             let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+            vc.navigationController?.navigationBar.isHidden = true
             vc.OtherUserId = self.asks[indexPath.row].userId ?? 0
             self.navigationController?.pushViewController(vc, animated: true)
         }

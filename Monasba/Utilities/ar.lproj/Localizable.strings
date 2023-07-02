@@ -1,5 +1,6 @@
 
 //MARK: Home
+"Kuwait" = "الكويت";
 "Home" = "الرئيسية";
 "Categories" = "الأقسام";
 "Add Ad" = "إضافة إعلان";
@@ -18,6 +19,7 @@
 "Back to All" = "رجوع إلى الكل";
 //MARK: Messages
 "you Don't have any messages" = "ليس لديك أية رسائل";
+"Please Login First To Can Uplaod ads" = "الرجاء تسجيل الدخول أولاً لتتمكن من تحميل الإعلانات";
 
 //MARK: Srearch
 "Most popular questions" = "الأسئلة الأكثر شيوعًا";
@@ -30,6 +32,7 @@
 "Questions" = "أسئلة";
 
 //MARK: Menu
+"Back" = "رجوع";
 "My Profile" = "الملف الشخصي";
 "Add Ad" = "أضف إعلان";
 "Favourites" = "المفضلة";
@@ -52,6 +55,7 @@
 
 "Please Login First To Can Go To Asks!" = "الرجاء تسجيل الدخول أولاً ليتمكن من الذهاب إلى اسألتي!";
 "Please Login First To Can Go To Verify Account!" = "الرجاء تسجيل الدخول أولاً لتتمكن من توثيق الحساب!";
+
 
 //MARK: Verify Account
 "Verify Account" = "التحقق من الحساب";
@@ -86,7 +90,7 @@
 "Commercial license" = "الرخصة التجارية";
 
 //MARK: ADD ADs
-
+"You have reached the limit of videos and photos" = "لقد وصلت إلى الحد الأقصى من مقاطع الفيديو والصور";
 "Add Photos or Videos" = "أضف صورًا أو مقاطع فيديو";
 "Add Photo" = "إضافة صورة";
 "Ad Title" = "عنوان الاعلان";
@@ -133,6 +137,7 @@
 "Share" = "شارك";
 "Delete" = "حذف";
 "Edit" = "تعديل";
+"Ads Deleted Seccessfully" = "تم حذف اعلانك بنجاح";
 
 //MARK: Chat
 "Delete The Conversation" = "حذف المحادثة";
@@ -177,6 +182,10 @@
 "Confirm new password" = "تأكيد كلمة المرور الجديدة";
 "Save" = "حفظ";
 "New Account" = "حساب جديد";
+"Please Fill All Fields" = "إملء كافة الحقول";
+"Make sure your new password matches." = "تأكد من تطابق كلمة المرور الجديدة";
+"Change Password" = "تغيير كلمة المرور";
+
 //Signup
 
 "User name" = "اسم المستخدم";
@@ -193,6 +202,11 @@
 "Usage agreement" = "اتفاقية الاستخدام";
 "Forget Password" = "نسيت كلمة المرور";
 "Please type the correct email to receive the activation code" = "يرجى كتابة البريد الإلكتروني الصحيح لتلقي رمز التفعيل";
+
+//MARK: Change Phone
+"Change Phone Number" = "تغيير رقم الجوال";
+"Please enter your mobile number to be sent" = "من فضلك أدخل رقم جوالك حتى يتم إرسال";
+"Your activation code" = "كود التفعيل إليك";
 
 //MARK: Profile
 "My Profile" = "ملفي الشخصي";
@@ -220,7 +234,8 @@
 "unfollow" = "الغاء المتابعة";
 "follow" = "متابعة";
 "Added Successfully" = "تمت الاضافة بنجاح";
-
+"Can't Create Room" = "لا تستطيع انشاء محادثة";
+"Really Do You want to Block this user?" = "حقا هل تريد حظر هذا المستخدم";
 //MARK: Edit Profile
 
 "Edit Profile" = "تعديل الملف الشخصي";
@@ -258,3 +273,5 @@ Your investment with every occasion" = "تطبيق مناسبة
 "There are no favorites here" = "لايوجد مفضلة هنا";
 "Please start adding more to your favourites" = "";
 "Kuwait" = "الكويت";
+"Please start adding more to your favourites" = "من فضلك باشر في اضافة المزيد الى مفضلتك";
+"the data you entered does not match our data" = "البيانات التي أدخلتها لا تتطابق مع بياناتنا";

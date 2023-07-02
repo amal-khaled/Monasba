@@ -66,17 +66,21 @@ class ProductViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
 
     }
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
+        self.tabBarController?.tabBar.isHidden = false
     }
 //    override func viewWillDisappear(_ animated: Bool) {
 //    }
@@ -84,6 +88,7 @@ class ProductViewController: UIViewController {
     @IBAction func userClickedAction(_ sender: Any) {
         let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
         vc.OtherUserId = product.userId ?? 0
+        vc.navigationController?.navigationBar.isHidden = true
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -220,7 +225,13 @@ extension ProductViewController{
     func setData(){
         print(product.name)
         
-        if let mainImage = product.image{
+         var mainImage = ""
+        if product.mainImage != ""  {
+            mainImage = product.mainImage ?? ""
+        }else{
+            mainImage = product.image ?? ""
+        }
+            
             if mainImage != ""{
                 if mainImage.contains(".mp4") || mainImage.contains(".mov"){
                     images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "VIDEO", createdAt: "", updatedAt: "", image: Constants.IMAGE_URL + mainImage), at: 0)
@@ -229,7 +240,7 @@ extension ProductViewController{
                 }
                 
             }
-        }
+        
         let dataSource = ImageAndVideoSlideshowDataSource(sources:[
             
             

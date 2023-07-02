@@ -15,12 +15,31 @@ class ChangeCountryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         counties = Constants.COUNTRIES
 
         if Constants.COUNTRIES.count == 0{
             getCounties()
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Back".localize,
+                style: .plain,
+                target: nil,
+                action: nil
+            )
+            
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
