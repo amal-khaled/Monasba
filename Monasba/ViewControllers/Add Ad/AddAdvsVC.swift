@@ -83,7 +83,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var hasWhats = "off"
     var hasChat = "off"
     var hasNewPhone = false
-    var countryId = 5
+    var countryId = AppDelegate.currentUser.countryId ?? 0
     
     // Main Category DropDwon
     var mainCatID:Int = -1
