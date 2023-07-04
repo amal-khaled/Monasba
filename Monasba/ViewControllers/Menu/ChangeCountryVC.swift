@@ -43,7 +43,7 @@ class ChangeCountryVC: UIViewController {
     }
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
-        dismissDetail()
+        navigationController?.popViewController(animated: true)
     }
     
     
