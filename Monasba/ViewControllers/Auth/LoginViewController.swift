@@ -178,13 +178,26 @@ extension LoginViewController{
              self.loginBtn.startAnimation()
 
              AuthCoontroller.shared.login(completion: {
-                 check, msg in
+                 check, msg , data in
                  self.loginBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
                  StaticFunctions.enableBtnWithoutAlpha(btn: self.loginBtn, status: true)
 
                  if check == 0{
-                     NotificationsController.shared.saveToken( token: AppDelegate.playerId)
-                     self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+                     if let userObject = data {
+                         if userObject.data.codeVerify == 1 {
+                             AppDelegate.currentUser = userObject.data ?? User()
+                             AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
+                             AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
+                             AppDelegate.currentUser.toke = userObject.token ?? ""
+                             NotificationsController.shared.saveToken( token: AppDelegate.playerId)
+                             self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+                         }else{
+                             // go to Code Verfication
+                             self.resendCode(userId: data?.data.id ?? 0)
+                             self.basicNavigation(storyName: Auth_STORYBOARD, segueId: SIGNUP_CODE_VCID)
+                         }
+                     }
+                     
 
                  }else{
                      StaticFunctions.createErrorAlert(msg: msg)
@@ -201,7 +214,29 @@ extension LoginViewController{
          }
     }
     
-    
+    func resendCode(userId:Int){
+        if Reachability.isConnectedToNetwork(){
+            
+            AuthCoontroller.shared.resendCodeRegister(completion: {
+                check, msg in
+                
+                if check == 0{
+                
+                    StaticFunctions.createSuccessAlert(msg: msg)
+
+                }else{
+                    StaticFunctions.createErrorAlert(msg: msg)
+                    
+                }
+                
+            },userId:userId)
+            
+        }
+        else{
+            
+            StaticFunctions.createErrorAlert(msg: NO_INTERNET_CONNECTION)
+        }
+    }
     
 }
 

@@ -9,7 +9,7 @@ import Foundation
 class AuthCoontroller{
     static let shared = AuthCoontroller()
     
-    func login(completion: @escaping(Int, String)->(), phone: String, passwoord: String){
+    func login(completion: @escaping(Int, String , UserLoginObject?)->(), phone: String, passwoord: String){
         
         var param = [
                      "mobile": phone,
@@ -25,20 +25,20 @@ class AuthCoontroller{
                 let userObject = try JSONDecoder().decode(UserLoginObject.self, from: data)
                 
                 if userObject.code == 200{
-                    AppDelegate.currentUser = userObject.data ?? User()
-                    AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
-                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
-                    AppDelegate.currentUser.toke = userObject.token ?? ""
-                    completion( 0,userObject.msg ?? "")
+//                    AppDelegate.currentUser = userObject.data ?? User()
+//                    AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
+//                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
+//                    AppDelegate.currentUser.toke = userObject.token ?? ""
+                    completion( 0,userObject.msg ?? "", userObject)
                 }
                 else {
-                    completion(1,userObject.msg ?? "")
+                    completion(1,userObject.msg ?? "",nil)
                 }
                 
             } catch (let jerrorr){
                 
                 print(jerrorr)
-                completion(1,SERVER_ERROR)
+                completion(1,SERVER_ERROR,nil)
                 
                 
             }
@@ -145,7 +145,7 @@ class AuthCoontroller{
             
             do {
                 let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
-                
+                print(generalObject.code)
                 if generalObject.code == 200{
                  
                     completion( 0,generalObject.msg ?? "")

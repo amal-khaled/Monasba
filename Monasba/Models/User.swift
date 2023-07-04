@@ -95,6 +95,7 @@ struct User: Codable {
     var numberOfProds, following, followers, userRate: Int?
     var isFollow, activeNotification: Int?
     var toke: String?
+    var codeVerify:Int?
     enum CodingKeys: String, CodingKey {
         case id, name
         case lastName = "last_name"
@@ -108,6 +109,7 @@ struct User: Codable {
         case pic, cover, regid
         case typeMob = "type_mob"
         case verified, blocked
+        case codeVerify = "code_verify"
         case notification, deactivate, note
         case passV = "pass_v"
         case isAdvertiser = "is_advertiser"
