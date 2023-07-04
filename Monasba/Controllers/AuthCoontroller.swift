@@ -76,8 +76,7 @@ class AuthCoontroller{
                 
                 if userObject.code == 200{
                     AppDelegate.currentUser = userObject.data.data ?? User()
-                    AppDelegate.defaults.set( userObject.data.token ?? "", forKey: "token")
-                    AppDelegate.defaults.set( userObject.data.data.id ?? 0, forKey: "userId")
+                   
                     AppDelegate.currentUser.toke = userObject.data.token ?? ""
                     completion( 0,userObject.msg ?? "")
                 }
@@ -113,7 +112,8 @@ class AuthCoontroller{
                 let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
                 
                 if generalObject.code == 200{
-                 
+                    AppDelegate.defaults.set( AppDelegate.currentUser.toke ?? "", forKey: "token")
+                    AppDelegate.defaults.set( AppDelegate.currentUser.id ?? 0, forKey: "userId")
                     completion( 0,generalObject.msg ?? "")
                 }
                 else {

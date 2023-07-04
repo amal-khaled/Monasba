@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -835,6 +835,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QMe-Va-zOI"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="CoverImageView" destination="I5N-hT-uvA" id="Ndp-IK-39O"/>
                         <outlet property="UserLocationLabel" destination="xaQ-dX-pdv" id="HeA-XT-flO"/>
@@ -3446,10 +3447,9 @@
         <!--Navigation Controller-->
         <scene sceneID="axs-rx-cjE">
             <objects>
-                <navigationController storyboardIdentifier="OtherUserProfileNav" automaticallyAdjustsScrollViewInsets="NO" id="xfz-Ke-J1z" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OtherUserProfileNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xfz-Ke-J1z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="9tz-lv-PkG">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3616,6 +3616,11 @@
             <point key="canvasLocation" x="7846" y="-904"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="bcl-dR-OEc">
+            <size key="intrinsicContentSize" width="15" height="15.666666666666666"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ChangePhoto" width="20.666666030883789" height="18.333333969116211"/>
         <image name="Icon feather-lock-1" width="17.333333969116211" height="19.333333969116211"/>
@@ -3628,7 +3633,7 @@
         <image name="backIconBlack" width="15" height="15.666666984558105"/>
         <image name="bell_main" width="64" height="64"/>
         <image name="block_mnu" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="familyIcon" width="19.666666030883789" height="16"/>
         <image name="feather-lock" width="17.333333969116211" height="19.333333969116211"/>
         <image name="feather-user" width="15" height="16.666666030883789"/>
