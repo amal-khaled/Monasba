@@ -26,7 +26,6 @@ class TypeViewController: UIViewController {
 
         })
 
-        
     }
     @IBAction func rentAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {
