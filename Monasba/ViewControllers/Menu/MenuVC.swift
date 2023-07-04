@@ -33,6 +33,7 @@ class MenuVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
         if MOLHLanguage.currentAppleLanguage() == "en"{
             englishButtonPressed()
         }else{
@@ -44,8 +45,8 @@ class MenuVC: UIViewController {
     
     private func ConfigureUI(){
         
-        navigationController?.navigationBar.isHidden = true
-        
+//        navigationController?.navigationBar.isHidden = true
+//        tabBarController?.tabBar.isHidden = false
         dateLabel.text = FormattedDate()
         
         loginButton.shake()

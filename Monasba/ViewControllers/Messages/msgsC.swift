@@ -182,6 +182,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noMessagesView.isHidden = true
       
         navigationController?.navigationBar.isHidden = true
         if !StaticFunctions.isLogin(){

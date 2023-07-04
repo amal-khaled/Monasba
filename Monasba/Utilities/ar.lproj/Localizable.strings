@@ -148,6 +148,11 @@
 "Type here ..." = "اكتب هنا ...";
 "Type Your Message" = "اكتب رسالتك";
 "Confirm Location" = "تأكيد الموقع";
+"Are you sure you want to block?" = "هل تريد حظر بالتاكيد؟";
+"send picture" = "ارسال صورة ";
+"send video" = "ارسال فيديو";
+"send location" = "ارسال الموقع";
+"send contact" = "ارسال جهة الاتصال";
 
 //MARK: Product Details
 

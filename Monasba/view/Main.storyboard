@@ -1046,7 +1046,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGz-Va-A6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898.4732824427481" y="463.38028169014086"/>
+            <point key="canvasLocation" x="2715" y="425"/>
         </scene>
         <!--Home-->
         <scene sceneID="DXQ-Fn-a1D">
@@ -1067,7 +1067,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="Rjm-XN-1HX" customClass="RoundedNavigationBar" customModule="Monasba" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="Rjm-XN-1HX">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="#0EBFB1"/>
@@ -1112,7 +1112,7 @@
                     <connections>
                         <segue destination="VSR-c2-8Jg" kind="relationship" relationship="viewControllers" id="Pk5-hk-BAa"/>
                         <segue destination="viT-4u-0g3" kind="relationship" relationship="viewControllers" id="Kss-so-ogd"/>
-                        <segue destination="gRK-vn-3Bk" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
+                        <segue destination="Ig8-3C-ceV" kind="relationship" relationship="viewControllers" id="Rn5-IA-YXV"/>
                         <segue destination="pQI-R6-gJy" kind="relationship" relationship="viewControllers" id="znk-J0-Mvm"/>
                         <segue destination="2mI-BG-eop" kind="relationship" relationship="viewControllers" id="NKl-FD-HAi"/>
                     </connections>
@@ -1188,10 +1188,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zbe-Tz-rJ7">
-                                                                <rect key="frame" x="0.0" y="46.666666666666629" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="59.666666666666636" width="359" height="16.333333333333336"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8X-Bd-ijr" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="3jC-kP-MP2"/>
@@ -1226,7 +1226,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-zj-Koh">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1237,10 +1237,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TTN-eE-FT9">
-                                                                <rect key="frame" x="0.0" y="100.33333333333337" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="116.66666666666663" width="359" height="16.333333333333343"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-qh-heE" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="aEZ-40-AKV"/>
@@ -1275,7 +1275,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDT-Gh-ddY">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1286,10 +1286,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-Ek-C4Q">
-                                                                <rect key="frame" x="0.0" y="154" width="359" height="36"/>
+                                                                <rect key="frame" x="0.0" y="173.66666666666663" width="359" height="16.333333333333343"/>
                                                                 <subviews>
                                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUI-H5-TZT" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="Kpd-VV-CWW"/>
@@ -1319,7 +1319,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lowest price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egF-jl-gZv">
-                                                                        <rect key="frame" x="33" y="0.0" width="326" height="36"/>
+                                                                        <rect key="frame" x="33" y="0.0" width="326" height="16.333333333333332"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1411,7 +1411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGZ-cG-q8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4173.2824427480919" y="324.64788732394368"/>
+            <point key="canvasLocation" x="5100" y="324.64788732394368"/>
         </scene>
         <!--City View Controller-->
         <scene sceneID="lUl-HA-Czb">
@@ -2137,7 +2137,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWo-KD-9f3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="463"/>
+            <point key="canvasLocation" x="762" y="501"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="Ssw-yS-pZu">
@@ -2147,9 +2147,9 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="832-h4-aa0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="780"/>
+            <point key="canvasLocation" x="1705" y="1216"/>
         </scene>
-        <!--Messages-->
+        <!--MsgsC-->
         <scene sceneID="tiy-ls-7iQ">
             <objects>
                 <viewController storyboardIdentifier="msgsv" id="gRK-vn-3Bk" customClass="msgsC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
@@ -2210,7 +2210,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCs-24-oAO" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="25.333333333333336" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="25.333333333333336" width="50" height="20"/>
                                                             <color key="backgroundColor" red="0.2666666667" green="0.2901960784" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="mwT-Vt-EhQ"/>
@@ -2497,11 +2497,7 @@
                             <constraint firstAttribute="bottom" secondItem="STa-8z-gPM" secondAttribute="bottom" id="z9K-YF-zTt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="XbU-zX-Q3w"/>
                     <connections>
                         <outlet property="btn_del" destination="dxC-Vx-Hrf" id="Zup-8K-Qww"/>
                         <outlet property="btn_select" destination="ndF-HU-5F6" id="3ea-F2-lza"/>
@@ -2517,7 +2513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVB-pw-u0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79" y="754"/>
+            <point key="canvasLocation" x="-80" y="1466"/>
         </scene>
         <!--Menu-->
         <scene sceneID="YTF-js-GZ2">
@@ -2540,27 +2536,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDF-PY-tTK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="780"/>
+            <point key="canvasLocation" x="1314" y="780"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="gsg-IU-BfZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ig8-3C-ceV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="chatIcon" id="rJR-BP-xnF">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6vR-tw-9RJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gRK-vn-3Bk" kind="relationship" relationship="rootViewController" id="Sc0-kF-iQU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yaA-bw-Ilo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-80.152671755725194" y="753.52112676056345"/>
         </scene>
     </scenes>
     <designables>
-        <designable name="FCs-24-oAO">
-            <size key="intrinsicContentSize" width="20" height="13"/>
-        </designable>
+        <designable name="FCs-24-oAO"/>
         <designable name="MUI-H5-TZT">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="Rjm-XN-1HX">
             <size key="intrinsicContentSize" width="-1" height="44"/>
         </designable>
         <designable name="WiW-qh-heE">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="YjQ-Jm-IzJ">
-            <size key="intrinsicContentSize" width="39" height="29"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
         <designable name="e8X-Bd-ijr">
-            <size key="intrinsicContentSize" width="46" height="36"/>
+            <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
     </designables>
     <resources>

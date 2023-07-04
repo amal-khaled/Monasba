@@ -81,8 +81,8 @@ extension ChangeCountryVC: UITableViewDataSource, UITableViewDelegate{
         homeVC.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
         homeVC.countryId = counties[indexPath.row].id ?? 6
         homeVC.cityId = -1
-        self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
-
+      //  self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
+        self.navigationController?.popViewController(animated: true)
 //        self.dismiss(animated: false, completion: { [self] in
 //                        self.countryBtclosure!(counties[indexPath.row])
 //

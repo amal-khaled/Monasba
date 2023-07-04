@@ -45,7 +45,7 @@ class OtherUserProfileVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
 //        tabBarController?.tabBar.isHidden = true
 //        tabBarController?.hidesBottomBarWhenPushed = true
-        tabBarController?.tabBar.layer.zPosition = -1
+//        tabBarController?.tabBar.layer.zPosition = -1
         
         getProfile()
         setupProfileUI()
@@ -55,12 +55,17 @@ class OtherUserProfileVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        navigationController?.navigationBar.backgroundColor = .clear
-//           navigationController?.navigationBar.isHidden = true
-//           tabBarController?.tabBar.isHidden = true
+           navigationController?.navigationBar.isHidden = true
+           tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
     }
