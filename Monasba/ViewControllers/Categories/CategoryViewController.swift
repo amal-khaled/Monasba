@@ -102,8 +102,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             self.getSubCategory()
             
         }else{
-            if  categoryIndex != (categories.count-1){
-
+            if categoryIndex != (categories.count-1){
             NotificationCenter.default.post(name: NSNotification.Name(rawValue:"chooseCategory"), object: nil, userInfo: ["cat_index": categoryIndex, "sub_cat_index": indexPath.row, "subCategories": sideCatgeory])
             self.navigationController?.popViewController(animated: true)
             }else{

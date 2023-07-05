@@ -45,7 +45,6 @@ class HomeViewController: UIViewController {
 
         subCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
         mainCategoryCollectionView.semanticContentAttribute = .forceLeftToRight
-        getData()
 //        didChangeCountry()
         getCategory()
         createAddAdvsButton()
@@ -66,6 +65,11 @@ class HomeViewController: UIViewController {
             self.typeView.isHidden = true
             
         }
+        countryLbl.text = AppDelegate.currentCountry
+         countryId = AppDelegate.currentCountryId
+         countryName = AppDelegate.currentCountry
+        getData()
+
 //        if AppDelegate.currentUser.id == nil{
 //            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
 //
@@ -160,7 +164,9 @@ class HomeViewController: UIViewController {
         let categoryIndex = notification.userInfo?["cat_index"] as! Int
         let subcategoryIndex = notification.userInfo?["sub_cat_index"] as! Int
         subCategories = notification.userInfo?["subCategories"] as! [Category]
-        categoryId = categories[categoryIndex].id ?? 0
+        categoryId = categories[categoryIndex+1].id ?? 0
+        print(categoryId)
+       
         subcategoryId = subCategories[subcategoryIndex].id ?? 0
         self.subCategories.insert(Category(nameAr: "الكل", nameEn: "All",id: -1, hasSubCat: 0), at: 0)
 
@@ -169,7 +175,15 @@ class HomeViewController: UIViewController {
         self.subCategoryCollectionView.reloadData()
         subCategoryCollectionView.selectItem(at: [0, subcategoryIndex+1], animated: true, scrollPosition: .centeredHorizontally)
             // do something with your image
-        
+        if categoryId == 1 {
+            sell = nil
+            typeLbl.text = "All".localize
+            self.typeView.isHidden = false
+        }else{
+            self.typeView.isHidden = true
+            
+        }
+        getData()
     }
     
     //MARK: IBActions

@@ -136,16 +136,3 @@ extension AsksViewController{
         }, id: cityId, page: self.page)
     }
 }
-
-extension AsksViewController:UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffsetY = scrollView.contentOffset.y
-
-        // Check if the scroll direction is upwards
-        if contentOffsetY > 0 {
-            navigationController?.setNavigationBarHidden(true, animated: false)
-        } else {
-            navigationController?.setNavigationBarHidden(false, animated: false)
-        }
-    }
-}

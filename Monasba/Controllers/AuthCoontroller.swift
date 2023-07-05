@@ -25,10 +25,10 @@ class AuthCoontroller{
                 let userObject = try JSONDecoder().decode(UserLoginObject.self, from: data)
                 
                 if userObject.code == 200{
-//                    AppDelegate.currentUser = userObject.data ?? User()
+                    AppDelegate.currentUser = userObject.data ?? User()
 //                    AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
 //                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
-//                    AppDelegate.currentUser.toke = userObject.token ?? ""
+                    AppDelegate.currentUser.toke = userObject.token ?? ""
                     completion( 0,userObject.msg ?? "", userObject)
                 }
                 else {
