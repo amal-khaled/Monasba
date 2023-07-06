@@ -40,12 +40,8 @@ class OtherUserProfileVC: UIViewController {
     var userId = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
-//        scrollView.delegate = self
         
         navigationController?.navigationBar.isHidden = true
-//        tabBarController?.tabBar.isHidden = true
-//        tabBarController?.hidesBottomBarWhenPushed = true
-//        tabBarController?.tabBar.layer.zPosition = -1
         
         getProfile()
         setupProfileUI()
@@ -210,27 +206,45 @@ class OtherUserProfileVC: UIViewController {
     }
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
-        
-        
-        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        Constants.userOtherId = "\(OtherUserId)"
-        vc.modalPresentationStyle = .fullScreen
-        
-        createRoom("\(OtherUserId)"){[weak self] success in
-            guard let self = self else {return}
-            if success {
-//                self.present(vc, animated: true)
-                vc.navigationController?.navigationBar.isHidden = true
-                self.navigationController?.pushViewController(vc, animated: true)
+        if StaticFunctions.isLogin() {
+         
+            if chatButton.titleLabel?.text == "Chat".localize {
+                let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+                Constants.userOtherId = "\(OtherUserId)"
+                vc.modalPresentationStyle = .fullScreen
+                
+                createRoom("\(OtherUserId)"){[weak self] success in
+                    guard let self = self else {return}
+                    if success {
+                        //                self.present(vc, animated: true)
+                        vc.navigationController?.navigationBar.isHidden = true
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        StaticFunctions.createErrorAlert(msg: "Can't Create Room".localize)
+                    }
+                }
             }else{
-                StaticFunctions.createErrorAlert(msg: "Can't Create Room".localize)
+                let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "AddRateForUsersVC") as! AddRateForUsersVC
+                Constants.userOtherId = "\(OtherUserId)"
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false)
+            }
+            
+            
+            
+            
+        }else {
+            StaticFunctions.createErrorAlert(msg: "Please Login First".localize)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
             
         }
     }
-    
-    
 }
+    
+    
+
 extension OtherUserProfileVC {
     private func getProfile(){
         ProfileController.shared.getOtherProfile(completion: {[weak self] userProfile, msg in

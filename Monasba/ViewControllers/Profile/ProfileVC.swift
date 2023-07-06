@@ -44,6 +44,7 @@ class ProfileVC: UIViewController {
     //MARK: View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         configureUI()
     }
     

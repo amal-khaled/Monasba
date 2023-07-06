@@ -18,13 +18,19 @@ class RateOtherUserCell: UITableViewCell {
         
         
         func configure(data:RateDataModel) {
-            guard let userPic = data.fromUserPic , let userName = data.fromUserName  , let userId = data.userRatedID , let date = data.date else {return}
-            img.setImageWithLoading(url: userPic)
-            lbl_name.text = userName
+//            guard let userPic = data.fromUserPic , let userName = data.fromUserName  , let userId = data.userRatedID , let date = data.date else {return}
+            if data.ratedUserPic?.contains(".") == false  {
+                img.image = UIImage(named: "logo_photo")
+            }else{
+                print(data.ratedUserPic ?? "")
+                img.setImageWithLoading(url: data.ratedUserPic ?? "")
+            }
+           
+            lbl_name.text = data.fromUserName
             lbl_comment.text = data.comment
             lbl_comment.setLineSpacing()
             rate.rating = Double(data.rate)
-            lbl_date.text = cDate(GetDateFromString(date),"EEEE d MMMM")
+            lbl_date.text = cDate(GetDateFromString(data.date ?? ""),"EEEE d MMMM")
         }
     }
 

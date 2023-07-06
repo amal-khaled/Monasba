@@ -111,7 +111,8 @@
 " = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
 "Phone Call" = "هاتف";
 "WhatsApp" = "واتساب";
-"Chat" = "شات";
+"Chat" = "محادثة";
+"Please Login First" = "يجب تسجيل الدخول أولا";
 "Use my registered mobile number to communicate" = "استخدم رقم هاتفي المحمول المسجل للتواصل";
 "Enter the mobile number" = "أدخل رقم الهاتف المحمول";
 "YES" = "نعم";
