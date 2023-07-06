@@ -214,12 +214,12 @@ extension RegisterViewController{
     func ValidTextField(textField : UITextField)->(Bool, String?) {
          if textField == phoneTF {
             if (phoneTF.text!.count != 0 ){
-                if StaticFunctions.checkValidPhonNumber(Phone: countryCode + phoneTF.text!) {
+//                if StaticFunctions.checkValidPhonNumber(Phone: countryCode + phoneTF.text!) {
                     return (true ,nil )
                     
-                }
-                else {
-                    return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )                               }
+//                }
+//                else {
+//                    return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )                               }
             }
              else {
                  return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )                               }
@@ -300,6 +300,8 @@ extension RegisterViewController{
     
     
      func register() {
+         AppDelegate.currentUser = User()
+
          var user = User()
          user.username = userNameTF.text!
          user.name = nameTF.text!
