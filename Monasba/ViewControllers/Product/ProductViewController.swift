@@ -86,11 +86,23 @@ class ProductViewController: UIViewController {
 //    }
     
     @IBAction func userClickedAction(_ sender: Any) {
-        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-        vc.OtherUserId = product.userId ?? 0
-        vc.navigationController?.navigationBar.isHidden = true
-        vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
+        if AppDelegate.currentUser.id ?? 0 == product.userId ?? 0 {
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
+            vc.navigationController?.navigationBar.isHidden = true
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+            vc.OtherUserId = product.userId ?? 0
+            vc.navigationController?.navigationBar.isHidden = true
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+//        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+//        vc.OtherUserId = product.userId ?? 0
+//        vc.navigationController?.navigationBar.isHidden = true
+//        vc.modalPresentationStyle = .fullScreen
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func backAction(_ sender: Any) {
 //        dismissDetail()
