@@ -300,6 +300,8 @@ extension RegisterViewController{
     
     
      func register() {
+         AppDelegate.currentUser = User()
+
          var user = User()
          user.username = userNameTF.text!
          user.name = nameTF.text!

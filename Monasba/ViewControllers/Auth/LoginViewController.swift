@@ -129,14 +129,19 @@ extension LoginViewController{
     func ValidTextField(textField : UITextField)->(Bool, String?) {
          if textField == phoneTF {
             if (phoneTF.text!.count != 0 ){
+                StaticFunctions.createSuccessAlert(msg: countryCode + phoneTF.text!)
                 if StaticFunctions.checkValidPhonNumber(Phone: countryCode + phoneTF.text!) {
                     return (true ,nil )
                     
                 }
                 else {
-                    return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )                               }
+                    return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )
+                    
+                }
             }
              else {
+                 StaticFunctions.createSuccessAlert(msg: "empty phone number")
+
                  return (false ,NSLocalizedString("enter valid phone number".lowercased(),comment:"") )                               }
             
         }
@@ -176,7 +181,7 @@ extension LoginViewController{
          StaticFunctions.enableBtnWithoutAlpha(btn: loginBtn, status: false)
          if Reachability.isConnectedToNetwork(){
              self.loginBtn.startAnimation()
-
+             AppDelegate.currentUser = User()
              AuthCoontroller.shared.login(completion: {
                  check, msg , data in
                  self.loginBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0, completion: nil)
@@ -184,6 +189,7 @@ extension LoginViewController{
 
                  if check == 0{
                      if let userObject = data {
+                         
                          if userObject.data.codeVerify == 1 {
                              AppDelegate.currentUser = userObject.data ?? User()
                              AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
