@@ -28,6 +28,7 @@ class RegisterVerifyViewController: UIViewController {
 
         setupOtpView()
         setupCounter()
+
         // Do any additional setup after loading the view.
     }
     func setupOtpView(){

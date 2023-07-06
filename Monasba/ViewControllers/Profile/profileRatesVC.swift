@@ -20,7 +20,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var lst: UITableView!
     var data = RateData()
-    var UserId = "0"
+    var ratedUserId = 0
     
     var rateId = [String]()
     var otherUserId = [String]()
@@ -43,13 +43,13 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         lst.estimatedRowHeight = 50
         lst.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 400, right: 0)
         
-        addObserver("loadRatings", #selector(getRate))
+//        addObserver("loadRatings", #selector(getRate))
         getRate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver("loadUserRate", #selector(getRate))
+//        addObserver("loadUserRate", #selector(getRate))
 //        NotificationCenter.default.post(Notification(name: .loadUserRate))
 
         
@@ -60,7 +60,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         if let userID = notification.userInfo?["userID"] as? String {
             // Use the userID here
             print(userID)
-            self.UserId = userID
+          //  self.ratedUserId = userID
         }
     }
     
@@ -78,7 +78,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     @objc func getRate(){
         data.data?.removeAll()
         clearAll()
-        let params : [String: Any]  = ["uid":UserId]
+        let params : [String: Any]  = ["uid":ratedUserId]
         print(params)
         guard let url = URL(string: Constants.DOMAIN+"get_rate_user")else{return}
         AF.request(url, method: .post, parameters: params).responseDecodable(of:RateSuccessModel.self){res in

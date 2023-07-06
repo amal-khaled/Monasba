@@ -26,7 +26,7 @@ class RateOtherUserCell: UITableViewCell {
                 img.setImageWithLoading(url: data.ratedUserPic ?? "")
             }
            
-            lbl_name.text = data.fromUserName
+            lbl_name.text = data.ratedUserName
             lbl_comment.text = data.comment
             lbl_comment.setLineSpacing()
             rate.rating = Double(data.rate)
