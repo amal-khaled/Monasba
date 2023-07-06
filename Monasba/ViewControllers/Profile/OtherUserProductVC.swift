@@ -11,12 +11,15 @@ class OtherUserProductVC: UIViewController {
     var products = [SpecialProdModel]()
     var page = 1
     var lastPage = 0
-    var otherUserID = 0
+    var otherUserID = "0"
     var otherUserCountryId = 0
     @IBOutlet weak var lst: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserIDNotification(_:)), name: .userIDNotification, object: nil)
+
+     
         //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         lst.flipX()
 //        lst.registerCell(cell: OtherUserProductCell.self)
@@ -24,6 +27,15 @@ class OtherUserProductVC: UIViewController {
         lst.configure(top:15, bottom:400, left: 15, right: 15,hspace:15)
         products.removeAll()
         get(page: page)
+        
+    }
+    
+    @objc func handleUserIDNotification(_ notification: Notification) {
+        if let userID = notification.userInfo?["userID"] as? String {
+            // Use the userID here
+            print(userID)
+            self.otherUserID = userID
+        }
     }
     
     func clear_all(){
@@ -39,6 +51,7 @@ class OtherUserProductVC: UIViewController {
                 print("my advs response =======> " , e)
                 switch e.result {
                 case let .success(data):
+                    print(data.data?.data)
                     if let data = data.data?.data {
                         self.products.append(contentsOf: data)
                     }

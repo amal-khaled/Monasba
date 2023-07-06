@@ -42,7 +42,7 @@ class OtherUserProfileVC: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
-        
+        print(OtherUserId)
         getProfile()
         setupProfileUI()
         initTabs()
@@ -117,7 +117,9 @@ class OtherUserProfileVC: UIViewController {
         viewPager.didMove(toParent: self)
     }
     
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("UserIDNotification"), object: nil)
+    }
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
@@ -253,6 +255,7 @@ extension OtherUserProfileVC {
                 print("======= profile Data ======== ")
                 print(userProfile)
                 self.userId = userProfile.uid ?? "0"
+                NotificationCenter.default.post(name: .userIDNotification, object: nil, userInfo: ["userID": self.userId])
                 self.bindProfileData(from: userProfile)
                // self.getProductsByUser()
             }
@@ -370,9 +373,9 @@ extension OtherUserProfileVC: ViewPagerControllerDelegate {
     
     func didMoveToControllerAtIndex(index: Int) {
         if index == 1 {
-            chatButton.setTitle("إضافة تقييم", for: .normal)
+            chatButton.setTitle("Add Rate".localize, for: .normal)
         }else{
-            chatButton.setTitle("محادثة", for: .normal)
+            chatButton.setTitle("Chat".localize, for: .normal)
         }
     }
 }

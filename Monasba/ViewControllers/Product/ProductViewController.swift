@@ -86,23 +86,29 @@ class ProductViewController: UIViewController {
 //    }
     
     @IBAction func userClickedAction(_ sender: Any) {
-        if AppDelegate.currentUser.id ?? 0 == product.userId ?? 0 {
-            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
-            vc.navigationController?.navigationBar.isHidden = true
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(vc, animated: true)
+        if StaticFunctions.isLogin() {
+            if AppDelegate.currentUser.id ?? 0 == product.userId ?? 0 {
+                let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
+                vc.navigationController?.navigationBar.isHidden = true
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else {
+                let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+                vc.OtherUserId = product.userId ?? 0
+                vc.navigationController?.navigationBar.isHidden = true
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
         }else {
-            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-            vc.OtherUserId = product.userId ?? 0
-            vc.navigationController?.navigationBar.isHidden = true
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(vc, animated: true)
+            
+            StaticFunctions.createErrorAlert(msg: "you have to login first".localize)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+            }
         }
-//        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-//        vc.OtherUserId = product.userId ?? 0
-//        vc.navigationController?.navigationBar.isHidden = true
-//        vc.modalPresentationStyle = .fullScreen
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+
     }
     @IBAction func backAction(_ sender: Any) {
 //        dismissDetail()

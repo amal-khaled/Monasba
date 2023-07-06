@@ -727,3 +727,7 @@ extension UICollectionView {
         self.collectionViewLayout = layout
     }
 }
+
+extension Notification.Name {
+    static let userIDNotification = Notification.Name("UserIDNotification")
+}

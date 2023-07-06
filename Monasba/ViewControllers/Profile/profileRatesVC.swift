@@ -20,7 +20,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var lst: UITableView!
     var data = RateData()
-    var UserId = 0
+    var UserId = "0"
     
     var rateId = [String]()
     var otherUserId = [String]()
@@ -34,6 +34,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserIDNotification(_:)), name: .userIDNotification, object: nil)
                 
         //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
 //        lst.registerCell(cell: RateOtherUserCell.self)
@@ -49,8 +50,17 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addObserver("loadRatings", #selector(getRate))
-        
+        lst.reloadData()
         getRate()
+        
+    }
+    
+    @objc func handleUserIDNotification(_ notification: Notification) {
+        if let userID = notification.userInfo?["userID"] as? String {
+            // Use the userID here
+            print(userID)
+            self.UserId = userID
+        }
     }
     
     func clearAll()  {
