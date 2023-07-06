@@ -23,10 +23,13 @@ class OtherUserProductVC: UIViewController {
         //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         lst.flipX()
 //        lst.registerCell(cell: OtherUserProductCell.self)
-        lst.register(OtherUserProductCell.self, forCellWithReuseIdentifier: "OtherUserProductCell")
+//        lst.register(OtherUserProductCell.self, forCellWithReuseIdentifier: "OtherUserProductCell")
+        lst.register(UINib(nibName: "OtherUserProductCell", bundle: nil), forCellWithReuseIdentifier: "OtherUserProductCell")
+        if let layout = lst.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
         lst.configure(top:15, bottom:400, left: 15, right: 15,hspace:15)
-        products.removeAll()
-        get(page: page)
+        
         
     }
     
@@ -35,6 +38,8 @@ class OtherUserProductVC: UIViewController {
             // Use the userID here
             print(userID)
             self.otherUserID = userID
+            products.removeAll()
+            get(page: page)
         }
     }
     
@@ -43,7 +48,7 @@ class OtherUserProductVC: UIViewController {
     }
     func get(page:Int){
        // products.data?.data?.removeAll()
-        let params : [String: Any]  = ["uid":otherUserID,"country_id":otherUserCountryId, "page":page]
+        let params : [String: Any]  = ["uid":2359,"country_id":5, "page":page]
         print("parameters for get my advs ======> ", params)
         guard let url = URL(string: Constants.DOMAIN+"prods_by_user") else{return}
         AF.request(url, method: .post, parameters: params)

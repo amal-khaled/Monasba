@@ -26,7 +26,7 @@ class AddRateForUsersVC: UIViewController {
     @IBAction func didTapSendComment(_ sender: UIButton) {
         let params : [String: Any]  = ["uid":otherUserId,"user_rated_id":AppDelegate.currentUser.id ?? 0,"comment":txt_comment.text!,"rate":ratingStars.rating]
          let url =  Constants.DOMAIN + "rate_user"
-    print(params)
+            print(params)
         APIConnection.apiConnection.postConnection(completion: { data in
            guard let data = data else{return}
             
@@ -34,6 +34,7 @@ class AddRateForUsersVC: UIViewController {
                 let jsonData = try JSONDecoder().decode(SuccessModel.self, from: data)
                 
                 if jsonData.statusCode == 200{
+                    NotificationCenter.default.post(Notification(name: .loadUserRate))
                     StaticFunctions.createSuccessAlert(msg: jsonData.message ?? "")
                     self.dismiss(animated: false)
                 }

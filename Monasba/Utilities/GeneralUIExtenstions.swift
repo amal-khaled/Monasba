@@ -730,4 +730,5 @@ extension UICollectionView {
 
 extension Notification.Name {
     static let userIDNotification = Notification.Name("UserIDNotification")
+    static let loadUserRate = Notification.Name("loadUserRate")
 }

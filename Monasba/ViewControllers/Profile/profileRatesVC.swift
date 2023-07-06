@@ -43,15 +43,16 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         lst.estimatedRowHeight = 50
         lst.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 400, right: 0)
         
-//        addObserver("loadRatings", #selector(getRate))
-//        getRate()
+        addObserver("loadRatings", #selector(getRate))
+        getRate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver("loadRatings", #selector(getRate))
-        lst.reloadData()
-        getRate()
+        addObserver("loadUserRate", #selector(getRate))
+//        NotificationCenter.default.post(Notification(name: .loadUserRate))
+
+        
         
     }
     
