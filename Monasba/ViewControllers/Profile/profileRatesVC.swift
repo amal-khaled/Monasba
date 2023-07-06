@@ -20,7 +20,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var lst: UITableView!
     var data = RateData()
-    var UserId = 0
+    var UserId = "0"
     
     var rateId = [String]()
     var otherUserId = [String]()
@@ -34,22 +34,34 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserIDNotification(_:)), name: .userIDNotification, object: nil)
                 
         //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        lst.registerCell(cell: RateOtherUserCell.self)
+//        lst.registerCell(cell: RateOtherUserCell.self)
+        lst.register(UINib(nibName: "RateOtherUserCell", bundle: nil), forCellReuseIdentifier: "RateOtherUserCell")
         lst.rowHeight = UITableView.automaticDimension
         lst.estimatedRowHeight = 50
         lst.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 400, right: 0)
         
-//        addObserver("loadRatings", #selector(getRate))
-//        getRate()
+        addObserver("loadRatings", #selector(getRate))
+        getRate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver("loadRatings", #selector(getRate))
+        addObserver("loadUserRate", #selector(getRate))
+//        NotificationCenter.default.post(Notification(name: .loadUserRate))
+
         
-        getRate()
+        
+    }
+    
+    @objc func handleUserIDNotification(_ notification: Notification) {
+        if let userID = notification.userInfo?["userID"] as? String {
+            // Use the userID here
+            print(userID)
+            self.UserId = userID
+        }
     }
     
     func clearAll()  {
@@ -85,63 +97,7 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 print(error)
             }
         }
-            //.responseJSON{ e in
-//            if let res = e.value {
-//                print(res)
-//                if let data = res as? NSDictionary  {
-//
-//                    if let rateData = data["data"] as? NSDictionary   {
-//                if let arr = rateData as? NSArray {
-//                    for itm in arr {
-////                        if let d = itm as? NSDictionary {
-////                            let u = d["user"] as! NSDictionary
-//
-//                            if let rateId = itm.value(forKey: "id") as? Int {
-//                                self.rateId.append("\(rateId)")
-//                            }
-//                            if let otherUserId = itm.value(forKey: "user_rated_id") as? Int {
-//                                self.otherUserId.append("\(otherUserId)")
-//                            }
-//                            if let userId = itm.value(forKey: "uid") as? Int {
-//                                self.userId.append("\(userId)")
-//                            }
-//                            if let rateMessage = itm.value(forKey: "comment") as? String {
-//                                self.rateMessage.append(rateMessage)
-//                            }
-//                            if let rateStar = itm.value(forKey: "rating") as? String {
-//                                self.rateStar.append(rateStar)
-//                            }
-//                            if let rateDate = itm.value(forKey: "date") as? String {
-//                                self.rateDate.append(rateDate)
-//                            }
-//                            if let otherUserName = itm.value(forKey: "name") as? String {
-//                                self.otherUserName.append(otherUserName)
-//                            }
-//                            if let userPic = itm.value(forKey: "pic") as? String {
-//                                self.userPicture.append(userPic)
-//                            }
-//                      //  }
-//
-//                    }
-//                }
-//            }
-//        }
-//                self.lst.reloadData()
-//            }
-//
-//        }
-//            .responseDecodable(of: [Rating].self) { e in
-//                print(e)
-//                switch e.result {
-//                case let .success(data):
-//                    self.data = data
-//                    DispatchQueue.main.async {
-//                        self.lst.reloadData()
-//                    }
-//                case let .failure(error):
-//                    print(error.localizedDescription)
-//                }
-//            }
+
     }
     
     
@@ -172,8 +128,18 @@ class profileRatesVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         let inx = indexPath.row
        // user.other_id = data[inx].user.id
         if let userId = data.data?[inx].userRatedID {
-            //user.other_id = "\(userId)"
-           // goNav("otherProfilev","Profile")
+            if AppDelegate.currentUser.id ?? 0 == userId {
+                let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PROFILE_VCID) as! ProfileVC
+                vc.navigationController?.navigationBar.isHidden = true
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else {
+                let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+                vc.OtherUserId = userId
+                vc.navigationController?.navigationBar.isHidden = true
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         
     }

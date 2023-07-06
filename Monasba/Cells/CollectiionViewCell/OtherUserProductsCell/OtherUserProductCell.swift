@@ -9,10 +9,12 @@ import UIKit
 
 class OtherUserProductCell: UICollectionViewCell {
         
-        @IBOutlet weak var img: UIImageView!
-        @IBOutlet weak var is_video: UIView!
-
-        override class func awakeFromNib() {
+    
+    @IBOutlet weak var img: UIImageView!
+    
+    @IBOutlet weak var is_video: UIView!
+    
+    override class func awakeFromNib() {
             //view.shadow(2, 0.1)
         }
         

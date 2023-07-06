@@ -11,19 +11,36 @@ class OtherUserProductVC: UIViewController {
     var products = [SpecialProdModel]()
     var page = 1
     var lastPage = 0
-    var otherUserID = 0
+    var otherUserID = "0"
     var otherUserCountryId = 0
     @IBOutlet weak var lst: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserIDNotification(_:)), name: .userIDNotification, object: nil)
+
+     
         //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         lst.flipX()
 //        lst.registerCell(cell: OtherUserProductCell.self)
-        lst.register(OtherUserProductCell.self, forCellWithReuseIdentifier: "OtherUserProductCell")
+//        lst.register(OtherUserProductCell.self, forCellWithReuseIdentifier: "OtherUserProductCell")
+        lst.register(UINib(nibName: "OtherUserProductCell", bundle: nil), forCellWithReuseIdentifier: "OtherUserProductCell")
+        if let layout = lst.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
         lst.configure(top:15, bottom:400, left: 15, right: 15,hspace:15)
-        products.removeAll()
-        get(page: page)
+        
+        
+    }
+    
+    @objc func handleUserIDNotification(_ notification: Notification) {
+        if let userID = notification.userInfo?["userID"] as? String {
+            // Use the userID here
+            print(userID)
+            self.otherUserID = userID
+            products.removeAll()
+            get(page: page)
+        }
     }
     
     func clear_all(){
@@ -31,7 +48,7 @@ class OtherUserProductVC: UIViewController {
     }
     func get(page:Int){
        // products.data?.data?.removeAll()
-        let params : [String: Any]  = ["uid":otherUserID,"country_id":otherUserCountryId, "page":page]
+        let params : [String: Any]  = ["uid":2359,"country_id":5, "page":page]
         print("parameters for get my advs ======> ", params)
         guard let url = URL(string: Constants.DOMAIN+"prods_by_user") else{return}
         AF.request(url, method: .post, parameters: params)
@@ -39,6 +56,7 @@ class OtherUserProductVC: UIViewController {
                 print("my advs response =======> " , e)
                 switch e.result {
                 case let .success(data):
+                    print(data.data?.data)
                     if let data = data.data?.data {
                         self.products.append(contentsOf: data)
                     }

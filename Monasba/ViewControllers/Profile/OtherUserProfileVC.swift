@@ -40,13 +40,9 @@ class OtherUserProfileVC: UIViewController {
     var userId = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
-//        scrollView.delegate = self
         
         navigationController?.navigationBar.isHidden = true
-//        tabBarController?.tabBar.isHidden = true
-//        tabBarController?.hidesBottomBarWhenPushed = true
-//        tabBarController?.tabBar.layer.zPosition = -1
-        
+        print(OtherUserId)
         getProfile()
         setupProfileUI()
         initTabs()
@@ -121,7 +117,9 @@ class OtherUserProfileVC: UIViewController {
         viewPager.didMove(toParent: self)
     }
     
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("UserIDNotification"), object: nil)
+    }
     
 
     @IBAction func BackBtnAction(_ sender: UIButton) {
@@ -210,27 +208,45 @@ class OtherUserProfileVC: UIViewController {
     }
     
     @IBAction func chatBtnAction(_ sender: UIButton) {
-        
-        
-        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        Constants.userOtherId = "\(OtherUserId)"
-        vc.modalPresentationStyle = .fullScreen
-        
-        createRoom("\(OtherUserId)"){[weak self] success in
-            guard let self = self else {return}
-            if success {
-//                self.present(vc, animated: true)
-                vc.navigationController?.navigationBar.isHidden = true
-                self.navigationController?.pushViewController(vc, animated: true)
+        if StaticFunctions.isLogin() {
+         
+            if chatButton.titleLabel?.text == "Chat".localize {
+                let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+                Constants.userOtherId = "\(OtherUserId)"
+                vc.modalPresentationStyle = .fullScreen
+                
+                createRoom("\(OtherUserId)"){[weak self] success in
+                    guard let self = self else {return}
+                    if success {
+                        //                self.present(vc, animated: true)
+                        vc.navigationController?.navigationBar.isHidden = true
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        StaticFunctions.createErrorAlert(msg: "Can't Create Room".localize)
+                    }
+                }
             }else{
-                StaticFunctions.createErrorAlert(msg: "Can't Create Room".localize)
+                let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "AddRateForUsersVC") as! AddRateForUsersVC
+                Constants.userOtherId = "\(OtherUserId)"
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false)
+            }
+            
+            
+            
+            
+        }else {
+            StaticFunctions.createErrorAlert(msg: "Please Login First".localize)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+                self.basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
             }
             
         }
     }
-    
-    
 }
+    
+    
+
 extension OtherUserProfileVC {
     private func getProfile(){
         ProfileController.shared.getOtherProfile(completion: {[weak self] userProfile, msg in
@@ -239,6 +255,7 @@ extension OtherUserProfileVC {
                 print("======= profile Data ======== ")
                 print(userProfile)
                 self.userId = userProfile.uid ?? "0"
+                NotificationCenter.default.post(name: .userIDNotification, object: nil, userInfo: ["userID": self.userId])
                 self.bindProfileData(from: userProfile)
                // self.getProductsByUser()
             }
@@ -356,9 +373,9 @@ extension OtherUserProfileVC: ViewPagerControllerDelegate {
     
     func didMoveToControllerAtIndex(index: Int) {
         if index == 1 {
-            chatButton.setTitle("إضافة تقييم", for: .normal)
+            chatButton.setTitle("Add Rate".localize, for: .normal)
         }else{
-            chatButton.setTitle("محادثة", for: .normal)
+            chatButton.setTitle("Chat".localize, for: .normal)
         }
     }
 }
