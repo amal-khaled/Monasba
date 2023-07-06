@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 
 class ProductCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
@@ -83,6 +84,12 @@ class ProductCommentTableViewCell: UITableViewCell {
 extension Date {
     func timeAgoDisplay() -> String {
         let formatter = RelativeDateTimeFormatter()
+        if MOLHLanguage.currentAppleLanguage() == "ar"{
+            formatter.locale = Locale.init(identifier: "ar_AE")
+        }else{
+            formatter.locale = Locale.init(identifier: "ar_US")
+
+        }
         formatter.unitsStyle = .full
         return formatter.localizedString(for: self, relativeTo: Date())
     }

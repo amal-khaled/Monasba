@@ -106,7 +106,7 @@ class RegisterViewController: UIViewController {
     }
     @IBAction func chooseCiityNameAction(_ sender: Any) {
         if countryId == -1{
-            StaticFunctions.createErrorAlert(msg: "choose country first")
+            StaticFunctions.createErrorAlert(msg: "choose country first".localize)
             return
         }
         let vc = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: CITIES_VCIID) as!  CitiesViewController
@@ -126,7 +126,7 @@ class RegisterViewController: UIViewController {
     }
     @IBAction func choosRegionNameAction(_ sender: Any) {
         if cityId == -1{
-            StaticFunctions.createErrorAlert(msg: "choose city first")
+            StaticFunctions.createErrorAlert(msg: "choose city first".localize)
             return
         }
         let vc = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: STATE_VCID) as!  StateViewController

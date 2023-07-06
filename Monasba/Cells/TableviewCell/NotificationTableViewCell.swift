@@ -34,13 +34,13 @@ class NotificationTableViewCell: UITableViewCell {
             if let name = userNotification.userf?[0].name {
                  self.name.text = name
             }else{
-                self.name.text = "user"
+                self.name.text = "user".localize
             }
             
             img.setImageWithLoading(url: userNotification.userf?[0].pic ?? "users/1675912998.jpg")
              
         }else {
-             self.name.text = "user"
+             self.name.text = "user".localize
              self.img.image = UIImage(named: "logo_photo")
         }
        

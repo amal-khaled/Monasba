@@ -56,11 +56,11 @@ class FollowerTableViewCell: UITableViewCell {
             print(isFollow)
             if isFollow == 1{
                 followBtn.setTitleColor(UIColor(named: "#9AA6AE"), for: .normal)
-                followBtn.setTitle("Cancel following", for: .normal)
+                followBtn.setTitle("Cancel following".localize, for: .normal)
                 followIcon.isHidden = true
             }else{
                 followBtn.setTitleColor(UIColor(named: "#0EBFB1"), for: .normal)
-                followBtn.setTitle("Follow", for: .normal)
+                followBtn.setTitle("Follow".localize, for: .normal)
                 followIcon.isHidden = false
             }
         }

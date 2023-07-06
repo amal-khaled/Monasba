@@ -70,14 +70,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         if let tajeerOrSell = product.type  {
             
             if( tajeerOrSell == 1){
-                sellLbl.text = "rent"
+                sellLbl.text = "rent".localize
                 sellLbl.textColor = .black
                 sellView.layer.borderWidth = 1.0
                 sellView.layer.borderColor = UIColor.black.cgColor
                 sellView.clipsToBounds = true
                 sellView.backgroundColor = .white
             }else{
-                sellLbl.text = "sell"
+                sellLbl.text = "sell".localize
                 sellView.layer.borderWidth = 1.0
                 sellView.layer.borderColor = UIColor(named: "#0EBFB1")?.cgColor
                 sellView.clipsToBounds = true

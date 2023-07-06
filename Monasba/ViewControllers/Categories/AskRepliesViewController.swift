@@ -24,12 +24,15 @@ class AskRepliesViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+
         lst.rowHeight = UITableView.automaticDimension
         getData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(_:)), name: NSNotification.Name(rawValue: "updateData"), object: nil)
         
 //        countOfCommentsLabel.text = "مشاهدة التعليقات (\(replaiesCount))"
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
     }
   
     @objc func updateData(_ notification: NSNotification) {

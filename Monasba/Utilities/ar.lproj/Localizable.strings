@@ -171,7 +171,7 @@
 
 //MARK: Auth
 " Phone number" = "رقم الهاتف";
-"User name or Phone number" = "اسم المستخدم أو رقم الهاتف";
+"Phone number" = "رقم الهاتف";
 "Password" = "كلمة المرور";
 "Forget password ?" = "نسيت كلمة المرور؟";
 "Login" = "تسجيل الدخول";
@@ -280,3 +280,60 @@ Your investment with every occasion" = "تطبيق مناسبة
 "Kuwait" = "الكويت";
 "Please start adding more to your favourites" = "من فضلك باشر في اضافة المزيد الى مفضلتك";
 "the data you entered does not match our data" = "البيانات التي أدخلتها لا تتطابق مع بياناتنا";
+"you have to login first" = "عليك تسجيل الدخول اولا";
+"\ndownload Monasba app from apple store" = "حمل تطبيق مناسبة من المتجر ";
+"I want to talk to you about your advertisement" = "اريد التحدث معك بخصوص اعلانك";
+"on monasba app" = "على تطبيق مناسبة";
+"prohibited on Monasba" = "محظور على مناسبة";
+"Offensive or inappropriate" = "مسيئة أو غير مناسبة";
+"Identical or imitation product" = "منتج متطابق أو مقلد منتج متطابق أو مقلد";
+"Located in the wrong section" = "تقع في القسم الخطأ";
+"Looks like a scam" = "يبدو وكأنه عملية احتيال";
+"The publisher is a fake or stolen account" = "الناشر حساب مزيف أو مسروق";
+
+"enter your comment" = "ادخل تعليقك";
+"enter your reply" = "ادخل ردك";
+"show comments" = "مشاهدة التعليقات";
+"enter valid phone number" = "ادخل ررقم هاتف صحيح";
+"password dosen't match" = "كلمة المرور غير متطابقة";
+"password should be greater than 6 digits" = "كلمة المرور يجب الا تقل عن ٦ احروف";
+
+"Confirm password should be greater than 6 digits" = "تاكيد كلمة المرور يجب الا تقل عن ٦ احروف";
+"choose country first" = " اختار الدولة اولا";
+"choose city first" = " اختار المدينة اولا";
+"enter your email address" = "ادخخل البريد الالكتروني";
+
+"please enter your name" = "اسم الاسم كاملا";
+
+"please enter your family name" = "ادحل اسم العائلة";
+
+"please enter your username" = "ادحل الاسم المستعار";
+
+"Please Login First To Can Uplaod ads!" = "من فضلك سجل الدخول اولا";
+"choose city" = "اختار المدينة";
+"some thing went wrong" = "حدث شئ خطا";
+"No internet connection" = "لا يوجد انترنت";
+"server error ... try again later" = "حدث خطا بالسيرفر ٠٠٠ حاولا لاحقا";
+"Type" = "النوع";
+"Rent" = "للايجار";
+"Sell" = "للبيع";
+"sell" = "للبيع";
+"rent" = "للايجار";
+"The owner of the advertisement has hidden the mobile number" = "لقد اخفى صاحب الاعلان رقم هاتفه";
+
+"Description" = "الوصف";
+"Comments" = "التعليقات";
+
+"Send" = "ارسال";
+"Cancel" = "الغاء";
+"show comments(0)" = "مشاهدة التعليقات (٠)";
+"reply" = "رد";
+"like( " = "اعجبني( ";
+" )" = " (";
+"remove" = "حذف";
+"report" = "ابلاغ";
+"add comment to ask" = "اضافة تعليق لسؤال";
+"Followng" = "متابعة";
+"Cancel following" = "الغاء المتابعة";
+"Follow" = "متابعة";
+"user" = "مستخدم";

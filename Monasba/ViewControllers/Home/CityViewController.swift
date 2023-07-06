@@ -23,7 +23,7 @@ class CityViewController: UIViewController {
     }
     @IBAction func backToAllAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {
-            self.cityBtclosure!(-1, "choose city")
+            self.cityBtclosure!(-1, "choose city".localize)
             
             
         })

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GC5-T7-QV2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vvZ-wx-Mt2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="J5q-zg-8rg">
-                                <rect key="frame" x="15" y="59" width="363" height="710"/>
+                                <rect key="frame" x="15" y="103" width="363" height="666"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MiF-Px-FVD">
                                         <rect key="frame" x="0.0" y="-56" width="363" height="56"/>
@@ -155,19 +155,19 @@
                                         </constraints>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imJ-Qs-CD7">
-                                        <rect key="frame" x="0.0" y="108" width="363" height="602"/>
+                                        <rect key="frame" x="0.0" y="108" width="363" height="558"/>
                                         <connections>
                                             <segue destination="Aja-NS-IHo" kind="embed" identifier="ads" id="ftb-OE-4FJ"/>
                                         </connections>
                                     </containerView>
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdY-R5-n9T">
-                                        <rect key="frame" x="0.0" y="714" width="363" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="670" width="363" height="0.0"/>
                                         <connections>
                                             <segue destination="36G-qn-hC4" kind="embed" identifier="persons" id="R9o-eb-naE"/>
                                         </connections>
                                     </containerView>
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nm8-AV-Eb3">
-                                        <rect key="frame" x="0.0" y="714" width="363" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="670" width="363" height="0.0"/>
                                         <connections>
                                             <segue destination="LcA-lJ-kX0" kind="embed" identifier="questions" id="t92-HS-53M"/>
                                         </connections>
@@ -180,7 +180,7 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pj4-2N-rxx">
-                                <rect key="frame" x="15" y="109" width="363" height="50"/>
+                                <rect key="frame" x="15" y="153" width="363" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-r1-s2E">
                                         <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
@@ -274,63 +274,6 @@
             </objects>
             <point key="canvasLocation" x="18" y="-2"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="KRJ-F6-B5m">
-            <objects>
-                <navigationController storyboardIdentifier="searchv" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GC5-T7-QV2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" selectedImage="SearchIcon" id="iBc-Ka-Lc1" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="textFontSize">
-                                <real key="value" value="15"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" name="#8F8F8F"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" name="#8F8F8F"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="gFt-RJ-Lkd" id="a7h-Vy-BFm"/>
-                        </connections>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="Umh-WT-adk">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="LeJ-vS-eRg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PDc-0t-mC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="gFt-RJ-Lkd" customClass="RAMLeftRotationAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" name="#0EBFB1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" name="#0EBFB1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="-868" y="-2"/>
-        </scene>
         <!--Search Ads View Controller-->
         <scene sceneID="Ksp-th-IoM">
             <objects>
@@ -340,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UXd-Ic-qKw">
-                                <rect key="frame" x="16" y="59" width="331" height="543"/>
+                                <rect key="frame" x="16" y="59" width="331" height="509"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-Li-tmp">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="38"/>
@@ -373,7 +316,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pQ-Be5">
-                                        <rect key="frame" x="0.0" y="38" width="331" height="505"/>
+                                        <rect key="frame" x="0.0" y="38" width="331" height="471"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wzm-RX-kOj">
                                             <size key="itemSize" width="331" height="191"/>
@@ -661,7 +604,7 @@
         <scene sceneID="lJ6-ul-EL3">
             <objects>
                 <viewController id="36G-qn-hC4" customClass="SearchPersonViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XSB-Tw-4A2">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="XSB-Tw-4A2">
                         <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -699,7 +642,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2h9-JN-PMW">
-                                        <rect key="frame" x="0.0" y="86" width="363" height="558.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="86" width="363" height="558.66666666666652"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="Lpi-bD-JIR" customClass="FollowerTableViewCell" customModule="Monasba" customModuleProvider="target">
@@ -1146,6 +1089,9 @@
                                                                                             <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="14"/>
                                                                                             <color key="textColor" name="textColor"/>
                                                                                             <nil key="highlightedColor"/>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                            </userDefinedRuntimeAttributes>
                                                                                         </label>
                                                                                         <label opaque="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIN-2W-vRv">
                                                                                             <rect key="frame" x="181.66666666666666" y="1.6666666666666856" width="68.333333333333343" height="17"/>
@@ -1285,7 +1231,67 @@
             </objects>
             <point key="canvasLocation" x="1315" y="549"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="TbN-dr-6Ir">
+            <objects>
+                <navigationController storyboardIdentifier="searchv" automaticallyAdjustsScrollViewInsets="NO" id="vvZ-wx-Mt2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" selectedImage="SearchIcon" id="KSG-u6-Cxj" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="textFontSize">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" name="#8F8F8F"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" name="#8F8F8F"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowBack" backIndicatorTransitionMaskImage="arrowBack" id="otK-9N-7Vh">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="#0EBFB1"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="#0EBFB1"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="RAG-n5-sk9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVx-b5-UoF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="d8e-Ox-NJl" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-1682" y="-2"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="gGC-34-MXs">
+            <size key="intrinsicContentSize" width="32" height="14.666666666666666"/>
+        </designable>
+    </designables>
     <resources>
         <image name="FollowIcon" width="9.6666669845581055" height="10"/>
         <image name="ProfileBackground" width="375" height="203"/>

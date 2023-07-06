@@ -9,8 +9,8 @@ import UIKit
 
 class ReportViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var reportList = ["prohibited on Monasba",
-                     "Offensive or inappropriate","Identical or imitation product","Located in the wrong section","Looks like a scam", "The publisher is a fake or stolen account"]
+    var reportList = ["prohibited on Monasba".localize,
+                      "Offensive or inappropriate".localize,"Identical or imitation product".localize,"Located in the wrong section".localize,"Looks like a scam".localize, "The publisher is a fake or stolen account".localize]
     
     var id = 0
     override func viewDidLoad() {

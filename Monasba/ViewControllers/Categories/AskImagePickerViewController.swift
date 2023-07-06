@@ -64,7 +64,7 @@ extension AskImagePickerViewController : UIImagePickerControllerDelegate,
              
              
          } else{
-             StaticFunctions.createErrorAlert(msg: "some thing went wrong")
+             StaticFunctions.createErrorAlert(msg: "some thing went wrong".localize)
          }
          
          

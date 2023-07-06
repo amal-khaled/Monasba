@@ -325,6 +325,9 @@
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                                                 <color key="textColor" name="blackColor"/>
                                                                                                 <nil key="highlightedColor"/>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -554,6 +557,9 @@
                                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                                             <color key="textColor" red="0.98039215690000003" green="0.98000001910000001" blue="0.98000001910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                             <nil key="highlightedColor"/>
+                                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                                            </userDefinedRuntimeAttributes>
                                                                                                                         </label>
                                                                                                                     </subviews>
                                                                                                                     <color key="backgroundColor" name="#0EBFB1"/>
@@ -820,6 +826,9 @@
                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                             <color key="textColor" red="0.98039215690000003" green="0.98000001910000001" blue="0.98000001910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                             <nil key="highlightedColor"/>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                                                            </userDefinedRuntimeAttributes>
                                                                                                         </label>
                                                                                                     </subviews>
                                                                                                     <color key="backgroundColor" name="#0EBFB1"/>
@@ -1417,7 +1426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGZ-cG-q8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5100" y="324.64788732394368"/>
+            <point key="canvasLocation" x="4795" y="370"/>
         </scene>
         <!--City View Controller-->
         <scene sceneID="lUl-HA-Czb">
@@ -2595,6 +2604,9 @@
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                 <color key="textColor" name="#0EBFB1"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-2j-hZw">
                                                                 <rect key="frame" x="0.0" y="29.666666666666629" width="359" height="40"/>
@@ -2606,6 +2618,9 @@
                                                                 <state key="normal" title="All">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="allAction:" destination="9Ut-dS-pT5" eventType="touchUpInside" id="jEQ-Fl-94x"/>
                                                                 </connections>
@@ -2627,6 +2642,9 @@
                                                                 <state key="normal" title="Rent">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="rentAction:" destination="9Ut-dS-pT5" eventType="touchUpInside" id="LgE-Yk-0a0"/>
                                                                 </connections>
@@ -2648,6 +2666,9 @@
                                                                 <state key="normal" title="Sell">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="sellAction:" destination="9Ut-dS-pT5" eventType="touchUpInside" id="bfo-81-I9E"/>
                                                                 </connections>

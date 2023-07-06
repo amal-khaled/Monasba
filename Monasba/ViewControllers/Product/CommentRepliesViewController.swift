@@ -81,7 +81,7 @@ func getData(){
 //        self.lbl_date.text = data.comment?.createdAt?.formattedDateSince
         self.lbl_comment.text = data.comment?.comment
        self.lbl_comment.sizeToFit()
-       countOfCommentsLabel.text = "show comments (\(data.countReplies ?? 0))"
+       countOfCommentsLabel.text = "show comments".localize + " (\(data.countReplies ?? 0))"
 
     }
 }

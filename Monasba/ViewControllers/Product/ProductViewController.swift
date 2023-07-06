@@ -122,13 +122,13 @@ class ProductViewController: UIViewController {
                 }
             }, id:  self.product.id ?? 0)
         }else{
-            StaticFunctions.createErrorAlert(msg: "you have to login first")
+            StaticFunctions.createErrorAlert(msg: "you have to login first".localize)
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
         }
         
     }
     @IBAction func shareAction(_ sender: Any) {
-        let textToShare = ["\(product.name ?? "")\ndownload Monasba app from apple store https://apps.apple.com/us/app/مناسبة/id1589937521" ]
+        let textToShare = ["\(product.name ?? "")" + "\ndownload Monasba app from apple store" + " https://apps.apple.com/us/app/مناسبة/id1589937521" ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         //activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
@@ -142,8 +142,8 @@ class ProductViewController: UIViewController {
         
     }
     @IBAction func whatsappAction(_ sender: Any) {
-        let txt1 = "I want to talk to you about your advertisement"
-        let txt2 = "on monasba app"
+        let txt1 = "I want to talk to you about your advertisement".localize
+        let txt2 = "on monasba app".localize
         var link = "\(txt1) \(product.name ?? "")\n\(txt2)"
         let escapedString = link.addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)
         let url  = URL(string: "whatsapp://send?phone=\(product.whatsappPhone ?? "")&text=\(escapedString!)")
@@ -180,9 +180,16 @@ class ProductViewController: UIViewController {
         
     }
     @IBAction func addComment(_ sender: Any) {
-        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_VCID) as! CommentViewController
-        vc.id = self.product.id ?? 0
-        self.present(vc, animated: false, completion: nil)
+        if StaticFunctions.isLogin(){
+            let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_VCID) as! CommentViewController
+            vc.id = self.product.id ?? 0
+            self.present(vc, animated: false, completion: nil)
+        }else{
+            StaticFunctions.createErrorAlert(msg: "you have to login first".localize)
+            basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
+        }
+        
+      
     }
     
     /*
@@ -300,14 +307,14 @@ extension ProductViewController{
         if let tajeerOrSell = product.type  {
             
             if( tajeerOrSell == 1){
-                selLbl.text = "rent"
+                selLbl.text = "rent".localize
                 selLbl.textColor = .black
                 sellImage.layer.borderWidth = 1.0
                 sellImage.layer.borderColor = UIColor.black.cgColor
                 sellImage.clipsToBounds = true
                 sellImage.backgroundColor = .white
             }else{
-                selLbl.text = "sell"
+                selLbl.text = "sell".localize
                 sellImage.layer.borderWidth = 1.0
                 sellImage.layer.borderColor = UIColor(named: "#0EBFB1")?.cgColor
                 sellImage.clipsToBounds = true
@@ -349,7 +356,7 @@ extension ProductViewController{
             
         }
         
-        if(product.hasChat == "on"){
+        if(product.hasChat == "on") || product.hasPhone != "on"{
             if AppDelegate.currentUser.id != (product.userId ?? 0){
                 chatBtn.isHidden = false
             }
