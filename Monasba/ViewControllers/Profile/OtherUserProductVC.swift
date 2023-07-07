@@ -13,31 +13,32 @@ class OtherUserProductVC: UIViewController {
     var lastPage = 0
     var otherUserID = "0"
     var otherUserCountryId = 0
+    
     @IBOutlet weak var lst: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserIDNotification(_:)), name: .userIDNotification, object: nil)
-
-     
-        //lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        lst.flipX()
-//        lst.registerCell(cell: OtherUserProductCell.self)
-//        lst.register(OtherUserProductCell.self, forCellWithReuseIdentifier: "OtherUserProductCell")
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.handleUserIDNotification(_:)), name:NSNotification.Name(rawValue: "passUserID"), object: nil)
         lst.register(UINib(nibName: "OtherUserProductCell", bundle: nil), forCellWithReuseIdentifier: "OtherUserProductCell")
-        if let layout = lst.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .vertical
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            print(self.self.otherUserID , "Country:  " , self.otherUserCountryId)
+            self.products.removeAll()
+            self.get(page: self.page)
         }
-        lst.configure(top:15, bottom:400, left: 15, right: 15,hspace:15)
-        
+      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
     
     @objc func handleUserIDNotification(_ notification: Notification) {
-        if let userID = notification.userInfo?["userID"] as? String {
+        if let userID = notification.userInfo?["userID"]  as? String {
             // Use the userID here
             print(userID)
             self.otherUserID = userID
+            otherUserCountryId = 6
             products.removeAll()
             get(page: page)
         }
@@ -48,7 +49,7 @@ class OtherUserProductVC: UIViewController {
     }
     func get(page:Int){
        // products.data?.data?.removeAll()
-        let params : [String: Any]  = ["uid":2359,"country_id":5, "page":page]
+        let params : [String: Any]  = ["uid":otherUserID,"country_id":otherUserCountryId, "page":page]
         print("parameters for get my advs ======> ", params)
         guard let url = URL(string: Constants.DOMAIN+"prods_by_user") else{return}
         AF.request(url, method: .post, parameters: params)
@@ -77,7 +78,7 @@ class OtherUserProductVC: UIViewController {
     }
     
 }
-extension OtherUserProductVC :UICollectionViewDelegate,UICollectionViewDataSource {
+extension OtherUserProductVC :UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
 //        guard let count = products.count else{return Int()}

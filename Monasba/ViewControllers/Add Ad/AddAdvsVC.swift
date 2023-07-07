@@ -102,7 +102,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     let subCatDropDwon = DropDown()
     
     // City Category DropDwon
-    var cityId:Int = -1
+    var cityId:Int = AppDelegate.currentUser.cityId ?? 0
     var cityName:String = ""
     var cityList = [String]()
     var cityIDsList = [Int]()
@@ -110,7 +110,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     let cityDropDwon = DropDown()
     
     // regions DropDwon
-    var regionId:Int = -1
+    var regionId:Int = AppDelegate.currentUser.regionId ?? 0
     var regionName:String = ""
     var regionsList = [String]()
     var regionsIDsList = [Int]()
@@ -602,8 +602,8 @@ extension AddAdvsVC {
                     print(self.cityList)
                 }
             }
-            if self.cityId == -1 {
-                self.cityId = self.cityIDsList[0]
+            if self.cityId == AppDelegate.currentUser.cityId ?? 0 {
+//                self.cityId = self.cityIDsList[0]
             }
             self.setupCitiesDropDown()
             self.getRegions(cityId: self.cityId)
