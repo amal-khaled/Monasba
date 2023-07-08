@@ -373,9 +373,9 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
             Constants.room_id = "\(roomId)"
         }
          if roomsData[inx].user?.count != 0 {
-             if let receiverName = roomsData[inx].user?[0].name , let lastName = roomsData[inx].user?[0].lastName{
+             if let receiverName = roomsData[inx].user?[0].name , let userName = roomsData[inx].user?[0].username{
                  receiver.name = receiverName
-                 Constants.otherUserName = "\(receiverName) \(lastName)"
+                 Constants.otherUserName = userName
              }
              if let receiverId = roomsData[inx].user2{
                  receiver.id = "\(receiverId)"

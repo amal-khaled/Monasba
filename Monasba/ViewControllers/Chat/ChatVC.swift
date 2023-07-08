@@ -129,6 +129,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         handelRecordPermission()
         Constants.orderLoc_represnted = false
         lbl_title.text = "Messages".localize
@@ -175,6 +177,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         setupRecordButton()
     }
    
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -455,7 +458,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                             if let roomId = i.roomID {
                                 Constants.room_id = "\(roomId)"
                                
-            //                    receiver.id = self.data.receiver!.id
+            //  receiver.id = self.data.receiver!.id
                               //  receiver.id = "\(receiverId)"
                             }
                         }
@@ -1033,10 +1036,16 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         //GOTO Chat
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       
-        navigationController?.navigationBar.isHidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+//        self.tabBarController?.tabBar.layer.isHidden = true
+//        self.tabBarController?.tabBar.layer.zPosition = -1
         if Constants.orderLoc_represnted {
          //   self.send_message("\(order.lat)%%\(order.lng)%%\(order.loc)%%\(order.loc_img)", "LOCATION")
             if let filePath = Constants.orderFilePath {

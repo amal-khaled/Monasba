@@ -168,6 +168,10 @@
 		C8A2BED82A3B5FA700A05E77 /* FollowersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A2BED62A3B5FA700A05E77 /* FollowersCell.swift */; };
 		C8A2BED92A3B5FA700A05E77 /* FollowersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A2BED72A3B5FA700A05E77 /* FollowersCell.xib */; };
 		C8A4CD842A34A73E00A9BF28 /* SuccessfulVerifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4CD832A34A73E00A9BF28 /* SuccessfulVerifyModel.swift */; };
+		C8A547D72A594BF100031FE9 /* ProductsShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A547D52A594BF100031FE9 /* ProductsShimmerView.swift */; };
+		C8A547D82A594BF100031FE9 /* ProductsShimmerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A547D62A594BF100031FE9 /* ProductsShimmerView.xib */; };
+		C8A547DF2A59513A00031FE9 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A547DE2A59513A00031FE9 /* FBShimmeringLayer.m */; };
+		C8A547E02A59513A00031FE9 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A547DC2A59513A00031FE9 /* FBShimmeringView.m */; };
 		C8A72A392A00B0FB00F9C26D /* PickupMediaPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */; };
 		C8A72A3B2A00B45600F9C26D /* SuccessAddingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A72A3A2A00B45600F9C26D /* SuccessAddingVC.swift */; };
 		C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A72A3E2A00C26000F9C26D /* Profile.storyboard */; };
@@ -363,6 +367,14 @@
 		C8A2BED62A3B5FA700A05E77 /* FollowersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCell.swift; sourceTree = "<group>"; };
 		C8A2BED72A3B5FA700A05E77 /* FollowersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersCell.xib; sourceTree = "<group>"; };
 		C8A4CD832A34A73E00A9BF28 /* SuccessfulVerifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulVerifyModel.swift; sourceTree = "<group>"; };
+		C8A547D52A594BF100031FE9 /* ProductsShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShimmerView.swift; sourceTree = "<group>"; };
+		C8A547D62A594BF100031FE9 /* ProductsShimmerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsShimmerView.xib; sourceTree = "<group>"; };
+		C8A547D92A59513900031FE9 /* FBShimmeringView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		C8A547DA2A59513900031FE9 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		C8A547DB2A59513900031FE9 /* FBShimmering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		C8A547DC2A59513A00031FE9 /* FBShimmeringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
+		C8A547DD2A59513A00031FE9 /* Monasba-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Monasba-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8A547DE2A59513A00031FE9 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
 		C8A72A382A00B0FB00F9C26D /* PickupMediaPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMediaPopupVC.swift; sourceTree = "<group>"; };
 		C8A72A3A2A00B45600F9C26D /* SuccessAddingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddingVC.swift; sourceTree = "<group>"; };
 		C8A72A3E2A00C26000F9C26D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -618,6 +630,7 @@
 				658DE51829F82BD00015D549 /* Models */,
 				658DE51329F82ADB0015D549 /* Cells */,
 				652711E829EBF7CE00D503F9 /* ViewControllers */,
+				C8A547D12A594A7B00031FE9 /* Shimmer */,
 				65DD120D29E6915A00A3B8DD /* Utilities */,
 				C8AC4CB62A2884B000AE6356 /* Storage Manager */,
 				65DD120A29E6846B00A3B8DD /* view */,
@@ -872,6 +885,29 @@
 			path = FollowersCell;
 			sourceTree = "<group>";
 		};
+		C8A547D12A594A7B00031FE9 /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				C8A547DB2A59513900031FE9 /* FBShimmering.h */,
+				C8A547DA2A59513900031FE9 /* FBShimmeringLayer.h */,
+				C8A547DE2A59513A00031FE9 /* FBShimmeringLayer.m */,
+				C8A547D92A59513900031FE9 /* FBShimmeringView.h */,
+				C8A547DC2A59513A00031FE9 /* FBShimmeringView.m */,
+				C8A547DD2A59513A00031FE9 /* Monasba-Bridging-Header.h */,
+				C8A547D42A594BA700031FE9 /* ShimmerView */,
+			);
+			path = Shimmer;
+			sourceTree = "<group>";
+		};
+		C8A547D42A594BA700031FE9 /* ShimmerView */ = {
+			isa = PBXGroup;
+			children = (
+				C8A547D52A594BF100031FE9 /* ProductsShimmerView.swift */,
+				C8A547D62A594BF100031FE9 /* ProductsShimmerView.xib */,
+			);
+			path = ShimmerView;
+			sourceTree = "<group>";
+		};
 		C8A72A402A00C27A00F9C26D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1049,6 +1085,7 @@
 				65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */,
 				C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */,
 				65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */,
+				C8A547D82A594BF100031FE9 /* ProductsShimmerView.xib in Resources */,
 				65C4B6132A248C3300A59A4B /* Tajawal-Bold.ttf in Resources */,
 				C8A2BEBA2A3A55B400A05E77 /* OtherUserProductCell.xib in Resources */,
 				C8A2BED92A3B5FA700A05E77 /* FollowersCell.xib in Resources */,
@@ -1128,6 +1165,7 @@
 				C85FFCE52A260D21000C426D /* ChatModel.swift in Sources */,
 				C8AD40E22A28F4F800E464DB /* SettingVC.swift in Sources */,
 				65E54A3C2A029CEB00FEC9A3 /* CategoryViewController.swift in Sources */,
+				C8A547E02A59513A00031FE9 /* FBShimmeringView.m in Sources */,
 				C8A2BED02A3B559400A05E77 /* followersVC.swift in Sources */,
 				C83FBD802A553B3F0009CA73 /* AddRateForUsersVC.swift in Sources */,
 				65E54A3A2A029AE000FEC9A3 /* mainSideCategoryCollectionViewCell.swift in Sources */,
@@ -1157,6 +1195,7 @@
 				658DE52529F921E90015D549 /* APIConnection.swift in Sources */,
 				C85FFCE22A260BEF000C426D /* MsgGlobalCell.swift in Sources */,
 				65F33D072A22295500A1A889 /* AskImagePickerViewController.swift in Sources */,
+				C8A547D72A594BF100031FE9 /* ProductsShimmerView.swift in Sources */,
 				C8A2BECC2A3A64AA00A05E77 /* ViewPagerController.swift in Sources */,
 				65DD122A29E6915A00A3B8DD /* GradientView.swift in Sources */,
 				C8AD40E52A28F8DC00E464DB /* ContactVC.swift in Sources */,
@@ -1167,6 +1206,7 @@
 				C85FFCDD2A260BEF000C426D /* MsgFileCell.swift in Sources */,
 				C8CCE3402A19E81100FFAFB2 /* Profile.swift in Sources */,
 				C8A2BED22A3B55C900A05E77 /* FollowersSuccessModel.swift in Sources */,
+				C8A547DF2A59513A00031FE9 /* FBShimmeringLayer.m in Sources */,
 				C85FFCDE2A260BEF000C426D /* MsgMapCell.swift in Sources */,
 				65FC22102A1172A80077F1A2 /* ReportViewController.swift in Sources */,
 				656D77402A1F0D88004EB289 /* NotificationsViewController.swift in Sources */,
@@ -1452,6 +1492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Monasba/Shimmer/Monasba-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1488,6 +1529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Monasba/Shimmer/Monasba-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

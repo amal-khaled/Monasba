@@ -10,6 +10,7 @@ import MOLH
 import RAMAnimatedTabBarController
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var ContainerStackView: UIStackView!
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
     @IBOutlet weak var subCategoryCollectionView: UICollectionView!
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -34,6 +35,9 @@ class HomeViewController: UIViewController {
     var products = [Product]()
     var categories = [Category]()
     var subCategories = [Category]()
+    
+    private let shimmerView = ProductsShimmerView.loadFromNib()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -270,9 +274,11 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController{
     func getData(){
+        ContainerStackView.addArrangedSubview(shimmerView)
         ProductController.shared.getHomeProducts(completion: {
             products, check, msg in
             if check == 0{
+                self.shimmerView.isHidden = true
                 if self.page == 1 {
                     self.products.removeAll()
                     self.products = products

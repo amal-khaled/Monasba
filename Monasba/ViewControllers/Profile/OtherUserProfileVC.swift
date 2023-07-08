@@ -257,7 +257,8 @@
                     print(userProfile)
                     self.otherUserCountryId = userProfile.countryId ?? 5
                     self.userId = userProfile.uid ?? "0"
-                    
+                    Constants.otherUserName = userProfile.username ?? ""
+                    Constants.otherUserPic = userProfile.pic ?? ""
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "passUserID"), object: nil, userInfo: ["userID": self.userId])
                     self.bindProfileData(from: userProfile)
                    // self.getProductsByUser()

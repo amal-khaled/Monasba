@@ -142,7 +142,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 
                 
                 if notiiifications[index].userf?.count != 0 {
-                    if let userName = notiiifications[index].userf?[0].name , let userPic =  notiiifications[index].userf?[0].pic , let userId = notiiifications[index].userf?[0].id {
+                    if let userName = notiiifications[index].userf?[0].username , let userPic =  notiiifications[index].userf?[0].pic , let userId = notiiifications[index].userf?[0].id {
                         Constants.userOtherId = "\(userId)"
                         Constants.otherUserPic = userPic
                         Constants.otherUserName = userName

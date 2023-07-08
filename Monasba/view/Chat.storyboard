@@ -31,7 +31,7 @@
         <!--ChatVC-->
         <scene sceneID="t36-69-dS3">
             <objects>
-                <viewController storyboardIdentifier="ChatVC" id="Yir-E8-bHQ" customClass="ChatVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVC" hidesBottomBarWhenPushed="YES" id="Yir-E8-bHQ" customClass="ChatVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y7e-5y-Syz"/>
                         <viewControllerLayoutGuide type="bottom" id="b3e-Vs-tXN"/>
