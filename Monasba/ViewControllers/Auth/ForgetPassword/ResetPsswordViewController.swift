@@ -45,6 +45,7 @@ class ResetPsswordViewController: UIViewController {
     }
     
     @IBAction func reseetAction(_ sender: Any) {
+        login()
     }
     
     /*

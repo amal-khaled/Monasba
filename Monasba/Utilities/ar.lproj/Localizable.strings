@@ -186,6 +186,8 @@
 "Resend Code " = "أعد إرسال الرمز";
 "New password" = "كلمة المرور الجديدة";
 "Confirm new password" = "تأكيد كلمة المرور الجديدة";
+"new password" = "كلمة المرور الجديدة";
+"confirm new password" = "تأكيد كلمة المرور الجديدة";
 "Save" = "حفظ";
 "New Account" = "حساب جديد";
 "Please Fill All Fields" = "إملء كافة الحقول";
@@ -321,7 +323,7 @@ Your investment with every occasion" = "تطبيق مناسبة
 "sell" = "للبيع";
 "rent" = "للايجار";
 "The owner of the advertisement has hidden the mobile number" = "لقد اخفى صاحب الاعلان رقم هاتفه";
-
+"The owner hid his phone number" = "لقد اخفى صاحب الاعلان رقم هاتفه";
 "Description" = "الوصف";
 "Comments" = "التعليقات";
 

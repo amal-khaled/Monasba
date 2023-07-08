@@ -128,7 +128,7 @@ class VerifyCodeViewController: UIViewController {
                     if check == 0{
                     
                         StaticFunctions.createSuccessAlert(msg: msg)
-                        self.basicPresentation(storyName: Auth_STORYBOARD, segueId: RESET_PASSWORD_VCID)
+                        self.basicNavigation(storyName: Auth_STORYBOARD, segueId: RESET_PASSWORD_VCID)
 
                     }else{
                         StaticFunctions.createErrorAlert(msg: msg)
