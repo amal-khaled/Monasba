@@ -86,7 +86,6 @@ class Constants {
     static let DOMAIN = MAIN_DOMAIN + "api/"
     static let IMAGE_URL = MAIN_DOMAIN + "image/"
     
-    
     //Home
     static let HOME_PRODUCTS_URL = DOMAIN + "prods_by_filter"
     static let GET_CATEGORIES_URL = DOMAIN + "categories"

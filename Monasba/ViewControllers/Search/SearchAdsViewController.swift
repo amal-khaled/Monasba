@@ -83,6 +83,7 @@ extension SearchAdsViewController{
             ads, check, msg in
             if check == 0{
                 if self.page == 1 {
+
                     self.ads.removeAll()
                     self.ads = ads
                     
@@ -104,6 +105,11 @@ extension SearchAdsViewController{
 extension SearchAdsViewController: ContentDelegate{
     func updateContent(searchText: String) {
         self.searchText = searchText
+        self.page = 1
+        self.isTheLast = false
+        self.ads.removeAll()
+        self.collectionView.reloadData()
+
         getData()
     }
     
