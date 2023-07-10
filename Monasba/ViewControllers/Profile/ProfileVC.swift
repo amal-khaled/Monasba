@@ -165,11 +165,13 @@ class ProfileVC: UIViewController {
         shareContent(text: "\(Constants.DOMAIN) \(AppDelegate.currentUser.id ?? 0)")
     }
     @IBAction func didTapChangeCoverButton(_ sender: UIButton) {
+        isUpdateCover = true
         imageType = 1 //Cover image
         displayImageActionSheet()
     }
     
     @IBAction func didTapChangeUserImageButton(_ sender: UIButton) {
+        isUpdateCover = false
         imageType = 0 // profile image
         displayImageActionSheet()
     }
@@ -277,7 +279,6 @@ extension ProfileVC {
     
     
     private func changeProfileImage(image:UIImage){
-        isUpdateCover = false
         APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
             if success {
                 StaticFunctions.createSuccessAlert(msg: message)
@@ -289,7 +290,6 @@ extension ProfileVC {
     }
     
     private func changeCoverImage(image:UIImage){
-        isUpdateCover = true
         APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
             if success {
                 StaticFunctions.createSuccessAlert(msg: message)
@@ -399,14 +399,14 @@ extension ProfileVC {
                 typeImage =  "Profile Image"
             }
             
-            let alert = UIAlertController(title: "Wirrning ⚠️ ", message: "Do you want to delete \(typeImage) ?".localize,  preferredStyle: .alert)
+            let alert = UIAlertController(title: "Wirrning ⚠️ ".localize, message: "Do you want to delete \(typeImage) ?".localize,  preferredStyle: .alert)
             
             
             
          //   alert.setValue(attributedtitle, forKey: "attributedTitle")
            // alert.setValue(attributedmessage, forKey: "attributedMessage")
             
-            let action2 = UIAlertAction(title: "تأكيد", style: .default, handler:{(alert: UIAlertAction!) in
+            let action2 = UIAlertAction(title: "Confirm".localize, style: .default, handler:{(alert: UIAlertAction!) in
                 //Confirm
                 if self.isUpdateCover {
                     self.deleteCover()
@@ -422,7 +422,7 @@ extension ProfileVC {
             alert.addAction(action2)
             
             
-            let action3 = UIAlertAction(title: "الغاء", style: .default, handler: {(alert: UIAlertAction!) in})
+            let action3 = UIAlertAction(title: "Cancel".localize, style: .default, handler: {(alert: UIAlertAction!) in})
             alert.addAction(action3)
             self.present(alert,animated: true,completion: nil)
         })
