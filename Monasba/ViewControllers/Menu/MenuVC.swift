@@ -26,14 +26,16 @@ class MenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ConfigureUI()
+//        ConfigureUI()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        ConfigureUI()
         if MOLHLanguage.currentAppleLanguage() == "en"{
             englishButtonPressed()
         }else{
@@ -53,6 +55,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             //logged in
             userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
+            userImageView.setImageWithLoading(url: AppDelegate.currentUser.pic ?? "")
             logoutView.isHidden = false
             loginButton.isHidden = true
         }else {

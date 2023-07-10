@@ -10,7 +10,7 @@ import DropDown
 import MOLH
 import IQKeyboardManagerSwift
 import Alamofire
-
+import TransitionButton
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
@@ -74,6 +74,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBOutlet weak var newPhoneCountryCode: UILabel!
     @IBOutlet weak var newPhoneTF: UITextField!
     
+    @IBOutlet weak var AddAdvsButton: TransitionButton!
     
     
     
@@ -419,6 +420,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         //main_image
         
         print(selectedMedia)
+        self.AddAdvsButton.startAnimation()
         Loading().startProgress(self)
         AF.upload(multipartFormData: { [self] multipartFormData in
             for (key,value) in selectedMedia {
@@ -645,10 +647,12 @@ extension AddAdvsVC {
                     self.mainCatsList.append(cat.nameEn ?? "")
                     self.mainCatsIDsList.append(cat.id ?? 0)
                     print(self.mainCatsIDsList)
+                    print(self.mainCatsList)
                 }else{
                     self.mainCatsList.append(cat.nameAr ?? "")
                     self.mainCatsIDsList.append(cat.id ?? 0)
                     print(self.mainCatsIDsList)
+                    print(self.mainCatsList)
                 }
             }
             if self.mainCatID == -1 {
@@ -696,6 +700,7 @@ extension AddAdvsVC {
         }else{
             mainCatDropDwon.anchorView = subCatButton
         }
+        self.mainCatsList.removeLast()
         mainCatDropDwon.bottomOffset = CGPoint(x: 0, y: mainCatButton.bounds.height)
         mainCatDropDwon.dataSource = mainCatsList
 //        mainCatButton.setTitle(mainCatsList[0], for: .normal)
@@ -804,11 +809,14 @@ extension AddAdvsVC {
 //        }
         
         print(regionId)
+        if regionsList.count > 0 && regionsList.count > 0 {
             if let region = regionsIDsList.firstIndex(of: regionId) {
-                regionButton.setTitle(regionsList[region], for: .normal)
-            }else {
-                regionButton.setTitle(regionsList[0], for: .normal)
-            }
+              regionButton.setTitle(regionsList[region], for: .normal)
+          }else {
+              regionButton.setTitle(regionsList[0], for: .normal)
+          }
+        }
+           
         regionsDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.regionId = self.regionsIDsList[index]
