@@ -107,8 +107,7 @@
 "AD FOR SELL" = "إعلان للبيع";
 "AD FOR RENT" = " إعلان للإيجار";
 "Connection type" = "وسائل التواصل";
-"Determine the means by which customers will contact you for this advertisement
-" = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
+"Determine the means by which customers will contact you for this advertisement" = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
 "Phone Call" = "هاتف";
 "WhatsApp" = "واتساب";
 "Chat" = "محادثة";
@@ -134,6 +133,13 @@
 "Add Image" = "إضافة صورة";
 "Ad Title" = "عنوان الاعلان";
 "Description" = "الوصف";
+ "Use My  Registered Phone Number" = "استخدم رقم هاتفي المسجل";
+"Enter Phone Number" = "أدخل رقم الهاتف";
+"Phone Numnber" = "رقم الهاتف";
+"Call" = "اتصال";
+"Please Choose Ad type" = "الرجاء اختيار نوع الإعلان";
+"Edit Ads" = "تعديل الاعلان";
+"Delete Ad" = "حذف الاعلان";
 //Edit Ads Cell
 "Share" = "شارك";
 "Delete" = "حذف";

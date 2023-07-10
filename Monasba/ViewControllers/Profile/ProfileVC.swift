@@ -100,7 +100,7 @@ class ProfileVC: UIViewController {
             }
         }
         
-        userFullNameLabel.text = "\(profileModel.name ?? "") \(profileModel.lastName ?? "")"
+        userFullNameLabel.text = profileModel.name ?? ""
         if profileModel.verified != 0 {
             VerifyUserImageView.isHidden = false
         }else{

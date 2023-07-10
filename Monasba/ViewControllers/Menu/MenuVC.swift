@@ -54,7 +54,7 @@ class MenuVC: UIViewController {
         loginButton.shake()
         if StaticFunctions.isLogin() {
             //logged in
-            userNameLabel.text = "\(AppDelegate.currentUser.name ?? "") \(AppDelegate.currentUser.lastName ?? "")"
+            userNameLabel.text = AppDelegate.currentUser.name ?? ""
             userImageView.setImageWithLoading(url: AppDelegate.currentUser.pic ?? "")
             logoutView.isHidden = false
             loginButton.isHidden = true
