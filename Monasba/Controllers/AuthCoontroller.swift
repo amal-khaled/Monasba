@@ -25,10 +25,10 @@ class AuthCoontroller{
                 let userObject = try JSONDecoder().decode(UserLoginObject.self, from: data)
                 
                 if userObject.code == 200{
-                    AppDelegate.currentUser = userObject.data ?? User()
+                    AppDelegate.unVerifiedUserUser = userObject.data ?? User()
 //                    AppDelegate.defaults.set( userObject.token ?? "", forKey: "token")
-                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
-//                    AppDelegate.currentUser.toke = userObject.token ?? ""
+//                    AppDelegate.defaults.set( userObject.data.id ?? 0, forKey: "userId")
+                    AppDelegate.unVerifiedUserUser.toke = userObject.token ?? ""
                     completion( 0,userObject.msg ?? "", userObject)
                 }
                 else {
@@ -75,9 +75,9 @@ class AuthCoontroller{
                 let userObject = try JSONDecoder().decode(UserTokenObject.self, from: data)
                 
                 if userObject.code == 200{
-                    AppDelegate.currentUser = userObject.data.data ?? User()
+                    AppDelegate.unVerifiedUserUser = userObject.data.data ?? User()
                    
-                    AppDelegate.currentUser.toke = userObject.data.token ?? ""
+                    AppDelegate.unVerifiedUserUser.toke = userObject.data.token ?? ""
                     completion( 0,userObject.msg ?? "")
                 }
                 else {
@@ -112,6 +112,7 @@ class AuthCoontroller{
                 let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
                 
                 if generalObject.code == 200{
+                    AppDelegate.currentUser = AppDelegate.unVerifiedUserUser
                     AppDelegate.defaults.set( AppDelegate.currentUser.toke ?? "", forKey: "token")
                     AppDelegate.defaults.set( AppDelegate.currentUser.id ?? 0, forKey: "userId")
                     completion( 0,generalObject.msg ?? "")

@@ -21,11 +21,12 @@ class RegisterVerifyViewController: UIViewController {
     var timer = Timer()
     var timeLeft: TimeInterval = 120
     var endTime: Date?
+    var isFirst = true
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailLbl.text = AppDelegate.currentUser.email
-        phoneLbl.text = AppDelegate.currentUser.phone
-
+        emailLbl.text = AppDelegate.unVerifiedUserUser.email
+        phoneLbl.text = AppDelegate.unVerifiedUserUser.phone
+//        resendCode()
         setupOtpView()
         setupCounter()
 
@@ -135,7 +136,7 @@ extension RegisterVerifyViewController :OTPFieldViewDelegate{
                     
                 }
                 
-            }, code: self.code, userId: AppDelegate.currentUser.id ?? 0)
+            }, code: self.code, userId: AppDelegate.unVerifiedUserUser.id ?? 0)
             
         }
         else{
@@ -152,15 +153,18 @@ extension RegisterVerifyViewController :OTPFieldViewDelegate{
                 check, msg in
                 
                 if check == 0{
-                
-                    StaticFunctions.createSuccessAlert(msg: msg)
+                    if self.isFirst{
+                        self.isFirst = false
+                    }else{
+                        StaticFunctions.createSuccessAlert(msg: msg)
+                    }
 
                 }else{
                     StaticFunctions.createErrorAlert(msg: msg)
                     
                 }
                 
-            },userId: AppDelegate.currentUser.id ?? 0)
+            },userId: AppDelegate.unVerifiedUserUser.id ?? 0)
             
         }
         else{
