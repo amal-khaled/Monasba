@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     
     
     static var currentUser = User()
+    static var unVerifiedUserUser = User()
+
     static var currentCountry = "Kuwait".localize
     static var currentCountryId = Constants.countryId
 

@@ -164,7 +164,7 @@ class VerifyCodeViewController: UIViewController {
                         
                     }
                     
-                },userId: AppDelegate.currentUser.id ?? 0)
+                },userId: AppDelegate.unVerifiedUserUser.id ?? 0)
                 
             }
             else{

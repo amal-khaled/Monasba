@@ -33,13 +33,16 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var imageSlider: MediaSlideshow!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userVerifieddImage: UIImageView!
-    
+    let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "full_screen") as! FullScreenViewController
     var product = Product()
     var images = [ProductImage]()
     var sliderImages = [String]()
     var comments = [Comment]()
    
-   
+    var dataSource = ImageAndVideoSlideshowDataSource(sources:[
+        
+        
+    ])
     
     
     var isFav = false
@@ -52,16 +55,15 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        setupSlider()
 
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(_:)), name: NSNotification.Name(rawValue: "updateData"), object: nil)
-        
+       
         getData()
-        setupSlider()
     }
     @objc func updateData(_ notification: NSNotification) {
         comments.removeAll()
-        getData()
         
     }
     
@@ -69,6 +71,7 @@ class ProductViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        getData()
 
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +88,19 @@ class ProductViewController: UIViewController {
 //    override func viewWillDisappear(_ animated: Bool) {
 //    }
     
+//    @IBAction func sliderClicked(_ sender: Any) {
+////        full_screen
+//        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "full_screen") as! FullScreenViewController
+//        vc.dataSource = dataSource
+////      let source = dataSource.sources[imageSlider.currentPage] as! AVSource
+////        source.pla
+////            .source.player.pause()
+//        self.present(vc, animated: false, completion: nil)
+//        
+//
+//        
+//       
+//    }
     @IBAction func userClickedAction(_ sender: Any) {
         if StaticFunctions.isLogin() {
             if AppDelegate.currentUser.id ?? 0 == product.userId ?? 0 {
@@ -266,7 +282,7 @@ extension ProductViewController{
                 
             }
         
-        let dataSource = ImageAndVideoSlideshowDataSource(sources:[
+         dataSource = ImageAndVideoSlideshowDataSource(sources:[
             
             
         ])
@@ -297,7 +313,8 @@ extension ProductViewController{
         
         imageSlider.dataSource = dataSource
         imageSlider.reloadData()
-        
+        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
+
         self.nameBtn.text = product.name
         if let createDate = product.createdAt{
             if createDate.count > 11 {
@@ -389,14 +406,23 @@ extension ProductViewController{
         
     }
     func setupSlider(){
-        imageSlider.activityIndicator = DefaultActivityIndicator()
+        imageSlider.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         imageSlider.contentScaleMode = .scaleToFill
-        imageSlider.slideshowInterval = 2
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
+//        imageSlider.slideshowInterval = 5
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         imageSlider.addGestureRecognizer(gestureRecognizer)
+        imageSlider.pageIndicatorPosition = PageIndicatorPosition(horizontal: .center, vertical: .customBottom(padding: 40))
+        
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = UIColor(named: "#0EBFB1")
+        pageIndicator.pageIndicatorTintColor = UIColor.white
+        imageSlider.pageIndicator = pageIndicator
     }
     @objc func didTap() {
-        imageSlider.presentFullScreenController(from: self)
+        let fullScreenController = imageSlider.presentFullScreenController(from: self)
+           // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+           fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         
     }
 }

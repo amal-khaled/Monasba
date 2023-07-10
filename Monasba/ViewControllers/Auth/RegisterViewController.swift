@@ -300,6 +300,7 @@ extension RegisterViewController{
     
     
      func register() {
+         AppDelegate.unVerifiedUserUser = User()
          AppDelegate.currentUser = User()
 
          var user = User()
