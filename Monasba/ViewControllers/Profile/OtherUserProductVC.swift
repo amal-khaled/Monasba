@@ -101,12 +101,14 @@ extension OtherUserProductVC :UICollectionViewDelegate,UICollectionViewDataSourc
         return CGSize(width: lst.frame.width / 2 - 20, height: 170)
     }
     
-    
+   
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let inx = indexPath.row
         if let prodId = products[inx].id {
-//            order.product_id = "\(prodId)"
-//            goNav("prodv","Prods")
+            let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+            vc.modalPresentationStyle = .fullScreen
+            vc.product.id = prodId
+            navigationController?.pushViewController(vc, animated: true)
         }
        
     }

@@ -143,6 +143,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         //setupCitiesDropDown()
         setDataFromSession()
         configureUI()
+        
+        advsTitleTF.delegate = self
     }
     
     
@@ -440,11 +442,18 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                     }
                 }else{
                     type = key.components(separatedBy: " ")[0]
-//                    index = key.components(separatedBy: " ")[1]
-                    index = "6"
+                    index = key.components(separatedBy: " ")[1]
                     image = value
-                    params["mtype[]"] = type
-                    multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    if key.contains("0") {
+                        //MainVideo
+                        multipartFormData.append(image, withName: "main_image",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    }else{
+                        index = "6"
+                        image = value
+                        params["mtype[]"] = type
+                        multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    }
+                 
                 }
                
                  print("send Image Parameters : -----> ", params)
@@ -886,5 +895,24 @@ extension AddAdvsVC {
     // Function to clear session data
     func clearSessionData() {
         UserDefaults.standard.removeObject(forKey: "postSessionData")
+    }
+}
+
+extension AddAdvsVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField  == advsTitleTF {
+            let count =  (textField.text?.components(separatedBy: " ").count)! - 1
+            if count < 5 {
+                textField.allowsEditingTextAttributes
+            }else {
+                textField.deleteBackward()
+                dismissKeyboard()
+                StaticFunctions.createErrorAlert(msg:"The ad title should not exceed five words".localize)
+                return textField.allowsEditingTextAttributes
+            }
+            
+            return count < 5
+        }
+        return false
     }
 }

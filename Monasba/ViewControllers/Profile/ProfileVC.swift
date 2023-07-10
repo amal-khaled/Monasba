@@ -322,6 +322,7 @@ extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UIColl
         return 15.0
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == (products.count-1) && !isTheLast{
             page+=1
@@ -330,6 +331,12 @@ extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UIColl
         }
     }
   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.product = products[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }
