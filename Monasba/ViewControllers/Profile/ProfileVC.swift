@@ -7,6 +7,7 @@
 
 import UIKit
 import MOLH
+import Alamofire
 import MobileCoreServices
 
 class ProfileVC: UIViewController {
@@ -40,6 +41,7 @@ class ProfileVC: UIViewController {
     private var isTheLast = false
     private var EditProfileParams = [String:Any]()
     private var imageType = 0 //profileImage
+    private var isUpdateCover = false
     
     //MARK: View LifeCycle
     override func viewDidLoad() {
@@ -238,13 +240,18 @@ extension ProfileVC {
     
     private func displayImageActionSheet() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let selectAction = UIAlertAction(title: "Change Image", style: .default) { (_) in
+        let selectAction = UIAlertAction(title: "Change".localize, style: .default) { (_) in
                     self.openGallery()
                 }
+        let deletAction = UIAlertAction(title: "Delete".localize, style: .destructive) { (_) in
+            self.confirmRemoveCover()
+            print("Delete Image")
+        }
         // Customize the color of the actions
         selectAction.setValue(#colorLiteral(red: 0, green: 0.7860813737, blue: 0.7477947474, alpha: 1), forKey: "titleTextColor")
-                alertController.addAction(selectAction)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(selectAction)
+        alertController.addAction(deletAction)
+        let cancelAction = UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil)
                 alertController.addAction(cancelAction)
                 let imageView = UIImageView(image: UIImage(named: "imageadd"))
                 imageView.contentMode = .scaleAspectFit
@@ -270,6 +277,7 @@ extension ProfileVC {
     
     
     private func changeProfileImage(image:UIImage){
+        isUpdateCover = false
         APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
             if success {
                 StaticFunctions.createSuccessAlert(msg: message)
@@ -281,6 +289,7 @@ extension ProfileVC {
     }
     
     private func changeCoverImage(image:UIImage){
+        isUpdateCover = true
         APIConnection.apiConnection.uploadImageConnection(completion: { success, message in
             if success {
                 StaticFunctions.createSuccessAlert(msg: message)
@@ -369,4 +378,68 @@ extension ProfileVC: UIImagePickerControllerDelegate,UINavigationControllerDeleg
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
         }
+}
+
+extension ProfileVC {
+    
+    
+    func confirmRemoveCover() {
+        DispatchQueue.main.async( execute: {
+            let attributedtitle = NSAttributedString(string: "", attributes: [
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 13.0)!
+            ])
+            
+            let attributedmessage = NSAttributedString(string:"", attributes: [
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 13.0)!
+            ])
+            var typeImage =  "Cover"
+            if self.isUpdateCover {
+                typeImage =  "Cover"
+            }else{
+                typeImage =  "Profile Image"
+            }
+            
+            let alert = UIAlertController(title: "Wirrning ⚠️ ", message: "Do you want to delete \(typeImage) ?".localize,  preferredStyle: .alert)
+            
+            
+            
+         //   alert.setValue(attributedtitle, forKey: "attributedTitle")
+           // alert.setValue(attributedmessage, forKey: "attributedMessage")
+            
+            let action2 = UIAlertAction(title: "تأكيد", style: .default, handler:{(alert: UIAlertAction!) in
+                //Confirm
+                if self.isUpdateCover {
+                    self.deleteCover()
+                }else {
+                    if let image = UIImage(named: "logo_photo") {
+                        self.changeProfileImage(image: image)
+                        self.getProfile()
+                    }
+                }
+            })
+            
+            
+            alert.addAction(action2)
+            
+            
+            let action3 = UIAlertAction(title: "الغاء", style: .default, handler: {(alert: UIAlertAction!) in})
+            alert.addAction(action3)
+            self.present(alert,animated: true,completion: nil)
+        })
+    }
+    private func deleteCover(){
+        guard let url = URL(string: Constants.DOMAIN+"delete_profile_cover") else {return}
+        AF.request(url, method: .post, headers: Constants.headerProd)
+            .responseDecodable(of:SuccessModel.self){ (e) in
+                print(e.value)
+                switch e.result {
+                case .success(let data):
+                    print(data)
+                    self.getProfile()
+                case.failure(let error):
+                    print(error)
+                }
+                
+            }
+    }
 }

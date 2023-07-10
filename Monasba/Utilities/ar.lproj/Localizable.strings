@@ -252,6 +252,11 @@
 "Can't Create Room" = "لا تستطيع انشاء محادثة";
 "Really Do You want to Block this user?" = "حقا هل تريد حظر هذا المستخدم";
 "Change" = "تغيير";
+
+"Wirrning ⚠️ " = "⚠️ تحذير";
+"Do you want to delete Cover ?" = "هل تريد حذف صورة الغلاف حقًا؟";
+"Do you want to delete Profile Image ?" = "هل تريد حذف صورة الملف الشخصي حقا؟";
+
 //MARK: Edit Profile
 
 "Edit Profile" = "تعديل الملف الشخصي";
