@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var listBtn: UIButton!
     @IBOutlet weak var gridBtn: UIButton!
     var coountryVC = CounriesViewController()
-    var countryId = AppDelegate.currentCountryId
-    var countryName = AppDelegate.currentCountry
+    var countryId = AppDelegate.currentCountry.id ?? 6
+    var countryName = MOLHLanguage.currentAppleLanguage() == "en" ? AppDelegate.currentCountry.nameEn : AppDelegate.currentCountry.nameAr
     var categoryId = -1
     var subcategoryId = -1
     var page = 1
@@ -69,9 +69,12 @@ class HomeViewController: UIViewController {
             self.typeView.isHidden = true
             
         }
-        countryLbl.text = AppDelegate.currentCountry
-         countryId = AppDelegate.currentCountryId
-         countryName = AppDelegate.currentCountry
+       
+        countryId = AppDelegate.currentCountry.id ?? 6
+        
+         countryName = MOLHLanguage.currentAppleLanguage() == "en" ? AppDelegate.currentCountry.nameEn : AppDelegate.currentCountry.nameAr
+        
+        countryLbl.text = countryName
         getData()
 
 //        if AppDelegate.currentUser.id == nil{

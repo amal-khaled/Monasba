@@ -74,13 +74,12 @@ extension ChangeCountryVC: UITableViewDataSource, UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AppDelegate.currentCountry = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
-        AppDelegate.currentCountryId = counties[indexPath.row].id ?? 6
-        Constants.countryId = counties[indexPath.row].id ?? 0
-        let homeVC = HomeViewController()
-        homeVC.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
-        homeVC.countryId = counties[indexPath.row].id ?? 6
-        homeVC.cityId = -1
+        AppDelegate.currentCountry = counties[indexPath.row]
+        Constants.countryId = counties[indexPath.row].id ?? 6
+//        let homeVC = HomeViewController()
+//        homeVC.countryName = MOLHLanguage.currentAppleLanguage() == "en" ? (counties[indexPath.row].nameEn ?? "") : (counties[indexPath.row].nameAr ?? "")
+//        homeVC.countryId = counties[indexPath.row].id ?? 6
+//        homeVC.cityId = -1
       //  self.basicPresentation(storyName: MAIN_STORYBOARD, segueId: "homeT")
         self.navigationController?.popViewController(animated: true)
 //        self.dismiss(animated: false, completion: { [self] in

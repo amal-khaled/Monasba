@@ -40,6 +40,13 @@ struct Country:Codable{
     var image: String?
     var code: String?
     
+    init(nameAr: String? = nil, nameEn: String? = nil, id: Int? = nil, code: String? = nil) {
+        self.nameAr = nameAr
+        self.nameEn = nameEn
+        self.id = id
+        self.code = code
+    }
+    
     
     
     enum CodingKeys: String, CodingKey {

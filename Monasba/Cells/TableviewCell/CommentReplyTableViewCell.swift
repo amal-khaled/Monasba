@@ -27,7 +27,8 @@ class CommentReplyTableViewCell: UITableViewCell {
     var flagBtclosure : (() -> Void)? = nil
     var likeBtclosure : (() -> Void)? = nil
     var removeBtclosure : (() -> Void)? = nil
-    
+    var showUserProfileBtclosure : (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -124,6 +125,10 @@ class CommentReplyTableViewCell: UITableViewCell {
     @IBAction func reportAction(_ sender: Any) {
         flagBtclosure!()
 
+    }
+    
+    @IBAction func showUserProfile(_ sender: Any) {
+        showUserProfileBtclosure!()
     }
     
 }
