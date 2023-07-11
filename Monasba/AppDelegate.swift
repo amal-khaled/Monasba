@@ -10,6 +10,8 @@ import MOLH
 import FirebaseMessaging
 import Firebase
 import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
@@ -35,8 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
 //        MOLH.setLanguageTo( "ar")
         MOLH.shared.activate(true)
         reset()
-        if AppDelegate.defaults.string(forKey: "token") != nil && AppDelegate.defaults.integer(forKey: "userId") != 0{
+        GMSServices.provideAPIKey(Constants.API_KEY)
+        GMSPlacesClient.provideAPIKey(Constants.API_KEY)
+        
+        if AppDelegate.defaults.string(forKey: "token") != nil &&
             
+            AppDelegate.defaults.integer(forKey: "userId") != 0{
             AppDelegate.currentUser.toke = AppDelegate.defaults.string(forKey: "token")
             AppDelegate.currentUser.id = AppDelegate.defaults.integer(forKey: "userId")
             ProfileController.shared.getProfile(completion: {user,msg in

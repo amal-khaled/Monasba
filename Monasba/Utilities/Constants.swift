@@ -81,7 +81,7 @@ let PROFILE_VCID = "ProfileVC"
 
 class Constants {
     static let MAIN_DOMAIN = "http://bluezone-web.com/"
-    static var newBaseUrl:String = "https://newmonasbh.multi-kw.com/"
+    static var API_KEY:String = "AIzaSyDrkcLvUTdoNRekyjFnGrDyD8D9XMJggpI"
 
     static let DOMAIN = MAIN_DOMAIN + "api/"
     static let IMAGE_URL = MAIN_DOMAIN + "image/"

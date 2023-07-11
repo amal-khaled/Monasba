@@ -44,6 +44,33 @@ class SendLocC: ViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
     
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+        if(Constants.tempPlace_id != ""){
+            let placesClient = GMSPlacesClient()
+            placesClient.lookUpPlaceID(Constants.tempPlace_id, callback: { (place, error) -> Void in
+                if let error = error {
+                    print("lookup place id query error: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let place = place else {
+                    print("No place details ")
+                    return
+                }
+                self.move(to: place.coordinate,15)
+                self.getLoc(place.coordinate)
+            })
+        }
+    }
     //================================  delegate  =================================
     
     func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
@@ -68,6 +95,9 @@ class SendLocC: ViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
         self.locationManager.stopUpdatingLocation()
     }
     
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func confirm(){
         if lat != 0 {
@@ -79,11 +109,11 @@ class SendLocC: ViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
             let marker = addPin(Constants.orderLat, Constants.orderLng,"mark_loc")
             delay(0.3) {
                 self.take_screen_shot()
-                self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         }else{
 //            msg("حدد الموقع من فضلك")
-            StaticFunctions.createErrorAlert(msg: "حدد الموقع من فضلك")
+            StaticFunctions.createErrorAlert(msg: "Specify the location, please".localize)
         }
     }
     
@@ -123,7 +153,7 @@ class SendLocC: ViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
                     StaticFunctions.createErrorAlert(msg: "مشكلة في تحميل الملف")
                 }else{
                     Constants.loc_img = res
-                    self.dismiss(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
@@ -227,23 +257,6 @@ class SendLocC: ViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
         print("Gooooo")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if(Constants.tempPlace_id != ""){
-            let placesClient = GMSPlacesClient()
-            placesClient.lookUpPlaceID(Constants.tempPlace_id, callback: { (place, error) -> Void in
-                if let error = error {
-                    print("lookup place id query error: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let place = place else {
-                    print("No place details ")
-                    return
-                }
-                self.move(to: place.coordinate,15)
-                self.getLoc(place.coordinate)
-            })
-        }
-    }
+   
     
 }

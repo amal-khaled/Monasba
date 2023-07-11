@@ -316,11 +316,11 @@ extension UIViewController :NVActivityIndicatorViewable{
     func goGMap(lat:Double,lng:Double){
         DispatchQueue.main.async( execute: {
             let attributedtitle = NSAttributedString(string: "", attributes: [
-                NSAttributedString.Key.font : UIFont(name: "ZahraArabic-Regular", size: 16.0)!
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 16.0)!
             ])
             
             let attributedmessage = NSAttributedString(string:"", attributes: [
-                NSAttributedString.Key.font : UIFont(name: "ZahraArabic-Regular", size: 16.0)!
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 16.0)!
             ])
             
             let alert = UIAlertController(title: " ", message: "",  preferredStyle: .alert)
@@ -328,7 +328,7 @@ extension UIViewController :NVActivityIndicatorViewable{
             alert.setValue(attributedtitle, forKey: "attributedTitle")
             alert.setValue(attributedmessage, forKey: "attributedMessage")
             
-            let action2 = UIAlertAction(title: "خرائط جوجل", style: .default, handler:{(alert: UIAlertAction!) in
+            let action2 = UIAlertAction(title: "Google Maps".localize, style: .default, handler:{(alert: UIAlertAction!) in
                 if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
                 {
                     UIApplication.shared.open(NSURL(string:
@@ -341,7 +341,7 @@ extension UIViewController :NVActivityIndicatorViewable{
             
             
             alert.addAction(action2)
-            let action = UIAlertAction(title: "خرائط آبل", style: .default, handler: {(alert: UIAlertAction!) in
+            let action = UIAlertAction(title: "Apple Maps".localize, style: .default, handler: {(alert: UIAlertAction!) in
                 let regionDistance:CLLocationDistance = 10000
                 let coordinates = CLLocationCoordinate2DMake(lat , lng)
                 let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
@@ -351,13 +351,13 @@ extension UIViewController :NVActivityIndicatorViewable{
                 ]
                 let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
                 let mapItem = MKMapItem(placemark: placemark)
-                mapItem.name = "Place Name"
+                mapItem.name = "Place Name".localize
                 mapItem.openInMaps(launchOptions: options)
                 
             })
             alert.addAction(action)
             
-            let action3 = UIAlertAction(title: "الغاء", style: .default, handler: {(alert: UIAlertAction!) in})
+            let action3 = UIAlertAction(title: "Cancel".localize, style: .default, handler: {(alert: UIAlertAction!) in})
             alert.addAction(action3)
             self.present(alert,animated: true,completion: nil)
         });
@@ -379,7 +379,7 @@ extension UIViewController :NVActivityIndicatorViewable{
                 (success) in print("Open")
             })
         }else{
-            StaticFunctions.createErrorAlert(msg: "رابط غير صحيح")
+            StaticFunctions.createErrorAlert(msg: "Wrong Link!".localize)
             
         }
     }
@@ -401,29 +401,29 @@ extension UIViewController :NVActivityIndicatorViewable{
         if let months = components.month , let days = components.day, let hours  = components.hour , let minutes = components.minute , let seconds = components.second {
             if( months != 0){
                 print(months)
-                result = "\(months) شهر"
+                result = "\(months) \("month".localize)"
                 //  return "\(months) شهر"
             }else if(days != 0){
                 print(days)
                 if (days % 7) > 0 {
                     let weeks =  (days % 7)
-                    result = "\(weeks) أسبوع"
+                    result = "\(weeks) \("week".localize)"
                 }else{
-                    result = "\(days ) يوم"
+                    result = "\(days ) \("day".localize)"
                 }
                 //  return "\(days ) يوم"
                 
             }else if(hours != 0){
                 print(hours)
-                result = "\(hours) ساعة"
+                result = "\(hours) \("hours".localize)"
                 //return "\(hours) ساعة"
             }else if(minutes != 0){
                 print(minutes)
-                result = "\(minutes) دقيقة"
+                result = "\(minutes) \("minutes".localize)"
                 //   return "\(minutes) دقيقة"
             }else{
                 print(seconds)
-                result = "\(seconds) ثانية"
+                result = "\(seconds) \("seconds".localize)"
                 // return "\(seconds) ثانية"
             }
         }

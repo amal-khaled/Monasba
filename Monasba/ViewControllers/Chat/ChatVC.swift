@@ -217,9 +217,11 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     @objc func handleSendButton(){
         if !txt_msg.text!.isEmpty {
             sendMessageButton.setImage(UIImage(named: "sendd"), for: .normal)
-        }else {
-            
-            sendMessageButton.setImage(UIImage(named:"plusImage"), for: .normal)
+        }
+        else {
+    
+            StaticFunctions.createErrorAlert(msg: "Please type any text to send".localize)
+//            sendMessageButton.setImage(UIImage(named:"plusImage"), for: .normal)
         }
     }
     
@@ -622,8 +624,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             play_video(url: "\(Constants.DOMAIN)\(msgContent)")
         }else if msgType == "IMAGE" {
             let zoomCtrl = VKImageZoom()
-            zoomCtrl.image_url = URL.init(string: "\(Constants.DOMAIN)\(msgContent)")
-            print("zoomCtrl.image_url ====> ",zoomCtrl.image_url , "\(Constants.DOMAIN))\(msgContent)")
+            zoomCtrl.image_url = URL.init(string: "\(Constants.IMAGE_URL)\(msgContent)")
+            print("zoomCtrl.image_url ====> ",zoomCtrl.image_url , "\(Constants.IMAGE_URL)\(msgContent)")
             self.present(zoomCtrl, animated: true, completion: nil)
         }else if msgType == "LOCATION" {
             let locData = msg.components(separatedBy: "%%")
@@ -673,13 +675,14 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             
           //  send_message(txt_msg.text!,"TEXT")
             sendMessage(txt_msg.text!, image: Data(), msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
-        }else{
-            showDialog()
         }
+//        else{
+//            showDialog()
+//        }
     }
     
     @IBAction func attach_file(_ sender: Any) {
-        open_attach_dialog()
+        showDialog()
     }
     
     func open_attach_dialog() {
@@ -1033,6 +1036,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     //=================================================//
     func go_map(){
 //        goNav("slocv","Chat")
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "slocv") as! SendLocC
+        navigationController?.pushViewController(vc, animated: true)
         //GOTO Chat
     }
     

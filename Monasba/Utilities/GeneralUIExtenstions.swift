@@ -410,21 +410,57 @@ extension String {
         return dateDiff(dateRangeStart, dateRangeEnd)
     }
     
-    
     func dateDiff(_ dateRangeStart:Date , _ dateRangeEnd:Date) -> String {
+        var result = ""
         let components = Calendar.current.dateComponents([.month,.day,.hour,.minute,.second], from: dateRangeStart, to: dateRangeEnd)
-        if(components.month != 0){
-            return "\(components.month ?? 0) شهر"
-        }else if(components.day != 0){
-            return "\(components.day ?? 0) يوم"
-        }else if(components.hour != 0){
-            return "\(components.hour ?? 0) ساعة"
-        }else if(components.day != 0){
-            return "\(components.minute ?? 0) دقيقة"
-        }else{
-            return "\(components.second ?? 0) ثانية"
+        // print("diffrent  time  ======> ",components)
+        
+        if let months = components.month , let days = components.day, let hours  = components.hour , let minutes = components.minute , let seconds = components.second {
+            if( months != 0){
+                print(months)
+                result = "\(months) \("month".localize)"
+                //  return "\(months) شهر"
+            }else if(days != 0){
+                print(days)
+                if (days % 7) > 0 {
+                    let weeks =  (days % 7)
+                    result = "\(weeks) \("week".localize)"
+                }else{
+                    result = "\(days ) \("day".localize)"
+                }
+                //  return "\(days ) يوم"
+                
+            }else if(hours != 0){
+                print(hours)
+                result = "\(hours) \("hours".localize)"
+                //return "\(hours) ساعة"
+            }else if(minutes != 0){
+                print(minutes)
+                result = "\(minutes) \("minutes".localize)"
+                //   return "\(minutes) دقيقة"
+            }else{
+                print(seconds)
+                result = "\(seconds) \("seconds".localize)"
+                // return "\(seconds) ثانية"
+            }
         }
+        return result
     }
+    
+//    func dateDiff(_ dateRangeStart:Date , _ dateRangeEnd:Date) -> String {
+//        let components = Calendar.current.dateComponents([.month,.day,.hour,.minute,.second], from: dateRangeStart, to: dateRangeEnd)
+//        if(components.month != 0){
+//            return "\(components.month ?? 0) شهر"
+//        }else if(components.day != 0){
+//            return "\(components.day ?? 0) يوم"
+//        }else if(components.hour != 0){
+//            return "\(components.hour ?? 0) ساعة"
+//        }else if(components.day != 0){
+//            return "\(components.minute ?? 0) دقيقة"
+//        }else{
+//            return "\(components.second ?? 0) ثانية"
+//        }
+//    }
     
     func GetDateFromString(_ DateStr: String)-> Date
     {

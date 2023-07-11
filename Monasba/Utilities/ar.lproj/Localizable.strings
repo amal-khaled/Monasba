@@ -162,6 +162,18 @@
 "send contact" = "ارسال جهة الاتصال";
 "Add Rate" = "إضافة تقييم";
 "Confirm" = "تأكيد";
+"Please type any text to send" = "الرجاء كتابة أي نص لإرساله";
+"Specify the location, please" = "حدد الموقع من فضلك";
+"Place Name" = "اسم الموقع";
+"Apple Maps" = "خرائط آبل";
+"Google Maps" = "خرائط جوجل";
+"Wrong Link!" = "رابط غير صحيح";
+"month" = "شهر";
+"week" = "أسبوع";
+"day" = "يوم";
+"hours" = "ساعة";
+"minutes" = "دقيقة";
+"seconds" = "ثانية";
 //MARK: Product Details
 
 "Description" = "وصف";
