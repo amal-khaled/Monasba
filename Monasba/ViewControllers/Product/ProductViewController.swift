@@ -210,7 +210,13 @@ class ProductViewController: UIViewController {
                 if id != -1{
                     receiver.room_id = "\(id)"
                 }
-                self.basicNavigation(storyName: "Chat", segueId: "ChatVC")
+                if AppDelegate.currentUser.id ?? 0 == self.product.userId ?? 0 {
+                    StaticFunctions.createErrorAlert(msg: "You Can't chat with yourself".localize)
+                }else {
+                    Constants.otherUserPic = self.product.userPic ?? ""
+                    Constants.otherUserName = self.product.userName ?? ""
+                    self.basicNavigation(storyName: "Chat", segueId: "ChatVC")
+                }
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)
             }

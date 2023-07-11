@@ -132,6 +132,9 @@ extension followersVC : UITableViewDelegate , UITableViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        let inx = indexPath.row
        guard let id = data[inx].toID else {return}
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.userId = "\(id)"
+        navigationController?.pushViewController(vc, animated: true)
 //        user.other_id = "\(id)"
 //        goNav("otherProfilev","Profile")
    }
