@@ -18,6 +18,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var loginViewContainer: UIView!
     @IBOutlet weak var logoutView: UIView!
   
     @IBOutlet weak var englishButton: UIButton!
@@ -58,11 +59,13 @@ class MenuVC: UIViewController {
             userImageView.setImageWithLoading(url: AppDelegate.currentUser.pic ?? "")
             logoutView.isHidden = false
             loginButton.isHidden = true
+            loginViewContainer.isHidden = true
         }else {
            // logged out
             userNameLabel.text = "Guest".localize
             logoutView.isHidden = true
             loginButton.isHidden = false
+            loginViewContainer.isHidden = false
         }
     }
     

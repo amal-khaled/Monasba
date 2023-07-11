@@ -20,7 +20,23 @@ class followersVC: UIViewController {
         delay(0.5) {
             self.get()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     func clear_all(){
@@ -106,16 +122,28 @@ extension followersVC : UITableViewDelegate , UITableViewDataSource {
        let params : [String: Any]  = ["to_id":otherUserId]
        print(params)
        AF.request(url, method: .post, parameters: params,headers: Constants.headerProd).responseDecodable(of:SuccessModel.self){res in
+           print(res.result)
+           //           switch res.result {
+           //
+           //           case .success(let data):
+           //               print(data)
+           //               if let message = data.message {
+           //                   if message.contains("Added Successfully".localize){
+           //                       StaticFunctions.createSuccessAlert(msg: message)
+           //                       self.get()
+           //                   }
+           //               }
+           //           case .failure(let error):
+           //               StaticFunctions.createErrorAlert(msg: "Error Data Type")
+           //               print(error)
+           //           }
            switch res.result {
            case .success(let data):
                if let message = data.message {
-                   if message.contains("Added Successfully".localize){
-                       StaticFunctions.createSuccessAlert(msg: message)
-                       self.get()
-                   }
+                   StaticFunctions.createSuccessAlert(msg: message)
+                   self.get()
                }
            case .failure(let error):
-               StaticFunctions.createErrorAlert(msg: "Error Data Type")
                print(error)
            }
        }
