@@ -40,6 +40,12 @@ class AskRepliesViewController: UIViewController {
         
     }
     
+    @IBAction func showUserProfile(_ sender: Any) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.OtherUserId = self.data.question?.userId ?? 0
+        vc.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func addReplyAction(_ sender: Any) {
         let vc = UIStoryboard(name: CATEGORRY_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: REPLY_VCID) as! ReplyAskViewController
         print(self.data.question?.id ?? 0)
@@ -114,6 +120,12 @@ extension AskRepliesViewController: UITableViewDelegate, UITableViewDataSource{
             vc.id = self.data.comment?.data[indexPath.row].id ?? 0
             self.present(vc, animated: false, completion: nil)
             
+        }
+        cell.showUserProfileBtclosure = {
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+            vc.OtherUserId = self.data.comment?.data[indexPath.row].userId ?? 0
+            vc.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         cell.likeBtclosure  = {
             CategoryController.shared.likeAskReply(completion: {

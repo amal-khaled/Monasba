@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     static var currentUser = User()
     static var unVerifiedUserUser = User()
 
-    static var currentCountry = "Kuwait".localize
-    static var currentCountryId = Constants.countryId
+    static var currentCountry = Country(nameAr: "الكويت", nameEn: "Kuwait", id: 6,code: "965")
+//    static var currentCountryId = Constants.countryId
 
    
     static var defaults:UserDefaults = UserDefaults.standard
@@ -47,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             AppDelegate.currentUser.id = AppDelegate.defaults.integer(forKey: "userId")
             ProfileController.shared.getProfile(completion: {user,msg in
                     self.checkNotificationToken()
-                AppDelegate.currentCountry = (MOLHLanguage.currentAppleLanguage() == "en" ? AppDelegate.currentUser.countriesNameEn : AppDelegate.currentUser.countriesNameAr) ?? "Kuwait".localize
+                AppDelegate.currentCountry = Country(nameAr: AppDelegate.currentUser.countriesNameAr ?? "الكويت", nameEn: AppDelegate.currentUser.countriesNameEn ?? "Kuwait", id: AppDelegate.currentUser.countryId ?? Constants.countryId)
                 
-                AppDelegate.currentCountryId = AppDelegate.currentUser.countryId ?? Constants.countryId
+           
                 
             }, user: AppDelegate.currentUser)
         }else{
