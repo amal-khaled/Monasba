@@ -106,6 +106,21 @@ extension UIView {
         layer.backgroundColor =  backgroundCGColor
     }
     
+    func generateThumbnailImage(url:URL) -> UIImage {
+           let asset = AVAsset(url: url)
+           let imageGenerator = AVAssetImageGenerator(asset: asset)
+           imageGenerator.appliesPreferredTrackTransform = true
+
+           do {
+               let thumbnailCGImage = try imageGenerator.copyCGImage(at: .zero, actualTime: nil)
+               let thumbnailImage = UIImage(cgImage: thumbnailCGImage)
+               return  thumbnailImage
+           } catch {
+               print("Failed to generate thumbnail image: \(error)")
+               return UIImage()
+           }
+       }
+    
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
@@ -442,6 +457,7 @@ extension String {
 import UIKit
 import MOLH
 import SDWebImage
+import AVFoundation
 
 extension CAShapeLayer {
     func drawCircleAtLocation(location: CGPoint, withRadius radius: CGFloat, andColor color: UIColor, filled: Bool) {

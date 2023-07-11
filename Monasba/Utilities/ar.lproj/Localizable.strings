@@ -107,8 +107,7 @@
 "AD FOR SELL" = "إعلان للبيع";
 "AD FOR RENT" = " إعلان للإيجار";
 "Connection type" = "وسائل التواصل";
-"Determine the means by which customers will contact you for this advertisement
-" = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
+"Determine the means by which customers will contact you for this advertisement" = "حدد الوسائل التي سيتصل بك العملاء من خلالها بخصوص هذا الإعلان";
 "Phone Call" = "هاتف";
 "WhatsApp" = "واتساب";
 "Chat" = "محادثة";
@@ -126,7 +125,7 @@
 "Thank you... Your ad has been added successfully" = "شكرا لك ... تمت إضافة إعلانك بنجاح";
 "Go to Home Page" = "اذهب إلى الصفحة الرئيسية";
 "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price." = "الرجاء إدخال الوصف الكامل مع المزايا والعيوب وسعر الشراء والبيع.";
-
+"The ad title should not exceed five words" = "عنوان الاعلان يجب الا يزيد عن خمس كلمات";
 //MARK: Edit Ads
 "Ad Details" = "تفاصيل الإعلان";
 "Ad Images" = "صور الإعلان";
@@ -134,6 +133,13 @@
 "Add Image" = "إضافة صورة";
 "Ad Title" = "عنوان الاعلان";
 "Description" = "الوصف";
+ "Use My  Registered Phone Number" = "استخدم رقم هاتفي المسجل";
+"Enter Phone Number" = "أدخل رقم الهاتف";
+"Phone Numnber" = "رقم الهاتف";
+"Call" = "اتصال";
+"Please Choose Ad type" = "الرجاء اختيار نوع الإعلان";
+"Edit Ads" = "تعديل الاعلان";
+"Delete Ad" = "حذف الاعلان";
 //Edit Ads Cell
 "Share" = "شارك";
 "Delete" = "حذف";
@@ -155,6 +161,7 @@
 "send location" = "ارسال الموقع";
 "send contact" = "ارسال جهة الاتصال";
 "Add Rate" = "إضافة تقييم";
+"Confirm" = "تأكيد";
 //MARK: Product Details
 
 "Description" = "وصف";
@@ -244,6 +251,12 @@
 "Added Successfully" = "تمت الاضافة بنجاح";
 "Can't Create Room" = "لا تستطيع انشاء محادثة";
 "Really Do You want to Block this user?" = "حقا هل تريد حظر هذا المستخدم";
+"Change" = "تغيير";
+
+"Wirrning ⚠️ " = "⚠️ تحذير";
+"Do you want to delete Cover ?" = "هل تريد حذف صورة الغلاف حقًا؟";
+"Do you want to delete Profile Image ?" = "هل تريد حذف صورة الملف الشخصي حقا؟";
+
 //MARK: Edit Profile
 
 "Edit Profile" = "تعديل الملف الشخصي";

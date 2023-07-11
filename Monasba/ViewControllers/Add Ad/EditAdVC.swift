@@ -83,7 +83,6 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
         super.viewDidLoad()
         configureUI()
         getData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -10,7 +10,7 @@ import DropDown
 import MOLH
 import IQKeyboardManagerSwift
 import Alamofire
-
+import TransitionButton
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
@@ -74,6 +74,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBOutlet weak var newPhoneCountryCode: UILabel!
     @IBOutlet weak var newPhoneTF: UITextField!
     
+    @IBOutlet weak var AddAdvsButton: TransitionButton!
     
     
     
@@ -142,6 +143,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         //setupCitiesDropDown()
         setDataFromSession()
         configureUI()
+        
+        advsTitleTF.delegate = self
     }
     
     
@@ -419,6 +422,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         //main_image
         
         print(selectedMedia)
+        self.AddAdvsButton.startAnimation()
         Loading().startProgress(self)
         AF.upload(multipartFormData: { [self] multipartFormData in
             for (key,value) in selectedMedia {
@@ -438,11 +442,18 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                     }
                 }else{
                     type = key.components(separatedBy: " ")[0]
-//                    index = key.components(separatedBy: " ")[1]
-                    index = "6"
+                    index = key.components(separatedBy: " ")[1]
                     image = value
-                    params["mtype[]"] = type
-                    multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    if key.contains("0") {
+                        //MainVideo
+                        multipartFormData.append(image, withName: "main_image",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    }else{
+                        index = "6"
+                        image = value
+                        params["mtype[]"] = type
+                        multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                    }
+                 
                 }
                
                  print("send Image Parameters : -----> ", params)
@@ -645,10 +656,12 @@ extension AddAdvsVC {
                     self.mainCatsList.append(cat.nameEn ?? "")
                     self.mainCatsIDsList.append(cat.id ?? 0)
                     print(self.mainCatsIDsList)
+                    print(self.mainCatsList)
                 }else{
                     self.mainCatsList.append(cat.nameAr ?? "")
                     self.mainCatsIDsList.append(cat.id ?? 0)
                     print(self.mainCatsIDsList)
+                    print(self.mainCatsList)
                 }
             }
             if self.mainCatID == -1 {
@@ -696,6 +709,7 @@ extension AddAdvsVC {
         }else{
             mainCatDropDwon.anchorView = subCatButton
         }
+        self.mainCatsList.removeLast()
         mainCatDropDwon.bottomOffset = CGPoint(x: 0, y: mainCatButton.bounds.height)
         mainCatDropDwon.dataSource = mainCatsList
 //        mainCatButton.setTitle(mainCatsList[0], for: .normal)
@@ -804,11 +818,14 @@ extension AddAdvsVC {
 //        }
         
         print(regionId)
+        if regionsList.count > 0 && regionsList.count > 0 {
             if let region = regionsIDsList.firstIndex(of: regionId) {
-                regionButton.setTitle(regionsList[region], for: .normal)
-            }else {
-                regionButton.setTitle(regionsList[0], for: .normal)
-            }
+              regionButton.setTitle(regionsList[region], for: .normal)
+          }else {
+              regionButton.setTitle(regionsList[0], for: .normal)
+          }
+        }
+           
         regionsDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.regionId = self.regionsIDsList[index]
@@ -878,5 +895,24 @@ extension AddAdvsVC {
     // Function to clear session data
     func clearSessionData() {
         UserDefaults.standard.removeObject(forKey: "postSessionData")
+    }
+}
+
+extension AddAdvsVC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField  == advsTitleTF {
+            let count =  (textField.text?.components(separatedBy: " ").count)! - 1
+            if count < 5 {
+                textField.allowsEditingTextAttributes
+            }else {
+                textField.deleteBackward()
+                dismissKeyboard()
+                StaticFunctions.createErrorAlert(msg:"The ad title should not exceed five words".localize)
+                return textField.allowsEditingTextAttributes
+            }
+            
+            return count < 5
+        }
+        return false
     }
 }

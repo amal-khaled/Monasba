@@ -322,10 +322,9 @@ class EditProfileVC : UIViewController {
             case .success(let data):
                 print(data)
                 if let data = data.data{
-                    print(data.pic)
                     self.fileData(data: data)
                 }
-                self.dismissDetail()
+                self.navigationController?.popViewController(animated: true)
 //                 self.showMiracle()
             case .failure(let error):
                 print(error)
@@ -437,8 +436,19 @@ extension EditProfileVC {
                         if let arr = dataDic["data"] as? NSArray {
                             for itm in arr {
                                 if let d = itm as? NSDictionary {
-                                    if let name = d.value(forKey: "name_ar") as? String {
-                                        self.citiesName.append(name)
+//                                    if let name = d.value(forKey: "name_ar") as? String {
+//                                        self.citiesName.append(name)
+//                                    }
+                                    if  MOLHLanguage.currentAppleLanguage() == "en" {
+                                        
+                                        if let name = d.value(forKey: "name_en") as? String {
+                                            self.citiesName.append(name)
+                                        }
+                                    }
+                                    else{
+                                        if let name = d.value(forKey: "name_ar") as? String {
+                                            self.citiesName.append(name)
+                                        }
                                     }
                                     if let cityId = d.value(forKey: "id") as? Int {
                                         self.citiesId.append("\(cityId)")
@@ -473,8 +483,19 @@ extension EditProfileVC {
                         if let arr = dataDic["data"] as? NSArray {
                             for itm in arr {
                                 if let d = itm as? NSDictionary {
-                                    if let name = d.value(forKey: "name_ar") as? String {
-                                        self.regionsName.append(name)
+//                                    if let name = d.value(forKey: "name_ar") as? String {
+//                                        self.regionsName.append(name)
+//                                    }
+                                    if  MOLHLanguage.currentAppleLanguage() == "en" {
+                                        
+                                        if let name = d.value(forKey: "name_en") as? String {
+                                            self.regionsName.append(name)
+                                        }
+                                    }
+                                    else{
+                                        if let name = d.value(forKey: "name_ar") as? String {
+                                            self.regionsName.append(name)
+                                        }
                                     }
                                     if let cityId = d.value(forKey: "id") as? Int {
                                         self.regionsId.append("\(cityId)")

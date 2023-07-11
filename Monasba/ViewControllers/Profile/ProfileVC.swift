@@ -7,6 +7,7 @@
 
 import UIKit
 import MOLH
+import Alamofire
 import MobileCoreServices
 
 class ProfileVC: UIViewController {
@@ -40,6 +41,7 @@ class ProfileVC: UIViewController {
     private var isTheLast = false
     private var EditProfileParams = [String:Any]()
     private var imageType = 0 //profileImage
+    private var isUpdateCover = false
     
     //MARK: View LifeCycle
     override func viewDidLoad() {
@@ -100,7 +102,7 @@ class ProfileVC: UIViewController {
             }
         }
         
-        userFullNameLabel.text = "\(profileModel.name ?? "") \(profileModel.lastName ?? "")"
+        userFullNameLabel.text = profileModel.name ?? ""
         if profileModel.verified != 0 {
             VerifyUserImageView.isHidden = false
         }else{
@@ -163,11 +165,13 @@ class ProfileVC: UIViewController {
         shareContent(text: "\(Constants.DOMAIN) \(AppDelegate.currentUser.id ?? 0)")
     }
     @IBAction func didTapChangeCoverButton(_ sender: UIButton) {
+        isUpdateCover = true
         imageType = 1 //Cover image
         displayImageActionSheet()
     }
     
     @IBAction func didTapChangeUserImageButton(_ sender: UIButton) {
+        isUpdateCover = false
         imageType = 0 // profile image
         displayImageActionSheet()
     }
@@ -238,13 +242,18 @@ extension ProfileVC {
     
     private func displayImageActionSheet() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let selectAction = UIAlertAction(title: "Change Image", style: .default) { (_) in
+        let selectAction = UIAlertAction(title: "Change".localize, style: .default) { (_) in
                     self.openGallery()
                 }
+        let deletAction = UIAlertAction(title: "Delete".localize, style: .destructive) { (_) in
+            self.confirmRemoveCover()
+            print("Delete Image")
+        }
         // Customize the color of the actions
         selectAction.setValue(#colorLiteral(red: 0, green: 0.7860813737, blue: 0.7477947474, alpha: 1), forKey: "titleTextColor")
-                alertController.addAction(selectAction)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(selectAction)
+        alertController.addAction(deletAction)
+        let cancelAction = UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil)
                 alertController.addAction(cancelAction)
                 let imageView = UIImageView(image: UIImage(named: "imageadd"))
                 imageView.contentMode = .scaleAspectFit
@@ -322,6 +331,7 @@ extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UIColl
         return 15.0
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == (products.count-1) && !isTheLast{
             page+=1
@@ -330,6 +340,12 @@ extension ProfileVC:UICollectionViewDelegate , UICollectionViewDataSource,UIColl
         }
     }
   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.product = products[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }
@@ -362,4 +378,68 @@ extension ProfileVC: UIImagePickerControllerDelegate,UINavigationControllerDeleg
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
         }
+}
+
+extension ProfileVC {
+    
+    
+    func confirmRemoveCover() {
+        DispatchQueue.main.async( execute: {
+            let attributedtitle = NSAttributedString(string: "", attributes: [
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 13.0)!
+            ])
+            
+            let attributedmessage = NSAttributedString(string:"", attributes: [
+                NSAttributedString.Key.font : UIFont(name: "Tajawal-Regular", size: 13.0)!
+            ])
+            var typeImage =  "Cover"
+            if self.isUpdateCover {
+                typeImage =  "Cover"
+            }else{
+                typeImage =  "Profile Image"
+            }
+            
+            let alert = UIAlertController(title: "Wirrning ⚠️ ".localize, message: "Do you want to delete \(typeImage) ?".localize,  preferredStyle: .alert)
+            
+            
+            
+         //   alert.setValue(attributedtitle, forKey: "attributedTitle")
+           // alert.setValue(attributedmessage, forKey: "attributedMessage")
+            
+            let action2 = UIAlertAction(title: "Confirm".localize, style: .default, handler:{(alert: UIAlertAction!) in
+                //Confirm
+                if self.isUpdateCover {
+                    self.deleteCover()
+                }else {
+                    if let image = UIImage(named: "logo_photo") {
+                        self.changeProfileImage(image: image)
+                        self.getProfile()
+                    }
+                }
+            })
+            
+            
+            alert.addAction(action2)
+            
+            
+            let action3 = UIAlertAction(title: "Cancel".localize, style: .default, handler: {(alert: UIAlertAction!) in})
+            alert.addAction(action3)
+            self.present(alert,animated: true,completion: nil)
+        })
+    }
+    private func deleteCover(){
+        guard let url = URL(string: Constants.DOMAIN+"delete_profile_cover") else {return}
+        AF.request(url, method: .post, headers: Constants.headerProd)
+            .responseDecodable(of:SuccessModel.self){ (e) in
+                print(e.value)
+                switch e.result {
+                case .success(let data):
+                    print(data)
+                    self.getProfile()
+                case.failure(let error):
+                    print(error)
+                }
+                
+            }
+    }
 }
