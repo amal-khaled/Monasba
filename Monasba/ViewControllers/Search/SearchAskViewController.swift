@@ -101,6 +101,7 @@ extension SearchAskViewController{
             asks, check, msg in
             if check == 0{
                 if self.page == 1 {
+
                     self.asks.removeAll()
                     self.asks = asks
                     
@@ -122,6 +123,10 @@ extension SearchAskViewController{
 extension SearchAskViewController: ContentDelegate{
     func updateContent(searchText: String) {
         self.searchText = searchText
+        self.page = 1
+            self.isTheLast = false
+        self.asks.removeAll()
+        self.tableView.reloadData()
         getData()
     }
     

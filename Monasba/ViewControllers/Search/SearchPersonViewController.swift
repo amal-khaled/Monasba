@@ -69,6 +69,7 @@ extension SearchPersonViewController{
             users, check, msg in
             if check == 0{
                 if self.page == 1 {
+
                     self.users.removeAll()
                     self.users = users
                     
@@ -90,6 +91,11 @@ extension SearchPersonViewController{
 extension SearchPersonViewController: ContentDelegate{
     func updateContent(searchText: String) {
         self.searchText = searchText
+        self.page = 1
+            self.isTheLast = false
+        self.users.removeAll()
+        self.tableView.reloadData()
+
         getData()
     }
     
