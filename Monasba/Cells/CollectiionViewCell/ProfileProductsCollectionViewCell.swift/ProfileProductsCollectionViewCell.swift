@@ -8,6 +8,7 @@
 import UIKit
 import MOLH
 import SDWebImage
+import Kingfisher
 
 
 class ProfileProductsCollectionViewCell: UICollectionViewCell {
@@ -90,12 +91,19 @@ class ProfileProductsCollectionViewCell: UICollectionViewCell {
         
        
         
-        imageView.setImageWithLoading(url: imageLink )
         if imageLink.contains(".mp4")  || imageLink.contains(".mov") {
+
+            imageView.kf.indicatorType = .activity
+
+            guard let url = URL(string: Constants.IMAGE_URL + imageLink) else { return }
+            self.imageView.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
             videoIcone.isHidden = false
+
+            
         }else{
             videoIcone.isHidden = true
-            
+            imageView.setImageWithLoading(url: imageLink )
+
         }
         
     }

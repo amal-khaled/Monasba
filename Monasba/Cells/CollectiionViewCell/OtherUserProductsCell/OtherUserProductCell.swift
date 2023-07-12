@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class OtherUserProductCell: UICollectionViewCell {
         
@@ -21,20 +22,32 @@ class OtherUserProductCell: UICollectionViewCell {
         func configure(data:SpecialProdModel) {
             if let image = data.img , let prodImage = data.prodsImage {
                 if image != "" {
-                    if image.contains(".mp4") || image.contains(".mov"){
-                        img.setImageWithLoading(url: image)
-                        is_video.showMe()
+                    if image.contains(".mp4")  || image.contains(".mov") {
+
+                        img.kf.indicatorType = .activity
+
+                        guard let url = URL(string: Constants.IMAGE_URL + image) else { return }
+                        self.img.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+                        is_video.isHidden = false
+
+                        
                     }else{
-                        img.setImageWithLoading(url: image)
-                        is_video.hideMe()
+                        is_video.isHidden = true
+                        img.setImageWithLoading(url: image )
                     }
                 }else {
-                    if prodImage.contains(".mp4") || prodImage.contains(".mov"){
-                        img.setImageWithLoading(url: prodImage)
-                        is_video.showMe()
+                    if prodImage.contains(".mp4")  || prodImage.contains(".mov") {
+
+                        img.kf.indicatorType = .activity
+
+                        guard let url = URL(string: Constants.IMAGE_URL + prodImage) else { return }
+                        self.img.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+                        is_video.isHidden = false
+
+                        
                     }else{
-                        img.setImageWithLoading(url: prodImage)
-                        is_video.hideMe()
+                        is_video.isHidden = true
+                        img.setImageWithLoading(url: prodImage )
                     }
                 }
                 

@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Kingfisher
 
 class FavouritesCollectionViewCell: UICollectionViewCell {
     
@@ -36,20 +37,34 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
         guard  let loc = data.loc,let prodPrice = data.price , let currancy = data.countriesCurrencyAr else {return}
         if let prodpic = data.prodsImage , let image = data.img  {
             if prodpic != "" {
-                if prodpic.contains(".mp4") || prodpic.contains(".mov"){
-                    img.setImageWithLoading(url: prodpic)
-                    is_video.showMe()
+                if prodpic.contains(".mp4")  || prodpic.contains(".mov") {
+
+                    img.kf.indicatorType = .activity
+
+                    guard let url = URL(string: Constants.IMAGE_URL + prodpic) else { return }
+                    self.img.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+                    is_video.isHidden = false
+
+                    
                 }else{
-                    img.setImageWithLoading(url:prodpic)
-                    is_video.hideMe()
+                    is_video.isHidden = true
+                    img.setImageWithLoading(url: prodpic )
+         
                 }
             }else {
-                if image.contains(".mp4") || image.contains(".mov"){
-                    img.setImageWithLoading(url:image)
-                    is_video.showMe()
+                if image.contains(".mp4")  || image.contains(".mov") {
+
+                    img.kf.indicatorType = .activity
+
+                    guard let url = URL(string: Constants.IMAGE_URL + image) else { return }
+                    self.img.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+                    is_video.isHidden = false
+
+                    
                 }else{
-                    img.setImageWithLoading(url:image)
-                    is_video.hideMe()
+                    is_video.isHidden = true
+                    img.setImageWithLoading(url: image )
+         
                 }
             }
             

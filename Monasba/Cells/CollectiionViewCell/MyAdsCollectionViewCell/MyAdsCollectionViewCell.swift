@@ -7,6 +7,7 @@
 
 import UIKit
 import MOLH
+import Kingfisher
 
 protocol MyAdsCollectionViewCellDelegate: AnyObject{
     func deleteAdCell(buttonDidPressed indexPath: IndexPath)
@@ -98,12 +99,19 @@ class MyAdsCollectionViewCell: UICollectionViewCell {
         
        
         
-        adImageView.setImageWithLoading(url: imageLink )
         if imageLink.contains(".mp4")  || imageLink.contains(".mov") {
+
+            adImageView.kf.indicatorType = .activity
+
+            guard let url = URL(string: Constants.IMAGE_URL + imageLink) else { return }
+            self.adImageView.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
             isVideoImageView.isHidden = false
+
+            
         }else{
             isVideoImageView.isHidden = true
-            
+            adImageView.setImageWithLoading(url: imageLink )
+ 
         }
     }
     

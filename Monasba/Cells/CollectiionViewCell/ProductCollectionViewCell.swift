@@ -117,9 +117,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }else{
             videoIcone.isHidden = true
             imageView.setImageWithLoading(url: imageLink )
-
-            
-            
+ 
         }
         
         
