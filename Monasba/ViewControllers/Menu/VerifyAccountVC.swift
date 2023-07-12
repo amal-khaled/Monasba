@@ -60,7 +60,8 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             sellv.backgroundColor = UIColor(named: "#0EBFB1")
             StaticFunctions.setTextColor(sell_txt, UIColor.white)
             phoneNumber.delegate = self
-            phoneCode.text = "\(AppDelegate.currentUser.phone ?? "")"
+            phoneNumber.text = "\(AppDelegate.currentUser.phone ?? "")"
+            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
 //           if MOLHLanguage.currentAppleLanguage() == "en" {
 //               self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
 //            }else{
@@ -74,7 +75,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             dropDowns.forEach { $0.direction = .any }
             customizeDropDown()
             setupDropDownCats()
-//            getCountries()
+            getCountries()
             documents_name = ["ID card".localize,"passport".localize ,"Driving License".localize]
             setupDropDownDocuments()
             
