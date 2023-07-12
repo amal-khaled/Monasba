@@ -60,12 +60,12 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             sellv.backgroundColor = UIColor(named: "#0EBFB1")
             StaticFunctions.setTextColor(sell_txt, UIColor.white)
             phoneNumber.delegate = self
-            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
-           if MOLHLanguage.currentAppleLanguage() == "en" {
-               self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
-            }else{
-                self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameAr, for: .normal)
-            }
+            phoneCode.text = "\(AppDelegate.currentUser.phone ?? "")"
+//           if MOLHLanguage.currentAppleLanguage() == "en" {
+//               self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
+//            }else{
+//                self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameAr, for: .normal)
+//            }
             
             
             countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
@@ -175,35 +175,41 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         
       
         
-//        func getCountries(){
-//            guard let url = URL(string: user.newBaseUrl+"countries")else {return}
-//            AF.request(url, method: .post)
-//                .responseJSON { [weak self] (e) in
-//                    guard let self = self else {return}
-//                    BG.hide(self)
-//                    if let result = e.value {
-//                        if let dataDic = result as? NSDictionary {
-//                            if let arr = dataDic["data"] as? NSArray {
-//                                for itm in arr {
-//                                    if let d = itm as? NSDictionary {
-//                                        if let name = d.value(forKey: "name_ar") as? String {
-//                                            self.countries_name.append(name)
-//                                        }
-//                                        if let id = d.value(forKey: "id") as? Int {
-//                                            self.countries_id.append("\(id)")
-//                                        }
-//
-//                                    }
-//                                }
-//                                print(self.countries_name)
-//                            }
-//
-//                         //   self.setupCountriesDropDown()
-//                        }
-//
-//                    }
-//                }
-//        }
+        func getCountries(){
+            guard let url = URL(string: Constants.DOMAIN+"countries")else {return}
+            AF.request(url, method: .post)
+                .responseJSON { [weak self] (e) in
+                    guard let self = self else {return}
+                    if let result = e.value {
+                        if let dataDic = result as? NSDictionary {
+                            if let arr = dataDic["data"] as? NSArray {
+                                for itm in arr {
+                                    if let d = itm as? NSDictionary {
+                                        if MOLHLanguage.currentAppleLanguage() == "en"{
+                                            if let name = d.value(forKey: "name_en") as? String {
+                                                self.countries_name.append(name)
+                                            }
+                                        }else {
+                                            if let name = d.value(forKey: "name_ar") as? String {
+                                                self.countries_name.append(name)
+                                            }
+                                        }
+                                       
+                                        if let id = d.value(forKey: "id") as? Int {
+                                            self.countries_id.append("\(id)")
+                                        }
+
+                                    }
+                                }
+                                print(self.countries_name)
+                            }
+
+                         //   self.setupCountriesDropDown()
+                        }
+
+                    }
+                }
+        }
         
         //===================================     countries   ===================================
         @IBOutlet weak var countriesBtn: UIButton!

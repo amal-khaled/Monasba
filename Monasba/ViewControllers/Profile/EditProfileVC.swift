@@ -117,7 +117,7 @@ class EditProfileVC : UIViewController {
         regionId = "\(AppDelegate.currentUser.regionId ?? 0)"
         cityId = "\(AppDelegate.currentUser.cityId ?? 0)"
         txt_name.text = AppDelegate.currentUser.name
-        txt_lastName.text = AppDelegate.currentUser.lastName
+        txt_lastName.text = AppDelegate.currentUser.name
         txt_pass.text = "******"
         emailTxt.text = AppDelegate.currentUser.email
         
