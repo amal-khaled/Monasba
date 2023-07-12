@@ -204,7 +204,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                                 print(self.countries_name)
                             }
 
-                         //   self.setupCountriesDropDown()
+                            self.setupCountriesDropDown()
                         }
 
                     }

@@ -1518,7 +1518,7 @@
                                                                         <rect key="frame" x="0.0" y="28" width="384" height="50"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-vL-Zle">
-                                                                                <rect key="frame" x="44" y="0.0" width="340" height="50"/>
+                                                                                <rect key="frame" x="44" y="0.0" width="302" height="50"/>
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                 <state key="normal">
@@ -1555,10 +1555,10 @@
                                                                             <constraint firstAttribute="bottom" secondItem="8wK-vL-Zle" secondAttribute="bottom" id="GfB-xn-0mJ"/>
                                                                             <constraint firstItem="WXq-Tb-jav" firstAttribute="centerY" secondItem="TEV-Kc-X2q" secondAttribute="centerY" id="bi9-of-VpG"/>
                                                                             <constraint firstAttribute="trailing" secondItem="uhn-4Y-eTo" secondAttribute="trailing" constant="14" id="hdf-1M-dii"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="8wK-vL-Zle" secondAttribute="trailing" id="kYM-Yp-TP9"/>
                                                                             <constraint firstItem="uhn-4Y-eTo" firstAttribute="centerY" secondItem="TEV-Kc-X2q" secondAttribute="centerY" id="qB1-eY-HKL"/>
                                                                             <constraint firstAttribute="height" constant="50" id="qj3-e0-qHL"/>
                                                                             <constraint firstItem="8wK-vL-Zle" firstAttribute="leading" secondItem="WXq-Tb-jav" secondAttribute="trailing" constant="12" id="r0R-0v-Ixc"/>
+                                                                            <constraint firstItem="uhn-4Y-eTo" firstAttribute="leading" secondItem="8wK-vL-Zle" secondAttribute="trailing" constant="8" id="wT7-3y-kYD"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
