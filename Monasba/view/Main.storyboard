@@ -675,8 +675,9 @@
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-uZ-yk8">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-uZ-yk8">
                                                                                     <rect key="frame" x="159" y="5" width="30" height="30"/>
+                                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="30" id="QBn-o8-POe"/>
                                                                                         <constraint firstAttribute="height" constant="30" id="vIf-J6-gmW"/>
@@ -760,8 +761,9 @@
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="ieL-T1-eXl">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ieL-T1-eXl">
                                                                                     <rect key="frame" x="338.66666666666674" y="5" width="50" height="50"/>
+                                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="50" id="EUp-9I-rE5"/>
                                                                                         <constraint firstAttribute="width" constant="50" id="qeD-i9-cjh"/>
@@ -2226,7 +2228,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCs-24-oAO" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="25.333333333333336" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="25.333333333333336" width="50" height="20"/>
                                                             <color key="backgroundColor" red="0.2666666667" green="0.2901960784" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="mwT-Vt-EhQ"/>
@@ -2727,9 +2729,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="FCs-24-oAO">
-            <size key="intrinsicContentSize" width="20" height="13"/>
-        </designable>
+        <designable name="FCs-24-oAO"/>
         <designable name="MUI-H5-TZT">
             <size key="intrinsicContentSize" width="24" height="14"/>
         </designable>
@@ -2751,7 +2751,6 @@
         <image name="Icon ionic-ios-arrow-down" width="19.666666030883789" height="19.666666030883789"/>
         <image name="Path 75644" width="20" height="20"/>
         <image name="Path 75645" width="20" height="20"/>
-        <image name="Play" width="25" height="25"/>
         <image name="RectangleCancelImage" width="45" height="6"/>
         <image name="arrowBack" width="20.333333969116211" height="13.666666984558105"/>
         <image name="bgg3" width="828" height="604"/>
@@ -4908,6 +4907,7 @@ bztxO3NNE00YTSVNKE01TTpNQk1FTUpNUgAAAAAAAAIBAAAAAAAAAGgAAAAAAAAAAAAAAAAAAE1VA
         <image name="svgexport-6 - 2022-06-19T204537.290" width="17" height="17.333333969116211"/>
         <image name="svgexport-6 - 2022-06-20T144402.943" width="13" height="13.666666984558105"/>
         <image name="user3" width="96" height="96"/>
+        <image name="video" catalog="system" width="128" height="82"/>
         <namedColor name="#0EBFB1">
             <color red="0.054999999701976776" green="0.74900001287460327" blue="0.6940000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
