@@ -308,6 +308,7 @@ extension ProductViewController{
                 if media_type == "VIDEO"{
                     
                     if image != "" {
+                        print(image)
                         dataSource.sources.append(
                             
                             .av(AVSource(url: URL(string:image)!, autoplay: true)))
