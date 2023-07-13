@@ -103,6 +103,8 @@ extension SearchAskViewController{
                 if self.page == 1 {
 
                     self.asks.removeAll()
+                    self.tableView.reloadData()
+
                     self.asks = asks
                     
                 }else{
@@ -125,8 +127,6 @@ extension SearchAskViewController: ContentDelegate{
         self.searchText = searchText
         self.page = 1
             self.isTheLast = false
-        self.asks.removeAll()
-        self.tableView.reloadData()
         getData()
     }
     

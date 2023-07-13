@@ -510,6 +510,7 @@
 				C8A281B72A3D9FF300954090 /* FollowTableViewCell */,
 				C843137F2A2B2870008D24BD /* ChangeCounrtyTableViewCell */,
 				C85FFCBF2A260BEF000C426D /* ChatTableViewCells */,
+				C8A2BEC32A3A5F7900A05E77 /* RateOtherUserCell */,
 				65FC22142A1172D30077F1A2 /* ProductCommentTableViewCell.swift */,
 				65C7FF0329FD46DE0062BFAA /* CountryTableViewCell.swift */,
 				C8A72A492A00CA4700F9C26D /* TableViewCell.swift */,
@@ -518,7 +519,6 @@
 				65495D7B2A1DF02900A23579 /* AskTableViewCell.swift */,
 				656D773A2A1F04A6004EB289 /* NotificationTableViewCell.swift */,
 				659987FB2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift */,
-				C8A2BEC32A3A5F7900A05E77 /* RateOtherUserCell */,
 				C85A5C4F2A5FC88F0074AF4D /* FavouritesTableViewCell.swift */,
 				C85A5C502A5FC88F0074AF4D /* FavouritesTableViewCell.xib */,
 			);
@@ -1491,7 +1491,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -1502,7 +1502,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1527,7 +1528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -1538,7 +1539,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (

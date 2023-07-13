@@ -63,8 +63,9 @@ class ProductViewController: UIViewController {
         getData()
     }
     @objc func updateData(_ notification: NSNotification) {
-        comments.removeAll()
-        
+//        comments.removeAll()
+        getData()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -451,6 +452,13 @@ extension ProductViewController : UITableViewDelegate, UITableViewDataSource{
             vc.id = self.comments[indexPath.row].id ?? 0
             self.present(vc, animated: false, completion: nil)
             
+        }
+        cell.showUserProfileBtclosure = {
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+            
+            vc.OtherUserId = self.comments[indexPath.row].userId ?? 0
+            vc.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         cell.flagBtclosure = {
             let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: REPORT_COMMENT_VCID) as! ReportCommentViewController

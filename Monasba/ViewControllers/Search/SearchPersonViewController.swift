@@ -10,30 +10,30 @@ import UIKit
 class SearchPersonViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     var users = [User]()
     var page = 1
     var isTheLast = false
     var searchText = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getData()
+        //        getData()
         // Do any additional setup after loading the view.
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 extension SearchPersonViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +43,26 @@ extension SearchPersonViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FollowerTableViewCell
         cell.setData(user: users[indexPath.row])
+        cell.followBtclosure = {
+            ProfileController.shared.followUser(completion: {
+                check, msg in
+                if check == 0{
+                    
+                    if  self.users[indexPath.row].searchIsFollow == 0{
+                        
+                        self.users[indexPath.row].searchIsFollow = 1
+                        
+                    }
+                    else{
+
+                        self.users[indexPath.row].searchIsFollow = 0
+                    }
+                    self.tableView.reloadData()
+                }else{
+                    StaticFunctions.createErrorAlert(msg: msg)
+                }
+            }, OtherUserId: self.users[indexPath.row].id ?? 0)
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,11 +76,11 @@ extension SearchPersonViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row == (users.count-1) && !isTheLast{
             page+=1
             getData()
-
+            
         }
     }
     
-
+    
 }
 
 extension SearchPersonViewController{
@@ -69,8 +89,10 @@ extension SearchPersonViewController{
             users, check, msg in
             if check == 0{
                 if self.page == 1 {
-
+                    
                     self.users.removeAll()
+                    self.tableView.reloadData()
+                    
                     self.users = users
                     
                 }else{
@@ -92,10 +114,8 @@ extension SearchPersonViewController: ContentDelegate{
     func updateContent(searchText: String) {
         self.searchText = searchText
         self.page = 1
-            self.isTheLast = false
-        self.users.removeAll()
-        self.tableView.reloadData()
-
+        self.isTheLast = false
+        
         getData()
     }
     

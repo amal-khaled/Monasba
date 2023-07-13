@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -102,7 +102,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="09P-2A-HL1">
-                                                        <rect key="frame" x="10" y="59" width="373" height="70"/>
+                                                        <rect key="frame" x="10" y="101" width="373" height="70"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-e7-jeo">
                                                                 <rect key="frame" x="0.0" y="10" width="50" height="50"/>
@@ -599,12 +599,23 @@
                                                                                 </view>
                                                                             </subviews>
                                                                         </stackView>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqm-eN-ZVG">
+                                                                            <rect key="frame" x="15" y="17" width="337" height="45"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <connections>
+                                                                                <action selector="profileAction:" destination="Cam-d2-KI0" eventType="touchUpInside" id="0Md-R6-ot3"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="O6g-z3-cyJ" firstAttribute="top" secondItem="t8v-jC-hp8" secondAttribute="top" constant="17" id="4Ya-4O-psR"/>
                                                                         <constraint firstAttribute="trailing" secondItem="O6g-z3-cyJ" secondAttribute="trailing" constant="15" id="72c-vN-zp6"/>
+                                                                        <constraint firstItem="lqm-eN-ZVG" firstAttribute="trailing" secondItem="Btr-Gw-2JK" secondAttribute="trailing" id="Hv2-9D-qKC"/>
                                                                         <constraint firstItem="O6g-z3-cyJ" firstAttribute="leading" secondItem="t8v-jC-hp8" secondAttribute="leading" constant="15" id="NXL-s3-vrt"/>
+                                                                        <constraint firstItem="lqm-eN-ZVG" firstAttribute="leading" secondItem="Btr-Gw-2JK" secondAttribute="leading" id="e34-tK-Ghh"/>
+                                                                        <constraint firstItem="lqm-eN-ZVG" firstAttribute="top" secondItem="Btr-Gw-2JK" secondAttribute="top" id="fmh-Cg-gmH"/>
+                                                                        <constraint firstItem="lqm-eN-ZVG" firstAttribute="bottom" secondItem="Btr-Gw-2JK" secondAttribute="bottom" id="sdO-cR-pWD"/>
                                                                         <constraint firstAttribute="bottom" secondItem="O6g-z3-cyJ" secondAttribute="bottom" id="thh-1u-LHx"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
@@ -838,7 +849,7 @@
                                     <constraint firstItem="npX-L2-1EG" firstAttribute="trailing" secondItem="Wft-LI-yhv" secondAttribute="trailing" id="Bzl-KP-psl"/>
                                     <constraint firstItem="npX-L2-1EG" firstAttribute="bottom" secondItem="Wft-LI-yhv" secondAttribute="bottom" id="Ho2-mr-IuZ"/>
                                     <constraint firstItem="npX-L2-1EG" firstAttribute="leading" secondItem="Wft-LI-yhv" secondAttribute="leading" id="LKx-Kl-nlo"/>
-                                    <constraint firstItem="npX-L2-1EG" firstAttribute="height" secondItem="Xzn-rO-FfT" secondAttribute="height" priority="999" id="aUP-8u-Dm4"/>
+                                    <constraint firstItem="npX-L2-1EG" firstAttribute="height" secondItem="Xzn-rO-FfT" secondAttribute="height" priority="999" id="atk-KZ-sQe"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Wft-LI-yhv"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="dCY-p3-LNN"/>
@@ -1999,13 +2010,24 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omp-7x-kK5">
+                                                <rect key="frame" x="15" y="15" width="363" height="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="showUserProfile:" destination="67x-cb-sFe" eventType="touchUpInside" id="xlg-lR-Y8w"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Omp-7x-kK5" firstAttribute="trailing" secondItem="Jni-jQ-ZrD" secondAttribute="trailing" id="1Ay-c6-hlj"/>
+                                            <constraint firstItem="Omp-7x-kK5" firstAttribute="leading" secondItem="Jni-jQ-ZrD" secondAttribute="leading" id="7iM-If-J8p"/>
                                             <constraint firstItem="xkJ-Wi-6hO" firstAttribute="leading" secondItem="HmV-qs-MnO" secondAttribute="leading" constant="15" id="8r0-0V-28w"/>
                                             <constraint firstItem="xkJ-Wi-6hO" firstAttribute="top" secondItem="HmV-qs-MnO" secondAttribute="top" constant="15" id="Ndz-Wn-TMh"/>
                                             <constraint firstAttribute="trailing" secondItem="xkJ-Wi-6hO" secondAttribute="trailing" constant="15" id="fP7-5H-4ZJ"/>
                                             <constraint firstAttribute="bottom" secondItem="xkJ-Wi-6hO" secondAttribute="bottom" constant="15" id="ouj-aU-W8j"/>
+                                            <constraint firstItem="Omp-7x-kK5" firstAttribute="top" secondItem="Jni-jQ-ZrD" secondAttribute="top" id="t6l-mz-Qvf"/>
+                                            <constraint firstItem="Omp-7x-kK5" firstAttribute="bottom" secondItem="Jni-jQ-ZrD" secondAttribute="bottom" id="uYC-86-ZJx"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
@@ -2387,13 +2409,24 @@
                                                                 </view>
                                                             </subviews>
                                                         </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKL-0F-wDO">
+                                                            <rect key="frame" x="15" y="15" width="323" height="45"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <connections>
+                                                                <action selector="showUserProfile:" destination="67x-cb-sFe" eventType="touchUpInside" id="weG-GC-Xq7"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="IKL-0F-wDO" firstAttribute="trailing" secondItem="5et-ql-DGR" secondAttribute="trailing" id="7dT-Fa-G5f"/>
                                                         <constraint firstItem="IkR-8E-aTT" firstAttribute="top" secondItem="gqI-q3-Ijr" secondAttribute="top" constant="15" id="AHH-MG-KRv"/>
+                                                        <constraint firstItem="IKL-0F-wDO" firstAttribute="top" secondItem="5et-ql-DGR" secondAttribute="top" id="GiU-cw-IrH"/>
                                                         <constraint firstAttribute="bottom" secondItem="IkR-8E-aTT" secondAttribute="bottom" constant="10" id="HEb-wT-fiL"/>
                                                         <constraint firstAttribute="trailing" secondItem="IkR-8E-aTT" secondAttribute="trailing" constant="15" id="VH7-PQ-m8T"/>
                                                         <constraint firstItem="IkR-8E-aTT" firstAttribute="leading" secondItem="gqI-q3-Ijr" secondAttribute="leading" constant="15" id="XN1-Gq-bUT"/>
+                                                        <constraint firstItem="IKL-0F-wDO" firstAttribute="leading" secondItem="5et-ql-DGR" secondAttribute="leading" id="Zvg-eN-lp3"/>
+                                                        <constraint firstItem="IKL-0F-wDO" firstAttribute="bottom" secondItem="5et-ql-DGR" secondAttribute="bottom" id="tnf-gJ-AZk"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2546,7 +2579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0T-cZ-SIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792" y="782"/>
+            <point key="canvasLocation" x="792" y="927"/>
         </scene>
         <!--Report Reply View Controller-->
         <scene sceneID="D25-nw-KFs">
