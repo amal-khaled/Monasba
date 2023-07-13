@@ -131,7 +131,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var selectedImages = [UIImage]()
     var selectedVideos = [Data]()
     var selectedMedia = [String:Data]()
-    
+    var selectedMediaKeys = [String]()
     //MARK: App LifeCycle
     
     override func viewDidLoad() {
@@ -177,8 +177,9 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     private func setDataFromSession(){
-        guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia else {return}
+        guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia ,let selectedMediaKeys = retrieveSessionData().selectedMediaKeys else {return}
         self.selectedMedia = selectedMedia
+        self.selectedMediaKeys = selectedMediaKeys
         advsTitleTF.text = title
         newPhoneTF.text = AppDelegate.currentUser.phone ?? ""
         cityId = retrieveSessionData().CityId ?? 0
@@ -204,11 +205,13 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage],videos:[Data],selectedMedia:[String:Data] ) {
        // self.dismiss(animated: false)
        // self.Images.append(contentsOf: images)
+        print(selectedMedia)
+         selectedMediaKeys = selectedMedia.keys.sorted()
         self.selectedImages = images
         self.selectedVideos = videos
         self.selectedMedia = selectedMedia
         print("Images Count ", images.count)
-        print(selectedVideos)
+        print("selectedVideos =======>",selectedVideos)
         print("Videos Count " , selectedVideos.count)
         print("selectedMedia ------->",selectedMedia)
         if images.count > 0 {
@@ -244,7 +247,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia)
+        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia,selectedMediaKeys: selectedMediaKeys)
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
         self.navigationController?.popViewController(animated: true)
 //        }
@@ -842,6 +845,8 @@ extension AddAdvsVC {
 extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
     func didRemoveCell(indexPath: IndexPath) {
         self.selectedImages.remove(at: indexPath.item)
+        self.selectedMedia.removeValue(forKey: selectedMediaKeys[indexPath.item])
+        self.selectedMediaKeys.remove(at:indexPath.item)
         collectionView.reloadData()
     }
     
@@ -852,7 +857,7 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
 
 extension AddAdvsVC {
     // Function to save session data
-    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data]) {
+    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data] , selectedMediaKeys:[String]?) {
         var sessionData: [String: Any] = [:]
         var imagesData = [Data]()
         for image in images {
@@ -869,12 +874,13 @@ extension AddAdvsVC {
         sessionData["CityId"] = CityId
         sessionData["RegionId"] = RegionId
         sessionData["selectedMedia"] = selectedMedia
+        sessionData["selectedMediaKeys"] = selectedMediaKeys
 
         UserDefaults.standard.set(sessionData, forKey: "postSessionData")
     }
 
     // Function to retrieve session data
-    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?) {
+    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?, selectedMediaKeys:[String]?) {
         if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
             let images = sessionData["images"] as? [Data]
             let videos = sessionData["videos"] as? [Data]
@@ -886,9 +892,10 @@ extension AddAdvsVC {
             let cityId = sessionData["CityId"] as? Int
             let regionId = sessionData["RegionId"] as? Int
             let selectedMedia = sessionData["selectedMedia"] as? [String:Data]
-            return (images, videos, description, title, price, catId, subCatId, cityId, regionId, selectedMedia)
+            let selectedMediaKeys = sessionData["selectedMediaKeys"] as? [String]
+            return (images, videos, description, title, price, catId, subCatId, cityId, regionId, selectedMedia,selectedMediaKeys)
         }
-        return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil)
+        return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil,nil)
     }
 
 
