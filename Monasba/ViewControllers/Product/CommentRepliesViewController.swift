@@ -44,6 +44,12 @@ class CommentRepliesViewController: UIViewController {
         self.present(vc, animated: false, completion: nil)
         
     }
+    @IBAction func showUserProfile(_ sender: Any) {
+        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+        vc.OtherUserId = self.data.comment?.userId ?? 0
+        vc.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -108,6 +114,14 @@ extension CommentRepliesViewController: UITableViewDelegate, UITableViewDataSour
             vc.id = self.data.replies?[indexPath.row].id ?? 0
             self.present(vc, animated: false, completion: nil)
             
+        }
+        cell.showUserProfileBtclosure = {
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
+            vc.OtherUserId = self.data.replies?[indexPath.row].uid ?? 0
+            print( self.data.replies?[indexPath.row].uid)
+
+            vc.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         cell.likeBtclosure  = {
             ProductController.shared.likeReply(completion: {

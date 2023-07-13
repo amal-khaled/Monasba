@@ -15,6 +15,9 @@ class FollowerTableViewCell: UITableViewCell {
     @IBOutlet weak var verifiesImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var followIcon: UIImageView!
+    var followBtclosure : (() -> Void)? = nil
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -52,7 +55,18 @@ class FollowerTableViewCell: UITableViewCell {
             followBtn.isHidden = false
         }
         
-        if let isFollow = user.isFollow {
+        if let isFollow = user.searchIsFollow {
+            print(isFollow)
+            if isFollow == 1{
+                followBtn.setTitleColor(UIColor(named: "#9AA6AE"), for: .normal)
+                followBtn.setTitle("Cancel following".localize, for: .normal)
+                followIcon.isHidden = true
+            }else{
+                followBtn.setTitleColor(UIColor(named: "#0EBFB1"), for: .normal)
+                followBtn.setTitle("Follow".localize, for: .normal)
+                followIcon.isHidden = false
+            }
+        }else if let isFollow = user.isFollow {
             print(isFollow)
             if isFollow == 1{
                 followBtn.setTitleColor(UIColor(named: "#9AA6AE"), for: .normal)
@@ -68,5 +82,8 @@ class FollowerTableViewCell: UITableViewCell {
         
        
     }
-
+    @IBAction func followAction(_ sender: Any) {
+        followBtclosure!()
+    }
+    
 }

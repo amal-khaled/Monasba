@@ -79,6 +79,7 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                     guard let index = self.images.firstIndex(of: newImage!) else {return}
                     self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
                     print(self.images.count)
+                    print("selectedVideos =======>" , self.selectedMedia)
                 }
                 DispatchQueue.main.async {
                     self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)

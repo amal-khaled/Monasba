@@ -26,8 +26,10 @@ class ProductCommentTableViewCell: UITableViewCell {
     var replyBtclosure : (() -> Void)? = nil
     var flagBtclosure : (() -> Void)? = nil
     var likeBtclosure : (() -> Void)? = nil
+    var lBtclosure : (() -> Void)? = nil
 
-   
+    var showUserProfileBtclosure : (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -79,6 +81,10 @@ class ProductCommentTableViewCell: UITableViewCell {
     @IBAction func replyBtnAction(_ sender: Any) {
         replyBtclosure!()
 
+    }
+    @IBAction func profileAction(_ sender: Any) {
+        showUserProfileBtclosure!()
+        
     }
 }
 extension Date {

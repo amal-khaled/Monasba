@@ -85,6 +85,8 @@ extension SearchAdsViewController{
                 if self.page == 1 {
 
                     self.ads.removeAll()
+                    self.collectionView.reloadData()
+
                     self.ads = ads
                     
                 }else{
@@ -107,8 +109,6 @@ extension SearchAdsViewController: ContentDelegate{
         self.searchText = searchText
         self.page = 1
         self.isTheLast = false
-        self.ads.removeAll()
-        self.collectionView.reloadData()
 
         getData()
     }

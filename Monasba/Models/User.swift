@@ -93,7 +93,7 @@ struct User: Codable {
     var countriesNameAr, countriesNameEn, citiesNameAr, citiesNameEn: String?
     var regionsNameAr, regionsNameEn: String?
     var numberOfProds, following, followers, userRate: Int?
-    var isFollow, activeNotification: Int?
+    var searchIsFollow, isFollow, activeNotification: Int?
     var toke: String?
     var codeVerify:Int?
     enum CodingKeys: String, CodingKey {
@@ -123,7 +123,9 @@ struct User: Codable {
         case following = "Following"
         case followers = "Followers"
         case userRate = "UserRate"
+        case searchIsFollow = "follow"
         case isFollow = "is_follow"
+
         case activeNotification = "active_notification"
     }
 }
