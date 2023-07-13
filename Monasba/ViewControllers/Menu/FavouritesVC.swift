@@ -9,11 +9,12 @@ import Foundation
 
 import UIKit
 import Alamofire
+import MOLH
 
 class FavouritesVC: UIViewController {
     var data = [FavProdData]()
     
-    @IBOutlet weak var lst: UICollectionView!
+    @IBOutlet weak var FavouritesTableView: UITableView!
     
     @IBOutlet weak var emptyView: UIView!
     override func viewDidLoad() {
@@ -27,15 +28,15 @@ class FavouritesVC: UIViewController {
             customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
         // Set your desired background color
             view.addSubview(customNavBar)
-        lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        lst.register(UINib(nibName: "FavouritesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FavouritesCollectionViewCell")
+//        lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        FavouritesTableView.register(UINib(nibName: "FavouritesTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouritesTableViewCell")
 //        if let layout = lst.collectionViewLayout as? UICollectionViewFlowLayout {
 //                layout.scrollDirection = .vertical
 //            }
         //lst.configure(top:15, bottom:100, left: 15, right: 15,hspace:15,scroll: .vertical)
-        lst.delegate = self
-        lst.dataSource = self
-        
+        FavouritesTableView.delegate = self
+        FavouritesTableView.dataSource = self
+        FavouritesTableView.semanticContentAttribute = .forceLeftToRight
         get()
 
         
@@ -58,7 +59,7 @@ class FavouritesVC: UIViewController {
     }
     func clear_all(){
         data.removeAll()
-        lst.reloadData()
+        FavouritesTableView.reloadData()
     }
     
     
@@ -76,7 +77,7 @@ class FavouritesVC: UIViewController {
                     self.data = favProd
                     print(data)
                     DispatchQueue.main.async {
-                        self.lst.reloadData()
+                        self.FavouritesTableView.reloadData()
                         if favProd.count != 0 {
                             self.emptyView.isHidden = true
                         }else{
@@ -93,21 +94,39 @@ class FavouritesVC: UIViewController {
    
     
 }
-extension FavouritesVC:UICollectionViewDelegate,UICollectionViewDataSource {
+extension FavouritesVC:UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-       return data.count
-   }
-   
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       let inx = indexPath.row
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouritesCollectionViewCell", for: indexPath) as? FavouritesCollectionViewCell else{return UICollectionViewCell()}
-       cell.configure(data: data[inx])
-//        cell.titleText.text = "dsdsdsdsdddsdsddd"
-       cell.removeFromFavButton.tag = inx
-       cell.removeFromFavButton.addTarget(self, action: #selector(removeFromFavs), for: .touchUpInside)
-       return cell
-   }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let inx = indexPath.row
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as? FavouritesTableViewCell else{return UITableViewCell()}
+        if MOLHLanguage.currentAppleLanguage() == "ar" {
+            cell.ContainerView.semanticContentAttribute = .forceLeftToRight
+            cell.lbl_uname.textAlignment = .left
+        }
+     //   cell.ContainerView.semanticContentAttribute = .forceLeftToRight
+        cell.configure(data: data[inx])
+        cell.removeFromFavButton.tag = inx
+        cell.removeFromFavButton.addTarget(self, action: #selector(removeFromFavs), for: .touchUpInside)
+        return cell
+    }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+//
+//   }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//       let inx = indexPath.row
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouritesCollectionViewCell", for: indexPath) as? FavouritesCollectionViewCell else{return UICollectionViewCell()}
+//       cell.configure(data: data[inx])
+////        cell.titleText.text = "dsdsdsdsdddsdsddd"
+//       cell.removeFromFavButton.tag = inx
+//       cell.removeFromFavButton.addTarget(self, action: #selector(removeFromFavs), for: .touchUpInside)
+//       return cell
+//   }
    
    @objc func removeFromFavs(_ sender:UIButton){
        print(sender.tag)
@@ -133,23 +152,36 @@ extension FavouritesVC:UICollectionViewDelegate,UICollectionViewDataSource {
        }
    }
    
-   func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-       return CGSize(width: lst.frame.width , height: 120)
-   }
-   
-   
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let inx = indexPath.row
-       guard let prodId = data[inx].id else {return}
-//        order.product_id = "\(prodId)"
-         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
-         vc.modalPresentationStyle = .fullScreen
-         vc.product.id = prodId
-         self.navigationController?.pushViewController(vc, animated: true)
-//        goNav("prodv","Prods")
-   }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let inx = indexPath.row
+               guard let prodId = data[inx].id else {return}
+        //        order.product_id = "\(prodId)"
+                 let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+                 vc.modalPresentationStyle = .fullScreen
+                 vc.product.id = prodId
+                 self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+//   func collectionView(_ collectionView: UICollectionView,
+//                       layout collectionViewLayout: UICollectionViewLayout,
+//                       sizeForItemAt indexPath: IndexPath) -> CGSize {
+//       return CGSize(width: lst.frame.width , height: 120)
+//   }
+//
+//
+//     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//       let inx = indexPath.row
+//       guard let prodId = data[inx].id else {return}
+////        order.product_id = "\(prodId)"
+//         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: PRODUCT_VCID) as! ProductViewController
+//         vc.modalPresentationStyle = .fullScreen
+//         vc.product.id = prodId
+//         self.navigationController?.pushViewController(vc, animated: true)
+////        goNav("prodv","Prods")
+//   }
 }
 extension FavouritesVC:UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

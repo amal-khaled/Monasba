@@ -40,7 +40,7 @@ struct FavProdData: Codable {
     let img: String?
     let mainCatName, subCatName, prodsImage, mtype: String?
     let userName, userLastName, userPic: String?
-//    let userVerified: Int?
+    let userVerified: Int?
     let countriesNameAr, countriesNameEn, countriesCurrencyAr, countriesCurrencyEn: String?
     let citiesNameAr, citiesNameEn, regionsNameAr, regionsNameEn: String?
     let comments, fav: Int?
@@ -77,7 +77,7 @@ struct FavProdData: Codable {
         case userName = "user_name"
         case userLastName = "user_last_name"
         case userPic = "user_pic"
-//        case userVerified = "user_verified"
+        case userVerified = "user_verified"
         case countriesNameAr = "countries_name_ar"
         case countriesNameEn = "countries_name_en"
         case countriesCurrencyAr = "countries_currency_ar"
