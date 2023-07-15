@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Medium.ttf">
             <string>Tajawal-Medium</string>
         </array>
-        <array key="bold.ttf">
+        <array key="Tajawal-Bold.ttf">
             <string>Tajawal-Bold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MsgMapCell" rowHeight="362" id="vKV-ST-8oF" customClass="MsgMapCell" customModule="مناسبة" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MsgMapCell" rowHeight="362" id="vKV-ST-8oF" customClass="MsgMapCell" customModule="Monasba" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="335" height="362"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vKV-ST-8oF" id="ooT-2X-L8q">
@@ -35,9 +35,9 @@
                         <rect key="frame" x="85" y="0.0" width="250" height="352"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="15c-e0-ylA">
-                                <rect key="frame" x="12" y="261" width="226" height="28.5"/>
+                                <rect key="frame" x="12" y="261" width="226" height="31"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfN-XF-7Wd" customClass="EdgeInsetLabel" customModule="مناسبة" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfN-XF-7Wd" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="226" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15"/>
@@ -49,8 +49,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I6-mM-js6" customClass="EdgeInsetLabel" customModule="مناسبة" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="15" width="226" height="13.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I6-mM-js6" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="15" width="226" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="13.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -124,13 +124,14 @@
                 <outlet property="img_map" destination="qEa-vL-Nqj" id="zrk-MB-ITJ"/>
                 <outlet property="lbl_loc_main" destination="XfN-XF-7Wd" id="cAw-Uc-0v0"/>
                 <outlet property="lbl_loc_sub" destination="8I6-mM-js6" id="P9W-PA-agL"/>
+                <outlet property="viewContainer" destination="hFG-Ef-M2a" id="eEO-Q5-aWV"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="57.589285714285708"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="8I6-mM-js6">
-            <size key="intrinsicContentSize" width="94" height="13.5"/>
+            <size key="intrinsicContentSize" width="71" height="16"/>
         </designable>
         <designable name="XfN-XF-7Wd">
             <size key="intrinsicContentSize" width="108.5" height="15"/>

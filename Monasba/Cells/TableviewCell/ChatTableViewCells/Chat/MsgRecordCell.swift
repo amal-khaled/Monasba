@@ -27,6 +27,12 @@ class MsgRecordCell: MsgGlobalCell {
     }
     
     override func configure(data:Result) {
+        if data.rid == AppDelegate.currentUser.id {
+            container.backgroundColor = .gray
+        }else {
+            container.backgroundColor =  UIColor(named: "#0EBFB1")
+        }
+        
         if let url =  data.image {
             playAudioFromURL("\(Constants.IMAGE_URL)\(url)")
         }

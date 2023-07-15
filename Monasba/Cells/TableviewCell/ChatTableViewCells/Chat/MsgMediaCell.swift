@@ -20,6 +20,12 @@ class MsgMediaCell: MsgGlobalCell {
     }
     
     override func configure(data:Result) {
+        if data.rid == AppDelegate.currentUser.id {
+            container.backgroundColor = .gray
+        }else {
+            container.backgroundColor =  UIColor(named: "#0EBFB1")
+        }
+        
         if let image = data.image {
             img.setImageWithLoading(url: image)
         }

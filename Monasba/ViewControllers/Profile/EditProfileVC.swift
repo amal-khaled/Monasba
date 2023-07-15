@@ -288,13 +288,13 @@ class EditProfileVC : UIViewController {
     
     @IBAction func go(_ sender: Any) {
 //        BG.load(self)
-        
+        self.view.alpha = 0.5
         guard let image = upic.image else {return}
        let imageData = image.jpegData(compressionQuality: 0.2)!
         guard let url = URL(string: Constants.DOMAIN+"user_edit"),let email = emailTxt.text , let bio = bio.text else {return}
         var params : [String: Any]  = [
             "id":AppDelegate.currentUser.id ?? 0,
-                                       "name":txt_name.text!,
+                                       "name":txt_lastName.text!,
                                        "username":userNameEN.text!,
                                        "last_name": txt_lastName.text!,
             "mobile": phoneNumber.text ?? "0",
@@ -322,12 +322,15 @@ class EditProfileVC : UIViewController {
             case .success(let data):
                 print(data)
                 if let data = data.data{
+                    self.view.alpha = 1
                     self.fileData(data: data)
                 }
                 self.navigationController?.popViewController(animated: true)
 //                 self.showMiracle()
             case .failure(let error):
+                self.view.alpha = 1
                 print(error)
+                
             }
         }
     }
@@ -362,31 +365,9 @@ class EditProfileVC : UIViewController {
         if let bio = data.bio {
             AppDelegate.currentUser.bio = bio
         }
-        self.dismissDetail()
     }
-    
-    
-    
-//    @objc func showMiracle() {
-//        let slideVC = OverlayView()
-//        slideVC.imageName = "DoneImage"
-//        slideVC.isForgetPassword = true
-//        slideVC.onDoneBlock = { result in
-//            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-//               self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-//        }
-//        slideVC.text = "تم تعديل ملفك الشخصي بنجاح"
-//        slideVC.modalPresentationStyle = .custom
-//        slideVC.transitioningDelegate = self
-//        self.present(slideVC, animated: true, completion: nil)
-//    }
-    
+
 }
-//extension EditProfileVC: UIViewControllerTransitioningDelegate {
-//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-//        PresentationController2(presentedViewController: presented, presenting: presenting)
-//    }
-//}
 //MARK: DropDwon
 
 extension EditProfileVC {

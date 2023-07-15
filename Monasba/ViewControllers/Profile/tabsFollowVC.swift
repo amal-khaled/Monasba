@@ -15,7 +15,7 @@ class tabsFollowVC: UIViewController {
     var tabs = [tab]()
     var viewPager:ViewPagerController!
     var options:ViewPagerOptions!
-    var cids = ["followings","followers"]
+    var cids = ["followers","followings"]
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,9 @@ class tabsFollowVC: UIViewController {
     }
     
     func initTabs(){
-        tabs.append(tab(i: "Followings".localize))
         tabs.append(tab(i: "Followers".localize))
+        tabs.append(tab(i: "Followings".localize))
+        
         
         self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
         
