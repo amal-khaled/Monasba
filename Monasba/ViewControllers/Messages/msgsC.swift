@@ -200,7 +200,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
         chk_select_all.secondaryCheckmarkTintColor = UIColor.white
         chk_select_all.tintColor = UIColor(named: "#0EBFB1")
         chk_select_all.stateChangeAnimation = .bounce(.fill)
-        get()
+//        get()
     }
     
 
