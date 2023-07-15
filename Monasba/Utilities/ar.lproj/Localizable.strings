@@ -126,6 +126,12 @@
 "Go to Home Page" = "اذهب إلى الصفحة الرئيسية";
 "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price." = "الرجاء إدخال الوصف الكامل مع المزايا والعيوب وسعر الشراء والبيع.";
 "The ad title should not exceed five words" = "عنوان الاعلان يجب الا يزيد عن خمس كلمات";
+
+"Post at least one photo for the ad." = "ضع صورة واحدة على الأقل للإعلان";
+"Please select the main Image for your ad" = "الرجاء تحديد الصورة الرئيسية لإعلانك";
+"Enter the title of the ad" = "أدخل عنوان الإعلان";
+"Enter the sale or rental price of the product" = "أدخل سعر البيع أو الإيجار للمنتج";
+"Put your contact phone number" = "ضع رقم هاتف جهة الاتصال الخاصة بك";
 //MARK: Edit Ads
 "Ad Details" = "تفاصيل الإعلان";
 "Ad Images" = "صور الإعلان";

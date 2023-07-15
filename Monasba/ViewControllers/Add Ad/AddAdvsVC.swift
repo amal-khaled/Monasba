@@ -129,9 +129,12 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var params = [String:Any]()
     
     var selectedImages = [UIImage]()
-    var selectedVideos = [Data]()
+    var images = [String:UIImage]()
+    var mediaKeys = [String]()
     var selectedMedia = [String:Data]()
     var selectedMediaKeys = [String]()
+    var mainImageKey:String = ""
+    var selectedIndexPath: IndexPath?
     //MARK: App LifeCycle
     
     override func viewDidLoad() {
@@ -141,7 +144,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getCitis()
         getMainCats()
         //setupCitiesDropDown()
-        setDataFromSession()
+        getDataFromSession()
         configureUI()
         
         advsTitleTF.delegate = self
@@ -176,7 +179,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         }
     }
     
-    private func setDataFromSession(){
+    private func getDataFromSession(){
         guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia ,let selectedMediaKeys = retrieveSessionData().selectedMediaKeys else {return}
         self.selectedMedia = selectedMedia
         self.selectedMediaKeys = selectedMediaKeys
@@ -189,30 +192,57 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         priceTF.text = retrieveSessionData().price
         descTextView.text = retrieveSessionData().description
         
+//        if let imageDatas = retrieveSessionData().images {
+////            selectedImages = imageDatas.compactMap { UIImage(data: $0.value) }
+////            guard let mediaKeys = retrieveSessionData().mediaKeys else {return}
+////            images = Dictionary(uniqueKeysWithValues: zip(images.keys, UIImage(data:imageDatas.values)))
+//            DispatchQueue.main.async {
+//                self.addMorePhotoButton.isHidden = false
+//                self.moreImageViewContainer.isHidden = false
+//                self.collectionView.isHidden = false
+//                self.firstImageViewContainer.isHidden = true
+//                self.collectionView.reloadData()
+//            }
+//
+//            }
+        
+        
         if let imageDatas = retrieveSessionData().images {
-            selectedImages = imageDatas.compactMap { UIImage(data: $0) }
-            DispatchQueue.main.async {
-                self.addMorePhotoButton.isHidden = false
-                self.moreImageViewContainer.isHidden = false
-                self.collectionView.isHidden = false
-                self.firstImageViewContainer.isHidden = true
-                self.collectionView.reloadData()
-            }
+            images = [:] // Clear the existing images dictionary
+            selectedImages = imageDatas.compactMap { UIImage(data: $0.value) }
+            
+            for (key, imageData) in imageDatas {
+                if let image = UIImage(data: imageData) {
+                    images[key] = image
+                }
                 
+                DispatchQueue.main.async {
+                    self.addMorePhotoButton.isHidden = false
+                    self.moreImageViewContainer.isHidden = false
+                    self.collectionView.isHidden = false
+                    self.firstImageViewContainer.isHidden = true
+                    self.collectionView.reloadData()
+                }
+             
             }
+            
+        }
+       
     }
     
-    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage],videos:[Data],selectedMedia:[String:Data] ) {
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [String:UIImage],mediaKeys:[String],selectedMedia:[String:Data] ) {
        // self.dismiss(animated: false)
        // self.Images.append(contentsOf: images)
         print(selectedMedia)
          selectedMediaKeys = selectedMedia.keys.sorted()
-        self.selectedImages = images
-        self.selectedVideos = videos
+        self.images = images
+        self.selectedImages = Array(images.values)
+        self.mediaKeys = mediaKeys
         self.selectedMedia = selectedMedia
+//        selectFirstCell()
         print("Images Count ", images.count)
-        print("selectedVideos =======>",selectedVideos)
-        print("Videos Count " , selectedVideos.count)
+        print("mediaKeys =======>",mediaKeys)
+        print("Videos Count " , mediaKeys.count)
         print("selectedMedia ------->",selectedMedia)
         if images.count > 0 {
             firstImageViewContainer.isHidden = true
@@ -244,13 +274,14 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         }
     }
     
+    
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        saveSessionData(images: selectedImages, videos: selectedVideos, description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia,selectedMediaKeys: selectedMediaKeys)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+        saveSessionData(images: images, mediaKeys: Array(images.keys), description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia,selectedMediaKeys: selectedMediaKeys)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
         self.navigationController?.popViewController(animated: true)
-//        }
+        }
         
     }
     
@@ -259,8 +290,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         if selectedImages.count < 6 {
             let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier:  PICKUP_MEDIA_POPUP_VCID) as! PickupMediaPopupVC
             vc.delegate = self
-            vc.images = selectedImages
-            vc.videos = selectedVideos
+            vc.images = images
+            vc.mediaKeys = mediaKeys
             vc.selectedMedia = selectedMedia
             present(vc, animated: false)
         }else{
@@ -389,13 +420,15 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                           "tajeer_or_sell":"\(tajeer)"
         ]
         if  selectedImages.count <= 0{
-            StaticFunctions.createErrorAlert(msg: "Post at least one photo for the ad.")
-        } else if isTextEmpty(advsTitleTF) {
-            StaticFunctions.createErrorAlert(msg: "Enter the title of the ad")
+            StaticFunctions.createErrorAlert(msg: "Post at least one photo for the ad.".localize)
+        }else if mainImageKey == "" {
+            StaticFunctions.createErrorAlert(msg: "Please select the main Image for your ad".localize)
+        }else if isTextEmpty(advsTitleTF) {
+            StaticFunctions.createErrorAlert(msg: "Enter the title of the ad".localize)
         } else if isTextEmpty(priceTF) {
-            StaticFunctions.createErrorAlert(msg: "Enter the sale or rental price of the product")
+            StaticFunctions.createErrorAlert(msg: "Enter the sale or rental price of the product".localize)
         } else if isTextEmpty(newPhoneTF) && hasNewPhone {
-            StaticFunctions.createErrorAlert(msg: "Put your contact phone number")
+            StaticFunctions.createErrorAlert(msg: "Put your contact phone number".localize)
         }
         else {
             createAds()
@@ -430,7 +463,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         AF.upload(multipartFormData: { [self] multipartFormData in
             for (key,value) in selectedMedia {
                 if key.contains("IMAGE"){
-                    if key.contains("0"){
+                    
+                    if key == mainImageKey {
                         type = key.components(separatedBy: " ")[0]
                         index = key.components(separatedBy: " ")[1]
                         image = value
@@ -447,7 +481,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                     type = key.components(separatedBy: " ")[0]
                     index = key.components(separatedBy: " ")[1]
                     image = value
-                    if key.contains("0") {
+                    if key == mainImageKey {
                         //MainVideo
                         multipartFormData.append(image, withName: "main_image",fileName: "video\(index).mp4", mimeType: "video/mp4")
                     }else{
@@ -501,6 +535,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         }
         
     }
+    
     }
     
 
@@ -513,12 +548,20 @@ extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdvsImagesCollectionViewCell", for: indexPath) as? AdvsImagesCollectionViewCell else {return UICollectionViewCell()}
+//        mainImageKey = Array(selectedMedia.keys)[selectedIndexPath.item]
         cell.indexPath = indexPath
         cell.delegate = self
-        cell.configureCell(images: selectedImages)
+        cell.configureCell(images:  Array(images.values), selectedIndex: selectedIndexPath)
+        
+        print(mainImageKey)
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        mainImageKey = Array(images.keys)[indexPath.row]
+        
+    }
     
 }
 
@@ -788,11 +831,14 @@ extension AddAdvsVC {
         cityDropDwon.bottomOffset = CGPoint(x: 0, y: cityButton.bounds.height)
         cityDropDwon.dataSource = cityList
 //        cityButton.setTitle(cityList[0], for: .normal)
-            if let region = cityIDsList.firstIndex(of: cityId) {
-                cityButton.setTitle(cityList[region], for: .normal)
+        if cityList.count > 0 && cityIDsList.count > 0{
+            if let cityID = cityIDsList.firstIndex(of: cityId) {
+                cityButton.setTitle(cityList[cityID], for: .normal)
             }else {
                 cityButton.setTitle(cityList[0], for: .normal)
             }
+        }
+            
         cityDropDwon.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else {return}
             self.cityId = self.cityIDsList[index]
@@ -821,7 +867,7 @@ extension AddAdvsVC {
 //        }
         
         print(regionId)
-        if regionsList.count > 0 && regionsList.count > 0 {
+        if regionsList.count > 0 && regionsIDsList.count > 0 {
             if let region = regionsIDsList.firstIndex(of: regionId) {
               regionButton.setTitle(regionsList[region], for: .normal)
           }else {
@@ -843,10 +889,22 @@ extension AddAdvsVC {
 //MARK: AdvsImagesCollectionViewCellDelegate
 
 extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
+    func didSelectCell(indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        mainImageKey = Array(images.keys)[indexPath.item]
+        collectionView.reloadData()
+    }
+    
     func didRemoveCell(indexPath: IndexPath) {
         self.selectedImages.remove(at: indexPath.item)
-        self.selectedMedia.removeValue(forKey: selectedMediaKeys[indexPath.item])
-        self.selectedMediaKeys.remove(at:indexPath.item)
+        if let removedKey = Array(images.keys)[safe: indexPath.item] {
+            self.images.removeValue(forKey: removedKey)
+            self.selectedMedia.removeValue(forKey: removedKey)
+        }
+//        if let removedKey = selectedMediaKeys[safe: indexPath.item] {
+//            self.selectedMedia.removeValue(forKey: removedKey)
+//            self.selectedMediaKeys.remove(at: indexPath.item)
+//        }
         collectionView.reloadData()
     }
     
@@ -857,15 +915,18 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
 
 extension AddAdvsVC {
     // Function to save session data
-    func saveSessionData(images: [UIImage],videos:[Data], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data] , selectedMediaKeys:[String]?) {
+    func saveSessionData(images: [String:UIImage],mediaKeys:[String], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data] , selectedMediaKeys:[String]?) {
         var sessionData: [String: Any] = [:]
-        var imagesData = [Data]()
-        for image in images {
-            imagesData.append(image.jpegData(compressionQuality: 0.01)!)
-        }
+        var imagesData: [String: Data] = [:] // Cache to store images as Data
+                
+                for (key, image) in images {
+                    if let imageData = image.jpegData(compressionQuality: 0.01) {
+                        imagesData[key] = imageData
+                    }
+                }
         
         sessionData["images"] = imagesData
-        sessionData["videos"] = videos
+        sessionData["mediaKeys"] = mediaKeys
         sessionData["description"] = description
         sessionData["title"] = title
         sessionData["price"] = price
@@ -880,10 +941,10 @@ extension AddAdvsVC {
     }
 
     // Function to retrieve session data
-    func retrieveSessionData() -> (images: [Data]?, videos: [Data]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?, selectedMediaKeys:[String]?) {
+    func retrieveSessionData() -> (images: [String:Data]?, mediaKeys: [String]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?, selectedMediaKeys:[String]?) {
         if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
-            let images = sessionData["images"] as? [Data]
-            let videos = sessionData["videos"] as? [Data]
+            let images = sessionData["images"] as? [String:Data]
+            let mediaKeys = sessionData["mediaKeys"] as? [String]
             let description = sessionData["description"] as? String
             let title = sessionData["title"] as? String
             let price = sessionData["price"] as? String
@@ -893,7 +954,7 @@ extension AddAdvsVC {
             let regionId = sessionData["RegionId"] as? Int
             let selectedMedia = sessionData["selectedMedia"] as? [String:Data]
             let selectedMediaKeys = sessionData["selectedMediaKeys"] as? [String]
-            return (images, videos, description, title, price, catId, subCatId, cityId, regionId, selectedMedia,selectedMediaKeys)
+            return (images, mediaKeys, description, title, price, catId, subCatId, cityId, regionId, selectedMedia,selectedMediaKeys)
         }
         return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil,nil)
     }
@@ -921,5 +982,10 @@ extension AddAdvsVC : UITextFieldDelegate {
             return count < 5
         }
         return false
+    }
+}
+extension Array {
+    subscript(safe index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

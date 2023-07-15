@@ -9,6 +9,7 @@ import UIKit
 
 protocol AdvsImagesCollectionViewCellDelegate:AnyObject{
     func didRemoveCell(indexPath:IndexPath)
+    func didSelectCell(indexPath: IndexPath)
 }
 
 class AdvsImagesCollectionViewCell: UICollectionViewCell {
@@ -25,16 +26,36 @@ class AdvsImagesCollectionViewCell: UICollectionViewCell {
     override class func awakeFromNib() {
     }
     
-    func configureCell(images:[UIImage]){
-        guard let indexPath = indexPath else {return}
-        
-        imageView.image = images[indexPath.row]
-        if indexPath.row == 0 {
-            mainImageFlag.isHidden = false
-        }else {
-            mainImageFlag.isHidden = true
+    var isSelectedCell: Bool = false {
+            didSet {
+                mainImageFlag.isHidden = !isSelectedCell
+            }
         }
+
+        override var isSelected: Bool {
+            didSet {
+                if isSelected {
+                    guard let delegate = delegate, let indexPath = indexPath else { return }
+     delegate.didSelectCell(indexPath: indexPath)
+                }
+            }
+        }
+
+    
+    func configureCell(images: [UIImage], selectedIndex: IndexPath?) {
+            guard let indexPath = indexPath else { return }
+
+            mainImageFlag.isHidden = true
+            imageView.image = images[indexPath.row]
+
+            if indexPath == selectedIndex {
+                isSelectedCell = true
+            } else {
+                isSelectedCell = false
+            }
+        
     }
+    
     
     @IBAction func didTapRemoveCellButton(_ sender: UIButton) {
         
