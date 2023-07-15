@@ -10,6 +10,7 @@ import UIKit
 
 class MsgMapCell: MsgGlobalCell {
 
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var lbl_loc_main: UILabel!
     @IBOutlet weak var lbl_loc_sub: UILabel!
     @IBOutlet weak var img_map: UIImageView!
@@ -22,6 +23,11 @@ class MsgMapCell: MsgGlobalCell {
     }
     
     override func configure(data:Result) {
+        if data.rid == AppDelegate.currentUser.id {
+            viewContainer.backgroundColor = .gray
+        }else {
+            viewContainer.backgroundColor =  UIColor(named: "#0EBFB1")
+        }
         if let locData = data.msg?.components(separatedBy: "%%"){
             lbl_loc_main.text = locData[2].formatAddress["main"]
             lbl_loc_sub.text = locData[2].formatAddress["sub"]

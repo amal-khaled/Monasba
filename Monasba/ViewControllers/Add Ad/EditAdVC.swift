@@ -565,6 +565,10 @@ extension EditAdVC : UICollectionViewDelegate,UICollectionViewDataSource ,UIColl
 }
 
 extension EditAdVC: AdvsImagesCollectionViewCellDelegate {
+    func didSelectCell(indexPath: IndexPath) {
+        //code
+    }
+    
     func didRemoveCell(indexPath: IndexPath) {        self.imagesDeleted.append(self.productsImages[indexPath.item].id ?? 0)
         productsImages.remove(at: indexPath.item)
         self.dataSource.remove(at: indexPath.item)

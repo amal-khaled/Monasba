@@ -621,7 +621,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         let msgType = data[inx].mtype
         guard let msgContent = data[inx].image , let msg = data[inx].msg  else{return}
         if msgType == "VIDEO" {
-            play_video(url: "\(Constants.DOMAIN)\(msgContent)")
+            play_video(url: "\(Constants.IMAGE_URL)\(msgContent)")
         }else if msgType == "IMAGE" {
             let zoomCtrl = VKImageZoom()
             zoomCtrl.image_url = URL.init(string: "\(Constants.IMAGE_URL)\(msgContent)")

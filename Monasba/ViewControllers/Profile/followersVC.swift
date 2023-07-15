@@ -35,8 +35,8 @@ class followersVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
-        tabBarController?.tabBar.isHidden = false
+//        navigationController?.navigationBar.isHidden = false
+//        tabBarController?.tabBar.isHidden = false
     }
     
     func clear_all(){
@@ -124,20 +124,6 @@ extension followersVC : UITableViewDelegate , UITableViewDataSource {
        print(params)
        AF.request(url, method: .post, parameters: params,headers: Constants.headerProd).responseDecodable(of:SuccessModel.self){res in
            print(res.result)
-           //           switch res.result {
-           //
-           //           case .success(let data):
-           //               print(data)
-           //               if let message = data.message {
-           //                   if message.contains("Added Successfully".localize){
-           //                       StaticFunctions.createSuccessAlert(msg: message)
-           //                       self.get()
-           //                   }
-           //               }
-           //           case .failure(let error):
-           //               StaticFunctions.createErrorAlert(msg: "Error Data Type")
-           //               print(error)
-           //           }
            switch res.result {
            case .success(let data):
                if let message = data.message {
@@ -152,29 +138,23 @@ extension followersVC : UITableViewDelegate , UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let inx = indexPath.row
-        guard let id = data[inx].toID else {return}
+        
+        
          let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-         vc.userId = "\(id)"
+        if Constants.followIndex == 0 {
+            guard let id = data[inx].toID else {return}
+            print(id)
+            vc.OtherUserId = id
+        }else {
+            guard let id = data[inx].userID else {return}
+            print(id)
+            vc.OtherUserId = id
+        }
+         
          navigationController?.pushViewController(vc, animated: true)
  //        user.other_id = "\(id)"
  //        goNav("otherProfilev","Profile")
     }
     }
     
-//   func collectionView(_ collectionView: UICollectionView,
-//                       layout collectionViewLayout: UICollectionViewLayout,
-//                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-//       return CGSize(width: lst.frame.width - 20, height: 80)
-//   }
-//
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//       let inx = indexPath.row
-//       guard let id = data[inx].toID else {return}
-//        let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-//        vc.userId = "\(id)"
-//        navigationController?.pushViewController(vc, animated: true)
-////        user.other_id = "\(id)"
-////        goNav("otherProfilev","Profile")
-//   }
 

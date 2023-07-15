@@ -97,6 +97,7 @@ class ProfileController {
             
             do {
                 let ProfileModel = try JSONDecoder().decode(ProfileModel.self, from: data)
+                print(ProfileModel)
                 completion(ProfileModel.data,ProfileModel.message ?? "")
                 
             } catch (let jerrorr){

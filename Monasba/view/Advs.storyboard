@@ -181,13 +181,13 @@
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-rt-gSa">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="20"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
                                                                                             <color key="backgroundColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="20" id="AgF-Hg-f7l"/>
-                                                                                                <constraint firstAttribute="width" constant="60" id="Scq-jB-1uY"/>
+                                                                                                <constraint firstAttribute="width" constant="75" id="Scq-jB-1uY"/>
                                                                                             </constraints>
-                                                                                            <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="9"/>
+                                                                                            <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="11"/>
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                             <userDefinedRuntimeAttributes>
@@ -930,10 +930,8 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
-                                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50B-gz-JJb">
-                                                                        <rect key="frame" x="0.0" y="23.666666666666739" width="298" height="40.666666666666657"/>
-                                                                        <string key="text">Determine the means by which customers will contact you for this advertisement
-</string>
+                                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Determine the means by which customers will contact you for this advertisement" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50B-gz-JJb">
+                                                                        <rect key="frame" x="0.0" y="23.666666666666742" width="298" height="27.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="11.600000381469727"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -3460,7 +3458,7 @@
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-b4-UUX">
-                                                                                                        <rect key="frame" x="89.333333333333371" y="0.0" width="270.66666666666663" height="15"/>
+                                                                                                        <rect key="frame" x="89.333333333333314" y="0.0" width="270.66666666666663" height="15"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لن تتم مشاركة موقع الخريطة مع المستخدمين" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-4i-Ngn">
                                                                                                                 <rect key="frame" x="0.0" y="2" width="247.66666666666666" height="13"/>

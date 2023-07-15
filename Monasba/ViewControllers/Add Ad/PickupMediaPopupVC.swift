@@ -10,15 +10,16 @@ import PhotosUI
 import MobileCoreServices
 
 protocol PickupMediaPopupVCDelegate: AnyObject {
-    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [UIImage] , videos:[Data] , selectedMedia:[String:Data])
+    func PickupMediaPopupVC(_ controller: PickupMediaPopupVC, didSelectImages images: [String:UIImage] , mediaKeys:[String] , selectedMedia:[String:Data])
 }
 
 class PickupMediaPopupVC: UIViewController {
  
     weak var delegate: PickupMediaPopupVCDelegate?
-    var images = [UIImage]()
-    var videos = [Data]()
+    var images = [String:UIImage]()
+    var mediaKeys = [String]()
     var selectedMedia = [String:Data]()
+    var imagesIndex = [String]()
     
     //MARK: App LifeCycle
     override func viewDidLoad() {
@@ -65,8 +66,8 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
        
         // empty the images Array
-        images = []
-        selectedMedia = [:]
+//        images = []
+//        selectedMedia = [:]
         print(results)
         for (_,result) in results.enumerated() {
             result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
@@ -74,15 +75,16 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                     print( "Fooo ",image)
                     let data = image.jpegData(compressionQuality: 0.01)
                     let newImage = UIImage(data: data!)
-                    self.images.append(newImage! as UIImage)
-//                    self.images.append(image)
-                    guard let index = self.images.firstIndex(of: newImage!) else {return}
-                    self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
-                    print(self.images.count)
-                    print("selectedVideos =======>" , self.selectedMedia)
+                    let index = UUID().uuidString
+                    print(index)
+                    self.images["IMAGE \(index)"] = newImage! as UIImage
+//                    let index = self.images.count - 1
+                    self.selectedMedia["IMAGE \(index)"] = data
+//                    guard let index = self.images.firstIndex(of: newImage!) else {return}
+//                    self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
                 }
                 DispatchQueue.main.async {
-                    self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
+                    self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,mediaKeys: self.mediaKeys,selectedMedia: self.selectedMedia)
                     self.dismiss(animated: false)
                 }
             }
@@ -104,6 +106,7 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
             
             
             do {
+                let index = UUID().uuidString
                 picker.videoQuality = .typeMedium
                 let data = try Data(contentsOf: mediaURL, options: .mappedIfSafe)
                 print(mediaURL)
@@ -129,10 +132,11 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                             compressedVideo = try Data(contentsOf: exportSession!.outputURL!)
                             print(compressedVideo)
                             guard let compressedVideo = compressedVideo else{return}
-                            self.videos.append(compressedVideo)
-                            
-                            guard let index = self.videos.firstIndex(of: compressedVideo) else {return}
+                             
                             self.selectedMedia.updateValue(compressedVideo, forKey: "VIDEO \(index)")
+                            self.imagesIndex.append("VIDEO \(index)")
+                            self.mediaKeys.append("VIDEO \(index)")
+
                             
                         } catch let error {
                             print ("Error converting compressed file to Data", error)
@@ -147,7 +151,9 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                 let videoThumbnil = self.generateThumbnail(path: mediaURL)
                 guard let videoThumbnil = videoThumbnil else{return}
                 // pass video as image to images[]
-                self.images.append(videoThumbnil as UIImage)
+//                self.images.append(videoThumbnil as UIImage)
+                self.images["VIDEO \(index)"] = videoThumbnil
+                
            
             } catch let error {
                 print(error)
@@ -156,12 +162,19 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
             
                } else if let capturedImage = info[.originalImage] as? UIImage {
                    print("Captured image: \(capturedImage)")
-                   self.images.append(capturedImage as UIImage)
+//                   self.images.append(capturedImage as UIImage)
+                   let index = UUID().uuidString
+                   self.images["IMAGE \(index)"] = capturedImage
+                   
+                   
                    guard let imageData = capturedImage.jpegData(compressionQuality: 0.01) else {
                        print("Error converting image to data")
                        return}
-                   guard let index = self.images.firstIndex(of: capturedImage) else {return}
+//                   guard let index = self.images.firstIndex(of: capturedImage) else {return}
+                   
+                   self.mediaKeys.append("IMAGE \(index)")
                    self.selectedMedia.updateValue(imageData, forKey: "IMAGE \(index)")
+                   self.imagesIndex.append("IMAGE \(index)")
 //                   DispatchQueue.main.async {
 //                       self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
 //                                       self.dismiss(animated: false)
@@ -172,7 +185,8 @@ extension PickupMediaPopupVC : PHPickerViewControllerDelegate , UIImagePickerCon
                 guard let self = self else { return }
                 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,videos: self.videos,selectedMedia: self.selectedMedia)
+                print(self.imagesIndex)
+                self.delegate?.PickupMediaPopupVC(self, didSelectImages: self.images,mediaKeys: self.mediaKeys,selectedMedia: self.selectedMedia)
                 self.dismiss(animated: false)
             }
         }
@@ -192,7 +206,7 @@ extension PickupMediaPopupVC {
     //MARK: Methods
     private func openGallery(){
         var config = PHPickerConfiguration()
-        config.selectionLimit = 6
+        config.selectionLimit = 6 - selectedMedia.count
         if #available(iOS 15.0, *) {
             config.selection = .ordered
         } else {

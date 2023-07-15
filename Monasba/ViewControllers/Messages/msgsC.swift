@@ -200,7 +200,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
         chk_select_all.secondaryCheckmarkTintColor = UIColor.white
         chk_select_all.tintColor = UIColor(named: "#0EBFB1")
         chk_select_all.stateChangeAnimation = .bounce(.fill)
-        get()
+//        get()
     }
     
 
@@ -226,6 +226,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        get()
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
         if !StaticFunctions.isLogin(){
@@ -325,7 +326,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
             cell.count.text = "\(count)"
         }
         
-        if let date = roomsData[inx].date {
+         if let date = roomsData[inx].messages?.date {
             cell.since.text = diffDates(GetDateFromString(date)).replace("-", "")
         }
         
@@ -373,9 +374,9 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
             Constants.room_id = "\(roomId)"
         }
          if roomsData[inx].user?.count != 0 {
-             if let receiverName = roomsData[inx].user?[0].name , let userName = roomsData[inx].user?[0].username{
+             if let receiverName = roomsData[inx].user?[0].name{
                  receiver.name = receiverName
-                 Constants.otherUserName = userName
+                 Constants.otherUserName = receiverName
              }
              if let receiverId = roomsData[inx].user2{
                  receiver.id = "\(receiverId)"
