@@ -327,7 +327,7 @@ extension ProductViewController{
         
         imageSlider.dataSource = dataSource
         imageSlider.reloadData()
-        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
+//        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
 
         self.nameBtn.text = product.name
         if let createDate = product.createdAt{
