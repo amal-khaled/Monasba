@@ -2272,6 +2272,81 @@
             </objects>
             <point key="canvasLocation" x="10190.76923076923" y="-1632.2274881516587"/>
         </scene>
+        <!--Followers / Followings-->
+        <scene sceneID="OWH-qb-4ff">
+            <objects>
+                <viewController storyboardIdentifier="FollowersAndFollowingsVC" id="z8h-O1-2Xm" customClass="FollowersAndFollowingsVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hbO-kD-f4O">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MC5-r0-TDc">
+                                <rect key="frame" x="0.0" y="91" width="390" height="50"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ba2-Sm-9Ne">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Kq-DJ-6CD">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="#9AA6AE"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="z8h-O1-2Xm" id="oti-8P-onw"/>
+                                            <outlet property="delegate" destination="z8h-O1-2Xm" id="Yvx-C6-ItE"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ba2-Sm-9Ne" secondAttribute="trailing" id="OCZ-di-4hJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="ReT-bd-ddN"/>
+                                    <constraint firstItem="Ba2-Sm-9Ne" firstAttribute="leading" secondItem="MC5-r0-TDc" secondAttribute="leading" id="SHe-Mn-C56"/>
+                                    <constraint firstItem="Ba2-Sm-9Ne" firstAttribute="top" secondItem="MC5-r0-TDc" secondAttribute="top" id="mzJ-CN-OSz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ba2-Sm-9Ne" secondAttribute="bottom" id="rss-PM-8AV"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pgl-tU-yff">
+                                <rect key="frame" x="0.0" y="161" width="390" height="649"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="z8h-O1-2Xm" id="Fwf-wk-BAa"/>
+                                    <outlet property="delegate" destination="z8h-O1-2Xm" id="Pjj-1a-L4i"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ND8-eS-xFD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ND8-eS-xFD" firstAttribute="bottom" secondItem="Pgl-tU-yff" secondAttribute="bottom" id="JVQ-2S-Zav"/>
+                            <constraint firstItem="ND8-eS-xFD" firstAttribute="trailing" secondItem="Pgl-tU-yff" secondAttribute="trailing" id="ScP-Y2-SOp"/>
+                            <constraint firstItem="MC5-r0-TDc" firstAttribute="leading" secondItem="ND8-eS-xFD" secondAttribute="leading" id="are-eS-fU3"/>
+                            <constraint firstItem="Pgl-tU-yff" firstAttribute="leading" secondItem="ND8-eS-xFD" secondAttribute="leading" id="fEJ-iV-Plt"/>
+                            <constraint firstItem="MC5-r0-TDc" firstAttribute="top" secondItem="ND8-eS-xFD" secondAttribute="top" id="ltv-Sy-HGv"/>
+                            <constraint firstItem="Pgl-tU-yff" firstAttribute="top" secondItem="MC5-r0-TDc" secondAttribute="bottom" constant="20" id="mpQ-WD-Xgo"/>
+                            <constraint firstItem="MC5-r0-TDc" firstAttribute="trailing" secondItem="ND8-eS-xFD" secondAttribute="trailing" id="rrC-8e-bbp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Followers / Followings" id="D3l-h3-bwk"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ba2-Sm-9Ne" id="0l7-l9-4gh"/>
+                        <outlet property="tableView" destination="Pgl-tU-yff" id="TxY-0r-g2D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D55-MD-0in" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11389.23076923077" y="-928.43601895734594"/>
+        </scene>
         <!--FollowersVC-->
         <scene sceneID="T8C-2S-nCr">
             <objects>
@@ -3445,7 +3520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uW0-Un-V5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11706.153846153846" y="-1523.4597156398104"/>
+            <point key="canvasLocation" x="12635.384615384615" y="-1523.4597156398104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="axs-rx-cjE">
@@ -3867,6 +3942,24 @@
             </objects>
             <point key="canvasLocation" x="8511" y="-914"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qPp-pC-ba4">
+            <objects>
+                <navigationController storyboardIdentifier="followersNav" automaticallyAdjustsScrollViewInsets="NO" id="OiI-cj-dDy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UQz-kw-70u">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z8h-O1-2Xm" kind="relationship" relationship="rootViewController" id="9fK-r8-U7C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAL-xK-bCB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10460" y="-928.43601895734594"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="bcl-dR-OEc">
@@ -3907,6 +4000,9 @@
         </namedColor>
         <namedColor name="#929292">
             <color red="0.57300001382827759" green="0.57300001382827759" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#9AA6AE">
+            <color red="0.60399997234344482" green="0.65100002288818359" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="#9C9C9C">
             <color red="0.6119999885559082" green="0.6119999885559082" blue="0.6119999885559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

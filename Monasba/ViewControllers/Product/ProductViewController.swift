@@ -86,6 +86,7 @@ class ProductViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
 //    override func viewDidDisappear(_ animated: Bool) {
 //        super.viewDidDisappear(animated)
 //        self.navigationController?.navigationBar.isHidden = false
