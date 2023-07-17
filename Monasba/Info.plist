@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>يريد التطبيق الوصول للصور لوضع صورة للاعلان او للملف الشخصي </string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك</string>
+	<key>NSCameraUsageDescription</key>
+	<string>يريد التطبيق الوصول للكاميرا لوضع صورة للاعلان او للملف الشخصي </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>

@@ -13,6 +13,7 @@ class SearchAdsViewController: UIViewController {
     var page = 1
     var isTheLast = false
     var searchText = ""
+    @IBOutlet weak var textStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        getData()
@@ -105,11 +106,12 @@ extension SearchAdsViewController{
     }
 }
 extension SearchAdsViewController: ContentDelegate{
-    func updateContent(searchText: String) {
+    func updateContent(searchText: String, isHidden: Bool) {
         self.searchText = searchText
         self.page = 1
         self.isTheLast = false
-
+        textStackView.isHidden = isHidden
+        self.collectionView.isHidden = isHidden
         getData()
     }
     

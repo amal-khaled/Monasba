@@ -75,7 +75,8 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             dropDowns.forEach { $0.direction = .any }
             customizeDropDown()
             setupDropDownCats()
-            getCountries()
+//            getCountries()
+            getCountriesList()
             documents_name = ["ID card".localize,"passport".localize ,"Driving License".localize]
             setupDropDownDocuments()
             
@@ -92,6 +93,24 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
         
+    }
+    
+    private func getCountriesList(){
+        CountryController.shared.getCountries { countries,check, message in
+            
+            if check == 0 {
+                if MOLHLanguage.currentAppleLanguage() == "en"{
+                    self.countries_name = countries.compactMap(\.nameEn)
+                }else {
+                    self.countries_name = countries.compactMap(\.nameAr)
+                }
+                self.countriesCode = countries.compactMap(\.code)
+                self.countries_id = countries.compactMap(\.id)
+                self.setupCountriesDropDown()
+            }else {
+               print(message)
+            }
+        }
     }
         
         //===================================     cats   ===================================
@@ -197,12 +216,17 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                                         }
                                        
                                         if let id = d.value(forKey: "id") as? Int {
-                                            self.countries_id.append("\(id)")
+                                            self.countries_id.append(id)
                                         }
+                                        if let code = d.value(forKey: "code") as? Int {
+                                            self.countriesCode.append("\(code)")
+                                        }
+                                        
 
                                     }
                                 }
                                 print(self.countries_name)
+                                print(self.countriesCode)
                             }
 
                             self.setupCountriesDropDown()
@@ -215,10 +239,12 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         //===================================     countries   ===================================
         @IBOutlet weak var countriesBtn: UIButton!
         
-        var country_id:String = ""
+        var country_id:Int = 0
         var country_name:String = ""
         var countries_name = [String]()
-        var countries_id = [String]()
+        var countries_id = [Int]()
+        var countriesCode = [String]()
+        var countryCode:String = ""
             
         let countries = DropDown()
         
@@ -227,10 +253,17 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             countries.textColor = .black
             countries.bottomOffset = CGPoint(x: 0, y: countriesBtn.bounds.height)
             countries.dataSource = countries_name
-            countriesBtn.setTitle(countries_name[countries_id.firstIndex(of: "\(AppDelegate.currentUser.countryId ?? 0)")!], for: .normal)
+            if countries_name.count > 0 {
+                countriesBtn.setTitle(countries_name[countries_id.firstIndex(of: (AppDelegate.currentUser.countryId ?? 0))!], for: .normal)
+            }else {
+                countriesBtn.setTitle("Country".localize, for: .normal)
+            }
+            
             countries.selectionAction = { [unowned self] (index: Int, item: String) in
                 self.country_id = self.countries_id[index]
                 self.country_name = self.countries_name[index]
+                self.countryCode = self.countriesCode[index]
+                phoneCode.text =  self.countryCode
                 print(self.country_id)
                 self.countriesBtn.setTitle(self.country_name, for: .normal)
             }

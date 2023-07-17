@@ -15,12 +15,14 @@ class SearchAskViewController: UIViewController {
     var page = 1
     var isTheLast = false
     var searchText = ""
+    @IBOutlet weak var textStackView: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        getData()
         // Do any additional setup after loading the view.
     }
+    
     
     
 
@@ -123,10 +125,13 @@ extension SearchAskViewController{
     }
 }
 extension SearchAskViewController: ContentDelegate{
-    func updateContent(searchText: String) {
+    func updateContent(searchText: String, isHidden: Bool) {
         self.searchText = searchText
         self.page = 1
             self.isTheLast = false
+        textStackView.isHidden = isHidden
+        self.tableView.isHidden = isHidden
+
         getData()
     }
     

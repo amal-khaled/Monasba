@@ -153,6 +153,9 @@ class Constants {
     static let ASK_REPLY_REPORT_URL = DOMAIN + "questions_reports"
     static let ASK_LIKE_REPLY_URL = DOMAIN + "like_on_questions"
     
+    //FOLLOWERS & FOLLOWINGS
+    static let FOLLOWERS_URL = DOMAIN + "followers"
+    static let FOLLOWINGS_URL = DOMAIN + "following"
     
     //Chat
     static let CREATE_CHAT_ROOM = DOMAIN + "create_room"

@@ -83,7 +83,7 @@
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="jn9-0L-2Eh"/>
                                         </connections>
                                     </searchBar>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wF1-rm-Tmy">
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wF1-rm-Tmy">
                                         <rect key="frame" x="0.0" y="50" width="363" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j1b-cL-HQv">
@@ -155,7 +155,7 @@
                                         </constraints>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imJ-Qs-CD7">
-                                        <rect key="frame" x="0.0" y="108" width="363" height="558"/>
+                                        <rect key="frame" x="0.0" y="50" width="363" height="616"/>
                                         <connections>
                                             <segue destination="Aja-NS-IHo" kind="embed" identifier="ads" id="ftb-OE-4FJ"/>
                                         </connections>
@@ -255,6 +255,7 @@
                         <outlet property="questionView" destination="H8z-ms-M0h" id="np0-Xw-NEn"/>
                         <outlet property="questionsView" destination="Nm8-AV-Eb3" id="1WU-Kr-Hxo"/>
                         <outlet property="searchBar" destination="ESs-fy-mgF" id="v7t-my-DJV"/>
+                        <outlet property="topTabsBar" destination="wF1-rm-Tmy" id="yQp-FZ-5TH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,11 +286,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UXd-Ic-qKw">
                                 <rect key="frame" x="16" y="59" width="331" height="465"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-Li-tmp">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="38"/>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-Li-tmp">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="8"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most popular ads" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-aV-RPP">
-                                                <rect key="frame" x="0.0" y="0.0" width="331" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="331" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                 <color key="textColor" red="0.26274509800000001" green="0.2901960784" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -298,7 +299,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads relevant to your search result" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrA-yu-EbZ">
-                                                <rect key="frame" x="0.0" y="20" width="331" height="13"/>
+                                                <rect key="frame" x="0.0" y="3" width="331" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
@@ -307,7 +308,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84v-WI-zpb">
-                                                <rect key="frame" x="0.0" y="36" width="331" height="2"/>
+                                                <rect key="frame" x="0.0" y="6" width="331" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="wHB-m7-qZx"/>
@@ -316,7 +317,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pQ-Be5">
-                                        <rect key="frame" x="0.0" y="38" width="331" height="427"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="465"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wzm-RX-kOj">
                                             <size key="itemSize" width="331" height="191"/>
@@ -594,6 +595,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ed4-pQ-Be5" id="kNV-Ww-PXm"/>
+                        <outlet property="textStackView" destination="bJd-Li-tmp" id="B3e-gP-D9N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOi-4W-IJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -604,7 +606,7 @@
         <scene sceneID="lJ6-ul-EL3">
             <objects>
                 <viewController id="36G-qn-hC4" customClass="SearchPersonViewController" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="XSB-Tw-4A2">
+                    <view key="view" contentMode="scaleToFill" id="XSB-Tw-4A2">
                         <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -820,6 +822,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2h9-JN-PMW" id="Mwn-Fe-zKc"/>
+                        <outlet property="textStackView" destination="ydn-FC-0in" id="7B6-Tj-ZwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNy-Wc-oDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1228,6 +1231,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="htP-H7-Z1A" id="TLx-Lk-E2g"/>
+                        <outlet property="textStackView" destination="UEi-UN-faU" id="sfj-It-xdP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxs-is-Wq1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

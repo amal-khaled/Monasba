@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MsgMediaCell: MsgGlobalCell {
     @IBOutlet weak var img: UIImageView!
@@ -27,14 +28,22 @@ class MsgMediaCell: MsgGlobalCell {
         }
         
         if let image = data.image {
-            img.setImageWithLoading(url: image)
+            
+            if data.mtype == "VIDEO"{
+                
+                img.kf.indicatorType = .activity
+                
+                guard let url = URL(string: Constants.IMAGE_URL + image) else { return }
+                self.img.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+                
+                videov.hideMe()
+                img_video.showMe()
+            }else{
+                img.setImageWithLoading(url: image)
+                videov.hideMe()
+                img_video.hideMe()
+            }
         }
-        if data.mtype == "VIDEO"{
-            videov.showMe()
-            img_video.showMe()
-        }else{
-            videov.hideMe()
-            img_video.hideMe()
-        }
+        
     }
 }

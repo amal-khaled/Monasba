@@ -18,7 +18,7 @@ class FollowTVCell: UITableViewCell {
         @IBOutlet weak var followIcon: UIImageView!
         
         
-        func configureFollow(data:FollowersSuccessData) {
+    func configureFollow(data:FollowersSuccessData , indexPath:IndexPath) {
             if let verified = data.userVerified , let toID = data.toID  {
                 
                 if let pic = data.userPic {
@@ -39,24 +39,34 @@ class FollowTVCell: UITableViewCell {
                 }else{
                     img_verified.isHidden = true
                 }
+                print(data.isFollow)
                 if let isFollow = data.isFollow {
                     if isFollow == 1{
                         btn_follow.setTitleColor(UIColor(hexString: "#9AA6AE"), for: .normal)
-                        btn_follow.setTitle(("unfollow".localize), for: .normal)
+                        btn_follow.setTitle("unfollow".localize, for: .normal)
                         followIcon.isHidden = true
                     }else{
                         
                         btn_follow.setTitleColor(UIColor(hexString: "#0EBFB1"), for: .normal)
-                        btn_follow.setTitle(("follow".localize), for: .normal)
+                        btn_follow.setTitle("Follow".localize, for: .normal)
                         followIcon.isHidden = false
                     }
                 }
                 
-                if toID == AppDelegate.currentUser.id{
-                    btn_follow.isHidden = true
-                }else{
-                    btn_follow.isHidden = false
+                if indexPath.item == 0 {
+                    if toID == AppDelegate.currentUser.id{
+                        btn_follow.isHidden = true
+                    }else{
+                        btn_follow.isHidden = false
+                    }
+                }else {
+                    if data.userID == AppDelegate.currentUser.id{
+                        btn_follow.isHidden = true
+                    }else{
+                        btn_follow.isHidden = false
+                    }
                 }
+                
             }
             
         }

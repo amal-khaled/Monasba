@@ -86,6 +86,7 @@ class ProductViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
 //    override func viewDidDisappear(_ animated: Bool) {
 //        super.viewDidDisappear(animated)
 //        self.navigationController?.navigationBar.isHidden = false
@@ -326,7 +327,7 @@ extension ProductViewController{
         
         imageSlider.dataSource = dataSource
         imageSlider.reloadData()
-        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
+//        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
 
         self.nameBtn.text = product.name
         if let createDate = product.createdAt{

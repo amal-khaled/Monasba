@@ -102,7 +102,7 @@ extension followersVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inx = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTVCell", for: indexPath) as! FollowTVCell
-            cell.configureFollow(data: data[inx])
+            cell.configureFollow(data: data[inx],indexPath: indexPath)
             cell.btn_follow.tag = inx
             cell.btn_follow.addTarget(self, action: #selector(go_follow), for: .touchUpInside)
         return cell

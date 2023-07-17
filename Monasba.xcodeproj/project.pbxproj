@@ -190,6 +190,10 @@
 		C8AD40E92A2B0EBF00E464DB /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD40E82A2B0EBF00E464DB /* AboutVC.swift */; };
 		C8AD40EB2A2B110F00E464DB /* CondsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD40EA2A2B110F00E464DB /* CondsVC.swift */; };
 		C8AD40EE2A2B177500E464DB /* MainTabBarVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD40ED2A2B177500E464DB /* MainTabBarVCViewController.swift */; };
+		C8C714FC2A646805006C5AFE /* FollowersAndFollowingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C714FB2A646805006C5AFE /* FollowersAndFollowingsVC.swift */; };
+		C8C715002A646981006C5AFE /* FollowAndFollowersTapsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C714FE2A646981006C5AFE /* FollowAndFollowersTapsCell.swift */; };
+		C8C715012A646981006C5AFE /* FollowAndFollowersTapsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C714FF2A646981006C5AFE /* FollowAndFollowersTapsCell.xib */; };
+		C8C715032A647887006C5AFE /* FollowersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C715022A647887006C5AFE /* FollowersController.swift */; };
 		C8CC468B2A3874B800C90476 /* ProfileProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85FFCAF2A260AAE000C426D /* ProfileProductsCollectionViewCell.xib */; };
 		C8CC468E2A387F4500C90476 /* RoundedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC468D2A387F4500C90476 /* RoundedNavigationBar.swift */; };
 		C8CC46912A3918C900C90476 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC46902A3918C900C90476 /* Loading.swift */; };
@@ -398,6 +402,10 @@
 		C8AD40E82A2B0EBF00E464DB /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		C8AD40EA2A2B110F00E464DB /* CondsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondsVC.swift; sourceTree = "<group>"; };
 		C8AD40ED2A2B177500E464DB /* MainTabBarVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCViewController.swift; sourceTree = "<group>"; };
+		C8C714FB2A646805006C5AFE /* FollowersAndFollowingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersAndFollowingsVC.swift; sourceTree = "<group>"; };
+		C8C714FE2A646981006C5AFE /* FollowAndFollowersTapsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAndFollowersTapsCell.swift; sourceTree = "<group>"; };
+		C8C714FF2A646981006C5AFE /* FollowAndFollowersTapsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowAndFollowersTapsCell.xib; sourceTree = "<group>"; };
+		C8C715022A647887006C5AFE /* FollowersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersController.swift; sourceTree = "<group>"; };
 		C8CC468D2A387F4500C90476 /* RoundedNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedNavigationBar.swift; sourceTree = "<group>"; };
 		C8CC46902A3918C900C90476 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		C8CC46922A39190500C90476 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -530,6 +538,7 @@
 		658DE51529F82AFA0015D549 /* CollectiionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C8C714FD2A64694C006C5AFE /* Followers&followings */,
 				C8191F9A2A4076250057AA28 /* FavouritesCell */,
 				C8A2BED52A3B5F7F00A05E77 /* FollowersCell */,
 				C8A2BEB62A3A558200A05E77 /* OtherUserProductsCell */,
@@ -591,6 +600,7 @@
 				65B5505A2A1C863F002D2264 /* SearchController.swift */,
 				65FFFA152A1E972600B70368 /* NotificationsController.swift */,
 				65784C682A27147B0099A293 /* ChatController.swift */,
+				C8C715022A647887006C5AFE /* FollowersController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -933,6 +943,7 @@
 				C8A2BED32A3B56C000A05E77 /* tabsFollowVC.swift */,
 				C89286BB2A3DB41500FB0A8A /* EditProfileVC.swift */,
 				C83FBD7F2A553B3F0009CA73 /* AddRateForUsersVC.swift */,
+				C8C714FB2A646805006C5AFE /* FollowersAndFollowingsVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -962,6 +973,15 @@
 				C8AD40ED2A2B177500E464DB /* MainTabBarVCViewController.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		C8C714FD2A64694C006C5AFE /* Followers&followings */ = {
+			isa = PBXGroup;
+			children = (
+				C8C714FE2A646981006C5AFE /* FollowAndFollowersTapsCell.swift */,
+				C8C714FF2A646981006C5AFE /* FollowAndFollowersTapsCell.xib */,
+			);
+			path = "Followers&followings";
 			sourceTree = "<group>";
 		};
 		C8CC468C2A387EC800C90476 /* CustomViews */ = {
@@ -1069,6 +1089,7 @@
 			files = (
 				C85FFCD42A260BEF000C426D /* MsgMapCell.xib in Resources */,
 				C8A281BB2A3DA01E00954090 /* FollowTVCell.xib in Resources */,
+				C8C715012A646981006C5AFE /* FollowAndFollowersTapsCell.xib in Resources */,
 				C85FFCD22A260BEF000C426D /* MsgMediaCell.xib in Resources */,
 				65FFFA142A1E933800B70368 /* GoogleService-Info.plist in Resources */,
 				65F746E62A03CBBE00E1C79E /* Category.storyboard in Resources */,
@@ -1178,8 +1199,10 @@
 				C8A72A3B2A00B45600F9C26D /* SuccessAddingVC.swift in Sources */,
 				C85FFCE52A260D21000C426D /* ChatModel.swift in Sources */,
 				C8AD40E22A28F4F800E464DB /* SettingVC.swift in Sources */,
+				C8C715002A646981006C5AFE /* FollowAndFollowersTapsCell.swift in Sources */,
 				65E54A3C2A029CEB00FEC9A3 /* CategoryViewController.swift in Sources */,
 				C8A547E02A59513A00031FE9 /* FBShimmeringView.m in Sources */,
+				C8C715032A647887006C5AFE /* FollowersController.swift in Sources */,
 				C8A2BED02A3B559400A05E77 /* followersVC.swift in Sources */,
 				C83FBD802A553B3F0009CA73 /* AddRateForUsersVC.swift in Sources */,
 				C85A5C542A6143610074AF4D /* UploadMediaModel.swift in Sources */,
@@ -1210,6 +1233,7 @@
 				65FC22112A1172A80077F1A2 /* CommentViewController.swift in Sources */,
 				C85FFCBC2A260AAE000C426D /* roomCell.swift in Sources */,
 				658DE52529F921E90015D549 /* APIConnection.swift in Sources */,
+				C8C714FC2A646805006C5AFE /* FollowersAndFollowingsVC.swift in Sources */,
 				C85FFCE22A260BEF000C426D /* MsgGlobalCell.swift in Sources */,
 				65F33D072A22295500A1A889 /* AskImagePickerViewController.swift in Sources */,
 				C8A547D72A594BF100031FE9 /* ProductsShimmerView.swift in Sources */,
