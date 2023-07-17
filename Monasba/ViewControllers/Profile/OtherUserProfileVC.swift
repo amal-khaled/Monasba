@@ -193,17 +193,29 @@
         }
         
         @IBAction func FollowersBtnAction(_ sender: UIButton) {
-            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
-            Constants.followIndex = 1
-            Constants.followOtherUserId = OtherUserId
+//            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+//            Constants.followIndex = 1
+//            Constants.followOtherUserId = OtherUserId
+//            vc.modalPresentationStyle = .fullScreen
+//            navigationController?.pushViewController(vc, animated: true)
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "FollowersAndFollowingsVC") as! FollowersAndFollowingsVC
+            Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
+            Constants.followIndex = 0
+            vc.userId = AppDelegate.currentUser.id ?? 0
             vc.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(vc, animated: true)
         }
         
         @IBAction func followingsBtnAction(_ sender: UIButton) {
-            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+//            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "tabFollowVC") as! tabsFollowVC
+//            Constants.followIndex = 0
+//            Constants.followOtherUserId = OtherUserId
+//            vc.modalPresentationStyle = .fullScreen
+//            navigationController?.pushViewController(vc, animated: true)
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "FollowersAndFollowingsVC") as! FollowersAndFollowingsVC
+            Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
             Constants.followIndex = 0
-            Constants.followOtherUserId = OtherUserId
+            vc.userId = OtherUserId
             vc.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(vc, animated: true)
         }

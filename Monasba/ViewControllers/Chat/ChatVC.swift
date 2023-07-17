@@ -17,6 +17,8 @@ import UniformTypeIdentifiers
 import AVFoundation
 import Foundation
 import iRecordView
+import PhotosUI
+
 
 @available(iOS 14.0, *)
 class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
@@ -99,6 +101,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var txt_msg: UITextField!
     
+    @IBOutlet weak var bottomConstraintsForTextFeild: NSLayoutConstraint!
     @IBOutlet weak var otherUserImage: UIImageView!
     
     @IBOutlet weak var otherUserName: UILabel!
@@ -215,6 +218,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     
     @objc func handleSendButton(){
+        
         if !txt_msg.text!.isEmpty {
             sendMessageButton.setImage(UIImage(named: "sendd"), for: .normal)
         }
@@ -409,7 +413,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
     
     @IBAction func sendPhotoClicked(_ sender: UIButton) {
-        goGallary()
+        openGallery()
         hideDialog()
         print("sendPhotoClicked")
     }
@@ -674,7 +678,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         if(!txt_msg.text!.isEmpty){
             
           //  send_message(txt_msg.text!,"TEXT")
-            sendMessage(txt_msg.text!, image: Data(), msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
+            sendMessage(txt_msg.text!, images: [Data()], msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
         }
 //        else{
 //            showDialog()
@@ -702,7 +706,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !textField.text!.isEmpty{
             //send_message(txt_msg.text!,"TEXT")
-            sendMessage(txt_msg.text!, image: Data(),msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
+            sendMessage(txt_msg.text!, images: [Data()],msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
         }
         return true
     }
@@ -735,7 +739,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //    }
     
     
-    fileprivate func sendMessage(_ msg:String,image:Data, msgType:String , filePath:URL) {
+    fileprivate func sendMessage(_ msg:String,images:[Data], msgType:String , filePath:URL) {
        // BG.load(self)
         
         guard let url = URL(string: Constants.DOMAIN+"send_message") else {return}
@@ -751,10 +755,14 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                 if msgType.contains("IMAGE"){
                     //let imageData = image.jpegData(compressionQuality: 0.2)!
                    // params["mtype[]"] = msgType
-                    multipartFormData.append(image, withName: "images[]",fileName: "file.jpg", mimeType: "image/jpg")
+                    for image in images {
+                        let index = UUID().uuidString
+                        multipartFormData.append(image, withName: "images[]",fileName: "file\(index).jpg", mimeType: "image/jpg")
+                    }
+                   
                 }else if msgType.contains("VIDEO"){
                     //params["mtype[]"] = msgType
-                    multipartFormData.append(image, withName: "images[]",fileName: "video.mp4", mimeType: "video/mp4")
+                    multipartFormData.append(images[0], withName: "images[]",fileName: "video.mp4", mimeType: "video/mp4")
                 }else if msgType.contains("LOCATION"){
                     multipartFormData.append(filePath, withName: "images[]")
                    // params["mtype[]"] = msgType
@@ -805,7 +813,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             let imageData:Data = image.jpegData(compressionQuality: 0.2)!
             let img = UIImage(data: imageData)
           //  uploadMedia(img!)
-            sendMessage("image", image: imageData, msgType: "IMAGE", filePath: URL(fileURLWithPath: ""))
+            //sendMessage("image", image: imageData, msgType: "IMAGE", filePath: URL(fileURLWithPath: ""))
         }else{
             guard let videoUrl = info[UIImagePickerController.InfoKey.mediaURL] as? URL else {
                 return
@@ -813,8 +821,10 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             do {
                 let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
                 print(videoUrl)
+                var dataArray = [Data]()
+                dataArray.append(data)
                // self.uploadMediaVideo(data)
-                sendMessage("video", image: data, msgType: "VIDEO", filePath: URL(fileURLWithPath: ""))
+                sendMessage("video", images: dataArray, msgType: "VIDEO", filePath: URL(fileURLWithPath: ""))
             } catch  {
             }
         }
@@ -828,6 +838,19 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
 //        return documentsDirectory
 //    }
     
+    private func openGallery(){
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 6
+        if #available(iOS 15.0, *) {
+            config.selection = .ordered
+        } else {
+            // Fallback on earlier versions
+        }
+        let PHPickerVC = PHPickerViewController(configuration: config)
+        PHPickerVC.delegate = self
+        present(PHPickerVC, animated: true)
+        
+    }
     
     func goGallary(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -941,7 +964,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         if let name = CNContactFormatter.string(from: contact, style: .fullName),let phone = contact.phoneNumbers.first!.value.value(forKey: "digits"){
           //  send_message("\(name)%%\(phone)", "CONTACT")
-            sendMessage("\(name)%%\(phone)", image: Data(), msgType: "CONTACT", filePath: URL(fileURLWithPath: ""))
+            sendMessage("\(name)%%\(phone)", images: [Data()], msgType: "CONTACT", filePath: URL(fileURLWithPath: ""))
 
         }
         //print(contact.givenName)
@@ -1054,7 +1077,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         if Constants.orderLoc_represnted {
          //   self.send_message("\(order.lat)%%\(order.lng)%%\(order.loc)%%\(order.loc_img)", "LOCATION")
             if let filePath = Constants.orderFilePath {
-                sendMessage("\(Constants.orderLat)%%\(Constants.orderLng)%%\(Constants.orderLoc)%%\(Constants.loc_img)", image: Data(), msgType: "LOCATION", filePath: filePath)
+                sendMessage("\(Constants.orderLat)%%\(Constants.orderLng)%%\(Constants.orderLoc)%%\(Constants.loc_img)", images: [Data()], msgType: "LOCATION", filePath: filePath)
             }
             
 
@@ -1219,7 +1242,7 @@ extension ChatVC {
         timer?.invalidate()
         timer = nil
         if let url = audioUrl {
-            sendMessage("record", image: Data(), msgType: "AUDIO", filePath: url)
+            sendMessage("record", images: [Data()], msgType: "AUDIO", filePath: url)
         }
         
         
@@ -1250,7 +1273,40 @@ extension ChatVC {
     }
     
     
+    
  
+}
+
+extension ChatVC : PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+       
+        // empty the images Array
+        var  images = [Data]()
+//        selectedMedia = [:]
+        print(results)
+        for (_,result) in results.enumerated() {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+                if let image = object as? UIImage {
+                    print( "Fooo ",image)
+                    let data = image.jpegData(compressionQuality: 0.01)
+                    let newImage = UIImage(data: data!)
+                    let index = UUID().uuidString
+                    print(index)
+                    images.append(data!)
+//                    let index = self.images.count - 1
+                    
+                    self.sendMessage("image", images:images , msgType: "IMAGE", filePath: URL(fileURLWithPath: ""))
+//                    guard let index = self.images.firstIndex(of: newImage!) else {return}
+//                    self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
+                }
+            }
+            
+        }
+        
+        
+        dismiss(animated: true,completion: nil)
+    }
+    
 }
 
 

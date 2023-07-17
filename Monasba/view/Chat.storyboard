@@ -965,6 +965,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fsk-ah-HXz"/>
                     <connections>
+                        <outlet property="bottomConstraintsForTextFeild" destination="meZ-fF-LrH" id="fBS-hx-3SX"/>
                         <outlet property="chatHeaderView" destination="IO3-2U-lfa" id="l18-Ue-RW4"/>
                         <outlet property="confirmDialogConstraint" destination="Ip6-O8-bSO" id="kzZ-OU-9LF"/>
                         <outlet property="confirmMessageLabel" destination="ubu-jE-d9g" id="uVy-FP-dPB"/>

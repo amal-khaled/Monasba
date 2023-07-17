@@ -13,10 +13,11 @@ class FollowersAndFollowingsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var userId = 0
+    var otherUserId = 0
     
     let collectionsTaps = ["Followings".localize , "Followers".localize]
     var data = [FollowersSuccessData]()
-    
+    var indexPath:IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         configeView()
@@ -82,6 +83,7 @@ extension FollowersAndFollowingsVC :UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowAndFollowersTapsCell", for: indexPath) as? FollowAndFollowersTapsCell else {return UICollectionViewCell()}
         cell.setup(from: collectionsTaps[indexPath.item])
+        self.indexPath = indexPath
         
         return cell
     }
@@ -93,11 +95,14 @@ extension FollowersAndFollowingsVC :UICollectionViewDelegate,UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 {
+            self.indexPath = indexPath
             getFollowings()
         }else {
+            self.indexPath = indexPath
             getFollowers()
         }
     }
+    
 }
 
 extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource {
@@ -108,7 +113,7 @@ extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inx = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTVCell", for: indexPath) as! FollowTVCell
-            cell.configureFollow(data: data[inx])
+        cell.configureFollow(data: data[inx], indexPath: self.indexPath ?? [0,0])
             cell.btn_follow.tag = inx
             cell.btn_follow.addTarget(self, action: #selector(go_follow), for: .touchUpInside)
         return cell
@@ -140,6 +145,26 @@ extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource
 //               print(error)
 //           }
 //       }
+       
+       if self.indexPath?.item == 0 {
+           guard let id = data[sender.tag].toID else {return}
+           print(id)
+           self.otherUserId = id
+           getFollowings()
+       }else{
+           guard let id = data[sender.tag].userID else {return}
+           print(id)
+           self.otherUserId = id
+           getFollowers()
+       }
+       
+       ProfileController.shared.followUser(completion: { check, message in
+           if check == 0 {
+               StaticFunctions.createSuccessAlert(msg: message)
+           }else{
+               StaticFunctions.createErrorAlert(msg: message)
+           }
+       }, OtherUserId: otherUserId)
    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
@@ -150,7 +175,7 @@ extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource
         
         
          let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: OTHER_USER_PROFILE_VCID) as! OtherUserProfileVC
-        if Constants.followIndex == 0 {
+        if self.indexPath?.item == 0 {
             guard let id = data[inx].toID else {return}
             print(id)
             vc.OtherUserId = id
@@ -161,8 +186,6 @@ extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource
         }
          
          navigationController?.pushViewController(vc, animated: true)
- //        user.other_id = "\(id)"
- //        goNav("otherProfilev","Profile")
     }
     }
 
