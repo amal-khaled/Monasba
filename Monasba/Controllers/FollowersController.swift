@@ -41,10 +41,11 @@ class FollowersController {
     }
     
     
-    func getFollowings(completion: @escaping([FollowersSuccessData]?, String)->(),for userId:Int){
+    func getFollowings(completion: @escaping([FollowersSuccessData]?, String)->(),for userId:Int,page:Int){
         
         let param = [
-            "user_id" :userId
+            "user_id" :userId,
+            "page":page
         ] as [String : Any]
         
         print(param)

@@ -86,6 +86,8 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupWhatsOn()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -403,6 +405,7 @@ extension EditAdVC{
                 }
                 print(self.dataSource)
                 self.setData()
+                self.configureButtons()
                 
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)
@@ -438,17 +441,24 @@ extension EditAdVC{
 //        if let subCatId = data.prod?.subCatID {
 //            self.subCatId = "\(subCatId)"
 //        }
+        
+        configureButtons()
+//        if product.hasWhatsapp ?? "" == "on" {
+//            DispatchQueue.main.async {
+//                self.setupWhatsOn()
+//            }
+//
+//        }
+//        print(product.hasPhone ?? "")
+//        if product.hasPhone ?? "" == "on" {
+//            setupHasPhoneViewUI()
+//        }
             //contact
         self.has_phone = product.hasPhone == "on" ? "off":"on"
         self.has_wts = product.hasWhatsapp == "on" ? "off":"on"
         self.has_chat = product.hasChat == "on" ? "off":"on"
         
-        if product.hasWhatsapp == "on" {
-            setupWhatsOn()
-        }
-        if product.hasPhone == "on" {
-            setupHasPhoneViewUI()
-        }
+        
         
         self.txt_phone.text = product.phone
         
@@ -477,6 +487,24 @@ extension EditAdVC{
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    private func configureButtons() {
+        // Check if hasWhatsapp is "on" and set the UI state accordingly
+        if product.hasWhatsapp == "on" {
+            setupWhatsOn()
+        } else {
+            setupWhatsOff()
+        }
+        
+        // Check if hasPhone is "on" and set the UI state accordingly
+        if product.hasPhone == "on" {
+            setupHasPhoneViewUI()
+        } else {
+            setupNotHasPhoneViewUI()
+        }
+        
+        // Handle the hasChat UI state here if needed
     }
     
     fileprivate func configerSelectedButtons() {
@@ -548,7 +576,7 @@ extension EditAdVC{
         StaticFunctions.setImageFromAssets(has_phone_img, "")
     }
     fileprivate func setupWhatsOff() {
-        has_wts = "on"
+        has_wts = "off"
         has_wtsv.borderWidth = 1.2
         has_wtsv.borderColor = .white
         has_wtsv.backgroundColor = UIColor(named: "#0EBFB1")
@@ -557,7 +585,7 @@ extension EditAdVC{
     }
     
     fileprivate func setupWhatsOn() {
-        has_wts = "off"
+        has_wts = "on"
         has_wtsv.borderWidth = 1.2
         has_wtsv.borderColor = .gray
         has_wtsv.backgroundColor = .white

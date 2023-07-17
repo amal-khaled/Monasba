@@ -141,8 +141,8 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         lbl_title.text = "Messages".localize
         confirmMessageLabel.text = ""
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
-               view.addGestureRecognizer(tapGesture)
+        //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
+             //  view.addGestureRecognizer(tapGesture)
 //        txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
         
         setUpChatHeaderView()
@@ -162,6 +162,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         lst.registerCell(cell: MsgRecordCell.self)
         lst.rowHeight = UITableView.automaticDimension
         lst.estimatedRowHeight = 50
+        
         lst.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
      
         lst.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -188,7 +189,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             return
         }
         
-        let keyboardHeight = view.bounds.height - keyboardFrame.minY
+        let keyboardHeight = (view.bounds.height - keyboardFrame.minY) - 35
 
         UIView.animate(withDuration: 0.3) {
             if keyboardHeight > 0 {
@@ -636,16 +637,6 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             playAudioFromURL("\(Constants.IMAGE_URL)\(url)")
             print(url)
         }
-        
-        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            // Make the ChatVC (or its parent) the first responder
-            self.view.window?.makeKeyAndVisible()
-            return true
-        }
-        
-        
-//        let v = sender.superview?.superview?.superview?.superview as! MsgRecordCell
-//        v.audioPlayer.play()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -1323,7 +1314,7 @@ extension ChatVC : PHPickerViewControllerDelegate {
                     print(index)
                     images.append(data!)
 //                    let index = self.images.count - 1
-                    
+                    print(images.count)
                     self.sendMessage("image", images:images , msgType: "IMAGE", filePath: URL(fileURLWithPath: ""))
 //                    guard let index = self.images.firstIndex(of: newImage!) else {return}
 //                    self.selectedMedia.updateValue(data!, forKey: "IMAGE \(index)")
@@ -1331,8 +1322,6 @@ extension ChatVC : PHPickerViewControllerDelegate {
             }
             
         }
-        
-        
         dismiss(animated: true,completion: nil)
     }
     
