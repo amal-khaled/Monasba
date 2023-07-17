@@ -38,7 +38,9 @@ class FollowersAndFollowingsVC: UIViewController {
     //MARK: METHODS
 
     private func configeView(){
+        self.title = "Followings / Followers".localize
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self

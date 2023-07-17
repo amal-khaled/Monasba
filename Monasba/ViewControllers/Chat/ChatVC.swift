@@ -77,6 +77,9 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     var audioDuration = 0
     var counter = 0
   //  var timer:Timer?
+    
+    @IBOutlet weak var containerViewSendView: UIView!
+    @IBOutlet weak var sendView: UIView!
     var recordingSession: AVAudioSession? = AVAudioSession()
     var audioRecorder: AVAudioRecorder? = AVAudioRecorder()
   //  var audioPlayer:AVAudioPlayer!
@@ -127,7 +130,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     var audioIsPlaying = false
     var isDelete = false
-
+    var keyboardIsShown = false
     //MARK:  Life Cycle
     
     override func viewDidLoad() {
@@ -139,10 +142,12 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         lbl_title.text = "Messages".localize
         confirmMessageLabel.text = ""
        
-        txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
+//        txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
         
         setUpChatHeaderView()
         closeChatOptionsMenu()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         //lst msgs
         lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         lst.registerCell(cell: MsgCell.self)
@@ -155,21 +160,12 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         lst.rowHeight = UITableView.automaticDimension
         lst.estimatedRowHeight = 50
         lst.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        
-        //txt_msg
-        //txt_msg.delegate = self
-        //txt_msg.addTarget(self, action: #selector(textFieldShouldReturn)
-        //  , for: UIControl.Event.primaryActionTriggered)
+     
         lst.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         //record
         isAuth()
-//        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
-//        self.recorderView = storyboard.instantiateViewController(withIdentifier: "RecorderViewController") as? RecorderViewController
-//        //self.recorderView.delegate = self
-//        self.recorderView.createRecorder()
-//        self.recorderView.modalTransitionStyle = .crossDissolve
-//        self.recorderView.modalPresentationStyle = .overCurrentContext
+
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(openOtherProfileUser))
         otherUserImage.isUserInteractionEnabled = true
@@ -179,7 +175,39 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         
         setupRecordButton()
     }
-   
+    // Function to adjust the view's position when the keyboard appears
+       @objc func keyboardWillShow(_ notification: Notification) {
+           if !keyboardIsShown {
+               guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                   return
+               }
+               let keyboardHeight = keyboardFrame.height - 28
+
+               // Move the view up by the height of the keyboard
+               UIView.animate(withDuration: 0.3) {
+                   self.sendView.frame.origin.y -= keyboardHeight
+               }
+
+               keyboardIsShown = true
+           }
+       }
+    
+    // Function to reset the view's position when the keyboard hides
+      @objc func keyboardWillHide(_ notification: Notification) {
+          if keyboardIsShown {
+              guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                  return
+              }
+              let keyboardHeight = keyboardFrame.height - 28
+
+              // Move the view back to its original position
+              UIView.animate(withDuration: 0.3) {
+                  self.sendView.frame.origin.y += keyboardHeight
+              }
+
+              keyboardIsShown = false
+          }
+      }
 
     
     override func viewWillDisappear(_ animated: Bool) {

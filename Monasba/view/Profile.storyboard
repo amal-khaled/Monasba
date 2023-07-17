@@ -2272,7 +2272,7 @@
             </objects>
             <point key="canvasLocation" x="10190.76923076923" y="-1632.2274881516587"/>
         </scene>
-        <!--Followers / Followings-->
+        <!--Followings / Followers-->
         <scene sceneID="OWH-qb-4ff">
             <objects>
                 <viewController storyboardIdentifier="FollowersAndFollowingsVC" id="z8h-O1-2Xm" customClass="FollowersAndFollowingsVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
@@ -2337,7 +2337,7 @@
                             <constraint firstItem="MC5-r0-TDc" firstAttribute="trailing" secondItem="ND8-eS-xFD" secondAttribute="trailing" id="rrC-8e-bbp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Followers / Followings" id="D3l-h3-bwk"/>
+                    <navigationItem key="navigationItem" title="Followings / Followers" id="D3l-h3-bwk"/>
                     <connections>
                         <outlet property="collectionView" destination="Ba2-Sm-9Ne" id="0l7-l9-4gh"/>
                         <outlet property="tableView" destination="Pgl-tU-yff" id="TxY-0r-g2D"/>

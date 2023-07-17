@@ -10,13 +10,14 @@ import PhotosUI
 import MobileCoreServices
 
 protocol PickupMediaPopupEditAdsVCDelegate: AnyObject {
-    func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage , videos:[Data] , selectedMedia:[String:Data])
+    func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage ,mainVideo:Data?, videos:[Data] , selectedMedia:[String:Data])
 }
 
 class PickupMediaPopupEditAdsVC: UIViewController {
  
     weak var delegate: PickupMediaPopupEditAdsVCDelegate?
     var image = UIImage()
+    var mainVideo:Data?
     var videos = [Data]()
     var selectedMedia = [String:Data]()
     
@@ -139,6 +140,7 @@ extension PickupMediaPopupEditAdsVC : PHPickerViewControllerDelegate , UIImagePi
                             self.videos.append(compressedVideo)
                             
                             guard let index = self.videos.firstIndex(of: compressedVideo) else {return}
+                            self.mainVideo = compressedVideo
                             self.selectedMedia.updateValue(compressedVideo, forKey: "VIDEO \(index)")
                             
                         } catch let error {
@@ -164,6 +166,7 @@ extension PickupMediaPopupEditAdsVC : PHPickerViewControllerDelegate , UIImagePi
                } else if let capturedImage = info[.originalImage] as? UIImage {
                    print("Captured image: \(capturedImage)")
                    self.image = capturedImage as UIImage
+                   self.mainVideo = nil
                    guard let imageData = capturedImage.jpegData(compressionQuality: 0.01) else {
                        print("Error converting image to data")
                        return}
@@ -179,7 +182,7 @@ extension PickupMediaPopupEditAdsVC : PHPickerViewControllerDelegate , UIImagePi
                 guard let self = self else { return }
                 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.delegate?.PickupMediaPopupEditVC(self, didSelectImages: self.image,videos: self.videos,selectedMedia: self.selectedMedia)
+                self.delegate?.PickupMediaPopupEditVC(self, didSelectImages: self.image, mainVideo: self.mainVideo,videos: self.videos,selectedMedia: self.selectedMedia)
                 self.dismiss(animated: false)
             }
         }

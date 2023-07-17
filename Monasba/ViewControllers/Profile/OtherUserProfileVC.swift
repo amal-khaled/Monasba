@@ -201,7 +201,8 @@
             let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "FollowersAndFollowingsVC") as! FollowersAndFollowingsVC
             Constants.followOtherUserId = AppDelegate.currentUser.id ?? 0
             Constants.followIndex = 0
-            vc.userId = AppDelegate.currentUser.id ?? 0
+//            vc.userId = AppDelegate.currentUser.id ?? 0
+            vc.userId = OtherUserId
             vc.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(vc, animated: true)
         }

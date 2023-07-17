@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
+import TransitionButton
 
 enum ImageDataSource {
     case url(URL)
@@ -52,8 +54,10 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     //location
     @IBOutlet weak private var loc_main: UILabel!
     @IBOutlet weak private var loc_sub: UILabel!
-   
-   private var tajeer = 0
+    @IBOutlet weak var saveButton: TransitionButton!
+    @IBOutlet weak var deleteButton: TransitionButton!
+    
+    private var tajeer = 0
    private var has_phone = "on"
    private var has_wts = "off"
    private var has_chat = "off"
@@ -82,11 +86,11 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getData()
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
     }
@@ -107,10 +111,17 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
     
     
-    func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage, videos: [Data], selectedMedia: [String : Data]) {
+    func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage,mainVideo:Data?, videos: [Data], selectedMedia: [String : Data]) {
         if isMainImage {
             adsMainImage.image = image
-            mainImage = image.jpegData(compressionQuality: 0.1)!
+            if mainVideo == nil {
+                mainImage = image.jpegData(compressionQuality: 0.1)!
+            }else {
+                // main image = video
+                guard let mainVideo = mainVideo else {return}
+                mainImage = mainVideo
+            }
+           
             editedMainImage = true
 //            guard  mainImage == image.jpegData(compressionQuality: 0.1) else {return}
         }else{
@@ -242,7 +253,8 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
         var image = Data()
         
         if isEditImages || editedMainImage {
-           
+            saveButton.startAnimation()
+            self.view.alpha = 0.5
             AF.upload(multipartFormData: { [weak self] multipartFormData in
                 guard let self = self else {return}
                 print(self.editedMainImage)
@@ -293,6 +305,8 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
             },to:"\(url)")
             .responseDecodable(of:EditAdvSuccessModel.self){ response in
                 print(response)
+                self.view.alpha = 1.0
+                self.saveButton.stopAnimation()
                 switch response.result {
                 case .success(let data):
                     if let message = data.message , let success = data.success{
@@ -343,9 +357,13 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     }
     
     @IBAction func didTapDeleteButton(_ sender: UIButton) {
+        deleteButton.startAnimation()
+        self.view.alpha = 0.5
         let params : [String: Any]  = ["id":product.id ?? 0]
         guard let url = URL(string: Constants.DOMAIN+"prods_delete")else{return}
         AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:SuccessModel.self){res in
+            self.deleteButton.stopAnimation()
+            self.view.alpha = 1.0
             switch res.result{
             case .success(let data):
                 if let success = data.success {
@@ -442,7 +460,19 @@ extension EditAdVC{
         
         //Main Image
         if let mainImage = product.mainImage {
-            adsMainImage.setImageWithLoading(url: mainImage)
+            if mainImage.contains(".mp4")  || mainImage.contains(".mov") {
+
+                adsMainImage.kf.indicatorType = .activity
+
+                guard let url = URL(string: Constants.IMAGE_URL + mainImage) else { return }
+                self.adsMainImage.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+
+                
+            }else{
+                adsMainImage.setImageWithLoading(url: mainImage )
+     
+            }
+//            adsMainImage.setImageWithLoading(url: mainImage)
         }
         DispatchQueue.main.async {
             self.collectionView.reloadData()

@@ -380,7 +380,13 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
              }
              if let receiverId = roomsData[inx].user2{
                  receiver.id = "\(receiverId)"
+                 if receiverId == AppDelegate.currentUser.id ?? 0 {
+                     guard let id = roomsData[inx].user1 else {return}
+                     Constants.userOtherId = "\(id)"
+                 }else{
                      Constants.userOtherId = "\(receiverId)"
+                 }
+                     
              }
              if let receiverPic = roomsData[inx].user?[0].pic {
                  Constants.otherUserPic = receiverPic
