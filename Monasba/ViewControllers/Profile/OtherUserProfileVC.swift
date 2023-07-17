@@ -227,6 +227,7 @@
                 if chatButton.titleLabel?.text == "Chat".localize {
                     let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
                     Constants.userOtherId = "\(OtherUserId)"
+                    print(OtherUserId)
                     vc.modalPresentationStyle = .fullScreen
                     
                     createRoom("\(OtherUserId)"){[weak self] success in
