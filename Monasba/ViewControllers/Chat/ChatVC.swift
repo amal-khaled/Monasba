@@ -130,7 +130,6 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     var audioIsPlaying = false
     var isDelete = false
-    var keyboardIsShown = false
     //MARK:  Life Cycle
     
     override func viewDidLoad() {
@@ -141,13 +140,17 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         Constants.orderLoc_represnted = false
         lbl_title.text = "Messages".localize
         confirmMessageLabel.text = ""
-       
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
+               view.addGestureRecognizer(tapGesture)
 //        txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
         
         setUpChatHeaderView()
         closeChatOptionsMenu()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
+        
+        
         //lst msgs
         lst.backgroundColor = UIColor.clear.withAlphaComponent(0)
         lst.registerCell(cell: MsgCell.self)
@@ -175,48 +178,40 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         
         setupRecordButton()
     }
-    // Function to adjust the view's position when the keyboard appears
-       @objc func keyboardWillShow(_ notification: Notification) {
-           if !keyboardIsShown {
-               guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-                   return
-               }
-               let keyboardHeight = keyboardFrame.height - 28
-
-               // Move the view up by the height of the keyboard
-               UIView.animate(withDuration: 0.3) {
-                   self.sendView.frame.origin.y -= keyboardHeight
-               }
-
-               keyboardIsShown = true
-           }
-       }
     
-    // Function to reset the view's position when the keyboard hides
-      @objc func keyboardWillHide(_ notification: Notification) {
-          if keyboardIsShown {
-              guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-                  return
-              }
-              let keyboardHeight = keyboardFrame.height - 28
+    @objc func dismisKeyboard() {
+            view.endEditing(true)
+        }
+    
+    @objc func keyboardWillChangeFrame(_ notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        let keyboardHeight = view.bounds.height - keyboardFrame.minY
 
-              // Move the view back to its original position
-              UIView.animate(withDuration: 0.3) {
-                  self.sendView.frame.origin.y += keyboardHeight
-              }
-
-              keyboardIsShown = false
-          }
-      }
+        UIView.animate(withDuration: 0.3) {
+            if keyboardHeight > 0 {
+                self.sendView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
+            } else {
+                self.sendView.transform = .identity
+            }
+        }
+    }
+    
+   
 
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
     }
     
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     fileprivate func setupRecordButton(){
        
@@ -642,6 +637,11 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             print(url)
         }
         
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+            // Make the ChatVC (or its parent) the first responder
+            self.view.window?.makeKeyAndVisible()
+            return true
+        }
         
         
 //        let v = sender.superview?.superview?.superview?.superview as! MsgRecordCell
@@ -732,6 +732,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
     
      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder()
         if !textField.text!.isEmpty{
             //send_message(txt_msg.text!,"TEXT")
             sendMessage(txt_msg.text!, images: [Data()],msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
@@ -1336,5 +1337,4 @@ extension ChatVC : PHPickerViewControllerDelegate {
     }
     
 }
-
 
