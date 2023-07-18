@@ -15,6 +15,7 @@ class AddAskViewController: UIViewController {
     var id = 0
     
     @IBOutlet weak var imageView: UIImageView!
+    var isImageAdded = false
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
@@ -39,6 +40,7 @@ class AddAskViewController: UIViewController {
         vc.chooseImageBtclosure = {
             image in
             self.imageView.image = image
+            self.isImageAdded = true
         }
         self.present(vc, animated: false, completion: nil)
         
@@ -123,7 +125,7 @@ extension AddAskViewController{
                     
                 }
                 
-            },  id:  id, comment: commentTF.text!, image: imageView.image ?? nil)
+            },  id:  id, comment: commentTF.text!, image: isImageAdded ? imageView.image : nil)
             
         }
         else{

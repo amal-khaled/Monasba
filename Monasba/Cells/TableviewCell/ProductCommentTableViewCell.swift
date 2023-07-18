@@ -51,7 +51,10 @@ class ProductCommentTableViewCell: UITableViewCell {
 
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+
         let pastDate = dateFormatter.date(from:comment.date ?? "")!
+        
         date.text = pastDate.timeAgoDisplay()
 
          commentLbl.text = comment.comment
@@ -97,6 +100,10 @@ extension Date {
 
         }
         formatter.unitsStyle = .full
+//        let countryCode = NSLocale.current.regionCode ?? "KW"
+
+       
+
         return formatter.localizedString(for: self, relativeTo: Date())
     }
 }
