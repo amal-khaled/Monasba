@@ -86,7 +86,6 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        setupWhatsOn()
 
     }
     
@@ -184,29 +183,20 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
     @IBAction func didTapChatButton(_ sender: UIButton) {
         if (has_chat == "off"){
-            has_chat = "on"
-            has_chatv.borderWidth = 1.2
-            has_chatv.borderColor = .white
-            has_chatv.backgroundColor = UIColor(named: "#0EBFB1")
-            StaticFunctions.setTextColor(has_chat_txt, UIColor.white)
-            StaticFunctions.setImageFromAssets(has_chat_img, "checkbox")
+            setupChatON()
         }else{
-            has_chat = "off"
-            has_chatv.borderWidth = 1.2
-            has_chatv.borderColor = .gray
-            has_chatv.backgroundColor = .white
-            StaticFunctions.setTextColor(has_chat_txt, UIColor.black)
-            StaticFunctions.setImageFromAssets(has_chat_img, "")
+            setupChatOFF()
         }
     }
     
     @IBAction func didTapWhatsButton(_ sender: UIButton) {
         if (has_wts == "off"){
-            setupWhatsOff()
+            setupWhatsON()
         }else{
-            setupWhatsOn()
+            setupWhatsOFF()
         }
     }
+    
     
     
     @IBAction func didTapCallButton(_ sender: UIButton) {
@@ -405,7 +395,6 @@ extension EditAdVC{
                 }
                 print(self.dataSource)
                 self.setData()
-                self.configureButtons()
                 
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)
@@ -435,29 +424,22 @@ extension EditAdVC{
         if let regionId = product.regionId {
             self.regionId = "\(regionId)"
         }
-//        if let catId = data.prod?.catID {
-//            self.catId = "\(catId)"
-//        }
-//        if let subCatId = data.prod?.subCatID {
-//            self.subCatId = "\(subCatId)"
-//        }
+        
+        self.has_wts = product.hasWhatsapp ?? ""
+        self.has_chat = product.hasChat ?? ""
+        self.has_phone = product.hasPhone ?? ""
+        
+        print(product.hasPhone ?? "")
+        print(product.hasChat ?? "")
+        print(product.hasWhatsapp ?? "")
         
         configureButtons()
-//        if product.hasWhatsapp ?? "" == "on" {
-//            DispatchQueue.main.async {
-//                self.setupWhatsOn()
-//            }
-//
-//        }
-//        print(product.hasPhone ?? "")
-//        if product.hasPhone ?? "" == "on" {
-//            setupHasPhoneViewUI()
-//        }
             //contact
-        self.has_phone = product.hasPhone == "on" ? "off":"on"
-        self.has_wts = product.hasWhatsapp == "on" ? "off":"on"
-        self.has_chat = product.hasChat == "on" ? "off":"on"
+//        self.has_phone = product.hasPhone == "on" ? "off":"on"
+//        self.has_wts = product.hasWhatsapp == "on" ? "off":"on"
+//        self.has_chat = product.hasChat == "on" ? "off":"on"
         
+      
         
         
         self.txt_phone.text = product.phone
@@ -490,21 +472,22 @@ extension EditAdVC{
     }
     
     private func configureButtons() {
-        // Check if hasWhatsapp is "on" and set the UI state accordingly
-        if product.hasWhatsapp == "on" {
-            setupWhatsOn()
+        // Check if hasWhatsapp ,hasPhone,hasChat is "on" and set the UI state accordingly
+        if product.hasWhatsapp ?? "" == "on" {
+            setupWhatsON()
         } else {
-            setupWhatsOff()
+            setupWhatsOFF()
         }
-        
-        // Check if hasPhone is "on" and set the UI state accordingly
-        if product.hasPhone == "on" {
+        if product.hasPhone ?? "" == "on" {
             setupHasPhoneViewUI()
         } else {
             setupNotHasPhoneViewUI()
         }
-        
-        // Handle the hasChat UI state here if needed
+        if product.hasChat ?? "" == "on" {
+          setupChatON()
+        } else {
+           setupChatOFF()
+        }
     }
     
     fileprivate func configerSelectedButtons() {
@@ -575,8 +558,25 @@ extension EditAdVC{
         StaticFunctions.setTextColor(has_phone_txt, UIColor.black)
         StaticFunctions.setImageFromAssets(has_phone_img, "")
     }
-    fileprivate func setupWhatsOff() {
-        has_wts = "off"
+    
+    private func setupChatON(){
+        has_chat = "on"
+        has_chatv.borderWidth = 1.2
+        has_chatv.borderColor = .white
+        has_chatv.backgroundColor = UIColor(named: "#0EBFB1")
+        StaticFunctions.setTextColor(has_chat_txt, UIColor.white)
+        StaticFunctions.setImageFromAssets(has_chat_img, "checkbox")
+    }
+    private func setupChatOFF(){
+        has_chat = "off"
+        has_chatv.borderWidth = 1.2
+        has_chatv.borderColor = .gray
+        has_chatv.backgroundColor = .white
+        StaticFunctions.setTextColor(has_chat_txt, UIColor.black)
+        StaticFunctions.setImageFromAssets(has_chat_img, "")
+    }
+    fileprivate func setupWhatsON() {
+        has_wts = "on"
         has_wtsv.borderWidth = 1.2
         has_wtsv.borderColor = .white
         has_wtsv.backgroundColor = UIColor(named: "#0EBFB1")
@@ -584,8 +584,8 @@ extension EditAdVC{
         StaticFunctions.setImageFromAssets(has_wts_img, "checkbox")
     }
     
-    fileprivate func setupWhatsOn() {
-        has_wts = "on"
+    fileprivate func setupWhatsOFF() {
+        has_wts = "off"
         has_wtsv.borderWidth = 1.2
         has_wtsv.borderColor = .gray
         has_wtsv.backgroundColor = .white

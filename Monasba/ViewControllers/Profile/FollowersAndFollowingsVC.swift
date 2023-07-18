@@ -161,17 +161,23 @@ extension FollowersAndFollowingsVC : UITableViewDelegate , UITableViewDataSource
            guard let id = data[sender.tag].toID else {return}
            print(id)
            self.otherUserId = id
-           getFollowings(page: page)
+//           getFollowings(page: page)
        }else{
            guard let id = data[sender.tag].userID else {return}
            print(id)
            self.otherUserId = id
-           getFollowers()
+//           getFollowers()
        }
        
        ProfileController.shared.followUser(completion: { check, message in
            if check == 0 {
-               StaticFunctions.createSuccessAlert(msg: message)
+//               StaticFunctions.createSuccessAlert(msg: message)
+               if self.data[sender.tag].isFollow == 0 {
+                   self.data[sender.tag].isFollow = 1
+               }else{
+                   self.data[sender.tag].isFollow = 0
+               }
+               self.tableView.reloadData()
            }else{
                StaticFunctions.createErrorAlert(msg: message)
            }

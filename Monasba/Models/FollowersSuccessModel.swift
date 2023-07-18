@@ -22,7 +22,7 @@ struct FollowersSuccessData: Codable {
      let userVerified: Int?
      let countriesNameAr, countriesNameEn, citiesNameAr, citiesNameEn: String?
      let regionsNameAr, regionsNameEn: String?
-     let isFollow: Int?
+     var isFollow: Int?
 
      enum CodingKeys: String, CodingKey {
          case id
