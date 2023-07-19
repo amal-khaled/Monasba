@@ -42,13 +42,13 @@ class AdvsImagesCollectionViewCell: UICollectionViewCell {
         }
 
     
-    func configureCell(images: [UIImage], selectedIndex: IndexPath?) {
+    func configureCell(images: [UIImage], selectedIndex: IndexPath?,mainImageKey:String,imagekeyOfIndex  key:String) {
             guard let indexPath = indexPath else { return }
 
             mainImageFlag.isHidden = true
             imageView.image = images[indexPath.row]
 
-            if indexPath == selectedIndex {
+        if indexPath == selectedIndex && mainImageKey == key {
                 isSelectedCell = true
             } else {
                 isSelectedCell = false

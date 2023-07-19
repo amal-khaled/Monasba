@@ -50,13 +50,13 @@
                                 </connections>
                             </tableView>
                             <view clipsSubviews="YES" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtz-qC-QJP" userLabel="send">
-                                <rect key="frame" x="8" y="756" width="332" height="54"/>
+                                <rect key="frame" x="8" y="756" width="382" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W3e-4H-lyY">
-                                        <rect key="frame" x="5" y="5" width="322" height="44"/>
+                                        <rect key="frame" x="5" y="5" width="337" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Your Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-nb-Qd5">
-                                                <rect key="frame" x="0.0" y="0.0" width="214" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="229" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
@@ -69,7 +69,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-ch-X2c">
-                                                <rect key="frame" x="224" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="239" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="Ahb-bj-gDm"/>
@@ -88,7 +88,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Rg-Yn0">
-                                                <rect key="frame" x="278" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="293" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="RqG-fZ-leY"/>
@@ -112,7 +112,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W3e-4H-lyY" secondAttribute="bottom" constant="5" id="7vx-Ad-4Qf"/>
-                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="5" id="U8B-U9-bJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="40" id="U8B-U9-bJN"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="top" secondItem="rtz-qC-QJP" secondAttribute="top" constant="5" id="aPa-Xu-fI3"/>
                                     <constraint firstAttribute="height" constant="54" id="aby-pV-9ii"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="leading" secondItem="rtz-qC-QJP" secondAttribute="leading" constant="5" id="tVF-4R-KmG"/>
@@ -948,7 +948,7 @@
                             <constraint firstItem="IO3-2U-lfa" firstAttribute="top" secondItem="DPC-r8-7d4" secondAttribute="bottom" id="MMB-Ft-QwE"/>
                             <constraint firstItem="dcn-Xu-aOi" firstAttribute="top" secondItem="MYb-qi-j7T" secondAttribute="top" id="Otl-Zn-LeK"/>
                             <constraint firstItem="oXa-Ub-j1j" firstAttribute="top" secondItem="tec-ON-D86" secondAttribute="top" id="RyH-hP-xTp"/>
-                            <constraint firstItem="tec-ON-D86" firstAttribute="trailing" secondItem="rtz-qC-QJP" secondAttribute="trailing" constant="50" id="SsO-WE-GXu"/>
+                            <constraint firstItem="tec-ON-D86" firstAttribute="trailing" secondItem="rtz-qC-QJP" secondAttribute="trailing" id="SsO-WE-GXu"/>
                             <constraint firstItem="3XS-TN-MHk" firstAttribute="trailing" secondItem="tec-ON-D86" secondAttribute="trailing" id="Tgx-H4-2ix"/>
                             <constraint firstItem="tec-ON-D86" firstAttribute="trailing" secondItem="2FX-F0-nMW" secondAttribute="trailing" constant="8" id="U3G-1d-v2h"/>
                             <constraint firstItem="dcn-Xu-aOi" firstAttribute="leading" secondItem="tec-ON-D86" secondAttribute="leading" id="Zev-ND-Mod"/>

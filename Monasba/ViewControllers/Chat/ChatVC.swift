@@ -221,18 +221,18 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         let recordView = RecordView()
         recordView.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(recordButton)
-        view.addSubview(recordView)
+        sendView.addSubview(recordButton)
+        sendView.addSubview(recordView)
 
         recordButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         recordButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        recordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
-        recordButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        recordButton.trailingAnchor.constraint(equalTo: sendView.trailingAnchor, constant: -8).isActive = true
+        recordButton.bottomAnchor.constraint(equalTo: sendView.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
 
 
         recordView.trailingAnchor.constraint(equalTo: recordButton.leadingAnchor, constant: -20).isActive = true
-        recordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        recordView.leadingAnchor.constraint(equalTo: sendView.leadingAnchor, constant: 10).isActive = true
         recordView.bottomAnchor.constraint(equalTo: recordButton.bottomAnchor).isActive = true
        
         //IMPORTANT

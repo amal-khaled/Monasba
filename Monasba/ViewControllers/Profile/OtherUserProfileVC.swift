@@ -287,9 +287,14 @@
                 }
             }
             if let userPic =  profileModel.pic {
-                if userPic.contains(".png") || userPic.contains(".jpg"){
-                    userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
+                if userPic.contains(".png") || userPic.contains(".jpg") {
+                    if userPic.contains(".png") || userPic.contains(".jpg"){
+                        userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
+                    }
+                }else {
+                    userImageView.image = UIImage(named: "logo_photo")
                 }
+                
             }
             
             fullNameUserLabel.text = "\(profileModel.name ?? "") \(profileModel.lastName ?? "")"

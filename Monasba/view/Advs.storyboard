@@ -111,7 +111,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-ef-khs">
                                                                 <rect key="frame" x="0.0" y="69" width="318" height="150"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addimage" translatesAutoresizingMaskIntoConstraints="NO" id="71g-m9-pKP">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addimage" translatesAutoresizingMaskIntoConstraints="NO" id="71g-m9-pKP">
                                                                         <rect key="frame" x="0.0" y="0.0" width="318" height="150"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awP-OU-i7v">
@@ -2810,16 +2810,16 @@
                                 <rect key="frame" x="0.0" y="100" width="390" height="744"/>
                                 <subviews>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mg-Kk-dbe">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1349"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1352"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76L-Lb-Eag">
-                                                <rect key="frame" x="15" y="15" width="360" height="1334"/>
+                                                <rect key="frame" x="15" y="15" width="360" height="1337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAp-Id-w7w">
-                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="1334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="1337"/>
                                                         <subviews>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-3M-f3w">
-                                                                <rect key="frame" x="0.0" y="0.0" width="360" height="17.666666666666668"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="360" height="20.666666666666668"/>
                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17.5"/>
                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
@@ -2828,7 +2828,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ujt-ng-DoK">
-                                                                <rect key="frame" x="0.0" y="34.666666666666657" width="360" height="19.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="37.666666666666657" width="360" height="19.333333333333329"/>
                                                                 <subviews>
                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Images" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONr-pS-CQH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="19.333333333333332"/>
@@ -2851,20 +2851,14 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cs4-QZ-smv">
-                                                                <rect key="frame" x="0.0" y="71" width="360" height="150"/>
+                                                                <rect key="frame" x="0.0" y="74" width="360" height="150"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-03-dva">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="150"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="150" id="JCC-0c-w6j"/>
-                                                                        </constraints>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addimageEnglish" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-03-dva">
+                                                                        <rect key="frame" x="0.0" y="8" width="360" height="138"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyF-W3-LXs">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="150"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="360" height="138"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="150" id="cPX-QG-I70"/>
-                                                                        </constraints>
                                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal">
@@ -2889,11 +2883,41 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwY-cS-oZZ">
+                                                                                <rect key="frame" x="330" y="0.0" width="30" height="30"/>
+                                                                                <subviews>
+                                                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-dp-ef5">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                        <state key="normal" image="delete_chat"/>
+                                                                                        <connections>
+                                                                                            <action selector="didTapDeleteMainImage:" destination="Nzo-dc-bqn" eventType="touchUpInside" id="Lxw-C7-Ohb"/>
+                                                                                        </connections>
+                                                                                    </button>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="dHW-dp-ef5" secondAttribute="bottom" id="0yf-XZ-Muq"/>
+                                                                                    <constraint firstItem="dHW-dp-ef5" firstAttribute="leading" secondItem="MwY-cS-oZZ" secondAttribute="leading" id="1lR-Uu-PHZ"/>
+                                                                                    <constraint firstItem="dHW-dp-ef5" firstAttribute="top" secondItem="MwY-cS-oZZ" secondAttribute="top" id="9ya-x1-YP3"/>
+                                                                                    <constraint firstAttribute="width" constant="30" id="Zjg-a2-Kho"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="dHW-dp-ef5" secondAttribute="trailing" id="raf-rs-1UY"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="4"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" red="0.054901960784313725" green="0.74901960784313726" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="nkC-08-kR0" firstAttribute="centerY" secondItem="A6e-7O-nBW" secondAttribute="centerY" id="Isp-7L-sQW"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="MwY-cS-oZZ" secondAttribute="bottom" id="jAy-9M-0Dn"/>
                                                                             <constraint firstItem="nkC-08-kR0" firstAttribute="centerX" secondItem="A6e-7O-nBW" secondAttribute="centerX" id="mCu-Hl-YsK"/>
+                                                                            <constraint firstItem="MwY-cS-oZZ" firstAttribute="top" secondItem="A6e-7O-nBW" secondAttribute="top" id="sgc-QB-nWj"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="MwY-cS-oZZ" secondAttribute="trailing" id="u7R-C7-Yo6"/>
                                                                             <constraint firstAttribute="height" constant="30" id="zGj-RE-ljD"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
@@ -2903,17 +2927,16 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="A6e-7O-nBW" secondAttribute="trailing" id="01d-k8-Plo"/>
                                                                     <constraint firstItem="HyF-W3-LXs" firstAttribute="centerX" secondItem="cHh-03-dva" secondAttribute="centerX" id="9o9-eo-Y3a"/>
-                                                                    <constraint firstItem="cHh-03-dva" firstAttribute="top" secondItem="Cs4-QZ-smv" secondAttribute="top" id="CSR-4K-T6D"/>
+                                                                    <constraint firstItem="cHh-03-dva" firstAttribute="top" secondItem="Cs4-QZ-smv" secondAttribute="top" constant="8" id="CSR-4K-T6D"/>
                                                                     <constraint firstItem="A6e-7O-nBW" firstAttribute="leading" secondItem="Cs4-QZ-smv" secondAttribute="leading" id="Cr2-sV-dnP"/>
                                                                     <constraint firstItem="A6e-7O-nBW" firstAttribute="top" secondItem="Cs4-QZ-smv" secondAttribute="top" constant="-4" id="CrQ-CE-4R2"/>
                                                                     <constraint firstAttribute="trailing" secondItem="cHh-03-dva" secondAttribute="trailing" id="Epe-bt-UmO"/>
-                                                                    <constraint firstItem="HyF-W3-LXs" firstAttribute="top" secondItem="Cs4-QZ-smv" secondAttribute="top" id="RU0-A8-sov"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="cHh-03-dva" secondAttribute="bottom" id="YUD-Tk-Bp3"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="HyF-W3-LXs" secondAttribute="bottom" id="ahP-sq-fbD"/>
+                                                                    <constraint firstItem="HyF-W3-LXs" firstAttribute="top" secondItem="Cs4-QZ-smv" secondAttribute="top" constant="8" id="RU0-A8-sov"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="cHh-03-dva" secondAttribute="bottom" constant="4" id="YUD-Tk-Bp3"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="HyF-W3-LXs" secondAttribute="bottom" constant="4" id="ahP-sq-fbD"/>
                                                                     <constraint firstItem="HyF-W3-LXs" firstAttribute="centerY" secondItem="cHh-03-dva" secondAttribute="centerY" id="azP-0J-m7x"/>
                                                                     <constraint firstItem="HyF-W3-LXs" firstAttribute="leading" secondItem="Cs4-QZ-smv" secondAttribute="leading" id="g8O-rW-J4g"/>
                                                                     <constraint firstAttribute="trailing" secondItem="HyF-W3-LXs" secondAttribute="trailing" id="kfF-1b-baD"/>
@@ -2922,7 +2945,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itB-xe-YBY">
-                                                                <rect key="frame" x="0.0" y="238" width="360" height="180"/>
+                                                                <rect key="frame" x="0.0" y="241" width="360" height="180"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L8u-oO-7Y7">
                                                                         <rect key="frame" x="0.0" y="51" width="360" height="129"/>
@@ -3077,7 +3100,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4I-LZ-LGs">
-                                                                <rect key="frame" x="0.0" y="435" width="360" height="80"/>
+                                                                <rect key="frame" x="0.0" y="438" width="360" height="80"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Yd-SFD">
                                                                         <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
@@ -3145,7 +3168,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIv-zy-18o" userLabel="description">
-                                                                <rect key="frame" x="0.0" y="532" width="360" height="150"/>
+                                                                <rect key="frame" x="0.0" y="535" width="360" height="150"/>
                                                                 <subviews>
                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXA-9L-c97">
                                                                         <rect key="frame" x="0.0" y="0.0" width="79" height="18.333333333333332"/>
@@ -3209,13 +3232,13 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlH-R8-6Sc" userLabel="price other">
-                                                                <rect key="frame" x="0.0" y="699" width="360" height="635"/>
+                                                                <rect key="frame" x="0.0" y="702" width="360" height="635"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myc-nc-Zvr">
                                                                         <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
                                                                         <subviews>
                                                                             <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مواصفات المنتج" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQc-2O-RzH">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="17.666666666666668"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="20.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17.5"/>
                                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <nil key="highlightedColor"/>
@@ -3224,7 +3247,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="7T1-95-Pl6">
-                                                                                <rect key="frame" x="0.0" y="17.666666666666629" width="360" height="78"/>
+                                                                                <rect key="frame" x="0.0" y="20.666666666666629" width="360" height="78"/>
                                                                                 <subviews>
                                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CHT-7j-k8O" userLabel="brand material">
                                                                                         <rect key="frame" x="0.0" y="-51" width="360" height="51"/>
@@ -3449,7 +3472,7 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="360" height="8.3333333333333339"/>
                                                                                                 <subviews>
                                                                                                     <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الموقع والسعر" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8E-M0-Sov">
-                                                                                                        <rect key="frame" x="242.66666666666671" y="0.0" width="117.33333333333334" height="26"/>
+                                                                                                        <rect key="frame" x="281" y="0.0" width="79" height="26"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="26" id="tmb-yo-QzR"/>
                                                                                                         </constraints>
@@ -3458,16 +3481,16 @@
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-b4-UUX">
-                                                                                                        <rect key="frame" x="89.333333333333343" y="0.0" width="270.66666666666663" height="15"/>
+                                                                                                        <rect key="frame" x="140.66666666666663" y="0.0" width="219.33333333333337" height="15"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لن تتم مشاركة موقع الخريطة مع المستخدمين" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3l-4i-Ngn">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="247.66666666666666" height="13"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="15"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                 <nil key="highlightedColor"/>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="xJf-QB-VXP">
-                                                                                                                <rect key="frame" x="255.66666666666669" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="204.33333333333334" y="0.0" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="CYH-nQ-1zX"/>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="Cd3-mb-yxD"/>
@@ -3498,16 +3521,16 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </imageView>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="IAx-1M-PFL">
-                                                                                                                <rect key="frame" x="37" y="11.666666666666629" width="271" height="36.333333333333336"/>
+                                                                                                                <rect key="frame" x="37" y="10.333333333333258" width="271" height="39"/>
                                                                                                                 <subviews>
                                                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="حدد الموقع علي الخريطة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-j9-aSx">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="15"/>
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="17.666666666666668"/>
                                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15"/>
                                                                                                                         <color key="textColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
                                                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="موقع الإعلان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1f-tg-Uui">
-                                                                                                                        <rect key="frame" x="0.0" y="21" width="271" height="15.333333333333336"/>
+                                                                                                                        <rect key="frame" x="0.0" y="23.666666666666742" width="271" height="15.333333333333336"/>
                                                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="13"/>
                                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                         <nil key="highlightedColor"/>
@@ -3739,10 +3762,10 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="PpI-gi-xqe">
-                                                                                                        <rect key="frame" x="38.666666666666664" y="15.666666666666742" width="97.666666666666686" height="15"/>
+                                                                                                        <rect key="frame" x="33" y="15.666666666666742" width="109" height="15.333333333333336"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD FOR RENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAN-Lw-nVQ">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="73.666666666666671" height="13"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="15.333333333333334"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -3751,7 +3774,7 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio_grey" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-DU-C6N">
-                                                                                                                <rect key="frame" x="82.666666666666686" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="94" y="0.33333333333325754" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="Y6b-bF-389"/>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="oy1-qJ-fcw"/>
@@ -3791,10 +3814,10 @@
                                                                                                 <rect key="frame" x="185" y="0.0" width="175" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-Ap-9py">
-                                                                                                        <rect key="frame" x="40.666666666666664" y="15.666666666666742" width="93.666666666666686" height="15"/>
+                                                                                                        <rect key="frame" x="34.666666666666657" y="15.666666666666742" width="106" height="15.333333333333336"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD FOR SELL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awc-x4-24H">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="69.666666666666671" height="13"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="15.333333333333334"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -3803,7 +3826,7 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radiobtn" translatesAutoresizingMaskIntoConstraints="NO" id="S0R-MU-hQz">
-                                                                                                                <rect key="frame" x="78.666666666666657" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="91.000000000000028" y="0.33333333333325754" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="r3m-h0-qi6"/>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="uOH-LU-kbd"/>
@@ -3901,10 +3924,10 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="q5H-Xe-at5">
-                                                                                                        <rect key="frame" x="32.333333333333329" y="15.666666666666515" width="50.333333333333329" height="15"/>
+                                                                                                        <rect key="frame" x="31.333333333333336" y="15.666666666666515" width="52.000000000000007" height="15.333333333333336"/>
                                                                                                         <subviews>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACR-Fw-rmF">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.33333333333348492" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="YhL-MY-CX5"/>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="t0q-TB-rgG"/>
@@ -3916,7 +3939,7 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </imageView>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-J2-rEc">
-                                                                                                                <rect key="frame" x="23.999999999999993" y="2" width="26.333333333333336" height="13"/>
+                                                                                                                <rect key="frame" x="23.999999999999993" y="0.0" width="28" height="15.333333333333334"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -3958,10 +3981,10 @@
                                                                                                 <rect key="frame" x="122.66666666666666" y="0.0" width="114.66666666666666" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-kN-uSU">
-                                                                                                        <rect key="frame" x="17" y="15.666666666666515" width="81" height="15"/>
+                                                                                                        <rect key="frame" x="15" y="15.666666666666515" width="85" height="15.333333333333336"/>
                                                                                                         <subviews>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsApp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqP-bb-Vpg">
-                                                                                                                <rect key="frame" x="0.0" y="2" width="57" height="13"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="61" height="15.333333333333334"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -3970,7 +3993,7 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </label>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yAU-Wu-Tb9">
-                                                                                                                <rect key="frame" x="66" y="0.0" width="15" height="15"/>
+                                                                                                                <rect key="frame" x="70" y="0.33333333333348492" width="15" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="3S6-6s-8c1"/>
                                                                                                                     <constraint firstAttribute="width" constant="15" id="vFU-uT-SPM"/>
@@ -4015,10 +4038,10 @@
                                                                                                 <rect key="frame" x="245.33333333333329" y="0.0" width="114.66666666666666" height="46.666666666666664"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6XS-je-XQa">
-                                                                                                        <rect key="frame" x="35" y="15.666666666666515" width="44.666666666666657" height="15"/>
+                                                                                                        <rect key="frame" x="34.333333333333371" y="15.666666666666515" width="46.333333333333343" height="15.333333333333336"/>
                                                                                                         <subviews>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-Hw-s3x">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="15"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.33333333333348492" width="17" height="15"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="height" constant="15" id="lE4-pP-tt6"/>
                                                                                                                     <constraint firstAttribute="width" constant="17" id="lO8-uF-hlD"/>
@@ -4030,7 +4053,7 @@
                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                             </imageView>
                                                                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R5-kz-Ykj">
-                                                                                                                <rect key="frame" x="24" y="2" width="20.666666666666671" height="13"/>
+                                                                                                                <rect key="frame" x="24" y="0.0" width="22.333333333333329" height="15.333333333333334"/>
                                                                                                                 <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="13"/>
                                                                                                                 <color key="textColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -4091,7 +4114,7 @@
                                                                                 <rect key="frame" x="0.0" y="120.33333333333326" width="360" height="110"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use My  Registered Phone Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIu-gp-XXI">
-                                                                                        <rect key="frame" x="0.0" y="7" width="227" height="15"/>
+                                                                                        <rect key="frame" x="0.0" y="7" width="237" height="17.666666666666668"/>
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -4100,7 +4123,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICs-0O-oGb">
-                                                                                        <rect key="frame" x="0.0" y="33" width="127.66666666666667" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="35.666666666666742" width="127.66666666666667" height="16"/>
                                                                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="13.600000381469727"/>
                                                                                         <color key="textColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                         <nil key="highlightedColor"/>
@@ -4109,7 +4132,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-tR-yxm">
-                                                                                        <rect key="frame" x="0.0" y="60" width="360" height="46.333333333333343"/>
+                                                                                        <rect key="frame" x="0.0" y="62.666666666666742" width="360" height="46.333333333333343"/>
                                                                                         <subviews>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Numnber" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vo7-sS-evJ">
                                                                                                 <rect key="frame" x="8" y="3" width="340" height="43.333333333333336"/>
@@ -4320,6 +4343,7 @@
                         <outlet property="adsMainImage" destination="cHh-03-dva" id="ohc-gw-ZBu"/>
                         <outlet property="collectionView" destination="L8u-oO-7Y7" id="eJG-HH-EKA"/>
                         <outlet property="deleteButton" destination="mUR-DR-Ytl" id="ih6-Na-ZcF"/>
+                        <outlet property="deleteMainImageButton" destination="dHW-dp-ef5" id="WTP-61-am1"/>
                         <outlet property="descTextView" destination="jjq-Rf-xrk" id="NTS-Ce-LP7"/>
                         <outlet property="has_chat_img" destination="ACR-Fw-rmF" id="i8r-Y8-brS"/>
                         <outlet property="has_chat_txt" destination="Bz4-J2-rEc" id="fr9-MV-uv7"/>
@@ -4333,6 +4357,7 @@
                         <outlet property="lbl_put_phone" destination="ICs-0O-oGb" id="prH-H4-UIy"/>
                         <outlet property="loc_main" destination="C4c-j9-aSx" id="2SU-qE-Qol"/>
                         <outlet property="loc_sub" destination="R1f-tg-Uui" id="jBJ-AX-yIm"/>
+                        <outlet property="mainImageFlagView" destination="A6e-7O-nBW" id="UWE-8L-Hbo"/>
                         <outlet property="oneImageView" destination="IOD-gL-uDU" id="4hX-XS-T3H"/>
                         <outlet property="pricev" destination="zaD-ex-EWU" id="ia3-LO-jaX"/>
                         <outlet property="saveButton" destination="vOp-j7-vim" id="aL5-Gc-xgb"/>
@@ -4638,6 +4663,12 @@
         <designable name="1UF-Yd-foF">
             <size key="intrinsicContentSize" width="61" height="32"/>
         </designable>
+        <designable name="mUR-DR-Ytl">
+            <size key="intrinsicContentSize" width="73" height="32"/>
+        </designable>
+        <designable name="vOp-j7-vim">
+            <size key="intrinsicContentSize" width="37" height="32"/>
+        </designable>
     </designables>
     <resources>
         <image name="DoneImage" width="323.66665649414062" height="385"/>
@@ -4646,6 +4677,7 @@
         <image name="addimage" width="352" height="165"/>
         <image name="addimageEnglish" width="352" height="165"/>
         <image name="checkbox" width="10" height="10"/>
+        <image name="delete_chat" width="21.333333969116211" height="21.333333969116211"/>
         <image name="ic_cross_white" width="24" height="24"/>
         <image name="imageadd" width="125" height="125"/>
         <image name="info" width="128" height="128"/>

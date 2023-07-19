@@ -134,7 +134,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var selectedMedia = [String:Data]()
     var selectedMediaKeys = [String]()
     var mainImageKey:String = ""
-    var selectedIndexPath: IndexPath?
+    var selectedIndexPath: IndexPath = [0,0]
     //MARK: App LifeCycle
     
     override func viewDidLoad() {
@@ -180,7 +180,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     }
     
     private func getDataFromSession(){
-        guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia ,let selectedMediaKeys = retrieveSessionData().selectedMediaKeys else {return}
+        guard  let title = retrieveSessionData().title , let selectedMedia = retrieveSessionData().selectedMedia ,let selectedMediaKeys = retrieveSessionData().selectedMediaKeys , let mainImageKey = retrieveSessionData().mainImageKey  else {return}
         self.selectedMedia = selectedMedia
         self.selectedMediaKeys = selectedMediaKeys
         advsTitleTF.text = title
@@ -191,7 +191,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         subCatID = retrieveSessionData().subCatId ?? 0
         priceTF.text = retrieveSessionData().price
         descTextView.text = retrieveSessionData().description
-        
+//        self.mainImageKey = mainImageKey
 //        if let imageDatas = retrieveSessionData().images {
 ////            selectedImages = imageDatas.compactMap { UIImage(data: $0.value) }
 ////            guard let mediaKeys = retrieveSessionData().mediaKeys else {return}
@@ -237,6 +237,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
          selectedMediaKeys = selectedMedia.keys.sorted()
         self.images = images
         self.selectedImages = Array(images.values)
+        mainImageKey = Array(images.keys)[0]
         self.mediaKeys = mediaKeys
         self.selectedMedia = selectedMedia
 //        selectFirstCell()
@@ -278,7 +279,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     //MARK: IBActions
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        saveSessionData(images: images, mediaKeys: Array(images.keys), description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia,selectedMediaKeys: selectedMediaKeys)
+        saveSessionData(images: images, mediaKeys: Array(images.keys), description: descTextView.text, title: advsTitleTF.text ?? "", price: priceTF.text ?? "", catId: mainCatID, subCatId: subCatID, CityId: cityId, RegionId: regionId,selectedMedia: selectedMedia,selectedMediaKeys: selectedMediaKeys,mainImageKey: self.mainImageKey)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
         self.navigationController?.popViewController(animated: true)
         }
@@ -551,8 +552,12 @@ extension AddAdvsVC : UICollectionViewDelegate, UICollectionViewDataSource {
 //        mainImageKey = Array(selectedMedia.keys)[selectedIndexPath.item]
         cell.indexPath = indexPath
         cell.delegate = self
-        cell.configureCell(images:  Array(images.values), selectedIndex: selectedIndexPath)
-        
+        cell.configureCell(images:  Array(images.values), selectedIndex: selectedIndexPath, mainImageKey: mainImageKey, imagekeyOfIndex: Array(images.keys)[indexPath.row])
+//        if mainImageKey == Array(images.keys)[indexPath.row] {
+//            cell.isSelected = true
+//        }else {
+//            cell.isSelected = false
+//        }
         print(mainImageKey)
         return cell
     }
@@ -915,7 +920,7 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
 
 extension AddAdvsVC {
     // Function to save session data
-    func saveSessionData(images: [String:UIImage],mediaKeys:[String], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data] , selectedMediaKeys:[String]?) {
+    func saveSessionData(images: [String:UIImage],mediaKeys:[String], description: String, title: String,price:String,catId:Int,subCatId:Int,CityId:Int,RegionId:Int,selectedMedia:[String:Data] , selectedMediaKeys:[String]?,mainImageKey:String?) {
         var sessionData: [String: Any] = [:]
         var imagesData: [String: Data] = [:] // Cache to store images as Data
                 
@@ -936,12 +941,13 @@ extension AddAdvsVC {
         sessionData["RegionId"] = RegionId
         sessionData["selectedMedia"] = selectedMedia
         sessionData["selectedMediaKeys"] = selectedMediaKeys
+        sessionData["mainImageKey"] = mainImageKey
 
         UserDefaults.standard.set(sessionData, forKey: "postSessionData")
     }
 
     // Function to retrieve session data
-    func retrieveSessionData() -> (images: [String:Data]?, mediaKeys: [String]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?, selectedMediaKeys:[String]?) {
+    func retrieveSessionData() -> (images: [String:Data]?, mediaKeys: [String]?, description: String?, title: String?, price: String?, catId: Int?, subCatId: Int?, CityId: Int?, RegionId: Int?,selectedMedia:[String:Data]?, selectedMediaKeys:[String]?,mainImageKey:String?) {
         if let sessionData = UserDefaults.standard.dictionary(forKey: "postSessionData") {
             let images = sessionData["images"] as? [String:Data]
             let mediaKeys = sessionData["mediaKeys"] as? [String]
@@ -954,9 +960,10 @@ extension AddAdvsVC {
             let regionId = sessionData["RegionId"] as? Int
             let selectedMedia = sessionData["selectedMedia"] as? [String:Data]
             let selectedMediaKeys = sessionData["selectedMediaKeys"] as? [String]
-            return (images, mediaKeys, description, title, price, catId, subCatId, cityId, regionId, selectedMedia,selectedMediaKeys)
+            let mainImageKey = sessionData["mainImageKey"] as? String
+            return (images, mediaKeys, description, title, price, catId, subCatId, cityId, regionId, selectedMedia,selectedMediaKeys,mainImageKey)
         }
-        return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil,nil)
+        return (nil, nil, nil, nil, nil, nil, nil, nil, nil,nil,nil,nil)
     }
 
 

@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import Kingfisher
 import TransitionButton
+import MOLH
 
 enum ImageDataSource {
     case url(URL)
@@ -17,6 +18,8 @@ enum ImageDataSource {
 
 class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
+    @IBOutlet weak var mainImageFlagView: UIView!
+    @IBOutlet weak var deleteMainImageButton: UIButton!
     @IBOutlet weak private var adsMainImage: UIImageView!
     @IBOutlet weak private var titleLabel: UITextField!
     @IBOutlet weak private var descTextView: UITextView!
@@ -68,6 +71,7 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
    private var regionId = ""
    private var subCatId = ""
    private var editedMainImage = false
+   private var mainImageDeleted = false
     
     var selectedImages = [UIImage]()
     var selectedVideos = [Data]()
@@ -104,6 +108,7 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     //MARK: Private Methods
     
     private func configureUI(){
+        deleteMainImageButton.setImage(UIImage(named: "delete_chat")?.withRenderingMode(.alwaysTemplate), for: .normal)
         has_chatv.borderWidth = 0.7
         has_wtsv.borderWidth = 0.7
         tajeerView.borderWidth = 0.7
@@ -115,6 +120,10 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     func PickupMediaPopupEditVC(_ controller: PickupMediaPopupEditAdsVC, didSelectImages image: UIImage,mainVideo:Data?, videos: [Data], selectedMedia: [String : Data]) {
         if isMainImage {
             adsMainImage.image = image
+            mainImageDeleted = false
+            UIView.animate(withDuration: 0.3) {
+                self.mainImageFlagView.isHidden = false
+            }
             if mainVideo == nil {
                 mainImage = image.jpegData(compressionQuality: 0.1)!
             }else {
@@ -145,6 +154,23 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func didTapDeleteMainImage(_ sender: UIButton) {
+        mainImage = nil
+        isEditImages = true
+        editedMainImage = true
+        mainImageDeleted = true
+        UIView.animate(withDuration: 0.3) {
+            self.mainImageFlagView.isHidden = true
+        }
+        if MOLHLanguage.currentAppleLanguage() == "en"{
+            adsMainImage.image = UIImage(named: "addimageEnglish")
+        }else {
+            adsMainImage.image = UIImage(named: "addimageArabic")
+        }
+        
     }
     
     @IBAction func didTapEditMainImageButton(_ sender: UIButton) {
@@ -252,8 +278,12 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
                 print(self.editedMainImage)
                 print(self.selectedMedia.count , self.isEditImages)
                 if self.editedMainImage {
-                    guard let mainImage = self.mainImage else {return}
-                multipartFormData.append(mainImage, withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
+                    if self.mainImageDeleted{
+                        multipartFormData.append(Data(), withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
+                    }else{
+                        guard let mainImage = self.mainImage else {return}
+                    multipartFormData.append(mainImage, withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
+                    }
                 }
                 print(self.selectedMedia.count , self.isEditImages)
                 
@@ -452,19 +482,23 @@ extension EditAdVC{
         
         //Main Image
         if let mainImage = product.mainImage {
-            if mainImage.contains(".mp4")  || mainImage.contains(".mov") {
-
-                adsMainImage.kf.indicatorType = .activity
-
-                guard let url = URL(string: Constants.IMAGE_URL + mainImage) else { return }
-                self.adsMainImage.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
-
-                
+            if mainImage == "" {
+                mainImageFlagView.isHidden = true
             }else{
-                adsMainImage.setImageWithLoading(url: mainImage )
-     
+                mainImageFlagView.isHidden = false
+                if mainImage.contains(".mp4")  || mainImage.contains(".mov") {
+
+                    adsMainImage.kf.indicatorType = .activity
+
+                    guard let url = URL(string: Constants.IMAGE_URL + mainImage) else { return }
+                    self.adsMainImage.kf.setImage(with: AVAssetImageDataProvider(assetURL: url, seconds: 1))
+
+                }else{
+                    adsMainImage.setImageWithLoading(url: mainImage )
+         
+                }
             }
-//            adsMainImage.setImageWithLoading(url: mainImage)
+            
         }
         DispatchQueue.main.async {
             self.collectionView.reloadData()
