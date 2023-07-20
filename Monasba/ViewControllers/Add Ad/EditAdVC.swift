@@ -270,110 +270,114 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
         var indexDeletedImage = 0
         var image = Data()
         
-        if isEditImages || editedMainImage {
-            saveButton.startAnimation()
-            self.view.alpha = 0.5
-            AF.upload(multipartFormData: { [weak self] multipartFormData in
-                guard let self = self else {return}
-                print(self.editedMainImage)
-                print(self.selectedMedia.count , self.isEditImages)
-                if self.editedMainImage {
-                    if self.mainImageDeleted{
-                        multipartFormData.append(Data(), withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
-                    }else{
-                        guard let mainImage = self.mainImage else {return}
-                    multipartFormData.append(mainImage, withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
-                    }
-                }
-                print(self.selectedMedia.count , self.isEditImages)
-                
-                if self.selectedMedia.count > 0 || self.isEditImages{
-                    for (value,key) in self.selectedMedia {
-                        
-                        if value.contains("IMAGE"){
-                            type = value.components(separatedBy: " ")[0]
-                            index = value.components(separatedBy: " ")[1]
-//                            type = value
-                            image = key
-                            print( "VALUE  ",value ,"KEY  " ,key)
-                            params["mtype[]"] = type
-                            multipartFormData.append(image, withName: "sub_image[]",fileName: "file\(index).jpg", mimeType: "image/jpg")
+        if !mainImageDeleted {
+            if isEditImages || editedMainImage {
+                saveButton.startAnimation()
+                self.view.alpha = 0.5
+                AF.upload(multipartFormData: { [weak self] multipartFormData in
+                    guard let self = self else {return}
+                    print(self.editedMainImage)
+                    print(self.selectedMedia.count , self.isEditImages)
+                    if self.editedMainImage {
+                        if self.mainImageDeleted{
+                            multipartFormData.append(Data(), withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
                         }else{
-                             index = "6"
-                            type = value
-                            image = key
-                            params["mtype[]"] = type
-                            multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                            guard let mainImage = self.mainImage else {return}
+                            multipartFormData.append(mainImage, withName: "main_image",fileName: "file.jpg", mimeType: "image/jpg")
                         }
                     }
-                }
+                    print(self.selectedMedia.count , self.isEditImages)
+                    
+                    if self.selectedMedia.count > 0 || self.isEditImages{
+                        for (value,key) in self.selectedMedia {
+                            
+                            if value.contains("IMAGE"){
+                                type = value.components(separatedBy: " ")[0]
+                                index = value.components(separatedBy: " ")[1]
+                                //                            type = value
+                                image = key
+                                print( "VALUE  ",value ,"KEY  " ,key)
+                                params["mtype[]"] = type
+                                multipartFormData.append(image, withName: "sub_image[]",fileName: "file\(index).jpg", mimeType: "image/jpg")
+                            }else{
+                                index = "6"
+                                type = value
+                                image = key
+                                params["mtype[]"] = type
+                                multipartFormData.append(image, withName: "sub_image[]",fileName: "video\(index).mp4", mimeType: "video/mp4")
+                            }
+                        }
+                    }
                     
                     if self.imagesDeleted.count > 0 {
                         for img in self.imagesDeleted {
                             indexDeletedImage += 1
-//                          , "delete_img_ids[]":"6235"
+                            //                          , "delete_img_ids[]":"6235"
                             params["delete_img_ids[\(indexDeletedImage)]"] = img
-
+                            
                         }
                     }
-                   
                     
-                for (key,value) in params {
-                    multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
-                }
-           
-                print("send Image Parameters : -----> ", params)
-                 
-            },to:"\(url)")
-            .responseDecodable(of:EditAdvSuccessModel.self){ response in
-                print(response)
-                self.view.alpha = 1.0
-                self.saveButton.stopAnimation()
-                switch response.result {
-                case .success(let data):
-                    if let message = data.message , let success = data.success{
-                        if success {
-                        print(message)
-                            StaticFunctions.createSuccessAlert(msg:message)
-                            self.navigationController?.popViewController(animated: true)
-                        }else{
-                            StaticFunctions.createErrorAlert(msg: message)
-                        }
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }else{
-            
-            if imagesDeleted.count > 0 {
-                for img in imagesDeleted {
-                    indexDeletedImage += 1
-                    //                          , "delete_img_ids[]":"6235"
-                    params["delete_img_ids[\(indexDeletedImage)]"] = img
                     
-                }
-            }
-            print(params)
-            AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:EditAdvSuccessModel.self){ response in
-                print(response)
-                switch response.result {
-                case .success(let data):
-                    if let message = data.message , let success = data.success{
-                        if success {
-                            print(message)
-                            StaticFunctions.createSuccessAlert(msg:message)
-                            self.navigationController?.popViewController(animated: true)
-                        }else{
-                            StaticFunctions.createErrorAlert(msg:message)
-                        }
+                    for (key,value) in params {
+                        multipartFormData.append((value as AnyObject).description.data(using: String.Encoding.utf8)!, withName: key)
                     }
-                case .failure(let error):
-                    print(error)
+                    
+                    print("send Image Parameters : -----> ", params)
+                    
+                },to:"\(url)")
+                .responseDecodable(of:EditAdvSuccessModel.self){ response in
+                    print(response)
+                    self.view.alpha = 1.0
+                    self.saveButton.stopAnimation()
+                    switch response.result {
+                    case .success(let data):
+                        if let message = data.message , let success = data.success{
+                            if success {
+                                print(message)
+                                StaticFunctions.createSuccessAlert(msg:message)
+                                self.navigationController?.popViewController(animated: true)
+                            }else{
+                                StaticFunctions.createErrorAlert(msg: message)
+                            }
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
                 }
+            }else{
+                
+                if imagesDeleted.count > 0 {
+                    for img in imagesDeleted {
+                        indexDeletedImage += 1
+                        //                          , "delete_img_ids[]":"6235"
+                        params["delete_img_ids[\(indexDeletedImage)]"] = img
+                        
+                    }
+                }
+                print(params)
+                AF.request(url, method: .post, parameters: params, encoding:URLEncoding.httpBody).responseDecodable(of:EditAdvSuccessModel.self){ response in
+                    print(response)
+                    switch response.result {
+                    case .success(let data):
+                        if let message = data.message , let success = data.success{
+                            if success {
+                                print(message)
+                                StaticFunctions.createSuccessAlert(msg:message)
+                                self.navigationController?.popViewController(animated: true)
+                            }else{
+                                StaticFunctions.createErrorAlert(msg:message)
+                            }
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                
+                
             }
-            
-            
+        }else {
+            StaticFunctions.createErrorAlert(msg: "Please add main Image for your Ad.".localize)
         }
         
     }

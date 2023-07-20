@@ -151,7 +151,7 @@
 "Delete" = "حذف";
 "Edit" = "تعديل";
 "Ads Deleted Seccessfully" = "تم حذف اعلانك بنجاح";
-
+"Please add main Image for your Ad." = "الرجاء إضافة الصورة الرئيسية لإعلانك.";
 //MARK: Chat
 "Delete The Conversation" = "حذف المحادثة";
 "Report The Conversation" = "أبلغ عن المحادثة";

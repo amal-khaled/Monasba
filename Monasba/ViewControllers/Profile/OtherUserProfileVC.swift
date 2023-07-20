@@ -287,10 +287,10 @@
                 }
             }
             if let userPic =  profileModel.pic {
+                print(userPic)
                 if userPic.contains(".png") || userPic.contains(".jpg") {
-                    if userPic.contains(".png") || userPic.contains(".jpg"){
-                        userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
-                    }
+                    
+                    userImageView.setImageWithLoading(url:profileModel.pic ?? "" )
                 }else {
                     userImageView.image = UIImage(named: "logo_photo")
                 }
@@ -308,7 +308,10 @@
             followersCountLabel.text = "\(profileModel.followers ?? 0)"
             followingsCountLabel.text = "\(profileModel.following ?? 0)"
             userNameLabel.text = profileModel.username
-            userBioLabel.text = profileModel.bio
+           
+            if let bio = profileModel.bio {
+                userBioLabel.text = bio
+            }
             if MOLHLanguage.currentAppleLanguage() == "en" {
                 UserLocationLabel.text = "\(profileModel.countriesNameEn ?? "") - \(profileModel.citiesNameEn ?? "")"
             }else {

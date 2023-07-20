@@ -42,7 +42,7 @@
                                                     <view tag="3" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cig-FS-fLM" userLabel="User data">
                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_image" translatesAutoresizingMaskIntoConstraints="NO" id="yYO-Kv-O7Z">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_photo" translatesAutoresizingMaskIntoConstraints="NO" id="yYO-Kv-O7Z">
                                                                 <rect key="frame" x="8" y="0.0" width="70" height="70"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="70" id="pi6-Re-QYW"/>
@@ -2988,6 +2988,7 @@
         <image name="del_gray" width="64" height="64"/>
         <image name="empty-favourite" width="185.33332824707031" height="151.66667175292969"/>
         <image name="log-out" width="20" height="20"/>
+        <image name="logo_photo" width="90" height="90"/>
         <image name="mobile" width="13.666666984558105" height="22.333333969116211"/>
         <image name="myAds" width="23" height="23"/>
         <image name="phone2" width="64" height="64"/>
@@ -2998,7 +2999,6 @@
         <image name="svgexport-6 - 2022-09-12T213831.807" width="21" height="17.333333969116211"/>
         <image name="uploadImage" width="54.666667938232422" height="46"/>
         <image name="userProfile" width="23" height="23"/>
-        <image name="user_image" width="225" height="225"/>
         <image name="verification" width="16" height="16"/>
         <image name="verificationGray" width="23.666666030883789" height="23.666666030883789"/>
         <namedColor name="#0EBFB1">
