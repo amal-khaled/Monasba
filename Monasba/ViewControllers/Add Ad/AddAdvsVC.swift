@@ -908,6 +908,7 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
             self.selectedMedia.removeValue(forKey: removedKey)
         }
         selectedIndexPath = [0,0]
+        self.mainImageKey = Array(images.keys)[0]
 //        if let removedKey = selectedMediaKeys[safe: indexPath.item] {
 //            self.selectedMedia.removeValue(forKey: removedKey)
 //            self.selectedMediaKeys.remove(at: indexPath.item)
