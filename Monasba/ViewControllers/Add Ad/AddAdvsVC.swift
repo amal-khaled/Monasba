@@ -237,6 +237,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
          selectedMediaKeys = selectedMedia.keys.sorted()
         self.images = images
         self.selectedImages = Array(images.values)
+        self.selectedIndexPath = [0,0]
         mainImageKey = Array(images.keys)[0]
         self.mediaKeys = mediaKeys
         self.selectedMedia = selectedMedia
@@ -906,6 +907,7 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
             self.images.removeValue(forKey: removedKey)
             self.selectedMedia.removeValue(forKey: removedKey)
         }
+        selectedIndexPath = [0,0]
 //        if let removedKey = selectedMediaKeys[safe: indexPath.item] {
 //            self.selectedMedia.removeValue(forKey: removedKey)
 //            self.selectedMediaKeys.remove(at: indexPath.item)
