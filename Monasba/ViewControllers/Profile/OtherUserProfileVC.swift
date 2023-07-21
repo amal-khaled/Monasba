@@ -140,26 +140,37 @@
         
         @IBAction func blockUserBtnAction(_ sender: UIButton) {
             
+            let vc = UIStoryboard(name: PROFILE_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "BlockUserVC") as! BlockUserVC
+            vc.otherUserId = OtherUserId
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: false)
         }
         
         @IBAction func followBtnAction(_ sender: UIButton) {
 
-         guard let url = URL(string: Constants.DOMAIN+"make_follow") else {return}
-         let params : [String: Any]  = ["to_id":OtherUserId]
-         print(params)
-         AF.request(url, method: .post, parameters: params,headers: Constants.headerProd).responseDecodable(of:SuccessModel.self){res in
-    //         BG.hide(self)
-             print(Constants.headerProd)
-             switch res.result {
-             case .success(let data):
-                 if let message = data.message {
-                     StaticFunctions.createSuccessAlert(msg: message)
-                     self.getProfile()
-                 }
-             case .failure(let error):
-                 print(error)
-             }
-         }
+//         guard let url = URL(string: Constants.DOMAIN+"make_follow") else {return}
+//         let params : [String: Any]  = ["to_id":OtherUserId]
+//         print(params)
+//         AF.request(url, method: .post, parameters: params,headers: Constants.headerProd).responseDecodable(of:SuccessModel.self){res in
+//    //         BG.hide(self)
+//             print(Constants.headerProd)
+//             switch res.result {
+//             case .success(let data):
+//                 if let message = data.message {
+//                     StaticFunctions.createSuccessAlert(msg: message)
+//                     self.getProfile()
+//                 }
+//             case .failure(let error):
+//                 print(error)
+//             }
+//         }
+            ProfileController.shared.followUser(completion: { check, message in
+                if check == 0 {
+                    self.getProfile()
+                }else {
+                    StaticFunctions.createErrorAlert(msg: message)
+                }
+            }, OtherUserId: OtherUserId)
         }
         
         @IBAction func activeNotificationBtnAction(_ sender: UIButton) {

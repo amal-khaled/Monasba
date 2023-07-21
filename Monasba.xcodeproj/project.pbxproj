@@ -151,6 +151,7 @@
 		C87DD3A52A485C7000B6B0FB /* SuccessVerifiationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87DD3A42A485C7000B6B0FB /* SuccessVerifiationModel.swift */; };
 		C89286BC2A3DB41500FB0A8A /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89286BB2A3DB41500FB0A8A /* EditProfileVC.swift */; };
 		C89286BE2A3DB8A800FB0A8A /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89286BD2A3DB8A800FB0A8A /* EditProfileModel.swift */; };
+		C89AD68D2A69829A00748572 /* BlockUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89AD68C2A69829900748572 /* BlockUserVC.swift */; };
 		C89D12852A10209200669FD9 /* AddAdvsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12842A10209200669FD9 /* AddAdvsController.swift */; };
 		C89D12872A10245B00669FD9 /* AddAdvsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89D12862A10245B00669FD9 /* AddAdvsModel.swift */; };
 		C8A281BA2A3DA01E00954090 /* FollowTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A281B82A3DA01E00954090 /* FollowTVCell.swift */; };
@@ -360,6 +361,7 @@
 		C87DD3A42A485C7000B6B0FB /* SuccessVerifiationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessVerifiationModel.swift; sourceTree = "<group>"; };
 		C89286BB2A3DB41500FB0A8A /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		C89286BD2A3DB8A800FB0A8A /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		C89AD68C2A69829900748572 /* BlockUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserVC.swift; sourceTree = "<group>"; };
 		C89D12842A10209200669FD9 /* AddAdvsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsController.swift; sourceTree = "<group>"; };
 		C89D12862A10245B00669FD9 /* AddAdvsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdvsModel.swift; sourceTree = "<group>"; };
 		C8A281B82A3DA01E00954090 /* FollowTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTVCell.swift; sourceTree = "<group>"; };
@@ -947,6 +949,7 @@
 				C89286BB2A3DB41500FB0A8A /* EditProfileVC.swift */,
 				C83FBD7F2A553B3F0009CA73 /* AddRateForUsersVC.swift */,
 				C8C714FB2A646805006C5AFE /* FollowersAndFollowingsVC.swift */,
+				C89AD68C2A69829900748572 /* BlockUserVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1334,6 +1337,7 @@
 				C8290BED2A442D6500B31CCE /* EditAdvSuccessModel.swift in Sources */,
 				C8A2BEB92A3A55B400A05E77 /* OtherUserProductCell.swift in Sources */,
 				C85FFCA82A260A34000C426D /* msgsC.swift in Sources */,
+				C89AD68D2A69829A00748572 /* BlockUserVC.swift in Sources */,
 				65495D7C2A1DF02900A23579 /* AskTableViewCell.swift in Sources */,
 				656D773D2A1F09B1004EB289 /* UserNotification.swift in Sources */,
 				C806906A2A42E8A9008BB53C /* PickupMediaPopupEditAdsVC.swift in Sources */,
