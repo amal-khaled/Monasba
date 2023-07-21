@@ -102,7 +102,7 @@ class HomeViewController: UIViewController {
   //  }
     
     func createCustomNavBar(){
-        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 60))
+        let customNavBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 70))
             customNavBar.backgroundColor = UIColor(named: "#0EBFB1")
         customNavBar.cornerRadius = 30
         customNavBar.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
@@ -129,20 +129,28 @@ class HomeViewController: UIViewController {
         leftButton.sizeToFit()
         leftView.addSubview(leftButton)
         leftView.frame = leftButton.bounds
-        leftButton.semanticContentAttribute = .forceLeftToRight
-        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+//        leftButton.semanticContentAttribute = .forceLeftToRight
         let rightView = UIView()
         //view.backgroundColor = .black
         let rightButton = UIButton(type: .system)
-        rightButton.semanticContentAttribute = .forceRightToLeft
+//        rightButton.semanticContentAttribute = .forceRightToLeft
         rightButton.setImage(UIImage(named: "square")?.withRenderingMode(.alwaysOriginal), for: .normal)
         rightButton.setTitle("Categories".localize, for: .normal)
         rightButton.addTarget(self, action: #selector(categoryBtnAction), for: .touchUpInside)
         rightButton.sizeToFit()
         rightView.addSubview(rightButton)
         rightView.frame = rightButton.bounds
-        rightButton.semanticContentAttribute = .forceLeftToRight
-        rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+//        rightButton.semanticContentAttribute = .forceLeftToRight
+        if MOLHLanguage.currentAppleLanguage()  == "en"{
+            rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+            leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+
+        }else{
+            rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
+            leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
+
+
+        }
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftView)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightView)
     }
@@ -242,7 +250,7 @@ class HomeViewController: UIViewController {
         coountryVC = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COUNTRY_VCIID) as!  CounriesViewController
         coountryVC.countryBtclosure = {
             (country) in
-           
+            AppDelegate.currentCountry = country
             self.countryLbl.text = MOLHLanguage.currentAppleLanguage() == "en" ? (country.nameEn ?? "") : (country.nameAr ?? "")
             self.countryId = country.id ?? 6
             self.cityId = -1

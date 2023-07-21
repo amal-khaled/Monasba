@@ -156,15 +156,15 @@ extension CategoryViewController{
         }, categoryId: self.categories[categoryIndex].id ?? 0)
     }
     func getCities(){
-        if AppDelegate.currentUser.countryId == 5 || AppDelegate.currentUser.countryId == 10{
+        if AppDelegate.currentCountry.id == 5 || AppDelegate.currentCountry.id == 10{
             CountryController.shared.getCities(completion: {
                 countries, check,msg in
                 self.cities = countries
                 
-            }, countryId: AppDelegate.currentUser.countryId ?? 0)
+            }, countryId: AppDelegate.currentCountry.id ?? 0)
         }else{
             //asks_side
-            self.cities = [ Country(nameAr: AppDelegate.currentUser.countriesNameAr ?? "الكويت", nameEn:  AppDelegate.currentUser.countriesNameEn ?? "Kuwait", id: AppDelegate.currentUser.countryId  ?? 6)]
+            self.cities = [ Country(nameAr: AppDelegate.currentCountry.nameAr ?? "الكويت", nameEn:  AppDelegate.currentCountry.nameEn ?? "Kuwait", id: AppDelegate.currentCountry.id  ?? 6)]
             
         }
     }

@@ -26,22 +26,31 @@ class SearchViewController: UIViewController {
     var delegate: ContentDelegate?
     var delegate1: ContentDelegate?
     var delegate2: ContentDelegate?
-    var isHidden = true
+    var isHidden = false
     @IBOutlet weak var topTabsBar: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-//                tabsBar.isHidden = true
+
+        searchBar.text = searchText
+        self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
+        self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
+        self.delegate2?.updateContent(searchText: searchText, isHidden: isHidden)
+        //                tabsBar.isHidden = true
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        
+
+    }
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func adsBtnAction(_ sender: Any) {
         adsLbl.textColor = UIColor(named: "#0EBFB1")
@@ -117,32 +126,70 @@ class SearchViewController: UIViewController {
     }
 }
 extension SearchViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSObject.cancelPreviousPerformRequests(
-            withTarget: self,
-            selector: #selector(self.getHintsFromTextField),
-            object: searchBar)
-        self.perform(
-            #selector(self.getHintsFromTextField),
-            with: searchBar,
-            afterDelay: 0.5)
-        
-        self.searchText = searchText
-        
-    }
-    @objc func getHintsFromTextField(searchBar: UISearchBar) {
-        self.searchText = searchBar.text!
-        
-        self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
-        self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
-        self.delegate2?.updateContent(searchText: searchText, isHidden: isHidden)
-        
-    }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    //        NSObject.cancelPreviousPerformRequests(
+    //            withTarget: self,
+    //            selector: #selector(self.getHintsFromTextField),
+    //            object: searchBar)
+    //        self.perform(
+    //            #selector(self.getHintsFromTextField),
+    //            with: searchBar,
+    //            afterDelay: 0.5)
+    //
+    //        self.searchText = searchText
+    //
+    //    }
+    //    @objc func getHintsFromTextField(searchBar: UISearchBar) {
+    //        self.searchText = searchBar.text!
+    //
+    //        self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
+    //        self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
+    //        self.delegate2?.updateContent(searchText: searchText, isHidden: isHidden)
+    //
+    //    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         topTabsBar.isHidden = false
         isHidden = false
+        self.searchText = searchBar.text!
+        
+    //new part
+        adsLbl.textColor = UIColor(named: "#0EBFB1")
+        adsView.backgroundColor = UIColor(named: "#0EBFB1")
+        
+        personLbl.textColor = UIColor(named: "#929292")
+        personView.backgroundColor = UIColor(named: "#929292")
+        
+        questionLbl.textColor = UIColor(named: "#929292")
+        questionView.backgroundColor = UIColor(named: "#929292")
+        //new part
+        adView.isHidden = false
+        peresonView.isHidden = true
+        questionsView.isHidden = true
         self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
         self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
         self.delegate2?.updateContent(searchText: searchText, isHidden: isHidden)
     }
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        topTabsBar.isHidden = false
+//        isHidden = false
+//        self.searchText = searchBar.text!
+//
+//    //new part
+//        adsLbl.textColor = UIColor(named: "#0EBFB1")
+//        adsView.backgroundColor = UIColor(named: "#0EBFB1")
+//
+//        personLbl.textColor = UIColor(named: "#929292")
+//        personView.backgroundColor = UIColor(named: "#929292")
+//
+//        questionLbl.textColor = UIColor(named: "#929292")
+//        questionView.backgroundColor = UIColor(named: "#929292")
+//        //new part
+//        adView.isHidden = false
+//        peresonView.isHidden = true
+//        questionsView.isHidden = true
+//        self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
+//        self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
+//        self.delegate2?.updateContent(searchText: searchText, isHidden: isHidden)
+//    }
 }

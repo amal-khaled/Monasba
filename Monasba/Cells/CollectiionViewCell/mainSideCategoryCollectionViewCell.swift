@@ -19,10 +19,10 @@ class mainSideCategoryCollectionViewCell: UICollectionViewCell {
         if let name = category.nameAr  {
             if name.contains("اسال"){
                 if  MOLHLanguage.currentAppleLanguage() == "en" {
-                    lbl_name.text = "ask \(AppDelegate.currentUser.countriesNameEn ?? "")"
+                    lbl_name.text = "ask \(AppDelegate.currentCountry.nameEn ?? "")"
                 }
                 else{
-                    lbl_name.text = "اسال \(AppDelegate.currentUser.countriesNameAr ?? "")"
+                    lbl_name.text = "اسال \(AppDelegate.currentCountry.nameAr ?? "")"
                     
                 }
                 cImageView.image = UIImage(named: "askImage")

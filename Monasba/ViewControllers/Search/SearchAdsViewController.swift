@@ -13,6 +13,7 @@ class SearchAdsViewController: UIViewController {
     var page = 1
     var isTheLast = false
     var searchText = ""
+    @IBOutlet weak var searchNoResult: UIStackView!
     @IBOutlet weak var textStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,7 @@ extension SearchAdsViewController: UICollectionViewDataSource, UICollectionViewD
 }
 extension SearchAdsViewController{
     func getData(){
-        SearchController.shared.searchAds(completion: {
+        SearchController.shared.searchAds(completion: { [self]
             ads, check, msg in
             if check == 0{
                 if self.page == 1 {
@@ -97,6 +98,11 @@ extension SearchAdsViewController{
                     self.page = self.page == 1 ? 1 : self.page - 1
                     self.isTheLast = true
                 }
+                if self.ads.count == 0{
+                    self.searchNoResult.isHidden = false
+                }else{
+                    searchNoResult.isHidden = true
+                }
                 self.collectionView.reloadData()
             }else{
                 StaticFunctions.createErrorAlert(msg: msg)
@@ -112,6 +118,7 @@ extension SearchAdsViewController: ContentDelegate{
         self.isTheLast = false
         textStackView.isHidden = isHidden
         self.collectionView.isHidden = isHidden
+        
         getData()
     }
     

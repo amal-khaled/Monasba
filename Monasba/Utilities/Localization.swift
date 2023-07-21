@@ -50,3 +50,12 @@ extension UITextField {
         }}
     }
 }
+extension UISearchBar {
+    @IBInspectable public var Localize: Bool {
+        get { return true }
+        set { if (newValue) {
+            placeholder = placeholder?.localize
+            text = text?.localize
+        }}
+    }
+}

@@ -47,6 +47,7 @@
 		659987FA2A1F3E2900DBD8EE /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659987F92A1F3E2900DBD8EE /* CommentRepliesViewController.swift */; };
 		659987FC2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659987FB2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift */; };
 		659987FE2A1F422C00DBD8EE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659987FD2A1F422C00DBD8EE /* Comment.swift */; };
+		659C3BB82A69DBCB00FFA360 /* SearchBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C3BB72A69DBCB00FFA360 /* SearchBaseViewController.swift */; };
 		659F892D29FD9A3400AFA95C /* AuthCoontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */; };
 		659F892F29FD9AED00AFA95C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F892E29FD9AED00AFA95C /* User.swift */; };
 		65B550592A1C812F002D2264 /* SearchAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B550582A1C812F002D2264 /* SearchAdsViewController.swift */; };
@@ -251,6 +252,7 @@
 		659987F92A1F3E2900DBD8EE /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		659987FB2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyTableViewCell.swift; sourceTree = "<group>"; };
 		659987FD2A1F422C00DBD8EE /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		659C3BB72A69DBCB00FFA360 /* SearchBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseViewController.swift; sourceTree = "<group>"; };
 		659F892C29FD9A3400AFA95C /* AuthCoontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoontroller.swift; sourceTree = "<group>"; };
 		659F892E29FD9AED00AFA95C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65B550582A1C812F002D2264 /* SearchAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAdsViewController.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 		65D61ED02A15FE2200C3FC68 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				659C3BB72A69DBCB00FFA360 /* SearchBaseViewController.swift */,
 				65D61ED12A15FE4000C3FC68 /* SearchViewController.swift */,
 				65B550582A1C812F002D2264 /* SearchAdsViewController.swift */,
 				65B5505C2A1CB53E002D2264 /* SearchPersonViewController.swift */,
@@ -1321,6 +1324,7 @@
 				656FB05929FD5D6C00751C6C /* CitiesViewController.swift in Sources */,
 				65DD121E29E6915A00A3B8DD /* Constants.swift in Sources */,
 				65DD122B29E6915A00A3B8DD /* AddingCustomFont.swift in Sources */,
+				659C3BB82A69DBCB00FFA360 /* SearchBaseViewController.swift in Sources */,
 				C85FFCD62A260BEF000C426D /* MsgCell.swift in Sources */,
 				652711EA29EBF7EB00D503F9 /* LoginViewController.swift in Sources */,
 				C8191F972A4055030057AA28 /* PaddingLabel.swift in Sources */,
@@ -1519,7 +1523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
@@ -1556,7 +1560,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = 4W85KLPQDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;

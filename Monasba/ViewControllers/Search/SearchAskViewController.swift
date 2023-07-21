@@ -16,6 +16,7 @@ class SearchAskViewController: UIViewController {
     var isTheLast = false
     var searchText = ""
     @IBOutlet weak var textStackView: UIStackView!
+    @IBOutlet weak var searchNoResult: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +116,11 @@ extension SearchAskViewController{
                 if asks.isEmpty{
                     self.page = self.page == 1 ? 1 : self.page - 1
                     self.isTheLast = true
+                }
+                if self.asks.count == 0{
+                    self.searchNoResult.isHidden = false
+                }else{
+                    self.searchNoResult.isHidden = true
                 }
                 self.tableView.reloadData()
             }else{

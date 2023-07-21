@@ -18,6 +18,7 @@ let PROFILE_STORYBOARD = "Profile"
 let CATEGORRY_STORYBOARD = "Category"
 let PRODUCT_STORYBOARD = "Product"
 let MENU_STORYBOARD = "Menu"
+let SEARCH_STORYBOARD = "Search"
 
 //Auth Controllers
 let LOGIN_VCID = "login"
@@ -53,6 +54,8 @@ let ASK_CITY_VCID = "asks_city"
 let ASK_ADD_VCID = "add_ask"
 let ASK_IMAGE_PICKER_VCID = "ask_image_picker"
 
+//Search Controllers
+let SEARCH_VCID = "search"
 
 //utilities
 let NO_INTERNET_CONNECTION = "No internet connection".localize
