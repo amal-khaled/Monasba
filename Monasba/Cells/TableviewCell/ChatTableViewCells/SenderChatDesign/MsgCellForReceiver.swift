@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MsgCell: MsgGlobalCell {
+class MsgCellForReceiver: MsgGlobalCell {
 
     @IBOutlet weak var lbl_msg: UILabel!
     @IBOutlet weak var lbl_date: UILabel!

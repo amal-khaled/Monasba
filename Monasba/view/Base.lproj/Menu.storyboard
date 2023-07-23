@@ -2393,7 +2393,7 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TgU-Y7-sEW">
-                                        <rect key="frame" x="4" y="4" width="382" height="789"/>
+                                        <rect key="frame" x="4" y="30" width="382" height="763"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="n7X-uz-le9" id="QKA-Rk-Vmv"/>
@@ -2405,7 +2405,7 @@
                                 <constraints>
                                     <constraint firstItem="TgU-Y7-sEW" firstAttribute="leading" secondItem="5le-6s-rxX" secondAttribute="leading" constant="4" id="ajZ-dH-0Fn"/>
                                     <constraint firstAttribute="bottom" secondItem="TgU-Y7-sEW" secondAttribute="bottom" constant="4" id="cc7-LT-FdZ"/>
-                                    <constraint firstItem="TgU-Y7-sEW" firstAttribute="top" secondItem="5le-6s-rxX" secondAttribute="top" constant="4" id="vMk-Xx-xbE"/>
+                                    <constraint firstItem="TgU-Y7-sEW" firstAttribute="top" secondItem="5le-6s-rxX" secondAttribute="top" constant="30" id="vMk-Xx-xbE"/>
                                     <constraint firstAttribute="trailing" secondItem="TgU-Y7-sEW" secondAttribute="trailing" constant="4" id="wQ6-FJ-qpJ"/>
                                 </constraints>
                             </view>
@@ -2486,14 +2486,24 @@
                                     <constraint firstAttribute="width" constant="374" id="y8z-fg-WiZ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32N-Iw-yVN">
+                                <rect key="frame" x="-10" y="37" width="410" height="30"/>
+                                <color key="backgroundColor" name="#0EBFB1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sLM-FM-rhz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vzd-eS-Irv"/>
                         <color key="backgroundColor" name="#0EBFB1"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="5le-6s-rxX" secondAttribute="bottom" id="2Mq-JW-C6v"/>
+                            <constraint firstItem="vzd-eS-Irv" firstAttribute="trailing" secondItem="32N-Iw-yVN" secondAttribute="trailing" constant="-10" id="EzK-W4-wnD"/>
                             <constraint firstItem="t7P-Q0-bXr" firstAttribute="centerX" secondItem="vzd-eS-Irv" secondAttribute="centerX" id="K68-un-ZIN"/>
+                            <constraint firstItem="5le-6s-rxX" firstAttribute="top" secondItem="32N-Iw-yVN" secondAttribute="bottom" constant="-20" id="LOr-tA-kcy"/>
+                            <constraint firstItem="32N-Iw-yVN" firstAttribute="leading" secondItem="vzd-eS-Irv" secondAttribute="leading" constant="-10" id="PcC-KJ-n9h"/>
                             <constraint firstItem="t7P-Q0-bXr" firstAttribute="centerY" secondItem="vzd-eS-Irv" secondAttribute="centerY" id="Sbr-Kj-HeC"/>
-                            <constraint firstItem="5le-6s-rxX" firstAttribute="top" secondItem="vzd-eS-Irv" secondAttribute="top" id="naA-z9-ipm"/>
+                            <constraint firstItem="32N-Iw-yVN" firstAttribute="top" secondItem="vzd-eS-Irv" secondAttribute="top" constant="-10" id="lZx-T3-Sp1"/>
                             <constraint firstItem="5le-6s-rxX" firstAttribute="leading" secondItem="AFQ-a1-TJL" secondAttribute="leading" id="v9f-nR-1ZZ"/>
                             <constraint firstAttribute="trailing" secondItem="5le-6s-rxX" secondAttribute="trailing" id="zQl-SW-aAu"/>
                         </constraints>
@@ -2501,6 +2511,7 @@
                     <connections>
                         <outlet property="FavouritesTableView" destination="TgU-Y7-sEW" id="3Lh-fd-Kve"/>
                         <outlet property="emptyView" destination="t7P-Q0-bXr" id="oyT-az-Khb"/>
+                        <outlet property="headerView" destination="32N-Iw-yVN" id="bqR-cK-hXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tj-0p-BOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2984,7 +2995,7 @@
         <image name="UploadDovImage" width="337" height="150"/>
         <image name="arrow_Down" width="12" height="6.3333334922790527"/>
         <image name="check_icon" width="19" height="14"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="del_gray" width="64" height="64"/>
         <image name="empty-favourite" width="185.33332824707031" height="151.66667175292969"/>
         <image name="log-out" width="20" height="20"/>

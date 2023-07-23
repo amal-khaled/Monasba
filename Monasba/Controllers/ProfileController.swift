@@ -175,4 +175,35 @@ class ProfileController {
         }, link: Constants.FOLLOW_USER , param: param)
     }
     
+    func blockUser (completion: @escaping( Int, String)->(), OtherUserId: Int){
+        
+        let param = ["to_uid":OtherUserId ,
+                                      "from_uid":AppDelegate.currentUser.id ?? 0] as [String: Any]
+        
+        APIConnection.apiConnection.postConnection(completion: {
+            data  in
+            guard let data = data else { return }
+            
+            do {
+                let generalObject = try JSONDecoder().decode(GeneralObject.self, from: data)
+                
+                if generalObject.code == 200{
+                    
+                    completion( 0 ,generalObject.msg ?? "")
+                }
+                else {
+                    completion(1,generalObject.msg ?? "")
+                }
+                
+            } catch (let jerrorr){
+                
+                print(jerrorr)
+                completion(1,SERVER_ERROR)
+                
+                
+            }
+            
+        }, link: Constants.BLOCK_USER , param: param)
+    }
+    
 }

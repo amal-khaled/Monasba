@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class MsgMediaCell: MsgGlobalCell {
+class MsgMediaCellReciver: MsgGlobalCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var videov: UIView!

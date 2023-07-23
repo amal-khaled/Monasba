@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MsgContactCell: MsgGlobalCell {
+class MsgContactSenderCell: MsgGlobalCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var lbl_name: UILabel!

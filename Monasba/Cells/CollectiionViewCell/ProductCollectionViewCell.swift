@@ -165,6 +165,15 @@ extension UIView{
         
         return date!
     }
+    
+    func GetDateFromStringLocalizable(_ DateStr: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Adjust the date format based on your input DateStr format
+        dateFormatter.locale = Locale(identifier: MOLHLanguage.currentAppleLanguage()) // Use the app's current language
+        
+        let date = dateFormatter.date(from: DateStr) ?? Date()
+        return date
+    }
     func dateDiff(_ dateRangeStart:Date , _ dateRangeEnd:Date) -> String {
         var result = ""
         let components = Calendar.current.dateComponents([.month,.day,.hour, .weekday,.minute,.second], from: dateRangeStart, to: dateRangeEnd)

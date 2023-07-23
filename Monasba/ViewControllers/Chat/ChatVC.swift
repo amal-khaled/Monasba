@@ -26,7 +26,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
              UINavigationControllerDelegate,
              UIColorPickerViewControllerDelegate,
              CNContactPickerDelegate,
-             UIDocumentPickerDelegate, RecordViewDelegate, AVAudioRecorderDelegate  {
+             UIDocumentPickerDelegate, RecordViewDelegate, AVAudioRecorderDelegate  ,UITextFieldDelegate{
     //Timer
     var timer: Timer!
     func setTimerTask(selector:Selector){
@@ -78,6 +78,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     var counter = 0
   //  var timer:Timer?
     
+    @IBOutlet weak var tableViewContainerView: UIView!
     @IBOutlet weak var containerViewSendView: UIView!
     @IBOutlet weak var sendView: UIView!
     var recordingSession: AVAudioSession? = AVAudioSession()
@@ -140,7 +141,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         Constants.orderLoc_represnted = false
         lbl_title.text = "Messages".localize
         confirmMessageLabel.text = ""
-        
+        self.txt_msg.delegate = self
         //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
              //  view.addGestureRecognizer(tapGesture)
 //        txt_msg.addTarget(self, action: #selector(handleSendButton), for: .editingChanged)
@@ -160,6 +161,12 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         lst.registerCell(cell: MsgContactCell.self)
         lst.registerCell(cell: MsgFileCell.self)
         lst.registerCell(cell: MsgRecordCell.self)
+        lst.registerCell(cell: MsgCellForReceiver.self)
+        lst.registerCell(cell: MsgContactSenderCell.self)
+        lst.registerCell(cell: MsgMediaCellReciver.self)
+        lst.registerCell(cell: MsgMapRecieverCell.self)
+        lst.registerCell(cell: MsgRecordRecieverCell.self)
+//        lst.register(UINib(nibName: "MsgCellForSender", bundle: nil), forCellReuseIdentifier: "MsgCellForSender")
         lst.rowHeight = UITableView.automaticDimension
         lst.estimatedRowHeight = 50
         
@@ -194,8 +201,10 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         UIView.animate(withDuration: 0.3) {
             if keyboardHeight > 0 {
                 self.sendView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
+                self.tableViewContainerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
             } else {
                 self.sendView.transform = .identity
+                self.tableViewContainerView.transform = .identity
             }
         }
     }
@@ -581,30 +590,75 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         var cell = MsgGlobalCell()
         let msgType = data[inx].mtype
         if msgType == "TEXT" {
-            cell = tableView.dequeue(inx: indexPath) as MsgCell
+            if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
+                
+                cell = tableView.dequeue(inx: indexPath) as MsgCellForReceiver
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgCell
+            }
         }else if msgType == "COLOR" {
             cell = tableView.dequeue(inx: indexPath) as MsgColorCell
         }else if msgType == "LOCATION" {
-            cell = tableView.dequeue(inx: indexPath) as MsgMapCell
+           
+            if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
+                
+                cell = tableView.dequeue(inx: indexPath) as MsgMapRecieverCell
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgMapCell
+            }
         }else if msgType == "IMAGE" || msgType == "VIDEO" {
-            cell = tableView.dequeue(inx: indexPath) as MsgMediaCell
+           
+            if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
+                cell = tableView.dequeue(inx: indexPath) as MsgMediaCellReciver
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgMediaCell
+            }
+            
         }else if msgType == "DOCUMENT" || msgType == "MUSIC" {
             cell = tableView.dequeue(inx: indexPath) as MsgFileCell
         }else if msgType == "AUDIO" {
-            cell = tableView.dequeue(inx: indexPath) as MsgRecordCell
-            if  let cell = cell as? MsgRecordCell {
-        cell.btn_play.tag = inx
-            
-            cell.btn_play.addTarget(self, action: #selector(go_play_record), for: .touchUpInside)
+         
+            if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
+                cell = tableView.dequeue(inx: indexPath) as MsgRecordRecieverCell
+                
+                if  let cell = cell as? MsgRecordRecieverCell {
+            cell.btn_play.tag = inx
+                
+                cell.btn_play.addTarget(self, action: #selector(go_play_record), for: .touchUpInside)
+                }
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgRecordCell
+                
+                if  let cell = cell as? MsgRecordCell {
+            cell.btn_play.tag = inx
+                
+                cell.btn_play.addTarget(self, action: #selector(go_play_record), for: .touchUpInside)
+                }
             }
-                 
         }else if msgType == "CONTACT" {
-            cell = tableView.dequeue(inx: indexPath) as MsgContactCell
-            let cell = cell as! MsgContactCell
-            cell.btn_save.tag = inx
-            cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
-            cell.btn_call.tag = inx
-            cell.btn_call.addTarget(self, action: #selector(go_call_contact), for: .touchUpInside)
+            
+            if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
+                cell = tableView.dequeue(inx: indexPath) as MsgContactSenderCell
+                let cell = cell as! MsgContactSenderCell
+                cell.btn_save.tag = inx
+                cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
+                cell.btn_call.tag = inx
+                cell.btn_call.addTarget(self, action: #selector(go_call_contact), for: .touchUpInside)
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgContactCell
+                
+                let cell = cell as! MsgContactCell
+                cell.btn_save.tag = inx
+                cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
+                cell.btn_call.tag = inx
+                cell.btn_call.addTarget(self, action: #selector(go_call_contact), for: .touchUpInside)
+                
+            }
+//            let cell = cell as! MsgContactCell
+//            cell.btn_save.tag = inx
+//            cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
+//            cell.btn_call.tag = inx
+//            cell.btn_call.addTarget(self, action: #selector(go_call_contact), for: .touchUpInside)
         }else{
             cell = tableView.dequeue(inx: indexPath) as MsgCell
         }

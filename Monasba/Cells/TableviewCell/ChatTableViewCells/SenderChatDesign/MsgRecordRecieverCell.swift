@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MsgRecordCell: MsgGlobalCell {
+class MsgRecordRecieverCell: MsgGlobalCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var lbl_duration: UILabel!
@@ -60,4 +60,14 @@ class MsgRecordCell: MsgGlobalCell {
 }
 
 
-
+extension AVPlayer {
+    
+    var isPlaying: Bool {
+        if (self.rate != 0 && self.error == nil) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+}

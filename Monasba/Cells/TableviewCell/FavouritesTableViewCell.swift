@@ -51,13 +51,13 @@ class FavouritesTableViewCell: UITableViewCell {
         
     override class func awakeFromNib() {
         super.awakeFromNib()
-       
         
+
     }
     
     func configure(data:FavProdData) {
         guard let userName = data.userName  , let userId = data.uid  else {return}
-        guard  let loc = data.loc,let prodPrice = data.price , let currancy = data.countriesCurrencyAr else {return}
+        guard  let loc = data.loc,let prodPrice = data.price else {return}
         if let prodpic = data.prodsImage , let image = data.img  {
             if prodpic != "" {
                 if prodpic.contains(".mp4")  || prodpic.contains(".mov") {
@@ -95,20 +95,30 @@ class FavouritesTableViewCell: UITableViewCell {
         
         if let date = data.createdAt {
             dateLabel.text = cDate(GetDateFromString(date))
-            print(cDate(GetDateFromString(date)))
+            print(cDate(GetDateFromStringLocalizable(date)))
             //            }
             
                         
             lbl_uname.text = data.userName ?? ""
            
             
-            if let cityName = data.citiesNameAr {
-                lbl_loc.text = cityName
+            self.lbl_name.text = data.name ?? ""
+            print(prodPrice)
+            self.lbl_price.text = "\(prodPrice)"
+            
+            if MOLHLanguage.currentAppleLanguage() == "en" {
+                 let cityName = data.citiesNameEn ?? ""
+                self.lbl_loc.text = cityName
+                
+                 let currancy = data.countriesCurrencyEn ?? ""
+                self.lbl_currency.text = currancy
+             }else{
+                 let cityName = data.citiesNameAr ?? ""
+                 self.lbl_loc.text = cityName
+                 let currancy = data.countriesCurrencyAr ?? ""
+                self.lbl_currency.text = currancy
             }
             
-            self.lbl_name.text = data.name ?? ""
-            self.lbl_price.text = "\(prodPrice)"
-            self.lbl_currency.text = currancy
             
             
             if data.userVerified ?? 0 == 1 {

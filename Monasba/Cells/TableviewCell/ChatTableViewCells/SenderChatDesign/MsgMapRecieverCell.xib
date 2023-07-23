@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MsgMapCell" rowHeight="362" id="vKV-ST-8oF" customClass="MsgMapCell" customModule="Monasba" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MsgMapRecieverCell" rowHeight="362" id="vKV-ST-8oF" userLabel="MsgMapRecieverCell" customClass="MsgMapRecieverCell" customModule="Monasba" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="335" height="362"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vKV-ST-8oF" id="ooT-2X-L8q">
@@ -32,13 +32,13 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFG-Ef-M2a">
-                        <rect key="frame" x="85" y="0.0" width="250" height="352"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="352"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="15c-e0-ylA">
-                                <rect key="frame" x="12" y="261" width="226" height="41"/>
+                                <rect key="frame" x="12" y="261" width="226" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfN-XF-7Wd" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="226" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اللون المطلوب" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I6-mM-js6" customClass="EdgeInsetLabel" customModule="Monasba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="226" height="21"/>
+                                        <rect key="frame" x="0.0" y="15" width="226" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Tajawal-Medium" family="Tajawal Medium" pointSize="13.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +75,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.08235294118" green="0.74901960779999999" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="15c-e0-ylA" firstAttribute="leading" secondItem="hFG-Ef-M2a" secondAttribute="leading" constant="12" id="3Uo-Ap-ucH"/>
                             <constraint firstAttribute="trailing" secondItem="qEa-vL-Nqj" secondAttribute="trailing" constant="7" id="45p-zO-fpk"/>
@@ -97,7 +97,7 @@
                 <constraints>
                     <constraint firstItem="4VZ-6Y-WaQ" firstAttribute="top" secondItem="hFG-Ef-M2a" secondAttribute="bottom" id="1h3-iB-fp7"/>
                     <constraint firstAttribute="trailing" secondItem="4VZ-6Y-WaQ" secondAttribute="trailing" id="6Ye-4X-ddY"/>
-                    <constraint firstAttribute="trailing" secondItem="hFG-Ef-M2a" secondAttribute="trailing" id="DRh-fz-rgi"/>
+                    <constraint firstAttribute="leading" secondItem="hFG-Ef-M2a" secondAttribute="leading" id="DRh-fz-rgi"/>
                     <constraint firstAttribute="bottom" secondItem="4VZ-6Y-WaQ" secondAttribute="bottom" id="gmd-5b-La2"/>
                     <constraint firstItem="4VZ-6Y-WaQ" firstAttribute="leading" secondItem="ooT-2X-L8q" secondAttribute="leading" id="tNJ-EG-ssN"/>
                     <constraint firstItem="hFG-Ef-M2a" firstAttribute="top" secondItem="ooT-2X-L8q" secondAttribute="top" id="w5Z-kU-gny"/>
@@ -131,10 +131,10 @@
     </objects>
     <designables>
         <designable name="8I6-mM-js6">
-            <size key="intrinsicContentSize" width="71" height="21"/>
+            <size key="intrinsicContentSize" width="71" height="16"/>
         </designable>
         <designable name="XfN-XF-7Wd">
-            <size key="intrinsicContentSize" width="108.5" height="20"/>
+            <size key="intrinsicContentSize" width="108.5" height="15"/>
         </designable>
     </designables>
 </document>
