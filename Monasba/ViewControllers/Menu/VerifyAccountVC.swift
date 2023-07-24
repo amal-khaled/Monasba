@@ -62,9 +62,12 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             phoneNumber.delegate = self
             phoneNumber.text = "\(AppDelegate.currentUser.phone ?? "")"
 //            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
+           if MOLHLanguage.currentAppleLanguage() == "en" {
+               pic.image = UIImage(named: "UploadDovImage")
+            }else{
+                pic.image = UIImage(named: "UploadDovImageArabic")
+            }
 
-            
-            
             countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
             
             dropDowns.forEach { $0.dismissMode = .onTap }
@@ -362,10 +365,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                 StaticFunctions.setTextColor(tajeer_txt, UIColor.gray)
                 sellv.backgroundColor = UIColor(named: "#0EBFB1")
                 tajeerv.backgroundColor = UIColor.white
-                documents_name = ["بطاقة الهوية",
-                                      "جواز سفر",
-                                      "رخصة قيادة"]
-                
+                documents_name = ["ID card".localize,"passport".localize ,"Driving License".localize]
             }
             setupDropDownDocuments()
         }
