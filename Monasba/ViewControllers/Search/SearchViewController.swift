@@ -47,7 +47,9 @@ class SearchViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-
+//        searchBar.text = ""
+//        self.navigationController?.popToRootViewController(animated: true)
+        
     }
     @IBAction func backBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
