@@ -61,12 +61,8 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             StaticFunctions.setTextColor(sell_txt, UIColor.white)
             phoneNumber.delegate = self
             phoneNumber.text = "\(AppDelegate.currentUser.phone ?? "")"
-            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
-//           if MOLHLanguage.currentAppleLanguage() == "en" {
-//               self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
-//            }else{
-//                self.countriesBtn.setTitle(AppDelegate.currentUser.countriesNameAr, for: .normal)
-//            }
+//            phoneCode.text = "\(AppDelegate.currentUser.phone?.prefix(3) ?? "")"
+
             
             
             countriesBtn.setTitle(AppDelegate.currentUser.countriesNameEn, for: .normal)
@@ -144,16 +140,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                 self.catsBtn.setTitle(self.cat_name, for: .normal)
             }
         }
-//        func open_country_dialog() {
-//            let countrisC = countriesC(nibName: "countriesC", bundle: nil)
-//            countrisC.delegate5 = self
-//            presentDialogViewController(countrisC, animationPattern: .zoomInOut)
-//        }
-        
-//        func closeDialog(){
-//            dismissDialogViewController(.fadeInOut)
-//        }
-        
+
         
         @IBAction func selectCountry(_ sender: UIButton) {
           //  open_country_dialog()
@@ -163,10 +150,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
         @IBAction func show_cats(_ sender: Any) {
             cats.show()
         }
-        //===================================    END cats   ===================================
-        
-        
-        //===================================     documents   ===================================
+
         @IBOutlet weak var documentsBtn: UIButton!
         
         var document_name:String = ""
@@ -254,6 +238,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
             countries.bottomOffset = CGPoint(x: 0, y: countriesBtn.bounds.height)
             countries.dataSource = countries_name
             if countries_name.count > 0 {
+                self.countryCode = self.countriesCode[countries_id.firstIndex(of: (AppDelegate.currentUser.countryId ?? 0))!]
                 countriesBtn.setTitle(countries_name[countries_id.firstIndex(of: (AppDelegate.currentUser.countryId ?? 0))!], for: .normal)
             }else {
                 countriesBtn.setTitle("Country".localize, for: .normal)
@@ -312,7 +297,7 @@ class VerifyAccountVC: UIViewController, UITextFieldDelegate {
                             if success {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    self.dismissDetail()
+                                    self.navigationController?.popViewController(animated: true)
                                 }
                             }
                         }

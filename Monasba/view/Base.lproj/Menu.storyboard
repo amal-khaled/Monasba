@@ -1517,9 +1517,9 @@
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-Kc-X2q">
                                                                         <rect key="frame" x="0.0" y="28" width="384" height="50"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-vL-Zle">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-vL-Zle">
                                                                                 <rect key="frame" x="44" y="0.0" width="302" height="50"/>
-                                                                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
                                                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                                                                                 <state key="normal">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2995,7 +2995,7 @@
         <image name="UploadDovImage" width="337" height="150"/>
         <image name="arrow_Down" width="12" height="6.3333334922790527"/>
         <image name="check_icon" width="19" height="14"/>
-        <image name="country" width="16" height="16"/>
+        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
         <image name="del_gray" width="64" height="64"/>
         <image name="empty-favourite" width="185.33332824707031" height="151.66667175292969"/>
         <image name="log-out" width="20" height="20"/>
