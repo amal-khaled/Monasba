@@ -45,9 +45,9 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
                 btn_select.setTitle("Cancel".localize, for: .normal)
                 btn_del.isUserInteractionEnabled = true
 //                StaticFunctions.setTextColor(lbl_del, UIColor(named: "#0EBFB1"))
-                lbl_del.textColor = UIColor(named: "#0EBFB1")
+                lbl_del.textColor = UIColor.gray
 //                StaticFunctions.setTextColor(lbl_del, UIColor(named: "#0EBFB1"))
-                StaticFunctions.setImageFromAssets(img_del, "del_main")
+                StaticFunctions.setImageFromAssets(img_del, "icons-trash")
 //                img_del.image = UIImage(named: "delete_chat")?.withRenderingMode(.alwaysTemplate)
 //                showV(v: [select_allv])
                 select_allv.isHidden = false
@@ -69,7 +69,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
 //        setTxtColor(lbl_del, colors.gray2_hash)
         StaticFunctions.setTextColor(lbl_del, UIColor.gray)
 //        simg(img_del, "del_gray")
-        StaticFunctions.setImageFromAssets(img_del, "del_gray")
+        StaticFunctions.setImageFromAssets(img_del, "icons-trash")
 //        hideV(v: [select_allv])
         select_allv.isHidden = true
         toggle_show_chk(0)

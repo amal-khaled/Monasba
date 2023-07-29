@@ -21,6 +21,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     @IBOutlet weak var addMorePhotoButton: UIButton!
     @IBOutlet weak var firstImageViewContainer: UIView!
+    @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var moreImageViewContainer: UIView!
     @IBOutlet weak var advsTitleTF: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -147,6 +148,11 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getDataFromSession()
         configureUI()
         
+        if MOLHLanguage.currentAppleLanguage() == "en" {
+                uploadImageView.image = UIImage(named: "addimageEnglish")
+        } else {
+                uploadImageView.image = UIImage(named: "addimageArabic")
+        }
         advsTitleTF.delegate = self
     }
     
@@ -575,8 +581,12 @@ extension AddAdvsVC {
     
     //MARK: Methods
     private func setupView(){
-        
-        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
+        descTextView.delegate = self
+        descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+        descTextView.textColor = UIColor.lightGray
+//        uploadImageView.image = UIImage(named: "uploadAd")
+//        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
+       
         configerSelectedButtons()
     }
     
@@ -1000,5 +1010,22 @@ extension AddAdvsVC : UITextFieldDelegate {
 extension Array {
     subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension AddAdvsVC:UITextViewDelegate {
+    func  textViewDidBeginEditing(_ textView: UITextView) {
+
+        if descTextView.textColor == UIColor.lightGray {
+            descTextView.text = ""
+            descTextView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+
+        if descTextView.text == "" {
+            descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+            descTextView.textColor = UIColor.lightGray
+        }
     }
 }

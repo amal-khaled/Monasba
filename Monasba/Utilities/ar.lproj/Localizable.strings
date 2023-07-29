@@ -58,9 +58,10 @@
 
 
 //MARK: Verify Account
-"Verify Account" = "التحقق من الحساب";
+"Verify Account" = "التحقق من الملف الشخصي";
+"Verify Account " = "توثيق الحساب";
 "Select the account type" = "حدد نوع الحساب";
-"Company / institution" = "الشركة / المؤسسة";
+"Company / institution" = "شركة / مؤسسة";
 "Public figure/famous" = "شخصية عامة / مشهور";
 "Country" = "الدولة";
 "Phone" = "هاتف";
@@ -188,6 +189,7 @@
 
 "Save the contact" = "حفظ جهة الإتصال";
 "Phone call" = "مكالمة هاتفية";
+"Are you sure you want to Delete this Chat?" = "هل تريد حظر هذه الغرفة";
 //MARK: Product Details
 
 "Description" = "وصف";

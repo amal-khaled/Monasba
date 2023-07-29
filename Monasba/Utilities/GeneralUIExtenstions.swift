@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MOLH
 // MARK: -UIView
 
 @IBDesignable extension UIView {
@@ -747,6 +748,11 @@ extension UITextView {
         let placeholderLabel = UILabel()
         placeholderLabel.numberOfLines = 0
         placeholderLabel.text = placeholder
+       if MOLHLanguage.currentAppleLanguage() == "en"  {
+            placeholderLabel.textAlignment = .left
+        }else{
+            placeholderLabel.textAlignment = .right
+        }
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.font = .systemFont(ofSize: 15.0, weight: .medium)
         placeholderLabel.sizeToFit()
@@ -765,7 +771,7 @@ extension UITextView {
         let labelWidth  = self.frame.width
         let labelHeight = self.frame.height
         
-        placeholderLabel.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelHeight)
+        placeholderLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
     }
     
     @objc private func textChanged() {
