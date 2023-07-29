@@ -166,9 +166,13 @@ class EditAdVC:UIViewController, PickupMediaPopupEditAdsVCDelegate  {
             self.mainImageFlagView.isHidden = true
         }
         if MOLHLanguage.currentAppleLanguage() == "en"{
-            adsMainImage.image = UIImage(named: "addimageEnglish")
+            DispatchQueue.main.async {
+                self.adsMainImage.image = UIImage(named: "addimageEnglish")
+            }
         }else {
-            adsMainImage.image = UIImage(named: "addimageArabic")
+            DispatchQueue.main.async {
+                self.adsMainImage.image = UIImage(named: "addimageArabic")
+            }
         }
         
     }

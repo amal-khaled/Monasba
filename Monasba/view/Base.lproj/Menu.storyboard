@@ -2057,7 +2057,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16.5"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Verify Account">
+                                                        <state key="normal" title="Verify Account ">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -2995,7 +2995,7 @@
         <image name="UploadDovImage" width="337" height="150"/>
         <image name="arrow_Down" width="12" height="6.3333334922790527"/>
         <image name="check_icon" width="19" height="14"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="del_gray" width="64" height="64"/>
         <image name="empty-favourite" width="185.33332824707031" height="151.66667175292969"/>
         <image name="log-out" width="20" height="20"/>

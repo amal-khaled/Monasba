@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -193,7 +194,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="#0EBFB1"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VXU-3G-kiI" secondAttribute="bottom" id="7r0-UO-ZMi"/>
                             <constraint firstAttribute="trailing" secondItem="VXU-3G-kiI" secondAttribute="trailing" id="E1A-0i-Qvd"/>
@@ -249,6 +250,9 @@
     <resources>
         <image name="arrow_left" width="60" height="60"/>
         <image name="profilepic" width="150" height="150"/>
+        <namedColor name="#0EBFB1">
+            <color red="0.054999999701976776" green="0.74900001287460327" blue="0.6940000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

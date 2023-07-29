@@ -27,6 +27,25 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
              UIColorPickerViewControllerDelegate,
              CNContactPickerDelegate,
              UIDocumentPickerDelegate, RecordViewDelegate, AVAudioRecorderDelegate  ,UITextFieldDelegate{
+    
+    let plusIcon = UIImage(named: "plusImage")
+    let sendIcon = UIImage(named: "sendd")
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // This method is called whenever the text field's content changes
+        // Update the button's icon based on the text field's content
+
+        if let currentText = textField.text, let range = Range(range, in: currentText) {
+            let updatedText = currentText.replacingCharacters(in: range, with: string)
+            sendMessageButton.setImage(updatedText.isEmpty ? plusIcon : sendIcon, for: .normal)
+        } else {
+            sendMessageButton.setImage(plusIcon, for: .normal)
+        }
+
+        return true
+    }
+
+    
+    
     //Timer
     var timer: Timer!
     func setTimerTask(selector:Selector){
@@ -236,14 +255,14 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         recordButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         recordButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        recordButton.trailingAnchor.constraint(equalTo: sendView.trailingAnchor, constant: -8).isActive = true
+        recordButton.rightAnchor.constraint(equalTo: sendView.rightAnchor, constant: -2).isActive = true
         recordButton.bottomAnchor.constraint(equalTo: sendView.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
 
 
-        recordView.trailingAnchor.constraint(equalTo: recordButton.leadingAnchor, constant: -20).isActive = true
+        recordView.trailingAnchor.constraint(equalTo: recordButton.leadingAnchor, constant: -4).isActive = true
         recordView.leadingAnchor.constraint(equalTo: sendView.leadingAnchor, constant: 10).isActive = true
         recordView.bottomAnchor.constraint(equalTo: recordButton.bottomAnchor).isActive = true
-       
+//
         //IMPORTANT
         recordButton.recordView = recordView
         recordView.delegate = self
@@ -342,21 +361,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                 }
             }
 
-                
-//
-//                .responseString { (e) in
-//                    if let res = e.value {
-//                        print(res)
-//                        if(res.contains("true")){
-//                            self.msg("لقد قمت بحذف المحادثة بنجاح ","ok")
-//                            self.hideConfirmOptions()
-//                            self.navigationController?.popViewController(animated: true)
-//                  //  self.goNav("otherProfilev","Profile")
-//                        }else{
-//                            self.msg("توجد مشكلة")
-//                        }
-//                    }
-//                }
+
         }else {
             let params : [String: Any]  = ["uid":AppDelegate.currentUser.id ?? 0,
                                            "room_id":Constants.room_id]
@@ -382,22 +387,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                     print(error)
                 }
             }
-//                .responseString { (e) in
-//                    if let res = e.value {
-//                        print(res)
-//                        if(res.contains("true")){
-//                            self.msg("لقد قمت بحظر المحادثة بنجاح ","ok")
-//                            self.hideConfirmOptions()
-//                           // self.dismiss(animated: true)
-//                            //self.goNav("mainv")
-//                        }else if (res.contains("already_blocked")) {
-//                            self.msg("لقد قمت بحظر هذة المحادثة من قبل ")
-//                            self.hideConfirmOptions()
-//                        }else {
-//                            self.msg("توجد مشكلة")
-//                        }
-//                    }
-//                }
+
         }
        
     }
@@ -410,7 +400,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     @IBAction func deleteChatClicked(_ sender: UIButton) {
         print("deleteChatClicked")
         isDelete = true
-        self.confirmMessageLabel.text = "هل تريد حذف هذة المحادثة  "
+        self.confirmMessageLabel.text =  "Are you sure you want to Delete this Chat?".localize
         closeChatOptionsMenu()
         showConfirmOptions()
 
@@ -427,7 +417,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     @IBAction func blockChatClicked(_ sender: UIButton) {
         isDelete = false
-        self.confirmMessageLabel.text = "هل تريد حظر هذه الغرفة"
+        self.confirmMessageLabel.text = "Are you sure you want to block?".localize
         closeChatOptionsMenu()
         showConfirmOptions()
     }
@@ -592,26 +582,27 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         if msgType == "TEXT" {
             if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
                 
-                cell = tableView.dequeue(inx: indexPath) as MsgCellForReceiver
-            }else{
                 cell = tableView.dequeue(inx: indexPath) as MsgCell
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgCellForReceiver
+
             }
         }else if msgType == "COLOR" {
             cell = tableView.dequeue(inx: indexPath) as MsgColorCell
         }else if msgType == "LOCATION" {
            
             if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
-                
-                cell = tableView.dequeue(inx: indexPath) as MsgMapRecieverCell
-            }else{
                 cell = tableView.dequeue(inx: indexPath) as MsgMapCell
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgMapRecieverCell
             }
         }else if msgType == "IMAGE" || msgType == "VIDEO" {
            
             if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
-                cell = tableView.dequeue(inx: indexPath) as MsgMediaCellReciver
-            }else{
                 cell = tableView.dequeue(inx: indexPath) as MsgMediaCell
+            }else{
+                cell = tableView.dequeue(inx: indexPath) as MsgMediaCellReciver
+               
             }
             
         }else if msgType == "DOCUMENT" || msgType == "MUSIC" {
@@ -619,17 +610,18 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         }else if msgType == "AUDIO" {
          
             if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
-                cell = tableView.dequeue(inx: indexPath) as MsgRecordRecieverCell
+               
+                cell = tableView.dequeue(inx: indexPath) as MsgRecordCell
                 
-                if  let cell = cell as? MsgRecordRecieverCell {
+                if  let cell = cell as? MsgRecordCell {
             cell.btn_play.tag = inx
                 
                 cell.btn_play.addTarget(self, action: #selector(go_play_record), for: .touchUpInside)
                 }
             }else{
-                cell = tableView.dequeue(inx: indexPath) as MsgRecordCell
+                cell = tableView.dequeue(inx: indexPath) as MsgRecordRecieverCell
                 
-                if  let cell = cell as? MsgRecordCell {
+                if  let cell = cell as? MsgRecordRecieverCell {
             cell.btn_play.tag = inx
                 
                 cell.btn_play.addTarget(self, action: #selector(go_play_record), for: .touchUpInside)
@@ -638,16 +630,16 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         }else if msgType == "CONTACT" {
             
             if data[inx].rid ?? 0 == AppDelegate.currentUser.id ?? 0 {
-                cell = tableView.dequeue(inx: indexPath) as MsgContactSenderCell
-                let cell = cell as! MsgContactSenderCell
+                cell = tableView.dequeue(inx: indexPath) as MsgContactCell
+                
+                let cell = cell as! MsgContactCell
                 cell.btn_save.tag = inx
                 cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
                 cell.btn_call.tag = inx
                 cell.btn_call.addTarget(self, action: #selector(go_call_contact), for: .touchUpInside)
             }else{
-                cell = tableView.dequeue(inx: indexPath) as MsgContactCell
-                
-                let cell = cell as! MsgContactCell
+                cell = tableView.dequeue(inx: indexPath) as MsgContactSenderCell
+                let cell = cell as! MsgContactSenderCell
                 cell.btn_save.tag = inx
                 cell.btn_save.addTarget(self, action: #selector(go_save_contact), for: .touchUpInside)
                 cell.btn_call.tag = inx
@@ -749,17 +741,16 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
     @IBAction func send_msg(_ sender: Any) {
         if(!txt_msg.text!.isEmpty){
-            
-          //  send_message(txt_msg.text!,"TEXT")
             sendMessage(txt_msg.text!, images: [Data()], msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
+        }else {
+            self.sendMessageButton.setImage(UIImage(named: "plusImage"), for: .normal)
+            showDialog()
         }
-//        else{
-//            showDialog()
-//        }
+
     }
     
     @IBAction func attach_file(_ sender: Any) {
-        showDialog()
+//        showDialog()
     }
     
     func open_attach_dialog() {
@@ -777,7 +768,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
     
      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder()
+       //  textField.resignFirstResponder()
         if !textField.text!.isEmpty{
             //send_message(txt_msg.text!,"TEXT")
             sendMessage(txt_msg.text!, images: [Data()],msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
@@ -785,33 +776,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         return true
     }
     
-//    func send_message(_ msg:String,_ msg_type:String,_ file_name:String="-"){
-//
-//        var params : [String: Any]  = ["sid":user.id,
-//                                       "room_id":receiver.room_id,
-//                                       "rid":receiver.id,
-//                                       "msg":msg,
-////                                       "file_name":file_name,
-//                                       "mtype":msg_type]
-//        if file_name != "-"{
-//            params["file_name"] = file_name
-//            print("params",params)
-//        }
-//        guard let url = URL(string: user.newBaseUrl+"send_message") else {return}
-//        AF.request(url, method: .post, parameters: params,headers: temp.headerProd)
-//            .responseString { (e) in
-//                if let res = e.value {
-//                    print(res)
-//                    if(res.contains("true")){
-//                        self.txt_msg.text = ""
-//                        self.get()
-//                    }else{
-//                        self.msg("توجد مشكلة")
-//                    }
-//                }
-//            }
-//    }
-    
+
     
     fileprivate func sendMessage(_ msg:String,images:[Data], msgType:String , filePath:URL) {
        // BG.load(self)
@@ -861,6 +826,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                 if let message = data.message{
                     if message.contains("تم إرجاع البيانات بنجاح") {
                         self.txt_msg.text = ""
+                        self.sendMessageButton.setImage(self.plusIcon, for: .normal)
                         self.get()
                     }else {
 //                        self.msg(message)
