@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-
+        
         searchBar.text = searchText
         self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
         self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)

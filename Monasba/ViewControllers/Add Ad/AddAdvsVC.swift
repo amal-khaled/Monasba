@@ -58,6 +58,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBOutlet weak var regionLabel: UILabel!
     
     @IBOutlet weak var descTextView: UITextView!
+    
     @IBOutlet weak var priceTF: UITextField!
     @IBOutlet weak var mainCatButton: UIButton!
     @IBOutlet weak var subCatButton: UIButton!
@@ -581,12 +582,15 @@ extension AddAdvsVC {
     
     //MARK: Methods
     private func setupView(){
-        descTextView.delegate = self
-        descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
-        descTextView.textColor = UIColor.lightGray
+//        descTextView.delegate = self
+//        descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+//        descTextView.textColor = UIColor.lightGray
+//        descTextView.placeholderExt = "Please Enter the full description with the advantages and disadvantages".localize
+        descTextView.addPlaceholder("Please Enter the full description with the advantages".localize)
+//        descTextView.placeholderExt = "Please Enter the full description with the advantages and Price".localize
+        
 //        uploadImageView.image = UIImage(named: "uploadAd")
 //        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
-       
         configerSelectedButtons()
     }
     
