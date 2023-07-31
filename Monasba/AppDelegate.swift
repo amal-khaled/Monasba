@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
        
         
         AppDelegate.defaults.removeObject(forKey: "postSessionData")
-        
+//        IQKeyboardManager.shared.disabledToolbarClasses = [ChatVC.self]
         IQKeyboardManager.shared.enable = true
         print(AppDelegate.defaults.integer(forKey: "userId"))
 //        MOLH.setLanguageTo( "ar")

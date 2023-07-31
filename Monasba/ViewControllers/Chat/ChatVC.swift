@@ -114,6 +114,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
   //  var data = ChatMessage(msgs: [Message](), receiver: nil, room: nil)
     var data = [Result]()
     
+    @IBOutlet weak var bottomSendViewConstraint: NSLayoutConstraint!
     @IBOutlet var stackViewCollection: [UIStackView]!
     
     @IBOutlet weak var sendMessageButton: UIButton!
@@ -230,6 +231,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     
    
 
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -468,6 +470,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
     
     func get(){
+        
         let params : [String: Any]  = ["room_id":receiver.room_id]
         guard let url = URL(string: Constants.DOMAIN+"chat_by_room")else{return}
         print(params)
@@ -805,6 +808,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                     //params["mtype[]"] = msgType
                     multipartFormData.append(images[0], withName: "images[]",fileName: "video.mp4", mimeType: "video/mp4")
                 }else if msgType.contains("LOCATION"){
+                    
                     multipartFormData.append(filePath, withName: "images[]")
                    // params["mtype[]"] = msgType
                 }else if msgType.contains("AUDIO"){
@@ -830,6 +834,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
                         self.txt_msg.text = ""
                         self.sendMessageButton.setImage(self.plusIcon, for: .normal)
                         self.get()
+                        
                     }else {
 //                        self.msg(message)
                         StaticFunctions.createErrorAlert(msg: message)
@@ -1113,6 +1118,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
     }
     override func viewWillAppear(_ animated: Bool) {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
 //        self.tabBarController?.tabBar.layer.isHidden = true
 //        self.tabBarController?.tabBar.layer.zPosition = -1
