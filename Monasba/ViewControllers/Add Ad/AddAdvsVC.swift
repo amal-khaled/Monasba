@@ -468,7 +468,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         
         print(selectedMedia)
         self.AddAdvsButton.startAnimation()
-        Loading().startProgress(self)
+//        Loading().startProgress(self)
         AF.upload(multipartFormData: { [self] multipartFormData in
             for (key,value) in selectedMedia {
                 if key.contains("IMAGE"){
@@ -511,7 +511,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
 
         },to:Constants.ADDADVS_URL)
         .responseDecodable(of:AddAdvsModel.self){ response in
-            Loading().finishProgress(self)
+//            Loading().finishProgress(self)
             switch response.result {
             case .success(let data):
                 print("success")

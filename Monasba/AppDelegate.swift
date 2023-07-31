@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             ProfileController.shared.getProfile(completion: {user,msg in
                     self.checkNotificationToken()
                 AppDelegate.currentCountry = Country(nameAr: AppDelegate.currentUser.countriesNameAr ?? "الكويت", nameEn: AppDelegate.currentUser.countriesNameEn ?? "Kuwait", id: AppDelegate.currentUser.countryId ?? Constants.countryId)
-                
+                Constants.headerProd =  ["Authorization":"Bearer \(AppDelegate.currentUser.toke ?? "")"]
            
                 
             }, user: AppDelegate.currentUser)

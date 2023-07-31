@@ -871,7 +871,7 @@ extension UITextView {
                     var constraints = [NSLayoutConstraint]()
                     constraints = [
                        placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-                       placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+                       placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
                        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
 //                       placeholderLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
                        placeholderLabel.heightAnchor.constraint(equalToConstant: self.bounds.height)

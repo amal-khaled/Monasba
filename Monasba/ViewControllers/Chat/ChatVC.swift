@@ -215,7 +215,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             return
         }
         
-        let keyboardHeight = (view.bounds.height - keyboardFrame.minY) - 35
+        let keyboardHeight = (view.frame.height - keyboardFrame.minY) - 35
 
         UIView.animate(withDuration: 0.3) {
             if keyboardHeight > 0 {
@@ -319,6 +319,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         chatHeaderView.layer.shadowOpacity = 0.7
         chatHeaderView.layer.shadowOffset = .zero
         chatHeaderView.layer.shadowRadius = 10
+        otherUserImage.layer.cornerRadius = 25
         otherUserImage.clipsToBounds = true
         otherUserImage.layer.masksToBounds = true
         chatHeaderView.clipsToBounds = true
@@ -744,6 +745,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
             sendMessage(txt_msg.text!, images: [Data()], msgType: "TEXT", filePath: URL(fileURLWithPath: ""))
         }else {
             self.sendMessageButton.setImage(UIImage(named: "plusImage"), for: .normal)
+            self.dismisKeyboard()
             showDialog()
         }
 
