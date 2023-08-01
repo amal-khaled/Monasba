@@ -40,14 +40,15 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     @IBOutlet weak var chk_select_all: M13Checkbox!
     @IBAction func go_select() {
         if roomsData.count != 0{
-            if btn_select.titleLabel?.text == "تحديد"{
+            if btn_select.titleLabel?.text == "Select".localize{
 //                txtBtn(btn_select,"إلغاء")
-                btn_select.setTitle("إلغاء", for: .normal)
+                btn_select.setTitle("Cancel".localize, for: .normal)
                 btn_del.isUserInteractionEnabled = true
 //                StaticFunctions.setTextColor(lbl_del, UIColor(named: "#0EBFB1"))
-                lbl_del.textColor = UIColor(named: "#0EBFB1")
+                lbl_del.textColor = UIColor.gray
 //                StaticFunctions.setTextColor(lbl_del, UIColor(named: "#0EBFB1"))
-                StaticFunctions.setImageFromAssets(img_del, "del_main")
+                StaticFunctions.setImageFromAssets(img_del, "icons-trash")
+//                img_del.image = UIImage(named: "delete_chat")?.withRenderingMode(.alwaysTemplate)
 //                showV(v: [select_allv])
                 select_allv.isHidden = false
                 toggle_show_chk(1)
@@ -63,12 +64,12 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
     func reset(){
         chk_select_all.checkState = .unchecked
 //        txtBtn(btn_select,"تحديد")
-        btn_select.setTitle("تحديد", for: .normal)
+        btn_select.setTitle("Select".localize, for: .normal)
         btn_del.isUserInteractionEnabled = false
 //        setTxtColor(lbl_del, colors.gray2_hash)
         StaticFunctions.setTextColor(lbl_del, UIColor.gray)
 //        simg(img_del, "del_gray")
-        StaticFunctions.setImageFromAssets(img_del, "del_gray")
+        StaticFunctions.setImageFromAssets(img_del, "icons-trash")
 //        hideV(v: [select_allv])
         select_allv.isHidden = true
         toggle_show_chk(0)
@@ -111,7 +112,7 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
         }
         if(ids.count == 0){
 //            msg("لم تقم بتحديد اي محادثة");
-            StaticFunctions.createErrorAlert(msg: "لم تقم بتحديد اي محادثة")
+            StaticFunctions.createErrorAlert(msg: "You did not select any conversation".localize)
         }else{
             var endPointURL = ""
             print("ids\(ids)")
@@ -151,20 +152,11 @@ class msgsC: UIViewController , UICollectionViewDelegate , UICollectionViewDataS
                     print(error)
                 }
             }
-            //
-            //        .responseString { (e) in
-            //                    BG.hide(self)
-            //                    if let res = e.value {
-            //                        if(res.contains("true")){
-            //                            self.reset()
-            //                            self.get()
-            //                        }
-            //                    }
-            //            }
+         
         }
         }else{
 //            self.msg("لا توجد محادثات لحذفها" ,"msg")
-            StaticFunctions.createErrorAlert(msg: "لا توجد محادثات لحذفها")
+            StaticFunctions.createErrorAlert(msg: "There are no conversations to delete".localize)
         }
     }
     

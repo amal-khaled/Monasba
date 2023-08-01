@@ -35,7 +35,7 @@
 "Back" = "رجوع";
 "My Profile" = "الملف الشخصي";
 "Add Ad" = "أضف إعلان";
-"Favourites" = "المفضلة";
+"Favourites" = "المفضلات";
 "My Ads" = "إعلاناتي";
 "My Asks" = "أسئلتي";
 "Change Country" = "تغيير الدولة";
@@ -58,9 +58,9 @@
 
 
 //MARK: Verify Account
-"Verify Account" = "التحقق من الحساب";
+"Verify Account" = "توثيق الحساب";
 "Select the account type" = "حدد نوع الحساب";
-"Company / institution" = "الشركة / المؤسسة";
+"Company / institution" = "شركة / مؤسسة";
 "Public figure/famous" = "شخصية عامة / مشهور";
 "Country" = "الدولة";
 "Phone" = "هاتف";
@@ -124,7 +124,7 @@
 "Record a Video" = "سجل فيديو";
 "Thank you... Your ad has been added successfully" = "شكرا لك ... تمت إضافة إعلانك بنجاح";
 "Go to Home Page" = "اذهب إلى الصفحة الرئيسية";
-"Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price." = "الرجاء إدخال الوصف الكامل مع المزايا والعيوب وسعر الشراء والبيع.";
+"Please Enter the full description with the advantages" = "الرجاء إدخال الوصف الكامل مع المزايا والعيوب وسعر الشراء والبيع.";
 "The ad title should not exceed five words" = "عنوان الاعلان يجب الا يزيد عن خمس كلمات";
 
 "Post at least one photo for the ad." = "ضع صورة واحدة على الأقل للإعلان";
@@ -150,9 +150,13 @@
 "Share" = "شارك";
 "Delete" = "حذف";
 "Edit" = "تعديل";
+
 "Ads Deleted Seccessfully" = "تم حذف اعلانك بنجاح";
 "Please add main Image for your Ad." = "الرجاء إضافة الصورة الرئيسية لإعلانك.";
 //MARK: Chat
+"There are no conversations to delete" = "لا توجد محادثات لحذفها";
+"You did not select any conversation" = "لم تقم بتحديد اي محادثة" ;
+"Select" = "تحديد";
 "Delete The Conversation" = "حذف المحادثة";
 "Report The Conversation" = "أبلغ عن المحادثة";
 "Block" = "حظر";
@@ -181,6 +185,10 @@
 "minutes" = "دقيقة";
 "seconds" = "ثانية";
 "You Can't chat with yourself" = "لا يمكنك الدردشة مع نفسك";
+
+"Save the contact" = "حفظ جهة الإتصال";
+"Phone call" = "مكالمة هاتفية";
+"Are you sure you want to Delete this Chat?" = "هل تريد حظر هذه الغرفة";
 //MARK: Product Details
 
 "Description" = "وصف";
@@ -311,7 +319,7 @@ Your investment with every occasion" = "تطبيق مناسبة
 
 //MARK: Favourites
 "There are no favorites here" = "لايوجد مفضلة هنا";
-"Please start adding more to your favourites" = "";
+"Please start adding more to your favourites" = "يرجى إضافة المزيد إلى مفضلاتك";
 "Kuwait" = "الكويت";
 "Please start adding more to your favourites" = "من فضلك باشر في اضافة المزيد الى مفضلتك";
 "the data you entered does not match our data" = "البيانات التي أدخلتها لا تتطابق مع بياناتنا";

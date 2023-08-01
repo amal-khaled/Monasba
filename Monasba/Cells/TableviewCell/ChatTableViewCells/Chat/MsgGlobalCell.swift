@@ -10,6 +10,10 @@ import UIKit
 
 class MsgGlobalCell: UITableViewCell {
 
+    
+    @IBOutlet var stackViewContainers: [UIStackView]!
+    
+    
     override func awakeFromNib() {
         //self.frame.size.width = 100
     }

@@ -1,54 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "uploadDocImage.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "uploadDocImage@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "uploadDocImage@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
       "filename" : "lastsasas.png",
       "idiom" : "universal",
-      "locale" : "en",
       "scale" : "1x"
     },
     {
       "filename" : "lastsasas@2x.png",
       "idiom" : "universal",
-      "locale" : "en",
       "scale" : "2x"
     },
     {
       "filename" : "lastsasas@3x.png",
       "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "3x"
-    },
-    {
-      "filename" : "uploadDocImage 1.png",
-      "idiom" : "universal",
-      "locale" : "ar",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "uploadDocImage@2x 1.png",
-      "idiom" : "universal",
-      "locale" : "ar",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "uploadDocImage@3x 1.png",
-      "idiom" : "universal",
-      "locale" : "ar",
       "scale" : "3x"
     }
   ],

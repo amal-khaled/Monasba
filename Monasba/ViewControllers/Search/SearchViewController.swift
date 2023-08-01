@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-
+        
         searchBar.text = searchText
         self.delegate?.updateContent(searchText: searchText, isHidden: isHidden)
         self.delegate1?.updateContent(searchText: searchText, isHidden: isHidden)
@@ -47,7 +47,9 @@ class SearchViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-
+//        searchBar.text = ""
+//        self.navigationController?.popToRootViewController(animated: true)
+        
     }
     @IBAction func backBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

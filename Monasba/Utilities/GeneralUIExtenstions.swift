@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MOLH
 // MARK: -UIView
 
 @IBDesignable extension UIView {
@@ -741,33 +742,144 @@ extension UITableView {
         return cells
     }
 }
+//extension UITextView: UITextViewDelegate {
+//
+//    /// Resize the placeholder when the UITextView bounds change
+//    override open var bounds: CGRect {
+//        didSet {
+//            self.resizePlaceholder()
+//        }
+//    }
+//
+//    /// The UITextView placeholder text
+//    public var placeholderExt: String? {
+//        get {
+//            var placeholderText: String?
+//
+//            if let placeholderLabel = self.viewWithTag(100) as? UILabel {
+//                placeholderText = placeholderLabel.text
+//            }
+//
+//            return placeholderText
+//        }
+//        set {
+//            if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
+//                placeholderLabel.text = newValue
+//                placeholderLabel.sizeToFit()
+//            } else {
+//                self.addPlaceholder(newValue!)
+//            }
+//        }
+//    }
+//
+//    /// When the UITextView did change, show or hide the label based on if the UITextView is empty or not
+//    ///
+//    /// - Parameter textView: The UITextView that got updated
+//    public func textViewDidChange(_ textView: UITextView) {
+//        if let placeholderLabel = self.viewWithTag(100) as? UILabel {
+//            placeholderLabel.isHidden = !self.text.isEmpty
+//        }
+//    }
+//
+//    /// Resize the placeholder UILabel to make sure it's in the same position as the UITextView text
+//    private func resizePlaceholder() {
+//        if let placeholderLabel = self.viewWithTag(100) as? UILabel {
+//            placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+//
+//            NSLayoutConstraint.deactivate(placeholderLabel.constraints) // Remove any existing constraints
+//
+//            let labelX = self.textContainer.lineFragmentPadding
+//            let labelY = self.textContainerInset.top - 2
+//            let labelWidth = self.frame.width - (labelX * 2)
+//            placeholderLabel.textAlignment = .natural
+//            placeholderLabel.numberOfLines = 0
+//            // Add new constraints
+//
+//            var constraints = [NSLayoutConstraint]()
+//            constraints = [
+//               placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+//               placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+//               placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+//               placeholderLabel.heightAnchor.constraint(equalToConstant: placeholderLabel.frame.height)
+//           ]
+////            if MOLHLanguage.currentAppleLanguage() == "en"{
+////                placeholderLabel.contentMode = .topLeft
+////                constraints = [
+////                   placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+////                   placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+////                   placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+////                   placeholderLabel.heightAnchor.constraint(equalToConstant: self.frame.height)
+////               ]
+////            }else{
+////
+////            }
+//
+//            NSLayoutConstraint.activate(constraints)
+//        }
+//    }
+//
+//    /// Adds a placeholder UILabel to this UITextView
+//    private func addPlaceholder(_ placeholderText: String) {
+//        let placeholderLabel = UILabel()
+//        placeholderLabel.numberOfLines = 0
+//
+//        placeholderLabel.text = placeholderText
+//        placeholderLabel.sizeToFit()
+//
+//        placeholderLabel.font = self.font
+//        placeholderLabel.textColor = UIColor.lightGray
+//        placeholderLabel.tag = 100
+//
+//        placeholderLabel.isHidden = !self.text.isEmpty
+//
+//        self.addSubview(placeholderLabel)
+//        self.resizePlaceholder()
+//        self.delegate = self
+//    }
+//
+//}
 
 extension UITextView {
     func addPlaceholder(_ placeholder: String) {
         let placeholderLabel = UILabel()
         placeholderLabel.numberOfLines = 0
         placeholderLabel.text = placeholder
+        placeholderLabel.textAlignment = .natural
+        placeholderLabel.lineBreakMode = .byWordWrapping
+        placeholderLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+//       if MOLHLanguage.currentAppleLanguage() == "en"  {
+//            placeholderLabel.textAlignment = .left
+//        }else{
+//            placeholderLabel.textAlignment = .right
+//        }
         placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.font = .systemFont(ofSize: 15.0, weight: .medium)
         placeholderLabel.sizeToFit()
         placeholderLabel.tag = 999
         placeholderLabel.isHidden = !self.text.isEmpty
-        
+
         self.addSubview(placeholderLabel)
         self.resizePlaceholderLabel(placeholderLabel)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged), name: UITextView.textDidChangeNotification, object: nil)
     }
-    
+
     private func resizePlaceholderLabel(_ placeholderLabel: UILabel) {
-        let labelX = self.textContainer.lineFragmentPadding
-        let labelY = self.textContainerInset.top - 2
-        let labelWidth  = self.frame.width
-        let labelHeight = self.frame.height
-        
-        placeholderLabel.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelHeight)
+       
+                    placeholderLabel.textAlignment = .natural
+                    placeholderLabel.numberOfLines = 0
+                    // Add new constraints
+                    var constraints = [NSLayoutConstraint]()
+                    constraints = [
+                       placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+                       placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
+                       placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+//                       placeholderLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
+                       placeholderLabel.heightAnchor.constraint(equalToConstant: self.bounds.height)
+                   ]
+//        placeholderLabel.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        NSLayoutConstraint.activate(constraints)
     }
-    
+
     @objc private func textChanged() {
         if let placeholderLabel = self.viewWithTag(999) as? UILabel {
             placeholderLabel.isHidden = !self.text.isEmpty

@@ -3911,6 +3911,11 @@
                                             <constraint firstAttribute="trailing" secondItem="5b6-PI-9Eo" secondAttribute="trailing" id="bAp-EZ-1Q9"/>
                                             <constraint firstItem="msu-uf-rsN" firstAttribute="leading" secondItem="7Nd-KQ-1ev" secondAttribute="leading" id="yXh-8f-UUe"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -3920,6 +3925,11 @@
                                     <constraint firstAttribute="height" constant="350" id="sI0-dK-cGP"/>
                                     <constraint firstItem="7Nd-KQ-1ev" firstAttribute="leading" secondItem="TmW-6i-gsY" secondAttribute="leading" id="vu4-HB-9S2"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tdp-OC-ucu"/>
@@ -3961,6 +3971,142 @@
             </objects>
             <point key="canvasLocation" x="10460" y="-928.43601895734594"/>
         </scene>
+        <!--Block UserVC-->
+        <scene sceneID="umL-24-8DX">
+            <objects>
+                <viewController storyboardIdentifier="BlockUserVC" modalPresentationStyle="overFullScreen" id="SoL-FT-QH3" customClass="BlockUserVC" customModule="Monasba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2pZ-d4-oHe">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ow-m1-jBK">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="SoL-FT-QH3" eventType="touchUpInside" id="ZPm-mC-oNO"/>
+                                </connections>
+                            </button>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocB-fZ-3UL" userLabel="Reportv">
+                                <rect key="frame" x="0.0" y="644" width="390" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-dv-9fo">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-nP-fYa">
+                                                <rect key="frame" x="20" y="133" width="350" height="47"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDo-Sk-KOo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="47"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Block">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="didTapBlockUser:" destination="SoL-FT-QH3" eventType="touchUpInside" id="8f0-VZ-frS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exO-ro-DJd">
+                                                        <rect key="frame" x="180" y="0.0" width="170" height="47"/>
+                                                        <color key="backgroundColor" red="0.99999719860000003" green="0.9999815822" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="14"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" red="0.55394845950000005" green="0.58950815570000004" blue="0.61315293029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="#0EBFB1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="didTapCancel:" destination="SoL-FT-QH3" eventType="touchUpInside" id="bIs-gA-OWh"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="47" id="d9Y-un-n7N"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do You want to Block this User?!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjR-YT-BXn">
+                                                <rect key="frame" x="71.666666666666686" y="42" width="247" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RectangleCancelImage" translatesAutoresizingMaskIntoConstraints="NO" id="9h0-JS-fZO">
+                                                <rect key="frame" x="170" y="8" width="50" height="4"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="DaV-AA-6is"/>
+                                                    <constraint firstAttribute="height" constant="4" id="S2D-FF-G5J"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ufp-nP-fYa" firstAttribute="leading" secondItem="Oca-dv-9fo" secondAttribute="leading" constant="20" id="HZP-fp-Dgi"/>
+                                            <constraint firstItem="XjR-YT-BXn" firstAttribute="centerX" secondItem="Oca-dv-9fo" secondAttribute="centerX" id="Qxq-kL-yHv"/>
+                                            <constraint firstAttribute="bottom" secondItem="ufp-nP-fYa" secondAttribute="bottom" constant="20" id="VBV-SE-Wfe"/>
+                                            <constraint firstAttribute="trailing" secondItem="ufp-nP-fYa" secondAttribute="trailing" constant="20" id="cqR-v7-fuT"/>
+                                            <constraint firstItem="XjR-YT-BXn" firstAttribute="top" secondItem="9h0-JS-fZO" secondAttribute="bottom" constant="30" id="gSj-by-iaE"/>
+                                            <constraint firstItem="9h0-JS-fZO" firstAttribute="centerX" secondItem="Oca-dv-9fo" secondAttribute="centerX" id="ptL-Yg-LKt"/>
+                                            <constraint firstItem="9h0-JS-fZO" firstAttribute="top" secondItem="Oca-dv-9fo" secondAttribute="top" constant="8" id="zyu-LJ-a4w"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Oca-dv-9fo" firstAttribute="top" secondItem="ocB-fZ-3UL" secondAttribute="top" id="MDF-kC-erh"/>
+                                    <constraint firstItem="Oca-dv-9fo" firstAttribute="leading" secondItem="ocB-fZ-3UL" secondAttribute="leading" id="YXH-Vm-u0r"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oca-dv-9fo" secondAttribute="trailing" id="Yh4-K7-mRG"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oca-dv-9fo" secondAttribute="bottom" id="cll-c3-93X"/>
+                                    <constraint firstAttribute="height" constant="200" id="mhG-DC-VCJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oix-6I-CGC"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Ow-m1-jBK" firstAttribute="leading" secondItem="oix-6I-CGC" secondAttribute="leading" id="Dze-YR-CQo"/>
+                            <constraint firstAttribute="bottom" secondItem="ocB-fZ-3UL" secondAttribute="bottom" id="N1M-GC-fOD"/>
+                            <constraint firstItem="oix-6I-CGC" firstAttribute="bottom" secondItem="6Ow-m1-jBK" secondAttribute="bottom" id="Pr9-33-4qU"/>
+                            <constraint firstItem="6Ow-m1-jBK" firstAttribute="top" secondItem="2pZ-d4-oHe" secondAttribute="top" id="TGn-7o-wbh"/>
+                            <constraint firstAttribute="trailing" secondItem="6Ow-m1-jBK" secondAttribute="trailing" id="Tvv-gr-sMS"/>
+                            <constraint firstItem="ocB-fZ-3UL" firstAttribute="leading" secondItem="2pZ-d4-oHe" secondAttribute="leading" id="bOS-18-27q"/>
+                            <constraint firstItem="oix-6I-CGC" firstAttribute="trailing" secondItem="ocB-fZ-3UL" secondAttribute="trailing" id="gaB-nT-RBA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eG-4T-wWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9204.6153846153848" y="-904.26540284360181"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="bcl-dR-OEc">
@@ -3979,7 +4125,7 @@
         <image name="backIconBlack" width="15" height="15.666666984558105"/>
         <image name="bell_main" width="64" height="64"/>
         <image name="block_mnu" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="country" width="23.666666030883789" height="23.666666030883789"/>
+        <image name="country" width="16" height="16"/>
         <image name="familyIcon" width="19.666666030883789" height="16"/>
         <image name="feather-lock" width="17.333333969116211" height="19.333333969116211"/>
         <image name="feather-user" width="15" height="16.666666030883789"/>

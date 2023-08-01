@@ -16,9 +16,21 @@ class FavouritesVC: UIViewController {
     
     @IBOutlet weak var FavouritesTableView: UITableView!
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emptyView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Favourites".localize
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        } else {
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+        headerView.cornerRadius = 40
+        headerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         emptyView.isHidden = true
          self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.tintColor = .white

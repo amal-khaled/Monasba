@@ -13,6 +13,7 @@ import MOLH
 
 class ChangePhoneVC:UIViewController, UITextFieldDelegate{
     
+    @IBOutlet var chooseLabels: [UILabel]!
     
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var lbl_flag: UILabel!
@@ -82,14 +83,19 @@ class ChangePhoneVC:UIViewController, UITextFieldDelegate{
         getRegions(cityId: city_id)
         phone.delegate = self
         
+        chooseLabels.forEach { label in
+            //
+        }
+        
         do {
             
             let phoneNumberCustomDefaultRegion = try phoneNumberKit.parse(AppDelegate.currentUser.phone ?? "", ignoreType: false)
-            
+            print(phoneNumberCustomDefaultRegion)
             phone.text = String(phoneNumberCustomDefaultRegion.nationalNumber)
             lbl_flag.text = String(phoneNumberCustomDefaultRegion.countryCode)                }
         catch {
-            let mobile = AppDelegate.currentUser.phone?.dropFirst(3) ?? ""
+         //   let mobile = AppDelegate.currentUser.phone?.dropFirst(3) ?? ""
+            let mobile = AppDelegate.currentUser.phone ?? ""
             phone.text = String(mobile)
             
             print("Generic parser error")
@@ -323,9 +329,9 @@ extension ChangePhoneVC  {
                         if let arr = dataDic["data"] as? NSArray {
                             for itm in arr {
                                 if let d = itm as? NSDictionary {
-                                    if let name = d.value(forKey: "name_ar") as? String {
-                                        self.regions_name.append(name)
-                                    }
+//                                    if let name = d.value(forKey: "name_ar") as? String {
+//                                        self.regions_name.append(name)
+//                                    }
                                     
                                     if  MOLHLanguage.currentAppleLanguage() == "en" {
                                         

@@ -20,11 +20,11 @@ class MsgContactCell: MsgGlobalCell {
     }
     
     override func configure(data:Result) {
-        if data.rid == AppDelegate.currentUser.id {
-            containerView.backgroundColor = .gray
-        }else {
-            containerView.backgroundColor =  UIColor(named: "#0EBFB1")
-        }
+//        if data.rid == AppDelegate.currentUser.id {
+//            containerView.backgroundColor = .gray
+//        }else {
+//            containerView.backgroundColor =  UIColor(named: "#0EBFB1")
+//        }
         if let locData = data.msg?.components(separatedBy: "%%"){
             lbl_name.text = locData[0].uppercased()
         }

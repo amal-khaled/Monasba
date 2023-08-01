@@ -27,11 +27,11 @@ class MsgRecordCell: MsgGlobalCell {
     }
     
     override func configure(data:Result) {
-        if data.rid == AppDelegate.currentUser.id {
-            container.backgroundColor = .gray
-        }else {
-            container.backgroundColor =  UIColor(named: "#0EBFB1")
-        }
+//        if data.rid == AppDelegate.currentUser.id {
+//            container.backgroundColor = .gray
+//        }else {
+//            container.backgroundColor =  UIColor(named: "#0EBFB1")
+//        }
         
         if let url =  data.image {
             playAudioFromURL("\(Constants.IMAGE_URL)\(url)")
@@ -60,14 +60,4 @@ class MsgRecordCell: MsgGlobalCell {
 }
 
 
-extension AVPlayer {
-    
-    var isPlaying: Bool {
-        if (self.rate != 0 && self.error == nil) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-}
+

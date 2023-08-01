@@ -19,11 +19,11 @@ class MsgCell: MsgGlobalCell {
     
     override func configure(data:Result) {
         print(data.rid , "user", AppDelegate.currentUser.id)
-        if data.rid == AppDelegate.currentUser.id {
-            lbl_msg.backgroundColor = .gray
-        }else {
-            lbl_msg.backgroundColor =  UIColor(named: "#0EBFB1")
-        }
+//        if data.rid == AppDelegate.currentUser.id {
+//            lbl_msg.backgroundColor = .gray
+//        }else {
+//            lbl_msg.backgroundColor =  UIColor(named: "#0EBFB1")
+//        }
         lbl_msg.text = data.msg
         if let date = data.date?.formattedDateSince {
             lbl_date.text = date

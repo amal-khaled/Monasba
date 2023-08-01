@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
        
         
         AppDelegate.defaults.removeObject(forKey: "postSessionData")
-        
+//        IQKeyboardManager.shared.disabledToolbarClasses = [ChatVC.self]
         IQKeyboardManager.shared.enable = true
         print(AppDelegate.defaults.integer(forKey: "userId"))
 //        MOLH.setLanguageTo( "ar")
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             ProfileController.shared.getProfile(completion: {user,msg in
                     self.checkNotificationToken()
                 AppDelegate.currentCountry = Country(nameAr: AppDelegate.currentUser.countriesNameAr ?? "الكويت", nameEn: AppDelegate.currentUser.countriesNameEn ?? "Kuwait", id: AppDelegate.currentUser.countryId ?? Constants.countryId)
-                
+                Constants.headerProd =  ["Authorization":"Bearer \(AppDelegate.currentUser.toke ?? "")"]
            
                 
             }, user: AppDelegate.currentUser)

@@ -21,6 +21,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     @IBOutlet weak var addMorePhotoButton: UIButton!
     @IBOutlet weak var firstImageViewContainer: UIView!
+    @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var moreImageViewContainer: UIView!
     @IBOutlet weak var advsTitleTF: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -57,6 +58,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBOutlet weak var regionLabel: UILabel!
     
     @IBOutlet weak var descTextView: UITextView!
+    
     @IBOutlet weak var priceTF: UITextField!
     @IBOutlet weak var mainCatButton: UIButton!
     @IBOutlet weak var subCatButton: UIButton!
@@ -147,6 +149,11 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         getDataFromSession()
         configureUI()
         
+        if MOLHLanguage.currentAppleLanguage() == "en" {
+                uploadImageView.image = UIImage(named: "addimageEnglish")
+        } else {
+                uploadImageView.image = UIImage(named: "addimageArabic")
+        }
         advsTitleTF.delegate = self
     }
     
@@ -461,7 +468,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         
         print(selectedMedia)
         self.AddAdvsButton.startAnimation()
-        Loading().startProgress(self)
+//        Loading().startProgress(self)
         AF.upload(multipartFormData: { [self] multipartFormData in
             for (key,value) in selectedMedia {
                 if key.contains("IMAGE"){
@@ -504,7 +511,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
 
         },to:Constants.ADDADVS_URL)
         .responseDecodable(of:AddAdvsModel.self){ response in
-            Loading().finishProgress(self)
+//            Loading().finishProgress(self)
             switch response.result {
             case .success(let data):
                 print("success")
@@ -575,8 +582,15 @@ extension AddAdvsVC {
     
     //MARK: Methods
     private func setupView(){
+//        descTextView.delegate = self
+//        descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+//        descTextView.textColor = UIColor.lightGray
+//        descTextView.placeholderExt = "Please Enter the full description with the advantages and disadvantages".localize
+        descTextView.addPlaceholder("Please Enter the full description with the advantages".localize)
+//        descTextView.placeholderExt = "Please Enter the full description with the advantages and Price".localize
         
-        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
+//        uploadImageView.image = UIImage(named: "uploadAd")
+//        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
         configerSelectedButtons()
     }
     
@@ -907,8 +921,11 @@ extension AddAdvsVC:AdvsImagesCollectionViewCellDelegate{
             self.images.removeValue(forKey: removedKey)
             self.selectedMedia.removeValue(forKey: removedKey)
         }
-        selectedIndexPath = [0,0]
-        self.mainImageKey = Array(images.keys)[0]
+        if Array(images.keys).count > 0 {
+            selectedIndexPath = [0,0]
+            self.mainImageKey = Array(images.keys)[0]
+        }
+       
 //        if let removedKey = selectedMediaKeys[safe: indexPath.item] {
 //            self.selectedMedia.removeValue(forKey: removedKey)
 //            self.selectedMediaKeys.remove(at: indexPath.item)
@@ -997,5 +1014,22 @@ extension AddAdvsVC : UITextFieldDelegate {
 extension Array {
     subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension AddAdvsVC:UITextViewDelegate {
+    func  textViewDidBeginEditing(_ textView: UITextView) {
+
+        if descTextView.textColor == UIColor.lightGray {
+            descTextView.text = ""
+            descTextView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+
+        if descTextView.text == "" {
+            descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+            descTextView.textColor = UIColor.lightGray
+        }
     }
 }

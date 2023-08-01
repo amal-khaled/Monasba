@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "UPLOAD 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,24 +10,21 @@
       "scale" : "2x"
     },
     {
-      "filename" : "UPLOAD@3x 1.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
     {
-      "filename" : "sssssssaass.png",
       "idiom" : "universal",
       "locale" : "ar",
       "scale" : "1x"
     },
     {
-      "filename" : "sssssssaass@2x.png",
+      "filename" : "sssas.png",
       "idiom" : "universal",
       "locale" : "ar",
       "scale" : "2x"
     },
     {
-      "filename" : "sssssssaass@3x.png",
       "idiom" : "universal",
       "locale" : "ar",
       "scale" : "3x"

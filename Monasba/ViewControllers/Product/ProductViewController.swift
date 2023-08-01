@@ -41,9 +41,8 @@ class ProductViewController: UIViewController {
    
     var dataSource = ImageAndVideoSlideshowDataSource(sources:[
         
-        
     ])
-    
+    let avSource = AVSource(url: URL(string: "") ?? URL(fileURLWithPath: ""), autoplay: true)
     
     var isFav = false
     
@@ -84,6 +83,7 @@ class ProductViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+//        self.avSource.player.isMuted = true
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = false
        var index = imageSlider.currentPage
@@ -329,6 +329,7 @@ extension ProductViewController{
                         dataSource.sources.append(
                             
                             .av(AVSource(url: URL(string:image)!, autoplay: true)))
+                        
                     }
                 }else{
                     if image != "" {
