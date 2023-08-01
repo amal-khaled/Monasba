@@ -72,6 +72,7 @@ class ProductViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        
         getData()
 
     }
@@ -79,11 +80,25 @@ class ProductViewController: UIViewController {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = false
+       var index = imageSlider.currentPage
+        if (sliderImages[index].contains(".mp4") || sliderImages[index].contains(".mov")){
+            dataSource.sources.remove(at: index)
+            dataSource.sources.insert( .av(AVSource(url: URL(string:sliderImages[index])!, autoplay: false)), at: index)
+                
+            
+
+            imageSlider.reloadData()
+
+        }
+//        if let avplayer = sliderImages[index]{
+//            print("video")
+//        }
     }
     
     

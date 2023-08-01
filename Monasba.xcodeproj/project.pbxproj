@@ -21,6 +21,7 @@
 		65495D7A2A1CC7BF00A23579 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65495D792A1CC7BF00A23579 /* Ask.swift */; };
 		65495D7C2A1DF02900A23579 /* AskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65495D7B2A1DF02900A23579 /* AskTableViewCell.swift */; };
 		65495D7E2A1DFEFE00A23579 /* SearchAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65495D7D2A1DFEFE00A23579 /* SearchAskViewController.swift */; };
+		6564CA2D2A771A5E00659A85 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564CA2C2A771A5E00659A85 /* TabbarViewController.swift */; };
 		656D773B2A1F04A6004EB289 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D773A2A1F04A6004EB289 /* NotificationTableViewCell.swift */; };
 		656D773D2A1F09B1004EB289 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D773C2A1F09B1004EB289 /* UserNotification.swift */; };
 		656D77402A1F0D88004EB289 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D773F2A1F0D88004EB289 /* NotificationsViewController.swift */; };
@@ -225,6 +226,7 @@
 		65495D792A1CC7BF00A23579 /* Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		65495D7B2A1DF02900A23579 /* AskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskTableViewCell.swift; sourceTree = "<group>"; };
 		65495D7D2A1DFEFE00A23579 /* SearchAskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAskViewController.swift; sourceTree = "<group>"; };
+		6564CA2C2A771A5E00659A85 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		656D773A2A1F04A6004EB289 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		656D773C2A1F09B1004EB289 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		656D773F2A1F0D88004EB289 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				C8CCE33B2A19E29200FFAFB2 /* LocalizedImage.swift */,
 				65784C662A270EDD0099A293 /* VKImageZoom.swift */,
 				C8191F962A4055030057AA28 /* PaddingLabel.swift */,
+				6564CA2C2A771A5E00659A85 /* TabbarViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1288,6 +1291,7 @@
 				C8205CD22A48913E0039B287 /* SuccessModelChangeMoblie.swift in Sources */,
 				C8191F9D2A40765C0057AA28 /* FavouritesCollectionViewCell.swift in Sources */,
 				65DD122829E6915A00A3B8DD /* Reachability.swift in Sources */,
+				6564CA2D2A771A5E00659A85 /* TabbarViewController.swift in Sources */,
 				65E15A732A21DA98006930A4 /* AsksViewController.swift in Sources */,
 				C85FFCA32A260A0F000C426D /* receiver.swift in Sources */,
 				C85FFCA52A260A0F000C426D /* SendLocC.swift in Sources */,

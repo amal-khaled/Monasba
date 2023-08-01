@@ -14,9 +14,14 @@ class SearchBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.emptySearchText(_:)), name: NSNotification.Name(rawValue: "emptySearchText"), object: nil)
 
         // Do any additional setup after loading the view.
+    }
+    @objc func emptySearchText(_ notification: NSNotification) {
+        searchBar.text = ""
+
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
