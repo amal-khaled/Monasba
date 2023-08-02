@@ -21,6 +21,7 @@ class EdgeInsetLabel: UILabel {
                                           bottom: -textInsets.bottom,
                                           right: -textInsets.right)
         return textRect.inset(by: invertedInsets)
+        
     }
     
     override func drawText(in rect: CGRect) {
