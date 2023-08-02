@@ -160,6 +160,7 @@ class HomeViewController: UIViewController {
             let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
             vc.modalPresentationStyle = .fullScreen
 //            presentDetail(vc)
+            vc.isFromHome = true
             navigationController?.pushViewController(vc, animated: true)
         }else{
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Uplaod ads!".localize)

@@ -22,21 +22,21 @@ class TypeViewController: UIViewController {
     
     @IBAction func allAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {
-            self.typeBtclosure!(nil, "All")
+            self.typeBtclosure!(nil, "All".localize)
 
         })
 
     }
     @IBAction func rentAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {
-            self.typeBtclosure!(1,"Rent")
+            self.typeBtclosure!(1,"Rent".localize)
 
         })
         
     }
     @IBAction func sellAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {
-            self.typeBtclosure!(0, "Sell")
+            self.typeBtclosure!(0, "Sell".localize)
 
         })
     }

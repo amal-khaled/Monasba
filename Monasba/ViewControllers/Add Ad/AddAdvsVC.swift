@@ -81,7 +81,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     
     
     //MARK: Poropreties
-    
+    var isFromHome = true
     var hasPhone = "on"
     var hasWhats = "off"
     var hasChat = "off"
@@ -521,7 +521,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
                     print(data.message ?? "")
                     let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: SUCCESS_ADDING_VCID) as! SuccessAddingVC
                     vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true)
+                    vc.isFromHome = self.isFromHome
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }else{
 //                    completion(false , data.message ?? "")
                     print(data.message)

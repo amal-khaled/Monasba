@@ -33,7 +33,8 @@ class MenuVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goHome(_:)), name: NSNotification.Name(rawValue: "goHome"), object: nil)
+
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
         ConfigureUI()
@@ -42,6 +43,11 @@ class MenuVC: UIViewController {
         }else{
             arabicButtonPressed()
         }
+    }
+    
+    @objc func goHome(_ notification: NSNotification) {
+        tabBarController?.selectedIndex = 0
+        
     }
     
     //MARK: Private Methods
@@ -105,6 +111,7 @@ class MenuVC: UIViewController {
         if StaticFunctions.isLogin() {
             let vc = UIStoryboard(name: ADVS_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: ADDADVS_VCID) as! AddAdvsVC
             vc.modalPresentationStyle = .fullScreen
+            vc.isFromHome = false
             navigationController?.pushViewController(vc, animated: true)
         }else {
             StaticFunctions.createErrorAlert(msg: "Please Login First To Can Add Post!".localize)

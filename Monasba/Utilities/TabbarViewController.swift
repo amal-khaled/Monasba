@@ -18,7 +18,6 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
                 navigationController.viewControllers.contains(where: { $0 is SearchBaseViewController }) {
                 //show pop up view
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue:"emptySearchText"), object: nil)
-                self.dismiss(animated: false)
                 navigationController.popToRootViewController(animated: false)
                 return true
             } else  {
