@@ -11,6 +11,7 @@ import MOLH
 import IQKeyboardManagerSwift
 import Alamofire
 import TransitionButton
+import NextGrowingTextView
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
@@ -58,6 +59,9 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     @IBOutlet weak var regionLabel: UILabel!
     
     @IBOutlet weak var descTextView: UITextView!
+    
+//    @IBOutlet weak var adDescption: NextGrowingTextView!
+    
     
     @IBOutlet weak var priceTF: UITextField!
     @IBOutlet weak var mainCatButton: UIButton!
@@ -137,6 +141,7 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
     var selectedMediaKeys = [String]()
     var mainImageKey:String = ""
     var selectedIndexPath: IndexPath = [0,0]
+    var descText:String = ""
     //MARK: App LifeCycle
     
     override func viewDidLoad() {
@@ -198,6 +203,8 @@ class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {
         subCatID = retrieveSessionData().subCatId ?? 0
         priceTF.text = retrieveSessionData().price
         descTextView.text = retrieveSessionData().description
+        descText = retrieveSessionData().description ?? ""
+        print(descText)
 //        self.mainImageKey = mainImageKey
 //        if let imageDatas = retrieveSessionData().images {
 ////            selectedImages = imageDatas.compactMap { UIImage(data: $0.value) }
@@ -587,8 +594,10 @@ extension AddAdvsVC {
 //        descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
 //        descTextView.textColor = UIColor.lightGray
 //        descTextView.placeholderExt = "Please Enter the full description with the advantages and disadvantages".localize
-        descTextView.addPlaceholder("Please Enter the full description with the advantages".localize)
-//        descTextView.placeholderExt = "Please Enter the full description with the advantages and Price".localize
+        
+        descTextView.addPlaceholder("Please Enter the full description with the advantages".localize,text: descText)
+
+
         
 //        uploadImageView.image = UIImage(named: "uploadAd")
 //        descTextView.addPlaceholder("Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize)
@@ -1029,7 +1038,7 @@ extension AddAdvsVC:UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
 
         if descTextView.text == "" {
-            descTextView.text = "Please Enter the full description with the advantages and disadvantages, if any , and the pruchase and sale price.".localize
+            descTextView.text = "Please Enter the full description with the advantages".localize
             descTextView.textColor = UIColor.lightGray
         }
     }

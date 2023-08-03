@@ -13,6 +13,7 @@ import AVFoundation
 import AVKit
 import MapKit
 import DropDown
+import NextGrowingTextView
 
 extension UIViewController :NVActivityIndicatorViewable{
     
@@ -468,6 +469,29 @@ extension UIViewController :NVActivityIndicatorViewable{
         formatter.amSymbol = "ص"
         formatter.pmSymbol = "م"
         return formatter.string(from: date)
+    }
+    
+    
+    func multiLine(_ u:UITextView, _ placeHolder:String){
+        u.backgroundColor = UIColor.clear
+        u.textAlignment = .natural
+        u.autocorrectionType = .no
+        u.autocapitalizationType = .none
+        u.font = UIFont(name: "Tajawal-Regular", size: 14)!
+        u.textColor = UIColor.black
+        u.textContainerInset = UIEdgeInsets(top: 8, left: 25, bottom: 8, right: 0)
+        
+        let style2 = NSMutableParagraphStyle()
+        style2.lineSpacing = 19
+        let attributes = [NSAttributedString.Key.paragraphStyle: style2]
+        u.attributedText = NSAttributedString(string: u.text!, attributes: attributes)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .natural
+        u.attributedText = NSAttributedString(string: placeHolder,
+                                                         attributes: [.font: UIFont(name: "Tajawal-Regular", size: 13.5)!,
+                                                                      .foregroundColor: UIColor.gray,.paragraphStyle: paragraphStyle
+                                                         ])
     }
     
     func getViewController(_ id:String,_ story:String="Main") -> UIViewController{
