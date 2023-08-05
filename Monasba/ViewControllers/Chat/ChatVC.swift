@@ -257,7 +257,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         recordButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         recordButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        recordButton.trailingAnchor.constraint(equalTo: sendView.trailingAnchor, constant: -2).isActive = true
+        recordButton.leadingAnchor.constraint(equalTo: sendView.leadingAnchor, constant: -2).isActive = true
         recordButton.bottomAnchor.constraint(equalTo: sendView.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
 
 

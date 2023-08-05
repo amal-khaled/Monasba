@@ -64,10 +64,10 @@
                                 <rect key="frame" x="8" y="756" width="382" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="W3e-4H-lyY">
-                                        <rect key="frame" x="30" y="5" width="322" height="44"/>
+                                        <rect key="frame" x="30" y="5" width="342" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Your Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-nb-Qd5">
-                                                <rect key="frame" x="0.0" y="0.0" width="274" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
@@ -80,7 +80,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-ch-X2c">
-                                                <rect key="frame" x="278" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="298" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="Ahb-bj-gDm"/>
@@ -99,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Rg-Yn0">
-                                                <rect key="frame" x="322" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="342" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="RqG-fZ-leY"/>
@@ -123,7 +123,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W3e-4H-lyY" secondAttribute="bottom" constant="5" id="7vx-Ad-4Qf"/>
-                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="30" id="U8B-U9-bJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="10" id="U8B-U9-bJN"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="top" secondItem="rtz-qC-QJP" secondAttribute="top" constant="5" id="aPa-Xu-fI3"/>
                                     <constraint firstAttribute="height" constant="54" id="aby-pV-9ii"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="leading" secondItem="rtz-qC-QJP" secondAttribute="leading" constant="30" id="tVF-4R-KmG"/>
