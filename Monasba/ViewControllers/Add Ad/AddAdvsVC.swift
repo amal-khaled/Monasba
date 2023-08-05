@@ -11,7 +11,7 @@ import MOLH
 import IQKeyboardManagerSwift
 import Alamofire
 import TransitionButton
-import NextGrowingTextView
+//import NextGrowingTextView
 
 
 class AddAdvsVC: UIViewController , PickupMediaPopupVCDelegate {

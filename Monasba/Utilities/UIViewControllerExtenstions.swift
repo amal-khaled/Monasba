@@ -13,7 +13,7 @@ import AVFoundation
 import AVKit
 import MapKit
 import DropDown
-import NextGrowingTextView
+//import NextGrowingTextView
 
 extension UIViewController :NVActivityIndicatorViewable{
     
