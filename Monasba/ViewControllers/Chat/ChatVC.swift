@@ -204,6 +204,7 @@ class ChatVC: ViewController,UITableViewDataSource,UITableViewDelegate,
         
         get()
         
+        
         setupRecordButton()
     }
     
