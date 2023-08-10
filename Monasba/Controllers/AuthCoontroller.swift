@@ -54,7 +54,7 @@ class AuthCoontroller{
             "password":password ,
             "email":user.email ?? "",
             "username":user.username ?? "",
-            "last_name":user.lastName ?? "",
+            "last_name":".",
             "country_id": user.countryId ?? -1 ,
             
             "regid":"1",

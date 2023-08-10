@@ -296,7 +296,7 @@ class EditProfileVC : UIViewController {
             "id":AppDelegate.currentUser.id ?? 0,
                                        "name":txt_lastName.text!,
                                        "username":userNameEN.text!,
-                                       "last_name": txt_lastName.text!,
+                                       "last_name": ".",
             "mobile": phoneNumber.text ?? "0",
                                        "email": email,
             "country_id":AppDelegate.currentUser.countryId ?? 0,

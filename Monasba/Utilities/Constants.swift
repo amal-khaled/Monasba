@@ -83,7 +83,8 @@ let PROFILE_VCID = "ProfileVC"
 //Constants
 
 class Constants {
-    static let MAIN_DOMAIN = "http://bluezone-web.com/"
+    static let MAIN_DOMAIN = "https://monsbahapi.monsbah.com/"
+    //"http://bluezone-web.com/"
     static var API_KEY:String = "AIzaSyDrkcLvUTdoNRekyjFnGrDyD8D9XMJggpI"
 
     static let DOMAIN = MAIN_DOMAIN + "api/"

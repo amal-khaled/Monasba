@@ -86,6 +86,7 @@ struct Product: Codable{
     var cityId: Int?
     var regionId:Int?
     var mainImage:String?
+    var subCatId: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -117,6 +118,7 @@ struct Product: Codable{
         case cityId = "city_id"
         case regionId = "region_id"
         case mainImage = "img"
+        case subCatId = "sub_cat_id"
         
     }
 }

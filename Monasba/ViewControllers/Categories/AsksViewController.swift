@@ -85,7 +85,8 @@ extension AsksViewController: UITableViewDelegate, UITableViewDataSource{
             if let quesPicture = self.asks[indexPath.row].pic{
                 
                 let zoomCtrl = VKImageZoom()
-                zoomCtrl.image_url = URL.init(string: "\(Constants.IMAGE_URL)\(quesPicture)")
+                var urlString = "\(Constants.IMAGE_URL)\(quesPicture)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                zoomCtrl.image_url = URL.init(string: urlString ?? "")
                 print("zoomCtrl.image_url ====> ",zoomCtrl.image_url , "\(Constants.IMAGE_URL)\(quesPicture)")
                 self.present(zoomCtrl, animated: true, completion: nil)
                 

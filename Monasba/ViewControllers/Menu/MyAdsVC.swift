@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-
+import FirebaseDynamicLinks
 class MyAdsVC: UIViewController {
 
     @IBOutlet weak var myAdsCollectionView: UICollectionView!
@@ -121,8 +121,25 @@ extension MyAdsVC:MyAdsCollectionViewCellDelegate {
     }
     
     func shareAdCell(buttonDidPressed indexPath: IndexPath) {
-        shareContent(text:Constants.DOMAIN + "\(products[indexPath.row].id ?? 0)")
+        var product = products[indexPath.row]
+        guard let link = URL(string: "https://www.monsbah.com/categories/\(product.subCatId ?? 0)/products/\(product.id ?? 0)") else { return }
+        let dynamicLinksDomainURIPrefix = "https://monasba.page.link"
         
+        guard let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return }
+                linkBuilder.androidParameters = DynamicLinkAndroidParameters(packageName: "com.app.monasba")
+        
+        guard let longDynamicLink = linkBuilder.url else { return }
+        print(longDynamicLink)
+        linkBuilder.shorten() { url, warnings, error in
+            guard let url = url, error == nil else {
+                
+                return }
+            print("The short URL is: \(url)")
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+           
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
     
     func editAdCell(buttonDidPressed indexPath: IndexPath) {

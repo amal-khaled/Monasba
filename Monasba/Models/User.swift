@@ -98,7 +98,7 @@ struct User: Codable {
     var codeVerify:Int?
     enum CodingKeys: String, CodingKey {
         case id, name
-        case lastName = "last_name"
+//        case lastName = "last_name"
         case username, pass
         case loginMethod = "login_method"
         case uid, bio, email
