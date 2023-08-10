@@ -165,7 +165,7 @@
 "Type here ..." = "اكتب هنا ...";
 "Type Your Message" = "اكتب رسالتك";
 "Confirm Location" = "تأكيد الموقع";
-"Are you sure you want to block?" = "هل تريد حظر بالتاكيد؟";
+"Are you sure you want to block?" = "هل تريد حظر هذاالمستخدم بالتاكيد؟";
 "send picture" = "ارسال صورة ";
 "send video" = "ارسال فيديو";
 "send location" = "ارسال الموقع";
@@ -188,7 +188,7 @@
 
 "Save the contact" = "حفظ جهة الإتصال";
 "Phone call" = "مكالمة هاتفية";
-"Are you sure you want to Delete this Chat?" = "هل تريد حظر هذه المحادثة";
+"Are you sure you want to Delete this Chat?" = "هل تريد حذف هذه المحادثة";
 //MARK: Product Details
 
 "Description" = "وصف";

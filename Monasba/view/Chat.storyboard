@@ -64,10 +64,10 @@
                                 <rect key="frame" x="8" y="756" width="382" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="W3e-4H-lyY">
-                                        <rect key="frame" x="30" y="5" width="322" height="44"/>
+                                        <rect key="frame" x="30" y="5" width="342" height="44"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Your Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-nb-Qd5">
-                                                <rect key="frame" x="0.0" y="0.0" width="274" height="44"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Your Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-nb-Qd5" customClass="TextField" customModule="Monasba" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
@@ -80,7 +80,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-ch-X2c">
-                                                <rect key="frame" x="278" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="298" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="Ahb-bj-gDm"/>
@@ -91,7 +91,7 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -99,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Rg-Yn0">
-                                                <rect key="frame" x="322" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="342" y="0.0" width="44" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="RqG-fZ-leY"/>
@@ -118,12 +118,17 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W3e-4H-lyY" secondAttribute="bottom" constant="5" id="7vx-Ad-4Qf"/>
-                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="30" id="U8B-U9-bJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="W3e-4H-lyY" secondAttribute="trailing" constant="10" id="U8B-U9-bJN"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="top" secondItem="rtz-qC-QJP" secondAttribute="top" constant="5" id="aPa-Xu-fI3"/>
                                     <constraint firstAttribute="height" constant="54" id="aby-pV-9ii"/>
                                     <constraint firstItem="W3e-4H-lyY" firstAttribute="leading" secondItem="rtz-qC-QJP" secondAttribute="leading" constant="30" id="tVF-4R-KmG"/>
@@ -791,8 +796,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h8p-Qt-uCS">
                                                 <rect key="frame" x="10" y="20" width="370" height="48"/>
                                                 <subviews>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCK-0n-g9M">
-                                                        <rect key="frame" x="319.66666666666669" y="0.0" width="50.333333333333314" height="21"/>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCK-0n-g9M">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                         <color key="textColor" name="#0EBFB1"/>
                                                         <nil key="highlightedColor"/>
@@ -800,8 +805,8 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="Localize" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the reason for reporting the chat content" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-5Y-fxU">
-                                                        <rect key="frame" x="87" y="27" width="283" height="21"/>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the reason for reporting the chat content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-5Y-fxU">
+                                                        <rect key="frame" x="0.0" y="27" width="370" height="21"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
@@ -810,6 +815,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="lCK-0n-g9M" firstAttribute="leading" secondItem="h8p-Qt-uCS" secondAttribute="leading" id="Nor-AL-7LD"/>
+                                                    <constraint firstItem="tOi-5Y-fxU" firstAttribute="leading" secondItem="h8p-Qt-uCS" secondAttribute="leading" id="QJd-p4-zk7"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -862,7 +871,7 @@
                                                         <color key="backgroundColor" red="0.054901960780000002" green="0.74901960779999999" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="16"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="send">
+                                                        <state key="normal" title="Send">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -883,7 +892,7 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDF-5N-qJ7">
                                                 <rect key="frame" x="15" y="20" width="360" height="103"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="اكتب هنا ..." textAlignment="right" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="wOE-ur-9k1">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="اكتب هنا ..." textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="wOE-ur-9k1">
                                                         <rect key="frame" x="10" y="10" width="340" height="83"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
