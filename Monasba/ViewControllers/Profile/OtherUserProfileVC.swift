@@ -8,6 +8,7 @@
     import UIKit
     import Alamofire
     import MOLH
+import FirebaseDynamicLinks
 
     class OtherUserProfileVC: UIViewController {
 
@@ -128,7 +129,25 @@
         }
         
         @IBAction func shareBtnAction(_ sender: UIButton) {
-            shareContent(text: "share Profile of ")
+//            shareContent(text: "share Profile of ")
+            guard let link = URL(string: "https://www.monsbah.com/profile/\(user.id ?? 0)") else { return }
+            let dynamicLinksDomainURIPrefix = "https://monasba.page.link"
+            
+            guard let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return }
+                    linkBuilder.androidParameters = DynamicLinkAndroidParameters(packageName: "com.app.monasba")
+            
+            guard let longDynamicLink = linkBuilder.url else { return }
+            print(longDynamicLink)
+            linkBuilder.shorten() { url, warnings, error in
+                guard let url = url, error == nil else {
+                    
+                    return }
+                print("The short URL is: \(url)")
+                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+               
+                self.present(activityViewController, animated: true, completion: nil)
+            }
         }
         
         @IBAction func reportAboutUserBtnAction(_ sender: UIButton) {

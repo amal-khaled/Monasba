@@ -9,6 +9,7 @@ import UIKit
 import MOLH
 import Alamofire
 import MobileCoreServices
+import FirebaseDynamicLinks
 
 class ProfileVC: UIViewController {
 
@@ -162,7 +163,26 @@ class ProfileVC: UIViewController {
     
     
     @IBAction func didTapShareButton(_ sender: UIButton) {
-        shareContent(text: "\(Constants.DOMAIN) \(AppDelegate.currentUser.id ?? 0)")
+//        shareContent(text: "\(Constants.DOMAIN) \(AppDelegate.currentUser.id ?? 0)")
+        
+        guard let link = URL(string: "https://www.monsbah.com/profile/\(AppDelegate.currentUser.id ?? 0)") else { return }
+        let dynamicLinksDomainURIPrefix = "https://monasba.page.link"
+        
+        guard let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return }
+                linkBuilder.androidParameters = DynamicLinkAndroidParameters(packageName: "com.app.monasba")
+        
+        guard let longDynamicLink = linkBuilder.url else { return }
+        print(longDynamicLink)
+        linkBuilder.shorten() { url, warnings, error in
+            guard let url = url, error == nil else {
+                
+                return }
+            print("The short URL is: \(url)")
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+           
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
     @IBAction func didTapChangeCoverButton(_ sender: UIButton) {
         isUpdateCover = true

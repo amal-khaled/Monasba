@@ -44,6 +44,7 @@
 		658DE52529F921E90015D549 /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE52429F921E90015D549 /* APIConnection.swift */; };
 		658F9E6E2A5BD6E6007EC571 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658F9E6C2A5BD6E6007EC571 /* FullScreenViewController.swift */; };
 		658F9E702A5C0734007EC571 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658F9E722A5C0734007EC571 /* Auth.storyboard */; };
+		659465C02A7FD03000B8458B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 659465BF2A7FD03000B8458B /* GoogleService-Info.plist */; };
 		6594DE4029FF1E2B00018AF5 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6594DE3F29FF1E2B00018AF5 /* StateViewController.swift */; };
 		659987FA2A1F3E2900DBD8EE /* CommentRepliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659987F92A1F3E2900DBD8EE /* CommentRepliesViewController.swift */; };
 		659987FC2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659987FB2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift */; };
@@ -94,7 +95,6 @@
 		65FC22132A1172BA0077F1A2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FC22122A1172BA0077F1A2 /* Product.storyboard */; };
 		65FC22152A1172D30077F1A2 /* ProductCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FC22142A1172D30077F1A2 /* ProductCommentTableViewCell.swift */; };
 		65FC22172A12716E0077F1A2 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FC22162A12716E0077F1A2 /* ReplyViewController.swift */; };
-		65FFFA142A1E933800B70368 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65FFFA132A1E933800B70368 /* GoogleService-Info.plist */; };
 		65FFFA162A1E972600B70368 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFFA152A1E972600B70368 /* NotificationsController.swift */; };
 		65FFFA182A1E9FF200B70368 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FFFA172A1E9FF200B70368 /* Notifications.storyboard */; };
 		C806906A2A42E8A9008BB53C /* PickupMediaPopupEditAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80690692A42E8A9008BB53C /* PickupMediaPopupEditAdsVC.swift */; };
@@ -263,6 +263,7 @@
 		658F9E6C2A5BD6E6007EC571 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		658F9E712A5C0734007EC571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		658F9E742A5C073F007EC571 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Auth.strings; sourceTree = "<group>"; };
+		659465BF2A7FD03000B8458B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6594DE3F29FF1E2B00018AF5 /* StateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
 		659987F92A1F3E2900DBD8EE /* CommentRepliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewController.swift; sourceTree = "<group>"; };
 		659987FB2A1F3E7B00DBD8EE /* CommentReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyTableViewCell.swift; sourceTree = "<group>"; };
@@ -316,7 +317,6 @@
 		65FC22122A1172BA0077F1A2 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		65FC22142A1172D30077F1A2 /* ProductCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCommentTableViewCell.swift; sourceTree = "<group>"; };
 		65FC22162A12716E0077F1A2 /* ReplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
-		65FFFA132A1E933800B70368 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65FFFA152A1E972600B70368 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		65FFFA172A1E9FF200B70368 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		C80690692A42E8A9008BB53C /* PickupMediaPopupEditAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupMediaPopupEditAdsVC.swift; sourceTree = "<group>"; };
@@ -693,8 +693,8 @@
 				65DD11FA29E6845D00A3B8DD /* ViewController.swift */,
 				65DD11FF29E6845E00A3B8DD /* Assets.xcassets */,
 				65DD120129E6845E00A3B8DD /* LaunchScreen.storyboard */,
+				659465BF2A7FD03000B8458B /* GoogleService-Info.plist */,
 				65DD120429E6845E00A3B8DD /* Info.plist */,
-				65FFFA132A1E933800B70368 /* GoogleService-Info.plist */,
 			);
 			path = Monasba;
 			sourceTree = "<group>";
@@ -1154,7 +1154,6 @@
 				C84D29062A6D28B20026F125 /* MsgMapRecieverCell.xib in Resources */,
 				C8C715012A646981006C5AFE /* FollowAndFollowersTapsCell.xib in Resources */,
 				C85FFCD22A260BEF000C426D /* MsgMediaCell.xib in Resources */,
-				65FFFA142A1E933800B70368 /* GoogleService-Info.plist in Resources */,
 				65F746E62A03CBBE00E1C79E /* Category.storyboard in Resources */,
 				C8CC468B2A3874B800C90476 /* ProfileProductsCollectionViewCell.xib in Resources */,
 				65C4B6142A248C3300A59A4B /* Tajawal-Regular.ttf in Resources */,
@@ -1182,6 +1181,7 @@
 				65DD120329E6845E00A3B8DD /* LaunchScreen.storyboard in Resources */,
 				C85FFCBA2A260AAE000C426D /* MyAdsCollectionViewCell.xib in Resources */,
 				C84D29022A6D10580026F125 /* MsgMediaCellReciver.xib in Resources */,
+				659465C02A7FD03000B8458B /* GoogleService-Info.plist in Resources */,
 				65DD120029E6845E00A3B8DD /* Assets.xcassets in Resources */,
 				C80CC9312A6DBE8100B56F54 /* FavCell.xib in Resources */,
 				C8A72A3F2A00C26000F9C26D /* Profile.storyboard in Resources */,
@@ -1595,14 +1595,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 58;
-				DEVELOPMENT_TEAM = 4W85KLPQDW;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = C358V322GN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Monsba;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSCameraUsageDescription = "يريد التطبيق الوصول للكاميرا لوضع صورة للاعلان او للملف الشخصي ";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "يريد مناسبة الوصول للميكروفون لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "يريد التطبيق الوصول للصور لوضع صورة للاعلان او للملف الشخصي ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1614,8 +1617,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
+				MARKETING_VERSION = 3.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monsba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Monasba/Shimmer/Monasba-Bridging-Header.h";
@@ -1632,14 +1635,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Monasba/Monasba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 58;
-				DEVELOPMENT_TEAM = 4W85KLPQDW;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = C358V322GN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monasba/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Monsba;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSCameraUsageDescription = "يريد التطبيق الوصول للكاميرا لوضع صورة للاعلان او للملف الشخصي ";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "يريد مناسبة الوصول للميكروفون لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "يريد التطبيق الحصول علي موقعك لتحديد اقرب الإعلانات لك";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "لتسجيل فيديو للاعلان او لارسال تسجيل صوتي في المحادثة";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "يريد التطبيق الوصول للصور لوضع صورة للاعلان او للملف الشخصي ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1651,8 +1657,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monasbah;
+				MARKETING_VERSION = 3.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adv.monsba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Monasba/Shimmer/Monasba-Bridging-Header.h";

@@ -9,6 +9,7 @@ import UIKit
 //import ImageSlideshow
 import MOLH
 import MediaSlideshow
+import FirebaseDynamicLinks
 
 class ProductViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class ProductViewController: UIViewController {
     var images = [ProductImage]()
     var sliderImages = [String]()
     var comments = [Comment]()
-   
+    
     var dataSource = ImageAndVideoSlideshowDataSource(sources:[
         
     ])
@@ -55,16 +56,16 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         setupSlider()
-
+        
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateData(_:)), name: NSNotification.Name(rawValue: "updateData"), object: nil)
-       
+        
         getData()
     }
     @objc func updateData(_ notification: NSNotification) {
-//        comments.removeAll()
+        //        comments.removeAll()
         getData()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +74,7 @@ class ProductViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         getData()
-
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -83,46 +84,46 @@ class ProductViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.avSource.player.isMuted = true
+        //        self.avSource.player.isMuted = true
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = false
-       var index = imageSlider.currentPage
+        var index = imageSlider.currentPage
         if (sliderImages[index].contains(".mp4") || sliderImages[index].contains(".mov")){
             dataSource.sources.remove(at: index)
             dataSource.sources.insert( .av(AVSource(url: URL(string:sliderImages[index])!, autoplay: false)), at: index)
-                
             
-
+            
+            
             imageSlider.reloadData()
-
+            
         }
-//        if let avplayer = sliderImages[index]{
-//            print("video")
-//        }
+        //        if let avplayer = sliderImages[index]{
+        //            print("video")
+        //        }
     }
     
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        self.navigationController?.navigationBar.isHidden = false
-//        self.tabBarController?.tabBar.isHidden = false
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//    }
+    //    override func viewDidDisappear(_ animated: Bool) {
+    //        super.viewDidDisappear(animated)
+    //        self.navigationController?.navigationBar.isHidden = false
+    //        self.tabBarController?.tabBar.isHidden = false
+    //    }
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //    }
     
-//    @IBAction func sliderClicked(_ sender: Any) {
-////        full_screen
-//        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "full_screen") as! FullScreenViewController
-//        vc.dataSource = dataSource
-////      let source = dataSource.sources[imageSlider.currentPage] as! AVSource
-////        source.pla
-////            .source.player.pause()
-//        self.present(vc, animated: false, completion: nil)
-//        
-//
-//        
-//       
-//    }
+    //    @IBAction func sliderClicked(_ sender: Any) {
+    ////        full_screen
+    //        let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: "full_screen") as! FullScreenViewController
+    //        vc.dataSource = dataSource
+    ////      let source = dataSource.sources[imageSlider.currentPage] as! AVSource
+    ////        source.pla
+    ////            .source.player.pause()
+    //        self.present(vc, animated: false, completion: nil)
+    //
+    //
+    //
+    //
+    //    }
     @IBAction func userClickedAction(_ sender: Any) {
         if StaticFunctions.isLogin() {
             if AppDelegate.currentUser.id ?? 0 == product.userId ?? 0 {
@@ -146,10 +147,10 @@ class ProductViewController: UIViewController {
             }
         }
         
-
+        
     }
     @IBAction func backAction(_ sender: Any) {
-//        dismissDetail()
+        //        dismissDetail()
         navigationController?.popViewController(animated: true)
     }
     @IBAction func flageActiion(_ sender: Any) {
@@ -184,12 +185,31 @@ class ProductViewController: UIViewController {
         
     }
     @IBAction func shareAction(_ sender: Any) {
-        let textToShare = ["\(product.name ?? "")" + "\ndownload Monasba app from apple store" + " https://apps.apple.com/us/app/مناسبة/id1589937521" ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        //activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-        self.present(activityViewController, animated: true, completion: nil)
+       
+        
+        guard let link = URL(string: "https://www.monsbah.com/categories/\(product.subCatId ?? 0)/products/\(product.id ?? 0)") else { return }
+        let dynamicLinksDomainURIPrefix = "https://monasba.page.link"
+        
+        guard let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return }
+                linkBuilder.androidParameters = DynamicLinkAndroidParameters(packageName: "com.app.monasba")
+        
+        guard let longDynamicLink = linkBuilder.url else { return }
+        print(longDynamicLink)
+        linkBuilder.shorten() { url, warnings, error in
+            guard let url = url, error == nil else {
+                
+                return }
+            print("The short URL is: \(url)")
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+           
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
+    
+    //    func createDynamicLink ()-> String{
+    //
+    //    }
     @IBAction func callAction(_ sender: Any) {
         let callPhone = "+\(product.phone ?? "")"
         guard let number = URL(string: "telprompt://" + callPhone) else { return }
@@ -206,7 +226,7 @@ class ProductViewController: UIViewController {
         if UIApplication.shared.canOpenURL(url! as URL){
             UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
         }
-       
+        
         
         
         
@@ -251,7 +271,7 @@ class ProductViewController: UIViewController {
             basicPresentation(storyName: Auth_STORYBOARD, segueId: "login_nav")
         }
         
-      
+        
     }
     
     /*
@@ -294,23 +314,27 @@ extension ProductViewController{
     func setData(){
         print(product.name)
         
-         var mainImage = ""
+        var mainImage = ""
         if product.mainImage != ""  {
             mainImage = product.mainImage ?? ""
         }else{
             mainImage = product.image ?? ""
         }
-            
-            if mainImage != ""{
-                if mainImage.contains(".mp4") || mainImage.contains(".mov"){
-                    images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "VIDEO", createdAt: "", updatedAt: "", image: Constants.IMAGE_URL + mainImage), at: 0)
-                }else{
-                    images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "IMAGE", createdAt: "", updatedAt: "", image: Constants.IMAGE_URL + mainImage), at: 0)
-                }
-                
-            }
         
-         dataSource = ImageAndVideoSlideshowDataSource(sources:[
+        if mainImage != ""{
+            if mainImage.contains(".mp4") || mainImage.contains(".mov"){
+                var urlString = "\(Constants.IMAGE_URL)\(mainImage)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                
+                images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "VIDEO", createdAt: "", updatedAt: "", image: urlString), at: 0)
+            }else{
+                var urlString = "\(Constants.IMAGE_URL)\(mainImage)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                
+                images.insert(ProductImage(id: -1, prodID: 0, pimage: mainImage, imageType: "IMAGE", createdAt: "", updatedAt: "", image: urlString), at: 0)
+            }
+            
+        }
+        
+        dataSource = ImageAndVideoSlideshowDataSource(sources:[
             
             
         ])
@@ -343,8 +367,8 @@ extension ProductViewController{
         
         imageSlider.dataSource = dataSource
         imageSlider.reloadData()
-//        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
-
+        //        self.imageSlider.setCurrentPage(images.count - 1, animated: true)
+        
         self.nameBtn.text = product.name
         if let createDate = product.createdAt{
             if createDate.count > 11 {
@@ -438,7 +462,7 @@ extension ProductViewController{
     func setupSlider(){
         imageSlider.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         imageSlider.contentScaleMode = .scaleToFill
-//        imageSlider.slideshowInterval = 5
+        //        imageSlider.slideshowInterval = 5
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         imageSlider.addGestureRecognizer(gestureRecognizer)
@@ -451,8 +475,8 @@ extension ProductViewController{
     }
     @objc func didTap() {
         let fullScreenController = imageSlider.presentFullScreenController(from: self)
-           // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
-           fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
+        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
         
     }
 }
@@ -496,10 +520,10 @@ extension ProductViewController : UITableViewDelegate, UITableViewDataSource{
                         cell.img_liked.image = UIImage(named: "heartgrey")
                     }
                     cell.likes.text = "\(self.comments[indexPath.row].countLike ?? 0)"
-
+                    
                 }else{
                     StaticFunctions.createErrorAlert(msg: msg)
-
+                    
                 }
             }, id:  self.comments[indexPath.row].id ?? 0)
         }
@@ -508,7 +532,7 @@ extension ProductViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: PRODUCT_STORYBOARD, bundle: nil).instantiateViewController(withIdentifier: COMMENT_REPLY_VCID) as! CommentRepliesViewController
         vc.data.comment = self.comments[indexPath.row]
-//        self.present(vc, animated: true)
+        //        self.present(vc, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

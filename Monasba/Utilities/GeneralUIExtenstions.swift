@@ -659,7 +659,11 @@ extension UIImageView{
     func setImageWithLoading(url: String){
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
         print("\(Constants.IMAGE_URL)\(url)")
-        self.sd_setImage(with: URL(string: "\(Constants.IMAGE_URL)\(url)"))
+        
+        var urlString = "\(Constants.IMAGE_URL)\(url)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        print(urlString)
+
+        self.sd_setImage(with: URL(string: urlString))
     }
     
     func localImg(src:String){
