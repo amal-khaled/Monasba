@@ -356,7 +356,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete The Conversation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nXh-Lm-Dgo">
-                                                        <rect key="frame" x="65" y="14" width="235" height="22"/>
+                                                        <rect key="frame" x="65" y="12.33333333333333" width="235" height="25.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -386,7 +386,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report The Conversation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uGF-Xo-Ikh">
-                                                        <rect key="frame" x="65" y="14" width="235" height="22"/>
+                                                        <rect key="frame" x="65" y="12.333333333333345" width="235" height="25.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -431,7 +431,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-LP-J8w">
-                                                        <rect key="frame" x="65" y="14" width="235" height="22"/>
+                                                        <rect key="frame" x="65" y="12.333333333333345" width="235" height="25.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1227,6 +1227,11 @@
             <point key="canvasLocation" x="989.23076923076917" y="30.568720379146917"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="vFw-nb-Qd5">
+            <size key="intrinsicContentSize" width="122" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="IconBack" width="15" height="15.666666984558105"/>
         <image name="RectangleCancelImage" width="45" height="6"/>
